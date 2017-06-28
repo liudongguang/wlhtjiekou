@@ -1,6 +1,7 @@
 package com.remote.api.service;
 
 import com.remote.api.po.Hisview;
+import com.wlht.api.vo.ImportParam;
 
 import java.util.List;
 
@@ -9,4 +10,6 @@ import java.util.List;
  */
 public interface RemoteHisService {
     List<Hisview> getHisDataByDate();
+
+    List<Hisview> selectBADateFromHis(ImportParam param);
 }

@@ -243,5 +243,30 @@ public class DateUtil {
         return (endDate.get(Calendar.YEAR) - startDate.get(Calendar.YEAR));
     }
 
-
+    /**
+     * 获取相差的天数
+     * @param cysj
+     * @param rysj
+     * @return
+     */
+    public static int getZYTSForInt(Date cysj, Date rysj) {
+        int i = -1;
+        if (null == cysj || null == rysj) {
+            return i;
+        }
+        long cysjMil = cysj.getTime();
+        long rysjMil = rysj.getTime();
+        Calendar rysjCal = Calendar.getInstance();
+        rysjCal.setTimeInMillis(rysjMil);
+        rysjCal.set(Calendar.HOUR_OF_DAY, 0);
+        rysjCal.set(Calendar.MINUTE, 0);
+        rysjCal.set(Calendar.SECOND, 0);
+        Calendar cysjCal = Calendar.getInstance();
+        cysjCal.setTimeInMillis(cysjMil);
+        cysjCal.set(Calendar.HOUR_OF_DAY, 0);
+        cysjCal.set(Calendar.MINUTE, 0);
+        cysjCal.set(Calendar.SECOND, 0);
+        i = (int) ((cysjCal.getTimeInMillis() - rysjCal.getTimeInMillis()) / 1000 / 60 / 60 / 24);
+        return i;
+    }
 }

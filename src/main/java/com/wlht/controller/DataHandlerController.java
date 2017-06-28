@@ -2,6 +2,7 @@ package com.wlht.controller;
 
 import com.ldg.api.vo.ResultMsg;
 import com.wlht.api.service.WlhtDataService;
+import com.wlht.api.vo.ImportParam;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -34,7 +35,12 @@ public class DataHandlerController {
      * @throws Exception
      */
     @RequestMapping(value = "/wlthDR")
-    public String wlthDR(HttpServletRequest request) throws Exception {
+    public String wlthDR(HttpServletRequest request, ImportParam param) throws Exception {
+        if(param.getStarte()==null||param.getEnd()==null){
+            request.setAttribute("errmsg","时间必填！");
+            return "/index.jsp";
+        }
+        String handlerMsg=wlhtDataService.importDataByDate(param);
         return "/index.jsp";
     }
 

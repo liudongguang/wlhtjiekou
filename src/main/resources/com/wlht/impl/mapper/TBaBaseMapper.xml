@@ -115,4 +115,7 @@
     <result column="YCGFX" jdbcType="NUMERIC" property="ycgfx" />
     <result column="DDGFX" jdbcType="NUMERIC" property="ddgfx" />
   </resultMap>
+  <select id="selectByWeiyiBiaoShi" resultType="long">
+    SELECT id from T_BA_BASE where BAIDENTITY=#{weiyibiaoshi}
+  </select>
 </mapper>

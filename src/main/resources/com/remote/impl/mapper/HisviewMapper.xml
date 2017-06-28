@@ -240,4 +240,7 @@
     <result column="RYH_XS" jdbcType="NUMERIC" property="ryhXs" />
     <result column="RYH_F" jdbcType="NUMERIC" property="ryhF" />
   </resultMap>
+  <select id="selectBADateFromHis" parameterType="com.wlht.api.vo.ImportParam" resultMap="BaseResultMap">
+      SELECT * from HISVIEW where CYSJ BETWEEN #{starte} and #{end}
+  </select>
 </mapper>
