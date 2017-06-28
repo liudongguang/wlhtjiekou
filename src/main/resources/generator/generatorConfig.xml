@@ -16,6 +16,8 @@
 						connectionURL="${connectionURL}"
 						userId="${userId}"
 						password="${password}">
+			<!-- 针对oracle数据库 -->
+			<property name="remarksReporting" value="true"></property>
 		</jdbcConnection>
 		<javaModelGenerator targetPackage="${packageName}.api.po" targetProject="${src_main_java}"/>
 		<sqlMapGenerator targetPackage="${packageName}.impl.mapper" targetProject="${src_main_resources}"/>
