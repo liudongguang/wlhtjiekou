@@ -1,11 +1,17 @@
 package com.remote.api.po;
 
+import com.wlht.api.po.TBaBase;
+
 import java.math.BigDecimal;
 import java.util.Date;
 import javax.persistence.*;
 
 @Table(name = "HISVIEW")
 public class Hisview {
+    public TBaBase getBABase(){
+        TBaBase base=new TBaBase();
+        return base;
+    }
     /**
      * 机构id
      */

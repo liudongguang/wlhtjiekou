@@ -60,7 +60,7 @@ public class WlhtDataServiceImpl  implements WlhtDataService{
             }).collect(Collectors.toList());
             //3.没有存在与本地系统的插入本地库
             hisDataByDate.forEach(item->{
-
+                item.getBABase();
             });
         }
         return null;
