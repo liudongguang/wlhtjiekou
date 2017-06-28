@@ -10,14 +10,14 @@ import org.springframework.core.io.ClassPathResource;
 
 import javax.mail.internet.MimeUtility;
 import javax.servlet.http.HttpServletRequest;
-import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.lang.reflect.Field;
+import java.lang.reflect.Method;
 import java.net.URLEncoder;
 import java.util.*;
 
-public class ExcelUtils {
+public class ExcelUtils<T> {
     public static <T> void createExcelWorkBook(Workbook workbook, List<T> data, Map<String, String> columns) {
         List<String> fields = new ArrayList<String>();
         List<String> heads = new ArrayList<String>();
@@ -186,6 +186,68 @@ public class ExcelUtils {
                 System.out.println();
 
             } //end of rows iterator
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            try {
+                if (in != null) {
+                    in.close();
+                }
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+        return rtList;
+    }
+
+    public static <T> List<T> readExcel(String fileName,Class<T> clazz) {
+        Workbook workbook = null;
+        Sheet sheet = null;
+        InputStream in = null;
+        List<T> rtList = new ArrayList<>();
+        try {
+            ClassPathResource hospitalInterface = new ClassPathResource(fileName);
+            in = hospitalInterface.getInputStream();
+
+            if (fileName.toLowerCase().endsWith("xlsx")) {
+                workbook = new XSSFWorkbook(in);
+            } else if (fileName.toLowerCase().endsWith("xls")) {
+                workbook = new HSSFWorkbook(in);
+            }
+            sheet = workbook.getSheetAt(0);
+            //得到行的迭代器
+            Iterator<Row> rowIterator = sheet.iterator();
+            int rowCount = 0;
+            //循环每一行
+            while (rowIterator.hasNext()) {
+                T t=clazz.newInstance(); //创建新的对象
+                Field[] fields=t.getClass().getDeclaredFields();
+                //得到一行对象
+                Row row = rowIterator.next();
+                //得到列对象
+                Iterator<Cell> cellIterator = row.cellIterator();
+                int columnCount = 0;
+                //循环每一列
+                int fieldIndex=0;
+                while (cellIterator.hasNext()) {
+                    Field field=fields[fieldIndex];
+                    field.setAccessible(true);
+                    System.out.println(field.getName()+"    "+field.getType()+"    "+field.getGenericType());
+                    fieldIndex++;
+                    //得到单元格对象
+                    Cell cell = cellIterator.next();
+                    //检查数据类型
+                    switch (cell.getCellType()) {
+                        case Cell.CELL_TYPE_STRING:
+                           // field.set(t,cell.getStringCellValue());
+                            break;
+                        case Cell.CELL_TYPE_NUMERIC:
+                            //field.set(t,cell.getNumericCellValue());
+                            break;
+                    }
+                }
+                rtList.add(t);
+            }
         } catch (Exception e) {
             e.printStackTrace();
         } finally {
