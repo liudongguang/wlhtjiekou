@@ -22,6 +22,7 @@ import java.lang.reflect.Method;
 import java.math.BigDecimal;
 import java.net.URLEncoder;
 import java.text.DecimalFormat;
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.*;
 
@@ -191,8 +192,6 @@ public class ExcelUtils<T> {
                     }
                 } //end of cell iterator
                 rtList.add(rowList);
-                System.out.println();
-
             } //end of rows iterator
         } catch (Exception e) {
             e.printStackTrace();
@@ -227,25 +226,24 @@ public class ExcelUtils<T> {
             Iterator<Row> rowIterator = sheet.iterator();
             int rowCount = 0;
             //循环每一行
+            rowIterator.next();
             while (rowIterator.hasNext()) {
                 T t = clazz.newInstance(); //创建新的对象
                 Field[] fields = t.getClass().getDeclaredFields();
                 //得到一行对象
                 Row row = rowIterator.next();
                 //得到列对象
-
                 int columnCount = 0;
                 //循环每一列
                 int fieldIndex = 0;
-               for(int i=row.getFirstCellNum();i<row.getLastCellNum();i++) {
-                   System.out.println(i+"+++");
+                for (int i = row.getFirstCellNum(); i < row.getLastCellNum(); i++) {
                     Field field = fields[i];
                     field.setAccessible(true);
-                    String type = field.getType().getTypeName();
+
                     //得到单元格对象
                     Cell cell = row.getCell(i);
-                    String ss=parseExcel(cell);
-                    System.out.println(ss+"    "+field.getName());
+                    String ss = parseExcel(cell);
+                    setStrVal(field, t, ss);
                 }
                 rtList.add(t);
             }
@@ -262,9 +260,10 @@ public class ExcelUtils<T> {
         }
         return rtList;
     }
+
     private static String parseExcel(Cell cell) {
-        String result ="";
-        if(cell==null){
+        String result = "";
+        if (cell == null) {
             return result;
         }
         switch (cell.getCellType()) {
@@ -275,13 +274,13 @@ public class ExcelUtils<T> {
                             .getBuiltinFormat("h:mm")) {
                         sdf = new SimpleDateFormat("HH:mm");
                     } else {// 日期
-                        sdf = new SimpleDateFormat("yyyy-MM-dd");
+                        sdf = DateUtil.yyyy_MM_dd_HH_mmFormat;
                     }
                     Date date = cell.getDateCellValue();
                     result = sdf.format(date);
                 } else if (cell.getCellStyle().getDataFormat() == 58) {
                     // 处理自定义日期格式：m月d日(通过判断单元格的格式id解决，id的值是58)
-                    SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+                    SimpleDateFormat sdf = DateUtil.yyyy_MM_dd_HH_mmFormat;
                     double value = cell.getNumericCellValue();
                     Date date = org.apache.poi.ss.usermodel.DateUtil
                             .getJavaDate(value);
@@ -293,7 +292,7 @@ public class ExcelUtils<T> {
                     String temp = style.getDataFormatString();
                     // 单元格设置成常规
                     if (temp.equals("General")) {
-                        format.applyPattern("#");
+                        format.applyPattern("#.##");
                     }
                     result = format.format(value);
                 }
@@ -304,35 +303,57 @@ public class ExcelUtils<T> {
             case HSSFCell.CELL_TYPE_BLANK:
                 result = "";
             default:
-                System.out.println(cell.getCellType()+"+++++++++++");
+                System.out.println(cell.getCellType() + "+++++++++++");
                 result = "";
                 break;
         }
         return result;
     }
 
-    private <T> void setStrVal(String fieldType,Field field,T t,String val) throws IllegalAccessException {
-        switch (fieldType) {
+    private static <T> void setStrVal(Field field, T t, String val) throws IllegalAccessException, ParseException {
+        String type = field.getType().getTypeName();
+        switch (type) {
             case SysConstant.type_String:
-                field.set(t,val);
+                if (StringUtils.isNotBlank(val)) {
+                    field.set(t, val);
+                }
                 break;
             case SysConstant.type_BigDecimal:
-                BigDecimal bd=new BigDecimal(val);
-                field.set(t, bd);
+                if (StringUtils.isNotBlank(val)) {
+                    BigDecimal bd = new BigDecimal(val);
+                    field.set(t, bd);
+                }
                 break;
             case SysConstant.type_Date:
-
-                System.out.println(val+"   date........."+field.getName());
+                if (StringUtils.isNotBlank(val)) {
+                    field.set(t, DateUtil.yyyy_MM_dd_HH_mmFormat.parse(val));
+                }
                 break;
             case SysConstant.type_Long:
-                field.set(t, Long.valueOf(val));
+                if (StringUtils.isNotBlank(val) && val.indexOf("岁") != -1) {
+                    val = val.substring(0, val.indexOf("岁"));
+                    field.set(t, Long.valueOf(val));
+                }
+                if (StringUtils.isNotBlank(val) && val.indexOf("天") != -1) {
+                    val = val.substring(0, val.indexOf("天"));
+                    double year=Math.ceil(Long.valueOf(val)*1.0/365);
+                    field.set(t, Long.valueOf((long) year));
+                } else if (StringUtils.isNotBlank(val)) {
+                    field.set(t, Long.valueOf(val));
+                }
                 break;
             case SysConstant.type_Short:
-                field.set(t, Short.valueOf(val));
+                if (StringUtils.isNotBlank(val)) {
+                    field.set(t, Short.valueOf(val));
+                }
                 break;
             default:
-                System.out.println(fieldType);
+                System.out.println(type);
                 break;
         }
+    }
+
+    public static void main(String[] args) {
+        System.out.println(StringUtils.isNotBlank(""));
     }
 }

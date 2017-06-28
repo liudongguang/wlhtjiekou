@@ -20,10 +20,11 @@ public class DateUtil {
     public static final String yyyy_MM_dd = "yyyy-MM-dd";
     public static final String HH_mm_ss = "HH:mm:ss";
     public static final String yyyy_MM_dd_HH_mm_ss = "yyyy-MM-dd HH:mm:ss";
-
+    public static final String yyyy_MM_dd_HH_mm = "yyyy-MM-dd HH:mm";
     public static final DateFormat yyyyMMddHHmmssFormat = new SimpleDateFormat("yyyyMMddHHmmss");
     public static final DateFormat yyyyMMddFormat = new SimpleDateFormat("yyyyMMdd");
     public static final DateFormat yyyy_MM_ddFormat = new SimpleDateFormat("yyyy-MM-dd");
+    public static final SimpleDateFormat yyyy_MM_dd_HH_mmFormat = new SimpleDateFormat(yyyy_MM_dd_HH_mm);
 
     public static String getNowStr_yyyyMMddHHmmss() {
         return yyyyMMddHHmmssFormat.format(new Date());

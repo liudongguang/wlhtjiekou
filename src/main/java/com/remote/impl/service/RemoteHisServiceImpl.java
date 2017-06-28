@@ -25,4 +25,13 @@ public class RemoteHisServiceImpl implements RemoteHisService {
     public List<Hisview> selectBADateFromHis(ImportParam param) {
         return hisviewMapper.selectBADateFromHis(param);
     }
+
+    @Override
+    public int addRemotePatients(List<Hisview> rslist) {
+        rslist.forEach(item->{
+            item.setId(null);
+            hisviewMapper.insertSelective(item);
+        });
+        return 0;
+    }
 }
