@@ -1,0 +1,47 @@
+/* CSS Document */
+.u_top01{ background:url(../images/u_top01_bk.jpg) repeat-x 0 0;}
+.u_top_02{ background:url(../images/u_top02_bk.jpg) no-repeat 0 0; height:60px;}
+.u_top02_body{ text-align:center;}
+.u_body{ width:955px; background:url(../images/u_left_bk.jpg) repeat-y 0 0; padding: 0 0 0 5px; }
+.u_tit_b{ background:url(../images/u_tit_b.jpg) repeat-x 0 0;}
+.u_b_nr .list12 ul li{ display:block; _height:22px; _line-height:22px;}
+.u_b_nr .list12 ul li a{ display:block; padding-left:25px; background:url(../images/user_icon_arrow.png) no-repeat 0 -1px;}
+.u_b_nr .list12 ul li a:link,
+.u_b_nr .list12 ul li a:visited,
+.u_b_nr .list12 ul li a:active,
+.u_b_nr .list12 ul li a:hover{ display:block; padding-left:25px; background:url(../images/user_icon_arrow.png) no-repeat 0 -1px;  }
+.u_b_nr .list12 ul li a:hover{ background-color:#f1f1f1; color:#1974c8; text-decoration:none;}
+.u_zmzj ul li { float:left; width:31%; overflow:hidden; border-right:1px dashed #d7d7d7; border-bottom:1px dashed #d7d7d7; padding:5px;}
+.u_bottom{ background:url(../images/bg.png) repeat-x 0 0; width:940px;}
+.u_qihuan_tit{ height:24px; line-height:24px; overflow:hidden; background:url(../images/f_qh_tit_bk.jpg) repeat-x 0 0;}
+.u_qihuan_tit ul li { float:left; height:24px; line-height:24px; border-right:1px solid #ccc; padding:0 10px 0 10px; cursor:pointer; color:#333; }
+.u_qihuan_tit ul li.active{ background-color:#FFF; color:#1974c8; font-weight:bold;} 
+.aticle{padding:30px; background-color:#f8fafb; height:auto;}
+.aticle p.p12{ margin: 15px 0 0 0;}
+.aticle_tit{ font-size:16px;height:35px;line-height:35px;}
+.aticle_time{ height:24px; line-height:24px;}
+.aticle_join{ margin:10px 0;}
+.infoOperations { margin:10px auto;}
+.infoOperations a { line-height:25px;padding-right:20px;}
+.infoOperations a span { background-position:left 2px;background-repeat:no-repeat;cursor:pointer;padding:5px 0 5px 20px;text-align:left;}
+.collect{ background:url(../images/clipboard.png) no-repeat 0 0;}
+.message{ background:url(../images/comment.png) no-repeat 0 0;}
+.tab_cptj{ width:195px; margin:7px; border:1px dashed #ccc;}
+.answer { width:335px;height:auto;padding:5px;}
+.color{color:#0E5334;}
+.color1{color:#ffffff}
+.u_login{ width:522px; height:249px; background:url(../images/login_bk.png) no-repeat 0 0 ; margin-top:150px; padding-top:80px; }
+/*select ˫���б�*/
+/*.btn{display: block;margin: 10px auto;width: 80px;}*/
+.bank td { height: 36px; padding-bottom: 15px;}
+.bank td img{ vertical-align: middle;}
+.usr_yes{ background:url(../images/user_yes_bk.jpg) no-repeat 0 0; font-size:32px;height:62px; padding:25px 0 0 100px;}
+.usr_no{ background:url(../images/user_no_bk.jpg) no-repeat 0 0; font-size:32px;height:62px; padding:25px 0 0 100px;}
+.zuozhenInput {
+    background: gray;
+    width: 50px;
+    margin: 5px;
+}
+.neilian{
+display: inline;
+}

@@ -1,0 +1,164 @@
+.suggest_link {
+	background-color: #FFFFFF;
+	padding: 2px 6px 2px 6px;
+}
+.buzhehang{
+	 display:inline
+}
+.serchDIV {
+	position: absolute;
+	background-color: #FFFFFF;
+	text-align: left;
+	border: 1px solid #819bb6;
+}
+
+.suggest_link_over {
+	background-color: #E8F2FE;
+	padding: 2px 6px 2px 6px;
+}
+
+.search_suggestForSFZ {
+	position: absolute;
+	background-color: #FFFFFF;
+	text-align: left;
+	border: 1px solid #FFFFFF;
+	width: 400px;
+	height: 200px;
+	overflow: auto;
+}
+.search_suggestForSYCX {
+	position: absolute;
+	background-color: #FFFFFF;
+	text-align: left;
+	border: 1px solid #FFFFFF;
+	width: 415px;
+	height: 210px;
+	overflow: auto;
+}
+.search_suggestForHandWST {
+	position: absolute;
+	background-color: #FFFFFF;
+	text-align: left;
+	border: 1px solid #FFFFFF;
+	width: 315px;
+	height: 110px;
+	overflow: auto;
+}
+.search_suggestForSYCX1 {
+	position: absolute;
+	background-color: #FFFFFF;
+	text-align: left;
+	border: 1px solid #FFFFFF;
+	width: 50px;
+	height: 50px;
+	overflow: auto;
+}
+#search_suggest {
+	position: absolute;
+	background-color: #FFFFFF;
+	text-align: left;
+	border: 1px solid #819bb6;
+}
+.search_suggest {
+	position: absolute;
+	background-color: #FFFFFF;
+	text-align: left;
+	border: 1px solid #CCCCCC;
+}
+#search_suggest1 {
+	position: absolute;
+	background-color: #FFFFFF;
+	text-align: left;
+	border: 1px solid #FFFFFF;
+}
+
+#search_suggest2 {
+	position: absolute;
+	background-color: #FFFFFF;
+	text-align: left;
+	border: 1px solid #000000;
+}
+
+#search_suggest3 {
+	position: absolute;
+	background-color: #FFFFFF;
+	text-align: left;
+	border: 1px solid #000000;
+}
+
+/*input*/
+.input_on {
+	padding: 2px 8px 0pt 3px;
+	height: 18px;
+	border: 1px solid #999;
+	background-color: #FFFFCC;
+}
+
+.input_off {
+	padding: 2px 8px 0pt 3px;
+	height: 18px;
+	border: 1px solid #CCC;
+	background-color: #FFF;
+}
+
+.input_move {
+	padding: 2px 8px 0pt 3px;
+	height: 18px;
+	border: 1px solid #999;
+	background-color: #FFFFCC;
+}
+
+.input_out { /*height:16px;默认高度*/
+	padding: 2px 8px 0pt 3px;
+	height: 18px;
+	border: 1px solid #CCC;
+	background-color: #FFF;
+}
+
+.divscroll {
+	width: 300px;
+	height: 120px;
+	overflow: auto;
+}
+.divscrollss {
+	width: 200px;
+	height: 115px;
+	overflow: auto;
+}
+.divscroll150 {
+	width: 150px;
+	height: 90px;
+	background-color:EAF4F6;
+	overflow: auto;
+}
+.divscroll200 {
+	width: 200px;
+	height: 120px;
+	overflow: auto;
+}
+.divscroll200140 {
+	width: 150px;
+	height: 150px;
+	overflow: auto;
+}
+.divscroll300 {
+	width: 300px;
+	height: 120px;
+	overflow: auto;
+}
+.divscroll240 {
+	width: 240px;
+	height: 120px;
+	overflow: auto;
+}
+.divscroll100 {
+	width: 100px;
+	height: 120px;
+	overflow: auto;
+}
+
+.clear {
+	width: 0px;
+	height: 0px;
+	clear: both;
+}

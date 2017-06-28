@@ -1,0 +1,1404 @@
+@CHARSET "UTF-8";
+
+.txtRight {
+	text-align: right
+}
+
+.zismall {
+	font-size: 0.8em
+}
+
+/* 
+	@名称: index
+	@功能: 首页样式定义
+*/
+.main_content {
+	margin: 0 auto;
+	width: 980px;
+	background: #fff;
+	over-flow: hidden;
+}
+.main_content1 {
+	margin: 0 auto;
+	width: 1140px;
+	background: #fff;
+	over-flow: hidden;
+}
+
+/*登陆样式*/
+.login {
+	width: 100%;
+	height: 32px;
+	height: 32px;
+	background: #dfdfdf url("../images/top_bg.png") top left repeat-x;
+}
+
+.app {
+	float: left;
+	width: 233px;
+}
+
+.login input {
+	width: 100px;
+	height: 21px;
+	font: '宋体';
+	border: 1px solid #ccc;
+	line-height: 16px;
+	font-size: 12px;
+}
+/** 错误提示用样式**/
+.cwxx span
+{
+	font: 'italic' ;
+	color: red;
+	font-weight: bold;
+	
+	font-size: 40px;
+}
+
+.login dl {
+	float: left;
+	display: block;
+	width: 180px;
+	height: 21px;
+	margin: 0;
+	padding: 3px 0;
+	position: relative;
+}
+
+.login dt {
+	display: block;
+	float: left;
+	width: 70px;
+	padding: 0 5px;
+	line-height: 21px;
+	text-align: right;
+}
+
+.login dd {
+	display: block;
+	line-height: 21px;
+	width: 100px;
+	float: left;
+	text-align: left;
+	margin-left: 0;
+}
+
+.logo {
+	width: 100%;
+	height: 116px;
+	background: #993;
+	overflow: hidden;
+	background: url("../images/logo.jpg") 0px -2px no-repeat;
+}
+
+.logodefault {
+	width: 100%;
+	height: 116px;
+	background: #993;
+	overflow: hidden;
+	background: url("../images/max.jpg") 0px -2px no-repeat;
+}
+
+.logo1 {
+	width: 100%;
+	height: 116px;
+	background: #993;
+	overflow: hidden;
+	background: url("") 0px -2px no-repeat;
+}
+
+/*菜单样式*/
+.menu {
+	width: 100%;
+	height: 26px;
+	background: #0d4c3d;
+}
+
+.menu ul {
+	height: 26px;
+}
+
+.menu ul li {
+	float: left;
+	width: 90px;
+	height: 26px;
+}
+
+.menu ul li a,.menu ul li a:visited {
+	display: block;
+	color: #fff;
+	line-height: 26px;
+	width: 100%;
+	height: 100%;
+	color: #fff;
+}
+
+.menu ul li a:hover {
+	background: #6fb4c8;
+	width: 100%;
+	height: 100%;
+	text-decoration: none;
+}
+
+/*内容部分各个板块统一定义*/
+h4 {
+	font-size: 12px;
+	height: 27px;
+	line-height: 27px;
+	padding-left: 10px;
+	border-bottom: #ddd 1px solid;
+	color: #0c5736;
+}
+
+.more {
+	float: right;
+	margin-top: -21px;
+	margin-right: 5px;
+	font-weight: bold;
+	font-size: 12px;
+	height: 27px;
+	line-height: 27px;
+	font-weight: bold;
+}
+
+.section {
+	over-flow: hidden;
+	clear: both;
+}
+
+.news {
+	width: 322px;
+	text-align: left;
+	margin: 2px;
+	height: 220px;
+	over-flow: hidden;
+}
+
+.midnews h4,.news h4,.contact h4 {
+	background: url(../images/lanmu_bg.png) top right no-repeat;
+}
+
+.midnews a,.news a,.midnews a:visited,.news a:visited {
+	color: #0c5736;
+}
+
+.midnews ul,.news ul {
+	padding: 5px 10px;
+}
+
+.midnews ul li,.news ul li {
+	height: 24px;
+	line-height: 15px;
+	overflow: hidden;
+	width: 260px;
+}
+
+.midnews {
+	width: 322px;
+	text-align: left;
+	margin: 2px;
+	height: 220px;
+}
+
+/*幻灯片*/
+.container {
+	WIDTH: 322px;
+	HEIGHT: 210px;
+}
+
+.container A IMG {
+	WIDTH: 322px;
+	HEIGHT: 236px
+}
+
+.container IMG {
+	BORDER-BOTTOM-STYLE: none;
+	BORDER-RIGHT-STYLE: none;
+	BORDER-TOP-STYLE: none;
+	BORDER-LEFT-STYLE: none
+}
+
+.td_f A IMG {
+	PADDING-BOTTOM: 0px;
+	MARGIN: 0px;
+	PADDING-LEFT: 0px;
+	PADDING-RIGHT: 0px;
+	PADDING-TOP: 0px
+}
+
+.num {
+	POSITION: absolute;
+	WIDTH: 90px;
+	FLOAT: right;
+	TOP: 180px;
+	LEFT: 340px
+}
+
+.num LI {
+	TEXT-ALIGN: center;
+	LINE-HEIGHT: 15px;
+	LIST-STYLE-TYPE: none;
+	MARGIN: 1px;
+	WIDTH: 15px;
+	FONT-FAMILY: Arial;
+	BACKGROUND: url(../images/flashbutton.gif) no-repeat -15px 0px;
+	FLOAT: left;
+	HEIGHT: 15px;
+	COLOR: #86a2b8;
+	FONT-SIZE: 12px;
+	CURSOR: pointer;
+}
+
+.num LI.on {
+	LINE-HEIGHT: 15px;
+	WIDTH: 15px;
+	BACKGROUND: url(../images/flashbutton.gif) no-repeat;
+	HEIGHT: 15px;
+	COLOR: #ffffff
+}
+
+/*滑动门*/
+.nTab {
+	width: 440px;
+	height: 220px;
+	overflow: hidden;
+	float: left;
+}
+
+.TabTitle {
+	margin: 0px;
+	padding: 0px;
+	overflow: hidden;
+	height: 27spx;
+	_margin-top: 0px; *
+	margin-top: 0px;
+}
+
+.nTab .TabTitle li {
+	float: left;
+	cursor: pointer;
+	height: 27px;
+	line-height: 27px;
+	font-weight: bold;
+	text-align: center;
+	width: 80px;
+	list-style: none;
+	margin-left: 2px;
+}
+
+.nTab .TabTitle li a {
+	text-decoration: none;
+}
+
+.nTab .TabTitle .active {
+	background-color: #0E5334;
+	color: #ffffff;
+}
+
+.nTab .TabTitle .normal {
+	color: #0E5334;
+	background-color: #CBDDDB;
+}
+
+.nTab .TabContent {
+	clear: both;
+	overflow: hidden;
+	background: #fff;
+	padding: 5px;
+	display: block;
+	height: 180px;
+	line-height: 25px;
+}
+
+.nTab .TabContent a {
+	color: #0E5334;
+	text-decoration: none;
+}
+
+.nTab .TabContent a:hover {
+	color: #0E5334;
+	text-decoration: underline;
+}
+
+#myTab {
+	padding: 0;
+	margin: 0;
+	overflow: hidden;
+	height: 27px;
+}
+
+.TabContent ul li {
+	width: 120px;
+	float: left;
+}
+
+/*版权*/
+.copy-right {
+	height: 60px;
+	background: url("../images/ban_quan_bg.png");
+}
+
+.copy-right p {
+	padding-top: 10px;
+}
+
+/*网页底部*/
+.footer {
+	width: 100%;
+	height: 26px;
+	background: #0d4c3d;
+	text-align: center;
+}
+
+.footer a,.footer a:visited {
+	color: #fff;
+	line-height: 26px;
+	width: 60px;
+	color: #fff;
+}
+
+.footer a:hover {
+	color: #fff;
+	line-height: 26px;
+	width: 60px;
+	color: #fff;
+	text-decoration: underline;
+}
+
+.center {
+	min-height: 200px;
+	_height: 200px;
+	text-align: center;
+}
+.center1 {
+	min-height: 585px;
+	_height: 585px;
+	text-align: center;
+}
+
+.contact {
+	background: url("../images/kefu.png") 0 50px no-repeat;
+	width: 250px;
+	text-align: left;
+	margin: 2px;
+	height: 220px;
+}
+
+.contact ul {
+	margin-top: 20px;
+	margin-left: 60px;
+	width: 190px;
+	color: #0E5334;
+}
+
+.contact ul li {
+	line-height: 24px;
+}
+
+/*################################################################################################*/
+	/*医院列表页面样式*/
+.position {
+	text-align: left;
+	padding-left: 20px;
+	height: 30px;
+	padding-top: 5px;
+	background: #cbdddb;
+}
+
+.hospital {
+	text-align: left;
+	padding: 20px;
+	color: #0c5736;
+}
+
+.hospital dl {
+	overflow: hidden;
+	color: #0c5736;
+}
+
+.hospital dl dt {
+	font-size: 12px;
+	color: #fff;
+	margin: 0;
+	padding: 0;
+	border: 0;
+	height: 24px;
+	width: 80px;
+	line-height: 24px;
+	vertical-align: middle;
+	text-align: center;
+	background: #396;
+	font-weight: bold;
+}
+
+.hospital dl dd {
+	border-top: 2px solid #396;
+	overflow: hidden;
+	color: #0c5736;
+}
+
+.hospital dl dd li {
+	width: 210px;
+	float: left;
+	padding-left: 20px;
+	height: 25px;
+	margin-top: 5px;
+	line-height: 25px;
+	background: url("../images/hospital.png") left center no-repeat;
+}
+
+.hospital a,.hospital a:visited {
+	color: #0E5334;
+}
+
+.hospital a:hover {
+	color: #0E5334;
+	text-decoration: underline;
+}
+
+/*################################################################################################*/
+	/*医院科室列表页面样式*/
+.hospital_intro {
+	margin-top: 20px;
+	margin-left: 20px;
+	margin-right: 20px;
+	background: #cbdddb;
+}
+
+.hospital_intro dl {
+	float: left;
+	display: block;
+	width: 300px;
+	height: 21px;
+	margin: 0;
+	padding: 0;
+	position: relative;
+}
+
+.hospital_intro dt {
+	display: block;
+	float: left;
+	width: 90px;
+	padding: 0 3px;
+	line-height: 21px;
+	text-align: right;
+	color: #0c5736;
+	font-size: 12px;
+	font-weight: bold;
+}
+
+.hospital_intro dd {
+	display: block;
+	line-height: 21px;
+	width: 200px;
+	float: left;
+	text-align: left;
+	margin-left: 0;
+}
+
+.hospital_intro dl.nowrap,.nowrap dl {
+	width: 500px;
+	height: auto;
+	clear: both;
+}
+
+.hospital_intro dl.nowrap dd,.nowrap dd {
+	width: 900px;
+	padding-left: 20px;
+}
+
+.nowrap dd {
+	text-indent: 2em;
+}
+
+.department {
+	text-align: left;
+	padding: 20px;
+	color: #0c5736;
+}
+
+.department h4 {
+	font-size: 14px;
+	color: #000;
+	font-weight: bold;
+	margin: 0;
+	padding-left: 20px;
+	border: 0;
+	height: 26px;
+	line-height: 26px;
+	vertical-align: middle;
+	text-align: left;
+	background: url("../images/ke_shi.png");
+	border-top: 2px solid #396;
+}
+
+.department dl {
+	overflow: hidden;
+}
+
+.department dl dt {
+	font-size: 12px;
+	color: #000;
+	font-weight: bold;
+	height: 30px;
+	color: #0c5736;
+	line-height: 30px;
+	padding-left: 20px;
+	background: #d4e9e7;
+}
+
+.department dl dd {
+	overflow: hidden;
+	vertical-align: center;
+	padding: 5px 5px 5px 20px;
+}
+
+.department dl dd ul {
+	float: left;
+}
+
+.department dl dd li {
+	width: 170px;
+	float: left;
+	height: 30px;
+	margin-top: 3px;
+	line-height: 30px;
+	padding-left: 15px;
+	background: url("../images/dian.jpg") left center no-repeat;
+}
+
+.department a,.department a:visited {
+	color: #0E5334;
+}
+
+.department a:hover {
+	color: #0E5334;
+	text-decoration: underline;
+}
+
+.department p {
+	text-align: center;
+}
+
+/*################################################################################################*/
+	/*医院医生列表页面样式*/
+.step {
+	margin-top: 15px;
+	margin-left: 20px;
+	margin-right: 20px;
+	background: #cbdddb;
+	color: #0c5736;
+	font-size: 12px;
+}
+
+.order {
+	margin-top: 10px;
+	color: #0c5736;
+	font-size: 12px;
+	border-collapse: collapse;
+	text-indent: 0.5em;
+	background-color: #F1F2F2;
+	margin-bottom: 10px;
+	border-top: 2px solid #396;
+}
+
+.order td {
+	border: 1px solid #cbdddb;
+	vertical-align: center;
+}
+
+.doctor_info {
+	clear: both;
+	padding-left: 5px;
+}
+
+.doctor_info p {
+	height: 21px;
+	line-height: 21px;
+}
+
+/*################################################################################################*/
+	/*患者信息页面样式*/
+.patient_info {
+	text-align: left;
+	margin: 10px 20px 10px 20px;
+	background: #cbdddb;
+	padding: 10px 20px 20px 20px;
+	text-indent: 2em;
+	line-height: 20px;
+	color: #0c5736;
+	font-size: 12px;
+}
+
+.patient_info dl {
+	clear: both;
+	margin-top: 5px;
+	overflow: hidden;
+	text-indent: 0em;
+}
+
+.patient_info dt {
+	float: left;
+	width: 160px;
+	text-align: right;
+}
+
+.patient_info dd {
+	float: left;
+	padding-left: 0;
+	text-align: left;
+	width: 720px;
+	margin: 0;
+	padding: 0;
+	line-height: 24px;
+}
+
+.patient_info dd span {
+	margin-top: 3px;
+	margin-left: 5px;
+	line-height: 24px;
+}
+
+.patient_info dd span img {
+	vertical-align: text-bottom;
+}
+
+.input_normal {
+	margin-left: 0;
+	padding: 0;
+	height: 24px;
+	line-height: 24px;
+	border: 1px solid #ccc;
+}
+
+.ident {
+	width: 80px;
+	border: 1px solid #ccc;
+}
+
+.warn {
+	text-align: left;
+	margin-top: 10px;
+	margin-left: 20px;
+	margin-right: 20px;
+	border: 1px solid #a2b4ee;
+	height: 30px;
+	line-height: 30px;
+	background: #dbe3ff url("../images/information.png") 10px center
+		no-repeat;
+	padding-left: 30px;
+}
+
+.red {
+	color: red;
+}
+
+.blue {
+	color: blue;
+}
+
+.hs{
+	color: black;
+}
+
+.purple {
+	color: purple;
+}
+
+.pink {
+	color: pink;
+}
+
+/*################################################################################################*/
+	/*新闻列表页面样式*/
+.news_list {
+	width: 960px;
+	overflow: hidden;
+	font-size: 12px;
+	margin-top: 15px;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.news_list ul {
+	margin: 0;
+	padding: 0;
+	border: 1px solid #ccc;
+	padding: 2px
+}
+
+.news_list ul li {
+	height: 22px;
+	overflow: hidden;
+	line-height: 22px;
+	margin: 1px 0;
+	font-size: 12;
+	border-bottom: 1px dotted #eee;
+	background: url(arrow-small.gif) no-repeat 2px 6px;
+}
+
+.news_list ul li a {
+	float: left;
+	margin-right: 120px;
+	padding-right: 5px;
+	color: #0E5334;
+	text-decoration: none;
+	padding-left: 2em
+}
+
+.news_list ul li a:visited {
+	float: left;
+	margin-right: 120px;
+	padding-right: 5px;
+	color: #0E5334;
+	text-decoration: none;
+	padding-left: 2em
+}
+
+.news_list ul li a:hover {
+	text-decoration: underline;
+}
+
+.news_list ul li span {
+	margin-left: -80px;
+	width: 80px;
+	float: right;
+	background: #f8f8f8;
+	text-align: center
+}
+
+.news_detail {
+	width: 980px;
+	overflow: hidden;
+	font-size: 13px;
+	margin-top: 15px;
+	color: #0E5334;
+	marign-left: auto;
+	margin-right: auto;
+	text-align: center;
+}
+
+.news_detail div {
+	text-indent: 2em;
+	text-align: left;
+	line-height: 28px;
+	width: 920px;
+	margin: 20 auto;
+}
+
+.rb1 {
+	background: #239070 none repeat scroll 0 0;
+	border-color: #FFFFFF #6A6A6A #6A6A6A #FFFFFF;
+	border-style: solid;
+	border-width: 1px;
+	color: #FFFFFF;
+	cursor: pointer;
+	font-size: 12px;
+	height: 20px;
+	padding: 2px 2px 3px 2px;
+	margin: 0 3px
+}
+
+.blue,.blue a {
+	color: #1974c8 !important;
+	text-decoration: none
+}
+
+.b {
+	font-weight: bold
+}
+
+.zhuanye {
+	text-align: left;
+	border: 0;
+	color: #0E5334;
+	cursor: hand;
+	height: 30px;
+	background: #fff;
+}
+
+/* for Firefox */
+input[type=submit]::-moz-focus-inner,input[type=button]::-moz-focus-inner
+	{
+	border: 0px;
+}
+
+/* for IE8 */
+input[type=submit]:focus,input[type=button]:focus {
+	outline: none;
+}
+
+/*健康咨询  双向转诊 */
+.p12 {
+	line-height: 24px;
+	text-indent: 2em;
+	padding: 5px 5px 0px 5px;
+	color: #0E5334;
+}
+
+.red {
+	color: red;
+}
+
+.f_sxzz {
+	width: 230px;
+	margin-top: 5px;
+}
+
+.f_sxzz li {
+	float: left;
+	width: 110px;
+	font-size: 12px;
+	line-height: 18px;
+	text-align: left;
+	padding-left: 5px;
+}
+
+.ask {
+	width: 180px;
+	float: right;
+}
+
+.ask_bg {
+	background: url("../images/ask.png") no-repeat 5px 30px;
+}
+
+.ask li {
+	line-height: 18px;
+	padding-top: 5px;
+}
+
+.askTitle {
+	color: #0E5334;
+	font-weight: bold;
+	border-bottom: 1px solid dotted;
+}
+
+.askTitle span {
+	width: 120px;
+}
+
+.askTitle a {
+	font-weight: 100;
+}
+
+/* 医生简介 添加样式*/
+.docName {
+	height: 36px;
+}
+
+.docName img {
+	float: left;
+	margin-left: 40px;
+	margin-top: 5px;
+}
+
+.docName span {
+	display: block;
+	height: 24px;
+	margin-top: 5px;
+	line-height: 18px;
+	cursor: hand;
+	float: left;
+}
+
+.tip {
+	background: url(../images/bg01.gif) 0 0 no-repeat;
+	width: 370px;
+	height: 161px;
+	z-index: 99;
+	position: absolute;
+	top: -160px;
+	left: 40px;
+}
+
+.docInfo {
+	margin: 5px;
+	background: #FFF;
+	width: 360;
+	height: 150px;
+	text-align: left;
+	background: #FFF;
+}
+
+.docInfo span {
+	margin-top: 10px;
+	margin-left: 5px;
+	border: 1px solid #ccc;
+	width: 80px;
+	height: 80px;
+	float: left;
+	width: 80px;
+	height: 80px;
+	float: left;
+	border: 1px solid #ccc;
+}
+
+.docInfo span img {
+	width: 80px;
+	height: 80px;
+	margin-left: -6px;
+}
+
+.docInfo_content {
+	width: 260px;
+	float: right;
+	height: 150px;
+	padding: 10px 5px 0px 5px;
+	line-height: 24px;
+	overflow: auto;
+}
+
+/*
+ 成功失败提示
+*/
+.result {
+	height: 300px;
+	padding-top: 100px;
+}
+
+.result p a {
+	line-height: 24px;
+	color: #0E5334;
+}
+
+/*健康体检中信息确认页表格*/
+.patientTable {
+	width: 900px;
+	border-collapse: collapse;
+	margin-left: 20px;
+	margin-top: 20px;
+}
+
+.patientTable th {
+	font: bold 12px "宋体";
+	color: #0E5334;
+	border: 1px solid #C1DAD7;
+	letter-spacing: 2px;
+	padding: 6px 6px 6px 12px;
+	background: #CAE8EA no-repeat;
+}
+
+.patientTable td {
+	font: 12px "宋体";
+	color: #0E5334;
+	border: 1px solid #C1DAD7;
+	letter-spacing: 2px;
+	padding: 6px 6px 6px 12px;
+	background: #FFF;
+	text-align: center;
+}
+
+.patientTable td a,.patientTable td a:visited {
+	color: #0E5334;
+	text-decoration: underline;
+}
+
+.project {
+	text-align: left;
+	color: #0E5334;
+	padding-left: 20px;
+	padding-right: 10px;
+	line-height: 18px;
+}
+
+/*################################################################################################*/
+	/*左侧样式*/
+* {
+	margin: 0;
+	padding: 0;
+	font-size: 10pt;
+	word-wrap: break-word;
+}
+
+#leftMenu {
+	width: 150px;
+	margin: 5px;
+	padding: 0px;
+	float: left;
+	text-align: left;
+	border: 1px solid #ccc;
+}
+
+#leftMenu2 {
+	width: 155px;
+	margin: 10px;
+	padding: 0px;
+	float: left;
+	text-align: left;
+	border: 1px solid #ccc;
+}
+
+.menu_title {
+	display: block;
+	margin: 0px;
+	background: url(../images/menuTitleBg.png) repeat-x top left;
+	height: 27px;
+	line-height: 27px;
+	width: 150px;
+	vertical-align: middle;
+}
+
+.menu_title2 {
+	display: block;
+	margin: 0px;
+	background: url(../images/menuTitleBg.png) repeat-x top left;
+	height: 27px;
+	line-height: 27px;
+	width: 155px;
+	vertical-align: middle;
+}
+
+.menu_title span {
+	margin-top: 3px;
+	vertical-align: middle;
+	color: #08436b;
+	cursor: hand;
+}
+
+.menu_content {
+	width: 150px;
+}
+
+.menu_content li {
+	height: 24px;
+	line-height: 24px;
+	color: #08436b;
+	background: #FFF;
+	border-bottom: 1px solid #EEE;
+	cursor: hand;
+}
+
+.menu_content li a,.menu_content li a:visited {
+	display: block;
+	width: 100%;
+	height: 100%;
+	padding-left: 35px;
+	background: url(../images/arrow6.png) no-repeat 29px 8px;
+	color: #08436b;
+	cursor: hand;
+}
+
+.menu_content li a:hover {
+	color: #c00;
+}
+
+.menu_content2 {
+	width: 155px;
+}
+
+.menu_content2 li {
+	height: 24px;
+	line-height: 24px;
+	color: #08436b;
+	background: #FFF;
+	border-bottom: 1px solid #EEE;
+	cursor: hand;
+}
+
+.main ul {
+	display: none;
+}
+
+
+.menu_content2 li a,.menu_content li a:visited {
+	display: block;
+	width: 100%;
+	height: 100%;
+	padding-left: 35px;
+	background: url(../images/arrow6.png) no-repeat 29px 8px;
+	color: #08436b;
+	cursor: hand;
+}
+
+.menu_content2 li a:hover {
+	color: #c00;
+}
+
+.menu_content3 {
+	width: 150px;
+}
+
+.menu_content3 li {
+	height: 24px;
+	line-height: 24px;
+	color: #08436b;
+	background: #FFF;
+	border-bottom: 1px solid #EEE;
+	cursor: hand;
+}
+
+.menu_content3 li a,.menu_content3 li a:visited {
+	display: block;
+	width: 100%;
+	height: 20%;
+	padding-left: 35px;
+	background: url(../images/left.gif) no-repeat 20px 8px;
+	color: #08436b;
+	cursor: hand;
+}
+
+.menu_content3 li a:hover {
+	color: #c00;
+}
+
+.main {
+line-height: 24px;	
+background: #FFF;	
+color: #08436b;
+border-bottom: 1px solid #EEE;
+}
+.main a{
+display: block;
+	width: 100%;
+	padding-left: 35px;
+	background: url(../images/left.gif) no-repeat 20px 8px;
+	color: #08436b;
+	cursor: hand;
+
+}
+.main li a{
+   display: block;
+	width: 100%;
+	padding-left: 42px;
+	background: no-repeat 29px 8px;
+	color: #08436b;
+	cursor: hand;
+}
+.main ul{
+display: none;
+}
+
+.main1 {
+line-height: 24px;	
+background: #FFF;	
+color: #08436b;
+}
+.main1 a{
+display: block;
+	width: 100%;
+	padding-left: 35px;
+	background: url(../images/left.gif) no-repeat 40px 8px;
+	color: #08436b;
+	cursor: hand;
+
+}
+.main1 li a{
+   display: block;
+	width: 100%;
+	padding-left: 50px;
+	background: no-repeat 29px 8px;
+	color: #08436b;
+	cursor: hand;
+}
+.main1 ul{
+display: none;
+}
+
+
+
+
+
+
+
+
+/***
+.menu_content4 li {
+	height: 24px;
+	line-height: 24px;
+	color: #08436b;
+	background: #FFF;
+	border-bottom: 0px solid #EEE;
+	cursor: hand;
+}
+
+.menu_content4 li a,.menu_content4 li a:visited {
+	display: block;
+	width: 100%;
+	height: 100%;
+	padding-left: 42px;
+	background: no-repeat 29px 8px;
+	color: #5161fa;
+	cursor: hand;
+}
+
+.menu_content4 li a:hover {
+	color: #c00;
+}
+**/
+
+.formWrapper {
+	margin: 10px auto;
+	width: 800px;
+	font-size: 11px;
+	float: left;
+}
+
+.formWrapper1 {
+	margin: 5px auto;
+	width: 800px;
+	font-size: 11px;
+	float: center;
+}
+
+.formWrapper2 {
+	margin: 10px auto;
+	width: 790px;
+	font-size: 11px;
+	float: left;
+}
+
+.formWrapper4 {
+	margin: 5px auto;
+	width: 955px;
+	font-size: 11px;
+	float: center;
+}
+
+.formWrapper h1 {
+	font-size: 14px;
+	margin-top: 10px;
+}
+
+.sl-shadow {
+	padding-bottom: 15px;
+	border: 1px solid #ccc;
+	/* modern web browsers */
+	-moz-box-shadow: 1px 3px 3px #bbb;
+	-webkit-box-shadow: 1px 3px 3px #bbb;
+	box-shadow: 1px 3px 3px #bbb;
+	/* 一定要设置background, 不然 ie 会显示在字体上 */
+	background: #fff;
+	/* gte=ie8 
+	-ms-filter:"progid:DXImageTransform.Microsoft.Shadow(color=#eeeeee,direction=0,strength=0) progid:DXImageTransform.Microsoft.Shadow(color=#eeeeee,direction=90,strength=3) progid:DXImageTransform.Microsoft.Shadow(color=#eeeeee,direction=180,strength=3) progid:DXImageTransform.Microsoft.Shadow(color=#eeeeee,direction=270,strength=3)";
+	
+	lte=ie7 
+	*filter: 
+    progid:DXImageTransform.Microsoft.Shadow(color=#eeeeee,direction=0,strength=7)
+    progid:DXImageTransform.Microsoft.Shadow(color=#eeeeee,direction=90,strength=10)
+    progid:DXImageTransform.Microsoft.Shadow(color=#eeeeee,direction=180,strength=10)
+    progid:DXImageTransform.Microsoft.Shadow(color=#eeeeee,direction=270,strength=7);*/
+}
+
+/*==============================表单部分样式定义=====================================*/
+.formTable {
+	border: #77bfb0 solid 1px;
+	margin: 0px auto;
+	margin-top: 10px;
+	font-size: 11px;
+	border-collapse: collapse;
+}
+
+.formTable1 {
+	border: #ffffff solid 1px;
+	margin: 0px auto;
+	margin-top: 3px;
+	font-size: 11px;
+	border-collapse: collapse;
+}
+
+.formTablehideBorder {
+	border: #77bfb0 solid 0px;
+	margin: 0px auto;
+	margin-top: 10px;
+	font-size: 11px;
+	border-collapse: collapse;
+}
+
+.formTablehideBorder td {
+	padding: 3px 3px;
+	border: 0px;
+}
+
+}
+.formTable2 {
+	border: #77bfb0 solid 2px;
+	border-top: 0px;
+	margin: 0px auto;
+	border-collapse: collapse;
+}
+
+.formTable td,.formTable2 td {
+	padding: 3px 3px;
+	border-bottom: #d4dddc solid 1px;
+	border-right: #d4dddc solid 1px;
+}
+
+.dark {
+	background: #eaf4f6
+}
+.darkk {
+	color: #c9cccd
+}
+
+.dark2 {
+	background: #f6f6f6
+}
+
+.w15 {
+	width: 15px;
+}
+
+.w50 {
+	width: 50px;
+}
+.w30 {
+	width: 30px;
+}
+
+.w70 {
+	width: 70px;
+}
+
+.w85 {
+	width: 85px;
+}
+
+.w100 {
+	width: 100px;
+}
+
+.w130 {
+	width: 130px;
+}
+
+.w150 {
+	width: 150px;
+}
+
+.w170 {
+	width: 170px;
+}
+
+.w200 {
+	width: 200px;
+}
+.w240 {
+	width: 240px;
+}
+
+.w250 {
+	width: 250px;
+}
+
+.w280 {
+	width: 280px;
+}
+
+.w300 {
+	width: 300px;
+}
+
+.w500 {
+	width: 500px;
+}
+
+.input {
+	background-color: transparent;
+	text-align: left;
+	line-height: 16px;
+	border: 0;
+	border-bottom: 1px solid #999;
+	font-size: 10pt;
+}

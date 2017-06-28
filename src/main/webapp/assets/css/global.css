@@ -1,0 +1,268 @@
+@CHARSET "UTF-8";
+.printPage_bodyA4{
+	width: 210mm;
+	height: 297mm;
+	margin: 0 auto;
+}
+.baseBtDiv{
+	height: 30px;
+}
+
+/* 
+	@名称: global
+	@功能: 全局统一样式定义
+*/ /* 设置内外边距 */
+body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,code,form,fieldset,legend,input,textarea,p,blockquote,th,td,hr,button,article,aside,details,figcaption,figure,footer,header,hgroup,menu,nav,section
+	{
+	margin: 0;
+	padding: 0;
+}
+
+body {
+	background: #999;
+	text-align: center;
+	font: '宋体';
+	font-size: 12px;
+}
+
+.ss{
+padding-left:9px;
+}
+
+.tcheight
+{
+ height: 550px;
+}
+
+.bj {
+	background: #FFFFFF;
+}
+
+img {
+	border: 0;
+}
+
+li {
+	list-style-type: none;
+}
+
+a,a:visited {
+	text-decoration: none;
+	color: #35f
+}
+
+a:hover {
+	text-decoration: underline;
+}
+
+/* 隐藏, 通常用来与 JS 配合 */
+body .fn-hide {
+	display: none;
+}
+
+.clear {
+	height: 0;
+	overflow: hidden;
+	clear: both;
+}
+
+/* 设置内联, 减少浮动带来的bug */
+.fn-left,.fn-right {
+	display: inline;
+}
+
+.fn-left {
+	float: left;
+}
+
+.fn-right {
+	float: right;
+}
+
+.fn-hide {
+	display: none;
+}
+
+.bold {
+	font-weight: bold;
+}
+
+/* fenye*/
+.tac {
+	text-align: center;
+	margin: 10px auto 0 auto;
+	padding: 5px;
+}
+
+a.fy {
+	background-color: #FFF;
+	border: 1px solid #B9B7B7;
+	color: #333333;
+	font-family: Arial;
+	margin: 1px;
+	padding: 3px 7px;
+	text-decoration: none;
+}
+
+a.fy2 {
+	background-color: #f7f7f7;
+	border: 1px solid #B9B7B7;
+	color: #1974c8;
+	font-family: Arial;
+	font-weight: bold;
+	margin: 2px;
+	padding: 3px 7px;
+	text-decoration: none;
+}
+
+.input_focus {
+	
+}
+
+.gotopage {
+	padding: 0 10px;
+	border: 1px solid #ccc;
+}
+
+.table_head {
+	background-color: #E5ECF9
+}
+
+.table_body {
+	background-color: #E2EAF7
+}
+
+.table_head1 {
+	background-color: #FFF7DC
+}
+
+.table_body1 {
+	background-color: #FFF2B5
+}
+
+.table_head2 {
+	background-color: #EEF8E6
+}
+
+.table_body2 {
+	background-color: #D8F0CE
+}
+
+.listrow1 {
+	background-color: #ffffff;
+	line-height: 24px;
+}
+
+.listrow2 {
+	background-color: #f9f9f9;
+	line-height: 24px;
+}
+
+.tablefield {
+	background-color: #EBF8E7;
+	height: 24px;
+}
+
+.tabledata {
+	background-color: #f9f9f9
+}
+
+.show_title {
+	background-color: #f8f8f8
+}
+
+.show_data {
+	background-color: #f9f9f9
+}
+
+.show {
+	display: block
+}
+
+.hide {
+	display: none
+}
+
+.hand {
+	cursor: pointer;
+}
+
+.fontArial {
+	font-family: 'Arial';
+}
+
+.b {
+	font-weight: bold;
+}
+
+.ttll10 {
+	font-size: 10px;
+}
+
+.ttll14 {
+	font-size: 14px;
+}
+
+.img_b {
+	background-color: #FFF;
+	padding: 2px;
+	border: 1px solid #ccc;
+}
+
+.bkf1 {
+	background-color: #f1f1f1;
+}
+
+.bkf8 {
+	background-color: #f8f8f8;
+}
+
+.bkd8 {
+	background-color: #ffffd8;
+}
+
+.bkff {
+	background-color: #FFFFFF;
+}
+
+.bkf5 {
+	background-color: #F5F9FA;
+}
+
+.bk_blue {
+	background-color: #3AA2D9
+}
+
+.col_qh:hover {
+	background-color: #f8f8f8;
+}
+
+.absmid {
+	vertical-align: middle;
+}
+
+.xx {
+	height: 1px;
+	border-bottom: 1px dashed #ccc;
+	overflow: hidden;
+}
+
+.auto {
+	height: auto;
+}
+
+.wauto {
+	width: 100%;
+}
+
+a {
+	outline-style: none;
+	color: #333;
+	text-decoration: none
+}
+
+a:hover {
+	color: #1974c8;
+	text-decoration: underline;
+}
+

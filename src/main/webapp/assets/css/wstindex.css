@@ -1,0 +1,24 @@
+body {
+	width: 980px;
+	margin: 80px auto;
+	height: auto;
+	font: 82%/1.4;
+	text-align: center;
+}
+
+.loginbj {
+	background-image: url("../images/wst/loginbj.jpg");
+	background-repeat: no-repeat;
+	margin:50px auto;
+	height: 514px;
+	width: 792px;
+}
+.clearBorder{
+	border-width: 0px;
+}
+.shouyeA{
+	margin: 25px;
+	position: relative;
+	top: 240px;
+	left: -220px;
+}
