@@ -1,10 +1,15 @@
 package com.ldg.api.excel;
 
 import com.ldg.api.util.DateUtil;
+import com.wlht.api.SysConstant;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.commons.lang3.time.DateFormatUtils;
+import org.apache.poi.hssf.usermodel.HSSFCell;
+import org.apache.poi.hssf.usermodel.HSSFDataFormat;
+import org.apache.poi.hssf.usermodel.HSSFDateUtil;
 import org.apache.poi.hssf.usermodel.HSSFWorkbook;
 import org.apache.poi.ss.usermodel.*;
+import org.apache.poi.ss.util.NumberToTextConverter;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 import org.springframework.core.io.ClassPathResource;
 
@@ -14,7 +19,10 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;
+import java.math.BigDecimal;
 import java.net.URLEncoder;
+import java.text.DecimalFormat;
+import java.text.SimpleDateFormat;
 import java.util.*;
 
 public class ExcelUtils<T> {
@@ -200,7 +208,7 @@ public class ExcelUtils<T> {
         return rtList;
     }
 
-    public static <T> List<T> readExcel(String fileName,Class<T> clazz) {
+    public static <T> List<T> readExcel(String fileName, Class<T> clazz) {
         Workbook workbook = null;
         Sheet sheet = null;
         InputStream in = null;
@@ -220,31 +228,24 @@ public class ExcelUtils<T> {
             int rowCount = 0;
             //循环每一行
             while (rowIterator.hasNext()) {
-                T t=clazz.newInstance(); //创建新的对象
-                Field[] fields=t.getClass().getDeclaredFields();
+                T t = clazz.newInstance(); //创建新的对象
+                Field[] fields = t.getClass().getDeclaredFields();
                 //得到一行对象
                 Row row = rowIterator.next();
                 //得到列对象
-                Iterator<Cell> cellIterator = row.cellIterator();
+
                 int columnCount = 0;
                 //循环每一列
-                int fieldIndex=0;
-                while (cellIterator.hasNext()) {
-                    Field field=fields[fieldIndex];
+                int fieldIndex = 0;
+               for(int i=row.getFirstCellNum();i<row.getLastCellNum();i++) {
+                   System.out.println(i+"+++");
+                    Field field = fields[i];
                     field.setAccessible(true);
-                    System.out.println(field.getName()+"    "+field.getType()+"    "+field.getGenericType());
-                    fieldIndex++;
+                    String type = field.getType().getTypeName();
                     //得到单元格对象
-                    Cell cell = cellIterator.next();
-                    //检查数据类型
-                    switch (cell.getCellType()) {
-                        case Cell.CELL_TYPE_STRING:
-                           // field.set(t,cell.getStringCellValue());
-                            break;
-                        case Cell.CELL_TYPE_NUMERIC:
-                            //field.set(t,cell.getNumericCellValue());
-                            break;
-                    }
+                    Cell cell = row.getCell(i);
+                    String ss=parseExcel(cell);
+                    System.out.println(ss+"    "+field.getName());
                 }
                 rtList.add(t);
             }
@@ -260,5 +261,78 @@ public class ExcelUtils<T> {
             }
         }
         return rtList;
+    }
+    private static String parseExcel(Cell cell) {
+        String result ="";
+        if(cell==null){
+            return result;
+        }
+        switch (cell.getCellType()) {
+            case HSSFCell.CELL_TYPE_NUMERIC:// 数字类型
+                if (HSSFDateUtil.isCellDateFormatted(cell)) {// 处理日期格式、时间格式
+                    SimpleDateFormat sdf = null;
+                    if (cell.getCellStyle().getDataFormat() == HSSFDataFormat
+                            .getBuiltinFormat("h:mm")) {
+                        sdf = new SimpleDateFormat("HH:mm");
+                    } else {// 日期
+                        sdf = new SimpleDateFormat("yyyy-MM-dd");
+                    }
+                    Date date = cell.getDateCellValue();
+                    result = sdf.format(date);
+                } else if (cell.getCellStyle().getDataFormat() == 58) {
+                    // 处理自定义日期格式：m月d日(通过判断单元格的格式id解决，id的值是58)
+                    SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+                    double value = cell.getNumericCellValue();
+                    Date date = org.apache.poi.ss.usermodel.DateUtil
+                            .getJavaDate(value);
+                    result = sdf.format(date);
+                } else {
+                    double value = cell.getNumericCellValue();
+                    CellStyle style = cell.getCellStyle();
+                    DecimalFormat format = new DecimalFormat();
+                    String temp = style.getDataFormatString();
+                    // 单元格设置成常规
+                    if (temp.equals("General")) {
+                        format.applyPattern("#");
+                    }
+                    result = format.format(value);
+                }
+                break;
+            case HSSFCell.CELL_TYPE_STRING:// String类型
+                result = cell.getRichStringCellValue().toString();
+                break;
+            case HSSFCell.CELL_TYPE_BLANK:
+                result = "";
+            default:
+                System.out.println(cell.getCellType()+"+++++++++++");
+                result = "";
+                break;
+        }
+        return result;
+    }
+
+    private <T> void setStrVal(String fieldType,Field field,T t,String val) throws IllegalAccessException {
+        switch (fieldType) {
+            case SysConstant.type_String:
+                field.set(t,val);
+                break;
+            case SysConstant.type_BigDecimal:
+                BigDecimal bd=new BigDecimal(val);
+                field.set(t, bd);
+                break;
+            case SysConstant.type_Date:
+
+                System.out.println(val+"   date........."+field.getName());
+                break;
+            case SysConstant.type_Long:
+                field.set(t, Long.valueOf(val));
+                break;
+            case SysConstant.type_Short:
+                field.set(t, Short.valueOf(val));
+                break;
+            default:
+                System.out.println(fieldType);
+                break;
+        }
     }
 }

@@ -12,6 +12,7 @@ public class Hisview {
         TBaBase base=new TBaBase();
         return base;
     }
+    private Long id;
     /**
      * 机构id
      */
@@ -83,25 +84,6 @@ public class Hisview {
      */
     @Column(name = "GJ")
     private String gj;
-
-    /**
-     * 年龄不足一岁时(月)
-     */
-    @Column(name = "BAYZSNL")
-    private Short bayzsnl;
-
-    /**
-     * 新生儿出生体重
-     */
-    @Column(name = "XSECSTZ")
-    private BigDecimal xsecstz;
-
-    /**
-     * 新生儿入院体重
-     */
-    @Column(name = "XSERYTZ")
-    private BigDecimal xserytz;
-
     /**
      * 出生地
      */
@@ -115,11 +97,15 @@ public class Hisview {
     private String gg;
 
     /**
+     * 年龄不足一岁时(月)
+     */
+    @Column(name = "BAYZSNL")
+    private Short bayzsnl;
+    /**
      * 民族
      */
     @Column(name = "MZ")
     private String mz;
-
     /**
      * 身份证号
      */
@@ -139,24 +125,6 @@ public class Hisview {
     private String hy;
 
     /**
-     * 现住址
-     */
-    @Column(name = "XZZ")
-    private String xzz;
-
-    /**
-     * 电话
-     */
-    @Column(name = "DH")
-    private String dh;
-
-    /**
-     * 邮编
-     */
-    @Column(name = "YB1")
-    private String yb1;
-
-    /**
      * 户口地址
      */
     @Column(name = "HKDZ")
@@ -167,7 +135,6 @@ public class Hisview {
      */
     @Column(name = "YB2")
     private String yb2;
-
     /**
      * 工作单位及地址
      */
@@ -199,83 +166,61 @@ public class Hisview {
     private String gx;
 
     /**
-     * 地址
-     */
-    @Column(name = "DZ")
-    private String dz;
-
-    /**
      * 电话
      */
     @Column(name = "DH2")
     private String dh2;
 
     /**
-     * 入院途径
+     * 地址
      */
-    @Column(name = "RYTJ")
-    private String rytj;
+    @Column(name = "DZ")
+    private String dz;
+    /**
+     * 现住址
+     */
+    @Column(name = "XZZ")
+    private String xzz;
+
+    /**
+     * 电话
+     */
+    @Column(name = "DH")
+    private String dh;
+
+    /**
+     * 邮编
+     */
+    @Column(name = "YB1")
+    private String yb1;
+
+    /**
+     * 新生儿出生体重
+     */
+    @Column(name = "XSECSTZ")
+    private BigDecimal xsecstz;
+
+    /**
+     * 新生儿入院体重
+     */
+    @Column(name = "XSERYTZ")
+    private BigDecimal xserytz;
 
     /**
      * 入院时间
      */
     @Column(name = "RYSJ")
     private Date rysj;
-
     /**
      * 入院时间时
      */
     @Column(name = "RYSJS")
     private BigDecimal rysjs;
-
     /**
-     * 入院科室
+     * 目的
      */
-    @Column(name = "RYKB")
-    private String rykb;
-
-    /**
-     * 入院病房
-     */
-    @Column(name = "RYBF")
-    private String rybf;
-
-    /**
-     * 转科科室
-     */
-    @Column(name = "ZKKB")
-    private String zkkb;
-
-    /**
-     * 出院时间
-     */
-    @Column(name = "CYSJ")
-    private Date cysj;
-
-    /**
-     * 出院时间时
-     */
-    @Column(name = "CYSJS")
-    private BigDecimal cysjs;
-
-    /**
-     * 出院科室
-     */
-    @Column(name = "CYKB")
-    private String cykb;
-
-    /**
-     * 出院病房
-     */
-    @Column(name = "CYBF")
-    private String cybf;
-
-    /**
-     * 时间住院天数
-     */
-    @Column(name = "SJZYTS")
-    private String sjzyts;
-
+    @Column(name = "MD")
+    private String md;
     /**
      * 门诊诊断名称
      */
@@ -289,353 +234,39 @@ public class Hisview {
     private String jbbm;
 
     /**
-     * 主要诊断
+     * 入院科室
      */
-    @Column(name = "ZYZD")
-    private String zyzd;
+    @Column(name = "RYKB")
+    private String rykb;
 
     /**
-     * 主要诊断编码
+     * 入院病房
      */
-    @Column(name = "JBDM")
-    private String jbdm;
+    @Column(name = "RYBF")
+    private String rybf;
+    /**
+     * 离院方式
+     */
+    @Column(name = "LYFS")
+    private String lyfs;
 
     /**
-     * 入院病情
+     * 入院途径
      */
-    @Column(name = "RYBQ")
-    private String rybq;
+    @Column(name = "RYTJ")
+    private String rytj;
 
     /**
-     * 其他诊断1
+     * 住院医师
      */
-    @Column(name = "QTZD1")
-    private String qtzd1;
+    @Column(name = "ZYYS")
+    private String zyys;
 
     /**
-     * 其他诊断编码1
+     * 责任护士
      */
-    @Column(name = "JBDM1")
-    private String jbdm1;
-
-    /**
-     * 入院病情1
-     */
-    @Column(name = "RYBQ1")
-    private String rybq1;
-
-    /**
-     * 其他诊断2
-     */
-    @Column(name = "QTZD2")
-    private String qtzd2;
-
-    /**
-     * 其他诊断代码2
-     */
-    @Column(name = "JBDM2")
-    private String jbdm2;
-
-    /**
-     * 入院病情2
-     */
-    @Column(name = "RYBQ2")
-    private String rybq2;
-
-    /**
-     * 其他诊断3
-     */
-    @Column(name = "QTZD3")
-    private String qtzd3;
-
-    /**
-     * 其他诊断代码3
-     */
-    @Column(name = "JBDM3")
-    private String jbdm3;
-
-    /**
-     * 入院病情3
-     */
-    @Column(name = "RYBQ3")
-    private String rybq3;
-
-    /**
-     * 其他诊断4
-     */
-    @Column(name = "QTZD4")
-    private String qtzd4;
-
-    /**
-     * 其他诊断代码4
-     */
-    @Column(name = "JBDM4")
-    private String jbdm4;
-
-    /**
-     * 入院病情4
-     */
-    @Column(name = "RYBQ4")
-    private String rybq4;
-
-    /**
-     * 其他诊断5
-     */
-    @Column(name = "QTZD5")
-    private String qtzd5;
-
-    /**
-     * 其他诊断代码5
-     */
-    @Column(name = "JBDM5")
-    private String jbdm5;
-
-    /**
-     * 入院病情5
-     */
-    @Column(name = "RYBQ5")
-    private String rybq5;
-
-    /**
-     * 其他诊断6
-     */
-    @Column(name = "QTZD6")
-    private String qtzd6;
-
-    /**
-     * 其他诊断代码6
-     */
-    @Column(name = "JBDM6")
-    private String jbdm6;
-
-    /**
-     * 入院病情6
-     */
-    @Column(name = "RYBQ6")
-    private String rybq6;
-
-    /**
-     * 其他诊断7
-     */
-    @Column(name = "QTZD7")
-    private String qtzd7;
-
-    /**
-     * 其他诊断代码7
-     */
-    @Column(name = "JBDM7")
-    private String jbdm7;
-
-    /**
-     * 入院病情7
-     */
-    @Column(name = "RYBQ7")
-    private String rybq7;
-
-    /**
-     * 其他诊断8
-     */
-    @Column(name = "QTZD8")
-    private String qtzd8;
-
-    /**
-     * 其他诊断代码8
-     */
-    @Column(name = "JBDM8")
-    private String jbdm8;
-
-    /**
-     * 入院病情8
-     */
-    @Column(name = "RYBQ8")
-    private String rybq8;
-
-    /**
-     * 其他诊断9
-     */
-    @Column(name = "QTZD9")
-    private String qtzd9;
-
-    /**
-     * 其他诊断代码9
-     */
-    @Column(name = "JBDM9")
-    private String jbdm9;
-
-    /**
-     * 入院病情9
-     */
-    @Column(name = "RYBQ9")
-    private String rybq9;
-
-    /**
-     * 其他诊断10
-     */
-    @Column(name = "QTZD10")
-    private String qtzd10;
-
-    /**
-     * 其他诊断代码10
-     */
-    @Column(name = "JBDM10")
-    private String jbdm10;
-
-    /**
-     * 入院病情10
-     */
-    @Column(name = "RYBQ10")
-    private String rybq10;
-
-    /**
-     * 其他诊断11
-     */
-    @Column(name = "QTZD11")
-    private String qtzd11;
-
-    /**
-     * 其他诊断代码11
-     */
-    @Column(name = "JBDM11")
-    private String jbdm11;
-
-    /**
-     * 入院病情11
-     */
-    @Column(name = "RYBQ11")
-    private String rybq11;
-
-    /**
-     * 其他诊断12
-     */
-    @Column(name = "QTZD12")
-    private String qtzd12;
-
-    /**
-     * 其他诊断代码12
-     */
-    @Column(name = "JBDM12")
-    private String jbdm12;
-
-    /**
-     * 入院病情12
-     */
-    @Column(name = "RYBQ12")
-    private String rybq12;
-
-    /**
-     * 其他诊断13
-     */
-    @Column(name = "QTZD13")
-    private String qtzd13;
-
-    /**
-     * 其他诊断代码13
-     */
-    @Column(name = "JBDM13")
-    private String jbdm13;
-
-    /**
-     * 入院病情13
-     */
-    @Column(name = "RYBQ13")
-    private String rybq13;
-
-    /**
-     * 其他诊断14
-     */
-    @Column(name = "QTZD14")
-    private String qtzd14;
-
-    /**
-     * 其他诊断代码14
-     */
-    @Column(name = "JBDM14")
-    private String jbdm14;
-
-    /**
-     * 入院病情14
-     */
-    @Column(name = "RYBQ14")
-    private String rybq14;
-
-    /**
-     * 其他诊断15
-     */
-    @Column(name = "QTZD15")
-    private String qtzd15;
-
-    /**
-     * 其他诊断代码15
-     */
-    @Column(name = "JBDM15")
-    private String jbdm15;
-
-    /**
-     * 入院病情15
-     */
-    @Column(name = "RYBQ15")
-    private String rybq15;
-
-    /**
-     * 中毒、外部原因
-     */
-    @Column(name = "WBYY")
-    private String wbyy;
-
-    /**
-     * 编码
-     */
-    @Column(name = "H23")
-    private String h23;
-
-    /**
-     * 病理诊断
-     */
-    @Column(name = "BLZD")
-    private String blzd;
-
-    /**
-     * 病理诊断编码
-     */
-    @Column(name = "JBMM")
-    private String jbmm;
-
-    /**
-     * 病理号
-     */
-    @Column(name = "BLH")
-    private String blh;
-
-    /**
-     * 是否有过敏药物
-     */
-    @Column(name = "YWGM")
-    private String ywgm;
-
-    /**
-     * 过敏药物名称
-     */
-    @Column(name = "GMYW")
-    private String gmyw;
-
-    /**
-     * 死亡患者是否尸检
-     */
-    @Column(name = "SWHZSJ")
-    private String swhzsj;
-
-    /**
-     * 血型
-     */
-    @Column(name = "XX")
-    private String xx;
-
-    /**
-     * RH血型
-     */
-    @Column(name = "RH")
-    private String rh;
-
+    @Column(name = "ZRHS")
+    private String zrhs;
     /**
      * 科主任
      */
@@ -655,28 +286,17 @@ public class Hisview {
     private String zzys;
 
     /**
-     * 住院医师
+     * 实习医师
      */
-    @Column(name = "ZYYS")
-    private String zyys;
-
-    /**
-     * 责任护士
-     */
-    @Column(name = "ZRHS")
-    private String zrhs;
-
+    @Column(name = "SXYS")
+    private String sxys;
     /**
      * 进修医师
      */
     @Column(name = "JXYS")
     private String jxys;
 
-    /**
-     * 实习医师
-     */
-    @Column(name = "SXYS")
-    private String sxys;
+
 
     /**
      * 编码员
@@ -707,6 +327,350 @@ public class Hisview {
      */
     @Column(name = "ZKRQ")
     private String zkrq;
+    /**
+     * 病理号
+     */
+    @Column(name = "BLH")
+    private String blh;
+    /**
+     * 病理诊断
+     */
+    @Column(name = "BLZD")
+    private String blzd;
+
+    /**
+     * 病理诊断编码
+     */
+    @Column(name = "JBMM")
+    private String jbmm;
+    /**
+     * 中毒、外部原因
+     */
+    @Column(name = "WBYY")
+    private String wbyy;
+
+    /**
+     * 编码
+     */
+    @Column(name = "H23")
+    private String h23;
+    /**
+     * 血型
+     */
+    @Column(name = "XX")
+    private String xx;
+
+    /**
+     * RH血型
+     */
+    @Column(name = "RH")
+    private String rh;
+    /**
+     * 主要诊断
+     */
+    @Column(name = "ZYZD")
+    private String zyzd;
+    /**
+     * 入院病情
+     */
+    @Column(name = "RYBQ")
+    private String rybq;
+    /**
+     * 主要诊断编码
+     */
+    @Column(name = "JBDM")
+    private String jbdm;
+
+    /**
+     * 其他诊断1
+     */
+    @Column(name = "QTZD1")
+    private String qtzd1;
+
+
+
+    /**
+     * 入院病情1
+     */
+    @Column(name = "RYBQ1")
+    private String rybq1;
+    /**
+     * 其他诊断编码1
+     */
+    @Column(name = "JBDM1")
+    private String jbdm1;
+
+    /**
+     * 其他诊断2
+     */
+    @Column(name = "QTZD2")
+    private String qtzd2;
+
+
+
+    /**
+     * 入院病情2
+     */
+    @Column(name = "RYBQ2")
+    private String rybq2;
+    /**
+     * 其他诊断代码2
+     */
+    @Column(name = "JBDM2")
+    private String jbdm2;
+
+    /**
+     * 其他诊断3
+     */
+    @Column(name = "QTZD3")
+    private String qtzd3;
+
+
+
+    /**
+     * 入院病情3
+     */
+    @Column(name = "RYBQ3")
+    private String rybq3;
+    /**
+     * 其他诊断代码3
+     */
+    @Column(name = "JBDM3")
+    private String jbdm3;
+
+    /**
+     * 其他诊断4
+     */
+    @Column(name = "QTZD4")
+    private String qtzd4;
+
+
+
+    /**
+     * 入院病情4
+     */
+    @Column(name = "RYBQ4")
+    private String rybq4;
+    /**
+     * 其他诊断代码4
+     */
+    @Column(name = "JBDM4")
+    private String jbdm4;
+    /**
+     * 其他诊断5
+     */
+    @Column(name = "QTZD5")
+    private String qtzd5;
+
+
+
+    /**
+     * 入院病情5
+     */
+    @Column(name = "RYBQ5")
+    private String rybq5;
+    /**
+     * 其他诊断代码5
+     */
+    @Column(name = "JBDM5")
+    private String jbdm5;
+
+    /**
+     * 其他诊断6
+     */
+    @Column(name = "QTZD6")
+    private String qtzd6;
+
+
+
+    /**
+     * 入院病情6
+     */
+    @Column(name = "RYBQ6")
+    private String rybq6;
+
+    /**
+     * 其他诊断代码6
+     */
+    @Column(name = "JBDM6")
+    private String jbdm6;
+
+    /**
+     * 其他诊断7
+     */
+    @Column(name = "QTZD7")
+    private String qtzd7;
+
+
+
+    /**
+     * 入院病情7
+     */
+    @Column(name = "RYBQ7")
+    private String rybq7;
+    /**
+     * 其他诊断代码7
+     */
+    @Column(name = "JBDM7")
+    private String jbdm7;
+
+    /**
+     * 其他诊断8
+     */
+    @Column(name = "QTZD8")
+    private String qtzd8;
+
+
+
+    /**
+     * 入院病情8
+     */
+    @Column(name = "RYBQ8")
+    private String rybq8;
+    /**
+     * 其他诊断代码8
+     */
+    @Column(name = "JBDM8")
+    private String jbdm8;
+
+    /**
+     * 其他诊断9
+     */
+    @Column(name = "QTZD9")
+    private String qtzd9;
+
+
+
+    /**
+     * 入院病情9
+     */
+    @Column(name = "RYBQ9")
+    private String rybq9;
+    /**
+     * 其他诊断代码9
+     */
+    @Column(name = "JBDM9")
+    private String jbdm9;
+
+    /**
+     * 其他诊断10
+     */
+    @Column(name = "QTZD10")
+    private String qtzd10;
+
+
+
+    /**
+     * 入院病情10
+     */
+    @Column(name = "RYBQ10")
+    private String rybq10;
+
+    /**
+     * 其他诊断代码10
+     */
+    @Column(name = "JBDM10")
+    private String jbdm10;
+
+    /**
+     * 其他诊断11
+     */
+    @Column(name = "QTZD11")
+    private String qtzd11;
+
+
+
+    /**
+     * 入院病情11
+     */
+    @Column(name = "RYBQ11")
+    private String rybq11;
+    /**
+     * 其他诊断代码11
+     */
+    @Column(name = "JBDM11")
+    private String jbdm11;
+
+    /**
+     * 其他诊断12
+     */
+    @Column(name = "QTZD12")
+    private String qtzd12;
+
+
+
+    /**
+     * 入院病情12
+     */
+    @Column(name = "RYBQ12")
+    private String rybq12;
+    /**
+     * 其他诊断代码12
+     */
+    @Column(name = "JBDM12")
+    private String jbdm12;
+
+    /**
+     * 其他诊断13
+     */
+    @Column(name = "QTZD13")
+    private String qtzd13;
+
+
+
+    /**
+     * 入院病情13
+     */
+    @Column(name = "RYBQ13")
+    private String rybq13;
+
+    /**
+     * 其他诊断代码13
+     */
+    @Column(name = "JBDM13")
+    private String jbdm13;
+
+    /**
+     * 其他诊断14
+     */
+    @Column(name = "QTZD14")
+    private String qtzd14;
+
+
+    /**
+     * 入院病情14
+     */
+    @Column(name = "RYBQ14")
+    private String rybq14;
+
+    /**
+     * 其他诊断代码14
+     */
+    @Column(name = "JBDM14")
+    private String jbdm14;
+
+
+    /**
+     * 其他诊断15
+     */
+    @Column(name = "QTZD15")
+    private String qtzd15;
+
+
+
+    /**
+     * 入院病情15
+     */
+    @Column(name = "RYBQ15")
+    private String rybq15;
+
+
+    /**
+     * 其他诊断代码15
+     */
+    @Column(name = "JBDM15")
+    private String jbdm15;
+
 
     /**
      * 手术及操作编码1
@@ -1163,43 +1127,6 @@ public class Hisview {
      */
     @Column(name = "MZFS7")
     private String mzfs7;
-
-    /**
-     * 麻醉医师7
-     */
-    @Column(name = "MZYS7")
-    private String mzys7;
-
-    /**
-     * 离院方式
-     */
-    @Column(name = "LYFS")
-    private String lyfs;
-
-    /**
-     * 遗嘱转院—医疗机构
-     */
-    @Column(name = "YZZY_YLJG")
-    private String yzzyYljg;
-
-    /**
-     * 遗嘱转乡镇卫生院-机构名称
-     */
-    @Column(name = "WSY_YLJG")
-    private String wsyYljg;
-
-    /**
-     * 是否有31天再住院计划
-     */
-    @Column(name = "SFZZYJH")
-    private String sfzzyjh;
-
-    /**
-     * 目的
-     */
-    @Column(name = "MD")
-    private String md;
-
     /**
      * 颅脑损伤患者入院前时间：天
      */
@@ -1217,7 +1144,151 @@ public class Hisview {
      */
     @Column(name = "RYQ_F")
     private Long ryqF;
+    /**
+     * 颅脑损伤患者入院后时间：天
+     */
+    @Column(name = "RYH_T")
+    private Long ryhT;
 
+    /**
+     * 颅脑损伤患者入院后时间：小时
+     */
+    @Column(name = "RYH_XS")
+    private BigDecimal ryhXs;
+
+    /**
+     * 颅脑损伤患者入院后时间：分
+     */
+    @Column(name = "RYH_F")
+    private Long ryhF;
+    /**
+     * 麻醉医师7
+     */
+    @Column(name = "MZYS7")
+    private String mzys7;
+
+
+    /**
+     * 是否有过敏药物
+     */
+    @Column(name = "YWGM")
+    private String ywgm;
+
+    /**
+     * 过敏药物名称
+     */
+    @Column(name = "GMYW")
+    private String gmyw;
+    /**
+     * 转科科室
+     */
+    @Column(name = "ZKKB")
+    private String zkkb;
+    /**
+     * 出院科室
+     */
+    @Column(name = "CYKB")
+    private String cykb;
+
+    /**
+     * 死亡患者是否尸检
+     */
+    @Column(name = "SWHZSJ")
+    private String swhzsj;
+    /**
+     * 出院病房
+     */
+    @Column(name = "CYBF")
+    private String cybf;
+
+
+    /**
+     * 出院时间
+     */
+    @Column(name = "CYSJ")
+    private Date cysj;
+
+    /**
+     * 出院时间时
+     */
+    @Column(name = "CYSJS")
+    private BigDecimal cysjs;
+    /**
+     * 时间住院天数
+     */
+    @Column(name = "SJZYTS")
+    private String sjzyts;
+    /**
+     * 是否有31天再住院计划
+     */
+    @Column(name = "SFZZYJH")
+    private String sfzzyjh;
+    /**
+     * 遗嘱转院—医疗机构
+     */
+    @Column(name = "YZZY_YLJG")
+    private String yzzyYljg;
+
+    /**
+     * 遗嘱转乡镇卫生院-机构名称
+     */
+    @Column(name = "WSY_YLJG")
+    private String wsyYljg;
+
+
+
+
+    /**
+     * 手术费
+     */
+    @Column(name = "SSF")
+    private BigDecimal ssf;
+    /**
+     * 护理住院费
+     */
+    @Column(name = "HLF")
+    private BigDecimal hlf;
+    /**
+     * 中草药费
+     */
+    @Column(name = "ZCYF1")
+    private BigDecimal zcyf1;
+    /**
+     * 中药类：中成药费
+     */
+    @Column(name = "ZCYF")
+    private BigDecimal zcyf;
+
+    /**
+     * 麻醉费
+     */
+    @Column(name = "MAF")
+    private BigDecimal maf;
+
+
+    /**
+     * 西药类：西药费
+     */
+    @Column(name = "XYF")
+    private BigDecimal xyf;
+
+    /**
+     * 血液和血液制品类：血费
+     */
+    @Column(name = "XF")
+    private BigDecimal xf;
+
+    /**
+     * 治疗类：非手术治疗费
+     */
+    @Column(name = "FSSZLXMF")
+    private BigDecimal fsszlxmf;
+
+    /**
+     * 其他费用
+     */
+    @Column(name = "QTFY")
+    private BigDecimal qtfy;
     /**
      * 总费用
      */
@@ -1243,18 +1314,6 @@ public class Hisview {
     private BigDecimal zlczf;
 
     /**
-     * 护理住院费
-     */
-    @Column(name = "HLF")
-    private BigDecimal hlf;
-
-    /**
-     * 其他费用
-     */
-    @Column(name = "QTFY")
-    private BigDecimal qtfy;
-
-    /**
      * 诊断类：病理诊断费
      */
     @Column(name = "BLZDF")
@@ -1278,11 +1337,7 @@ public class Hisview {
     @Column(name = "LCZDXMF")
     private BigDecimal lczdxmf;
 
-    /**
-     * 治疗类：非手术治疗费
-     */
-    @Column(name = "FSSZLXMF")
-    private BigDecimal fsszlxmf;
+
 
     /**
      * 临床物理治疗费
@@ -1291,28 +1346,23 @@ public class Hisview {
     private BigDecimal wlzlf;
 
     /**
+     * 康复类：康复费
+     */
+    @Column(name = "KFF")
+    private BigDecimal kff;
+
+
+    /**
      * 手术治疗费
      */
     @Column(name = "SSZLF")
     private BigDecimal sszlf;
 
-    /**
-     * 麻醉费
-     */
-    @Column(name = "MAF")
-    private BigDecimal maf;
 
-    /**
-     * 手术费
-     */
-    @Column(name = "SSF")
-    private BigDecimal ssf;
 
-    /**
-     * 康复类：康复费
-     */
-    @Column(name = "KFF")
-    private BigDecimal kff;
+
+
+
 
     /**
      * 中医类：中医治疗费
@@ -1320,11 +1370,6 @@ public class Hisview {
     @Column(name = "ZYZLF")
     private BigDecimal zyzlf;
 
-    /**
-     * 西药类：西药费
-     */
-    @Column(name = "XYF")
-    private BigDecimal xyf;
 
     /**
      * 抗菌药物费
@@ -1332,23 +1377,11 @@ public class Hisview {
     @Column(name = "KJYWF")
     private BigDecimal kjywf;
 
-    /**
-     * 中药类：中成药费
-     */
-    @Column(name = "ZCYF")
-    private BigDecimal zcyf;
 
-    /**
-     * 中草药费
-     */
-    @Column(name = "ZCYF1")
-    private BigDecimal zcyf1;
 
-    /**
-     * 血液和血液制品类：血费
-     */
-    @Column(name = "XF")
-    private BigDecimal xf;
+
+
+
 
     /**
      * 白蛋白类制品费
@@ -1363,6 +1396,12 @@ public class Hisview {
     private BigDecimal qdblzpf;
 
     /**
+     * 耗材类：检查用一次性医用材料费
+     */
+    @Column(name = "HCYYCLF")
+    private BigDecimal hcyyclf;
+
+    /**
      * 凝血因子类制品费
      */
     @Column(name = "NXYZLZPF")
@@ -1374,11 +1413,7 @@ public class Hisview {
     @Column(name = "XBYZLZPF")
     private BigDecimal xbyzlzpf;
 
-    /**
-     * 耗材类：检查用一次性医用材料费
-     */
-    @Column(name = "HCYYCLF")
-    private BigDecimal hcyyclf;
+
 
     /**
      * 治疗用一次性医用材料费
@@ -1398,23 +1433,7 @@ public class Hisview {
     @Column(name = "QTF")
     private BigDecimal qtf;
 
-    /**
-     * 颅脑损伤患者入院后时间：天
-     */
-    @Column(name = "RYH_T")
-    private Long ryhT;
 
-    /**
-     * 颅脑损伤患者入院后时间：小时
-     */
-    @Column(name = "RYH_XS")
-    private BigDecimal ryhXs;
-
-    /**
-     * 颅脑损伤患者入院后时间：分
-     */
-    @Column(name = "RYH_F")
-    private Long ryhF;
 
     /**
      * 获取机构id
@@ -5626,5 +5645,13 @@ public class Hisview {
      */
     public void setRyhF(Long ryhF) {
         this.ryhF = ryhF;
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
     }
 }
