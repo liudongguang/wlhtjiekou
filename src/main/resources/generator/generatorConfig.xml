@@ -2,6 +2,7 @@
 <!DOCTYPE generatorConfiguration
 		PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"  "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
 <generatorConfiguration>
+	<classPathEntry location="F:\IdeaProjects20170417\wlhtjiekou\libs\ojdbc8.jar" />
 	<context id="Mysql" targetRuntime="MyBatis3Simple" defaultModelType="flat">
 		<plugin type="tk.mybatis.mapper.generator.MapperPlugin">
 			<property name="mappers" value="tk.mybatis.mapper.common.Mapper"/>

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.wlht.impl.mapper.TBngmywMapper">
+  <resultMap id="BaseResultMap" type="com.wlht.api.po.TBngmyw">
+    <!--
+      WARNING - @mbg.generated
+    -->
+    <id column="ID" jdbcType="NUMERIC" property="id" />
+    <result column="ZBLSH" jdbcType="NUMERIC" property="zblsh" />
+    <result column="GMIDENTITY" jdbcType="VARCHAR" property="gmidentity" />
+    <result column="ZZJGDM" jdbcType="VARCHAR" property="zzjgdm" />
+    <result column="ZZJGNAME" jdbcType="VARCHAR" property="zzjgname" />
+    <result column="FZJGBSF" jdbcType="VARCHAR" property="fzjgbsf" />
+    <result column="BNH" jdbcType="VARCHAR" property="bnh" />
+    <result column="NAME" jdbcType="VARCHAR" property="name" />
+    <result column="JLH" jdbcType="VARCHAR" property="jlh" />
+    <result column="BM" jdbcType="VARCHAR" property="bm" />
+    <result column="GMYWNAME" jdbcType="VARCHAR" property="gmywname" />
+  </resultMap>
+</mapper>
