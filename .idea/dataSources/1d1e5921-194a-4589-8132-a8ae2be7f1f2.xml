@@ -17148,7 +17148,7 @@ BAIDENTITY</ColNames>
     </column>
     <column id="3613" parent="267" name="SSCZBS">
       <Position>10</Position>
-      <Comment>操作标识 </Comment>
+      <Comment>操作标识</Comment>
       <DataType>VARCHAR2(50)|0</DataType>
     </column>
     <column id="3614" parent="267" name="SSTARTTIME">
@@ -17183,7 +17183,7 @@ BAIDENTITY</ColNames>
     </column>
     <column id="3620" parent="267" name="SSXZ">
       <Position>17</Position>
-      <Comment>手术性质 </Comment>
+      <Comment>手术性质</Comment>
       <DataType>VARCHAR2(200)|0</DataType>
     </column>
     <column id="3621" parent="267" name="SSFXFJ">

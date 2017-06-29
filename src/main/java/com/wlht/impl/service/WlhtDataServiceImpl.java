@@ -63,17 +63,17 @@ public class WlhtDataServiceImpl implements WlhtDataService {
                 }
                 return true;
             }).collect(Collectors.toList());
-            //3.没有存在与本地系统的插入本地库
-//            hisDataByDate.forEach(item->{
-//                TBaBase baBase = item.getBABase();
-//                int i=baseMapper.insertSelective(baBase);
-//
-//            });
             List<TBaBase> baseList = hisDataByDate.stream().map(item -> item.getBABase(zidianservice)
             ).collect(Collectors.toList());
-            System.out.println(baseList);
-            //baseMapper.insertBatchData(baseList);
-            System.out.println(baseList);
+            //3.没有存在与本地系统的插入本地库
+            baseList.forEach(item->{
+                System.out.println(item);
+                int i=baseMapper.insertSelective(item);
+            });
+
+//            System.out.println(baseList);
+//            baseMapper.insertBatchData(baseList);
+//            System.out.println(baseList);
         } else {
             return "无可导入的数据！";
         }

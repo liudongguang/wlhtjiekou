@@ -8,6 +8,8 @@ import javax.persistence.*;
 public class TBaBase {
     @Id
     @Column(name = "ID")
+    @GeneratedValue(strategy = GenerationType.IDENTITY,
+            generator = "select SEQ_T_BA_BASE.nextval from dual")
     private Long id;
 
     /**
@@ -2558,5 +2560,120 @@ public class TBaBase {
      */
     public void setDdgfx(Integer ddgfx) {
         this.ddgfx = ddgfx;
+    }
+
+    @Override
+    public String toString() {
+        return "TBaBase{" +
+                "id=" + id +
+                ", baidentity='" + baidentity + '\'' +
+                ", zzdm='" + zzdm + '\'' +
+                ", zzname='" + zzname + '\'' +
+                ", fzjgbsf='" + fzjgbsf + '\'' +
+                ", ylfs='" + ylfs + '\'' +
+                ", jkcard='" + jkcard + '\'' +
+                ", idcard='" + idcard + '\'' +
+                ", hzhm='" + hzhm + '\'' +
+                ", banum='" + banum + '\'' +
+                ", zycs=" + zycs +
+                ", name='" + name + '\'' +
+                ", sex=" + sex +
+                ", birthday=" + birthday +
+                ", guoji='" + guoji + '\'' +
+                ", csd='" + csd + '\'' +
+                ", jiguan='" + jiguan + '\'' +
+                ", minzu='" + minzu + '\'' +
+                ", zhiye1='" + zhiye1 + '\'' +
+                ", hunyin='" + hunyin + '\'' +
+                ", juzhuxingzheng='" + juzhuxingzheng + '\'' +
+                ", xianzhuzhi='" + xianzhuzhi + '\'' +
+                ", xiandianhua='" + xiandianhua + '\'' +
+                ", xianyoubian='" + xianyoubian + '\'' +
+                ", phone='" + phone + '\'' +
+                ", email='" + email + '\'' +
+                ", hukouquhua='" + hukouquhua + '\'' +
+                ", hukoudz='" + hukoudz + '\'' +
+                ", hukouyoubian='" + hukouyoubian + '\'' +
+                ", workinfo='" + workinfo + '\'' +
+                ", dwtel='" + dwtel + '\'' +
+                ", dwyb='" + dwyb + '\'' +
+                ", lxrname='" + lxrname + '\'' +
+                ", lxrguanxi='" + lxrguanxi + '\'' +
+                ", lxrdz='" + lxrdz + '\'' +
+                ", lxrtel='" + lxrtel + '\'' +
+                ", rylj='" + rylj + '\'' +
+                ", zryljgdm='" + zryljgdm + '\'' +
+                ", zrjgname='" + zrjgname + '\'' +
+                ", rytime=" + rytime +
+                ", ryksbm='" + ryksbm + '\'' +
+                ", cytime=" + cytime +
+                ", cyksbm='" + cyksbm + '\'' +
+                ", zyksname='" + zyksname + '\'' +
+                ", swyy='" + swyy + '\'' +
+                ", swsj=" + swsj +
+                ", xuexing=" + xuexing +
+                ", rhxuexing=" + rhxuexing +
+                ", binganzhiliang=" + binganzhiliang +
+                ", zkrq=" + zkrq +
+                ", lyfs='" + lyfs + '\'' +
+                ", nijieshouyljgdm='" + nijieshouyljgdm + '\'' +
+                ", nijieshouyljgname='" + nijieshouyljgname + '\'' +
+                ", zzymd='" + zzymd + '\'' +
+                ", zzyjgts=" + zzyjgts +
+                ", rylqhmtime=" + rylqhmtime +
+                ", xsecstizhong=" + xsecstizhong +
+                ", xserytizhong=" + xserytizhong +
+                ", rybingqing='" + rybingqing + '\'' +
+                ", zhuyaozdtime=" + zhuyaozdtime +
+                ", sfbw=" + sfbw +
+                ", qjcishu=" + qjcishu +
+                ", qjsuccesscishu=" + qjsuccesscishu +
+                ", yinanbing='" + yinanbing + '\'' +
+                ", suizhen=" + suizhen +
+                ", szdays=" + szdays +
+                ", cyfhqk='" + cyfhqk + '\'' +
+                ", rycyfhqk='" + rycyfhqk + '\'' +
+                ", shoushuqh='" + shoushuqh + '\'' +
+                ", yxbl='" + yxbl + '\'' +
+                ", lcbl='" + lcbl + '\'' +
+                ", ssbdslblqk='" + ssbdslblqk + '\'' +
+                ", sqshblqk='" + sqshblqk + '\'' +
+                ", lczdsjqk='" + lczdsjqk + '\'' +
+                ", ynhzcishu=" + ynhzcishu +
+                ", wyhzcishu=" + wyhzcishu +
+                ", shuye=" + shuye +
+                ", shuyefy=" + shuyefy +
+                ", kjyymd='" + kjyymd + '\'' +
+                ", kjyyfa='" + kjyyfa + '\'' +
+                ", zhusu='" + zhusu + '\'' +
+                ", tongzhidate=" + tongzhidate +
+                ", zhikongpingfen=" + zhikongpingfen +
+                ", zhikongzhe='" + zhikongzhe + '\'' +
+                ", updatedate=" + updatedate +
+                ", binglixiugaizhe='" + binglixiugaizhe + '\'' +
+                ", shangbaobiaoji=" + shangbaobiaoji +
+                ", weishoushuqi=" + weishoushuqi +
+                ", weishoushuzhi=" + weishoushuzhi +
+                ", jbpbm='" + jbpbm + '\'' +
+                ", zlfqt='" + zlfqt + '\'' +
+                ", zlfqn='" + zlfqn + '\'' +
+                ", zlfqm='" + zlfqm + '\'' +
+                ", sfdybz=" + sfdybz +
+                ", sslclj=" + sslclj +
+                ", wclclj=" + wclclj +
+                ", tclcljyy='" + tclcljyy + '\'' +
+                ", tclcljms='" + tclcljms + '\'' +
+                ", lcljbyyy='" + lcljbyyy + '\'' +
+                ", lcljbyms='" + lcljbyms + '\'' +
+                ", zlfq='" + zlfq + '\'' +
+                ", zlfhcd='" + zlfhcd + '\'' +
+                ", zlzdyj='" + zlzdyj + '\'' +
+                ", bnbiaoshi1='" + bnbiaoshi1 + '\'' +
+                ", ageSui=" + ageSui +
+                ", ageMonth=" + ageMonth +
+                ", ageDays=" + ageDays +
+                ", ycgfx=" + ycgfx +
+                ", ddgfx=" + ddgfx +
+                '}';
     }
 }
