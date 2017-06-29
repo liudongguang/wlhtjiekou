@@ -72,6 +72,7 @@ public class WlhtDataServiceImpl implements WlhtDataService {
             ).collect(Collectors.toList());
             //3.没有存在与本地系统的插入本地库
             baseList.forEach(item->{
+                System.out.println(item);
                 int i=baseMapper.addOne(item);
             });
             return "成功导入"+hisDataByDate.size()+"条信息";

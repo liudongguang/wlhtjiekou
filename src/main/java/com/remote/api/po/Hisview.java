@@ -137,7 +137,6 @@ public class Hisview {
         return newBase;
     }
 
-
     /**
      * 机构id
      */

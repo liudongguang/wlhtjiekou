@@ -133,8 +133,11 @@
             SELECT SEQ_T_BA_BASE.NEXTVAL FROM dual
         </selectKey>
         Insert into
-        T_BA_BASE(id,baidentity,zzdm,zzname,banum,name,cyksbm,lyfs,Ylfs,Zycs,Sex,Birthday,Age_sui,Age_month,Age_days,Guoji,Xsecstizhong,Xserytizhong,Csd,Jiguan,Minzu,Idcard,Zhiye1,Hunyin,Xianzhuzhi,Xianyoubian,Hukoudz,Hukouyoubian,Workinfo,Dwtel,Dwyb,Lxrname,Lxrguanxi,Lxrdz,Lxrtel,Rylj,Rytime,Ryksbm,Cytime,Swsj,Xuexing,Rhxuexing,Binganzhiliang,Nijieshouyljgname,juzhuxingzheng,hukouquhua,ZLFQ,ZLFQM,ZLFQN,ZLFQT,XIANDIANHUA)
+        T_BA_BASE(id,baidentity,zzdm,zzname,banum,name,cyksbm,lyfs,Ylfs,Zycs,Sex,Birthday,
+        <if test="ageSui != null">
+        Age_sui,
+        </if><if test="ageMonth != null">Age_month,</if><if test="ageDays != null">Age_days,</if>Guoji,<if test="xsecstizhong != null">Xsecstizhong,</if><if test="xserytizhong != null">Xserytizhong,</if>Csd,Jiguan,Minzu,Idcard,Zhiye1,Hunyin,Xianzhuzhi,Xianyoubian,Hukoudz,Hukouyoubian,Workinfo,Dwtel,Dwyb,Lxrname,Lxrguanxi,Lxrdz,Lxrtel,Rylj,Rytime,Ryksbm,Cytime,Swsj,Xuexing,Rhxuexing,Binganzhiliang,Nijieshouyljgname,juzhuxingzheng,hukouquhua,ZLFQ,ZLFQM,ZLFQN,ZLFQT,XIANDIANHUA)
         values
-        (#{id},#{baidentity},#{zzdm},#{zzname},#{banum},#{name},#{cyksbm},#{lyfs},#{ylfs},#{zycs},#{sex},#{birthday},#{ageSui},#{ageMonth},#{ageDays},#{guoji},#{xsecstizhong},#{xserytizhong},#{csd},#{jiguan},#{minzu},#{idcard},#{zhiye1},#{hunyin},#{xianzhuzhi},#{xianyoubian},#{hukoudz},#{hukouyoubian},#{workinfo},#{dwtel},#{dwyb},#{lxrname},#{lxrguanxi},#{lxrdz},#{lxrtel},#{rylj},#{rytime},#{ryksbm},#{cytime},#{swsj},#{xuexing},#{rhxuexing},#{binganzhiliang},#{nijieshouyljgname},#{juzhuxingzheng},#{hukouquhua},#{zlfq},#{zlfqm},#{zlfqn},#{zlfqt},#{xiandianhua})
+        (#{id},#{baidentity},#{zzdm},#{zzname},#{banum},#{name},#{cyksbm},#{lyfs},#{ylfs},#{zycs},#{sex},#{birthday}, <if test="ageSui != null">#{ageSui},</if> <if test="ageMonth != null">#{ageMonth},</if> <if test="ageDays != null">#{ageDays},</if>#{guoji},<if test="xsecstizhong != null">#{xsecstizhong},</if><if test="xserytizhong != null">#{xserytizhong},</if>#{csd},#{jiguan},#{minzu},#{idcard},#{zhiye1},#{hunyin},#{xianzhuzhi},#{xianyoubian},#{hukoudz},#{hukouyoubian},#{workinfo},#{dwtel},#{dwyb},#{lxrname},#{lxrguanxi},#{lxrdz},#{lxrtel},#{rylj},#{rytime},#{ryksbm},#{cytime},#{swsj},#{xuexing},#{rhxuexing},#{binganzhiliang},#{nijieshouyljgname},#{juzhuxingzheng},#{hukouquhua},#{zlfq},#{zlfqm},#{zlfqn},#{zlfqt},#{xiandianhua})
     </insert>
 </mapper>

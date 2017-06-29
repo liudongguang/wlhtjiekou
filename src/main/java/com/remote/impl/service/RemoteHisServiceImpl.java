@@ -28,10 +28,10 @@ public class RemoteHisServiceImpl implements RemoteHisService {
     }
 
     @Override
-    public int addRemotePatients(List<HisviewExt> rslist) {
+    public int addRemotePatients(List<Hisview> rslist) {
         rslist.forEach(item->{
-            item.setId(null);
-            hisviewMapper.addHisviewExt(item);
+            //item.setId(null);
+            hisviewMapper.insertSelective(item);
         });
         return 0;
     }

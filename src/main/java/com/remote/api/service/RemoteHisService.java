@@ -14,5 +14,5 @@ public interface RemoteHisService {
 
     List<Hisview> selectBADateFromHis(ImportParam param);
 
-    int addRemotePatients(List<HisviewExt> rslist);
+    int addRemotePatients(List<Hisview> rslist);
 }

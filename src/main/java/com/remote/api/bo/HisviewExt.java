@@ -13,10 +13,7 @@ import java.util.Date;
 @Table(name = "HISVIEW")
 public class HisviewExt{
     private Long id;
-    /**
-     * 机构id
-     */
-    @Column(name = "JGID")
+
     private String jgid;
 
     /**

@@ -311,6 +311,8 @@ public class ExcelUtils<T> {
             case SysConstant.type_String:
                 if (StringUtils.isNotBlank(val)) {
                     field.set(t, val);
+                }else{
+                    field.set(t, "");
                 }
                 break;
             case SysConstant.type_BigDecimal:
