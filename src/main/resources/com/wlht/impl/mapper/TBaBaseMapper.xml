@@ -1,121 +1,128 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.wlht.impl.mapper.TBaBaseMapper">
-  <resultMap id="BaseResultMap" type="com.wlht.api.po.TBaBase">
-    <!--
-      WARNING - @mbg.generated
-    -->
-    <id column="ID" jdbcType="NUMERIC" property="id" />
-    <result column="BAIDENTITY" jdbcType="VARCHAR" property="baidentity" />
-    <result column="ZZDM" jdbcType="VARCHAR" property="zzdm" />
-    <result column="ZZNAME" jdbcType="VARCHAR" property="zzname" />
-    <result column="FZJGBSF" jdbcType="VARCHAR" property="fzjgbsf" />
-    <result column="YLFS" jdbcType="VARCHAR" property="ylfs" />
-    <result column="JKCARD" jdbcType="VARCHAR" property="jkcard" />
-    <result column="IDCARD" jdbcType="VARCHAR" property="idcard" />
-    <result column="HZHM" jdbcType="VARCHAR" property="hzhm" />
-    <result column="BANUM" jdbcType="VARCHAR" property="banum" />
-    <result column="ZYCS" jdbcType="NUMERIC" property="zycs" />
-    <result column="NAME" jdbcType="VARCHAR" property="name" />
-    <result column="SEX" jdbcType="NUMERIC" property="sex" />
-    <result column="BIRTHDAY" jdbcType="TIMESTAMP" property="birthday" />
-    <result column="GUOJI" jdbcType="VARCHAR" property="guoji" />
-    <result column="CSD" jdbcType="VARCHAR" property="csd" />
-    <result column="JIGUAN" jdbcType="VARCHAR" property="jiguan" />
-    <result column="MINZU" jdbcType="VARCHAR" property="minzu" />
-    <result column="ZHIYE1" jdbcType="VARCHAR" property="zhiye1" />
-    <result column="HUNYIN" jdbcType="VARCHAR" property="hunyin" />
-    <result column="JUZHUXINGZHENG" jdbcType="VARCHAR" property="juzhuxingzheng" />
-    <result column="XIANZHUZHI" jdbcType="VARCHAR" property="xianzhuzhi" />
-    <result column="XIANDIANHUA" jdbcType="VARCHAR" property="xiandianhua" />
-    <result column="XIANYOUBIAN" jdbcType="VARCHAR" property="xianyoubian" />
-    <result column="PHONE" jdbcType="VARCHAR" property="phone" />
-    <result column="EMAIL" jdbcType="VARCHAR" property="email" />
-    <result column="HUKOUQUHUA" jdbcType="VARCHAR" property="hukouquhua" />
-    <result column="HUKOUDZ" jdbcType="VARCHAR" property="hukoudz" />
-    <result column="HUKOUYOUBIAN" jdbcType="VARCHAR" property="hukouyoubian" />
-    <result column="WORKINFO" jdbcType="VARCHAR" property="workinfo" />
-    <result column="DWTEL" jdbcType="VARCHAR" property="dwtel" />
-    <result column="DWYB" jdbcType="VARCHAR" property="dwyb" />
-    <result column="LXRNAME" jdbcType="VARCHAR" property="lxrname" />
-    <result column="LXRGUANXI" jdbcType="VARCHAR" property="lxrguanxi" />
-    <result column="LXRDZ" jdbcType="VARCHAR" property="lxrdz" />
-    <result column="LXRTEL" jdbcType="VARCHAR" property="lxrtel" />
-    <result column="RYLJ" jdbcType="VARCHAR" property="rylj" />
-    <result column="ZRYLJGDM" jdbcType="VARCHAR" property="zryljgdm" />
-    <result column="ZRJGNAME" jdbcType="VARCHAR" property="zrjgname" />
-    <result column="RYTIME" jdbcType="TIMESTAMP" property="rytime" />
-    <result column="RYKSBM" jdbcType="VARCHAR" property="ryksbm" />
-    <result column="CYTIME" jdbcType="TIMESTAMP" property="cytime" />
-    <result column="CYKSBM" jdbcType="VARCHAR" property="cyksbm" />
-    <result column="ZYKSNAME" jdbcType="VARCHAR" property="zyksname" />
-    <result column="SWYY" jdbcType="VARCHAR" property="swyy" />
-    <result column="SWSJ" jdbcType="NUMERIC" property="swsj" />
-    <result column="XUEXING" jdbcType="NUMERIC" property="xuexing" />
-    <result column="RHXUEXING" jdbcType="NUMERIC" property="rhxuexing" />
-    <result column="BINGANZHILIANG" jdbcType="NUMERIC" property="binganzhiliang" />
-    <result column="ZKRQ" jdbcType="TIMESTAMP" property="zkrq" />
-    <result column="LYFS" jdbcType="VARCHAR" property="lyfs" />
-    <result column="NIJIESHOUYLJGDM" jdbcType="VARCHAR" property="nijieshouyljgdm" />
-    <result column="NIJIESHOUYLJGNAME" jdbcType="VARCHAR" property="nijieshouyljgname" />
-    <result column="ZZYMD" jdbcType="VARCHAR" property="zzymd" />
-    <result column="ZZYJGTS" jdbcType="NUMERIC" property="zzyjgts" />
-    <result column="RYLQHMTIME" jdbcType="TIMESTAMP" property="rylqhmtime" />
-    <result column="XSECSTIZHONG" jdbcType="NUMERIC" property="xsecstizhong" />
-    <result column="XSERYTIZHONG" jdbcType="NUMERIC" property="xserytizhong" />
-    <result column="RYBINGQING" jdbcType="VARCHAR" property="rybingqing" />
-    <result column="ZHUYAOZDTIME" jdbcType="TIMESTAMP" property="zhuyaozdtime" />
-    <result column="SFBW" jdbcType="NUMERIC" property="sfbw" />
-    <result column="QJCISHU" jdbcType="NUMERIC" property="qjcishu" />
-    <result column="QJSUCCESSCISHU" jdbcType="NUMERIC" property="qjsuccesscishu" />
-    <result column="YINANBING" jdbcType="VARCHAR" property="yinanbing" />
-    <result column="SUIZHEN" jdbcType="NUMERIC" property="suizhen" />
-    <result column="SZDAYS" jdbcType="NUMERIC" property="szdays" />
-    <result column="CYFHQK" jdbcType="VARCHAR" property="cyfhqk" />
-    <result column="RYCYFHQK" jdbcType="VARCHAR" property="rycyfhqk" />
-    <result column="SHOUSHUQH" jdbcType="VARCHAR" property="shoushuqh" />
-    <result column="YXBL" jdbcType="VARCHAR" property="yxbl" />
-    <result column="LCBL" jdbcType="VARCHAR" property="lcbl" />
-    <result column="SSBDSLBLQK" jdbcType="VARCHAR" property="ssbdslblqk" />
-    <result column="SQSHBLQK" jdbcType="VARCHAR" property="sqshblqk" />
-    <result column="LCZDSJQK" jdbcType="VARCHAR" property="lczdsjqk" />
-    <result column="YNHZCISHU" jdbcType="NUMERIC" property="ynhzcishu" />
-    <result column="WYHZCISHU" jdbcType="NUMERIC" property="wyhzcishu" />
-    <result column="SHUYE" jdbcType="NUMERIC" property="shuye" />
-    <result column="SHUYEFY" jdbcType="NUMERIC" property="shuyefy" />
-    <result column="KJYYMD" jdbcType="VARCHAR" property="kjyymd" />
-    <result column="KJYYFA" jdbcType="VARCHAR" property="kjyyfa" />
-    <result column="ZHUSU" jdbcType="VARCHAR" property="zhusu" />
-    <result column="TONGZHIDATE" jdbcType="TIMESTAMP" property="tongzhidate" />
-    <result column="ZHIKONGPINGFEN" jdbcType="NUMERIC" property="zhikongpingfen" />
-    <result column="ZHIKONGZHE" jdbcType="VARCHAR" property="zhikongzhe" />
-    <result column="UPDATEDATE" jdbcType="TIMESTAMP" property="updatedate" />
-    <result column="BINGLIXIUGAIZHE" jdbcType="VARCHAR" property="binglixiugaizhe" />
-    <result column="SHANGBAOBIAOJI" jdbcType="NUMERIC" property="shangbaobiaoji" />
-    <result column="WEISHOUSHUQI" jdbcType="TIMESTAMP" property="weishoushuqi" />
-    <result column="WEISHOUSHUZHI" jdbcType="TIMESTAMP" property="weishoushuzhi" />
-    <result column="JBPBM" jdbcType="VARCHAR" property="jbpbm" />
-    <result column="ZLFQT" jdbcType="VARCHAR" property="zlfqt" />
-    <result column="ZLFQN" jdbcType="VARCHAR" property="zlfqn" />
-    <result column="ZLFQM" jdbcType="VARCHAR" property="zlfqm" />
-    <result column="SFDYBZ" jdbcType="NUMERIC" property="sfdybz" />
-    <result column="SSLCLJ" jdbcType="NUMERIC" property="sslclj" />
-    <result column="WCLCLJ" jdbcType="NUMERIC" property="wclclj" />
-    <result column="TCLCLJYY" jdbcType="VARCHAR" property="tclcljyy" />
-    <result column="TCLCLJMS" jdbcType="VARCHAR" property="tclcljms" />
-    <result column="LCLJBYYY" jdbcType="VARCHAR" property="lcljbyyy" />
-    <result column="LCLJBYMS" jdbcType="VARCHAR" property="lcljbyms" />
-    <result column="ZLFQ" jdbcType="VARCHAR" property="zlfq" />
-    <result column="ZLFHCD" jdbcType="VARCHAR" property="zlfhcd" />
-    <result column="ZLZDYJ" jdbcType="VARCHAR" property="zlzdyj" />
-    <result column="BNBIAOSHI1" jdbcType="VARCHAR" property="bnbiaoshi1" />
-    <result column="AGE_SUI" jdbcType="NUMERIC" property="ageSui" />
-    <result column="AGE_MONTH" jdbcType="NUMERIC" property="ageMonth" />
-    <result column="AGE_DAYS" jdbcType="NUMERIC" property="ageDays" />
-    <result column="YCGFX" jdbcType="NUMERIC" property="ycgfx" />
-    <result column="DDGFX" jdbcType="NUMERIC" property="ddgfx" />
-  </resultMap>
-  <select id="selectByWeiyiBiaoShi" resultType="long">
+    <resultMap id="BaseResultMap" type="com.wlht.api.po.TBaBase">
+        <!--
+          WARNING - @mbg.generated
+        -->
+        <id column="ID" jdbcType="NUMERIC" property="id"/>
+        <result column="BAIDENTITY" jdbcType="VARCHAR" property="baidentity"/>
+        <result column="ZZDM" jdbcType="VARCHAR" property="zzdm"/>
+        <result column="ZZNAME" jdbcType="VARCHAR" property="zzname"/>
+        <result column="FZJGBSF" jdbcType="VARCHAR" property="fzjgbsf"/>
+        <result column="YLFS" jdbcType="VARCHAR" property="ylfs"/>
+        <result column="JKCARD" jdbcType="VARCHAR" property="jkcard"/>
+        <result column="IDCARD" jdbcType="VARCHAR" property="idcard"/>
+        <result column="HZHM" jdbcType="VARCHAR" property="hzhm"/>
+        <result column="BANUM" jdbcType="VARCHAR" property="banum"/>
+        <result column="ZYCS" jdbcType="NUMERIC" property="zycs"/>
+        <result column="NAME" jdbcType="VARCHAR" property="name"/>
+        <result column="SEX" jdbcType="NUMERIC" property="sex"/>
+        <result column="BIRTHDAY" jdbcType="TIMESTAMP" property="birthday"/>
+        <result column="GUOJI" jdbcType="VARCHAR" property="guoji"/>
+        <result column="CSD" jdbcType="VARCHAR" property="csd"/>
+        <result column="JIGUAN" jdbcType="VARCHAR" property="jiguan"/>
+        <result column="MINZU" jdbcType="VARCHAR" property="minzu"/>
+        <result column="ZHIYE1" jdbcType="VARCHAR" property="zhiye1"/>
+        <result column="HUNYIN" jdbcType="VARCHAR" property="hunyin"/>
+        <result column="JUZHUXINGZHENG" jdbcType="VARCHAR" property="juzhuxingzheng"/>
+        <result column="XIANZHUZHI" jdbcType="VARCHAR" property="xianzhuzhi"/>
+        <result column="XIANDIANHUA" jdbcType="VARCHAR" property="xiandianhua"/>
+        <result column="XIANYOUBIAN" jdbcType="VARCHAR" property="xianyoubian"/>
+        <result column="PHONE" jdbcType="VARCHAR" property="phone"/>
+        <result column="EMAIL" jdbcType="VARCHAR" property="email"/>
+        <result column="HUKOUQUHUA" jdbcType="VARCHAR" property="hukouquhua"/>
+        <result column="HUKOUDZ" jdbcType="VARCHAR" property="hukoudz"/>
+        <result column="HUKOUYOUBIAN" jdbcType="VARCHAR" property="hukouyoubian"/>
+        <result column="WORKINFO" jdbcType="VARCHAR" property="workinfo"/>
+        <result column="DWTEL" jdbcType="VARCHAR" property="dwtel"/>
+        <result column="DWYB" jdbcType="VARCHAR" property="dwyb"/>
+        <result column="LXRNAME" jdbcType="VARCHAR" property="lxrname"/>
+        <result column="LXRGUANXI" jdbcType="VARCHAR" property="lxrguanxi"/>
+        <result column="LXRDZ" jdbcType="VARCHAR" property="lxrdz"/>
+        <result column="LXRTEL" jdbcType="VARCHAR" property="lxrtel"/>
+        <result column="RYLJ" jdbcType="VARCHAR" property="rylj"/>
+        <result column="ZRYLJGDM" jdbcType="VARCHAR" property="zryljgdm"/>
+        <result column="ZRJGNAME" jdbcType="VARCHAR" property="zrjgname"/>
+        <result column="RYTIME" jdbcType="TIMESTAMP" property="rytime"/>
+        <result column="RYKSBM" jdbcType="VARCHAR" property="ryksbm"/>
+        <result column="CYTIME" jdbcType="TIMESTAMP" property="cytime"/>
+        <result column="CYKSBM" jdbcType="VARCHAR" property="cyksbm"/>
+        <result column="ZYKSNAME" jdbcType="VARCHAR" property="zyksname"/>
+        <result column="SWYY" jdbcType="VARCHAR" property="swyy"/>
+        <result column="SWSJ" jdbcType="NUMERIC" property="swsj"/>
+        <result column="XUEXING" jdbcType="NUMERIC" property="xuexing"/>
+        <result column="RHXUEXING" jdbcType="NUMERIC" property="rhxuexing"/>
+        <result column="BINGANZHILIANG" jdbcType="NUMERIC" property="binganzhiliang"/>
+        <result column="ZKRQ" jdbcType="TIMESTAMP" property="zkrq"/>
+        <result column="LYFS" jdbcType="VARCHAR" property="lyfs"/>
+        <result column="NIJIESHOUYLJGDM" jdbcType="VARCHAR" property="nijieshouyljgdm"/>
+        <result column="NIJIESHOUYLJGNAME" jdbcType="VARCHAR" property="nijieshouyljgname"/>
+        <result column="ZZYMD" jdbcType="VARCHAR" property="zzymd"/>
+        <result column="ZZYJGTS" jdbcType="NUMERIC" property="zzyjgts"/>
+        <result column="RYLQHMTIME" jdbcType="TIMESTAMP" property="rylqhmtime"/>
+        <result column="XSECSTIZHONG" jdbcType="NUMERIC" property="xsecstizhong"/>
+        <result column="XSERYTIZHONG" jdbcType="NUMERIC" property="xserytizhong"/>
+        <result column="RYBINGQING" jdbcType="VARCHAR" property="rybingqing"/>
+        <result column="ZHUYAOZDTIME" jdbcType="TIMESTAMP" property="zhuyaozdtime"/>
+        <result column="SFBW" jdbcType="NUMERIC" property="sfbw"/>
+        <result column="QJCISHU" jdbcType="NUMERIC" property="qjcishu"/>
+        <result column="QJSUCCESSCISHU" jdbcType="NUMERIC" property="qjsuccesscishu"/>
+        <result column="YINANBING" jdbcType="VARCHAR" property="yinanbing"/>
+        <result column="SUIZHEN" jdbcType="NUMERIC" property="suizhen"/>
+        <result column="SZDAYS" jdbcType="NUMERIC" property="szdays"/>
+        <result column="CYFHQK" jdbcType="VARCHAR" property="cyfhqk"/>
+        <result column="RYCYFHQK" jdbcType="VARCHAR" property="rycyfhqk"/>
+        <result column="SHOUSHUQH" jdbcType="VARCHAR" property="shoushuqh"/>
+        <result column="YXBL" jdbcType="VARCHAR" property="yxbl"/>
+        <result column="LCBL" jdbcType="VARCHAR" property="lcbl"/>
+        <result column="SSBDSLBLQK" jdbcType="VARCHAR" property="ssbdslblqk"/>
+        <result column="SQSHBLQK" jdbcType="VARCHAR" property="sqshblqk"/>
+        <result column="LCZDSJQK" jdbcType="VARCHAR" property="lczdsjqk"/>
+        <result column="YNHZCISHU" jdbcType="NUMERIC" property="ynhzcishu"/>
+        <result column="WYHZCISHU" jdbcType="NUMERIC" property="wyhzcishu"/>
+        <result column="SHUYE" jdbcType="NUMERIC" property="shuye"/>
+        <result column="SHUYEFY" jdbcType="NUMERIC" property="shuyefy"/>
+        <result column="KJYYMD" jdbcType="VARCHAR" property="kjyymd"/>
+        <result column="KJYYFA" jdbcType="VARCHAR" property="kjyyfa"/>
+        <result column="ZHUSU" jdbcType="VARCHAR" property="zhusu"/>
+        <result column="TONGZHIDATE" jdbcType="TIMESTAMP" property="tongzhidate"/>
+        <result column="ZHIKONGPINGFEN" jdbcType="NUMERIC" property="zhikongpingfen"/>
+        <result column="ZHIKONGZHE" jdbcType="VARCHAR" property="zhikongzhe"/>
+        <result column="UPDATEDATE" jdbcType="TIMESTAMP" property="updatedate"/>
+        <result column="BINGLIXIUGAIZHE" jdbcType="VARCHAR" property="binglixiugaizhe"/>
+        <result column="SHANGBAOBIAOJI" jdbcType="NUMERIC" property="shangbaobiaoji"/>
+        <result column="WEISHOUSHUQI" jdbcType="TIMESTAMP" property="weishoushuqi"/>
+        <result column="WEISHOUSHUZHI" jdbcType="TIMESTAMP" property="weishoushuzhi"/>
+        <result column="JBPBM" jdbcType="VARCHAR" property="jbpbm"/>
+        <result column="ZLFQT" jdbcType="VARCHAR" property="zlfqt"/>
+        <result column="ZLFQN" jdbcType="VARCHAR" property="zlfqn"/>
+        <result column="ZLFQM" jdbcType="VARCHAR" property="zlfqm"/>
+        <result column="SFDYBZ" jdbcType="NUMERIC" property="sfdybz"/>
+        <result column="SSLCLJ" jdbcType="NUMERIC" property="sslclj"/>
+        <result column="WCLCLJ" jdbcType="NUMERIC" property="wclclj"/>
+        <result column="TCLCLJYY" jdbcType="VARCHAR" property="tclcljyy"/>
+        <result column="TCLCLJMS" jdbcType="VARCHAR" property="tclcljms"/>
+        <result column="LCLJBYYY" jdbcType="VARCHAR" property="lcljbyyy"/>
+        <result column="LCLJBYMS" jdbcType="VARCHAR" property="lcljbyms"/>
+        <result column="ZLFQ" jdbcType="VARCHAR" property="zlfq"/>
+        <result column="ZLFHCD" jdbcType="VARCHAR" property="zlfhcd"/>
+        <result column="ZLZDYJ" jdbcType="VARCHAR" property="zlzdyj"/>
+        <result column="BNBIAOSHI1" jdbcType="VARCHAR" property="bnbiaoshi1"/>
+        <result column="AGE_SUI" jdbcType="NUMERIC" property="ageSui"/>
+        <result column="AGE_MONTH" jdbcType="NUMERIC" property="ageMonth"/>
+        <result column="AGE_DAYS" jdbcType="NUMERIC" property="ageDays"/>
+        <result column="YCGFX" jdbcType="NUMERIC" property="ycgfx"/>
+        <result column="DDGFX" jdbcType="NUMERIC" property="ddgfx"/>
+    </resultMap>
+    <select id="selectByWeiyiBiaoShi" resultType="long">
     SELECT id from T_BA_BASE where BAIDENTITY=#{weiyibiaoshi}
   </select>
+    <insert id="insertBatchData" parameterType="java.util.List">
+        Insert into
+        T_BA_BASE(baidentity,zzdm,zzname,banum,name,cyksbm,lyfs,Ylfs,Zycs,Sex,Birthday,Age_sui,Age_month,Age_days,Guoji,Xsecstizhong,Xserytizhong,Csd,Jiguan,Minzu,Idcard,Zhiye1,Hunyin,Xianzhuzhi,Xianyoubian,Hukoudz,Hukouyoubian,Workinfo,Dwtel,Dwyb,Lxrname,Lxrguanxi,Lxrdz,Lxrtel,Rylj,Rytime,Ryksbm,Cytime,Swsj,Xuexing,Rhxuexing,Binganzhiliang,Nijieshouyljgname,juzhuxingzheng,hukouquhua,ZLFQ,ZLFQM,ZLFQN,ZLFQT,XIANDIANHUA)
+        <foreach collection="list" item="obj" separator="union all">
+            (select #{obj.baidentity},#{obj.zzdm},#{obj.zzname},#{obj.banum},#{obj.name},#{obj.cyksbm},#{obj.lyfs},#{obj.ylfs},#{obj.zycs},#{obj.sex},#{obj.birthday},#{obj.ageSui},#{obj.ageMonth},#{obj.ageDays},#{obj.guoji},#{obj.xsecstizhong},#{obj.xserytizhong},#{obj.csd},#{obj.jiguan},#{obj.minzu},#{obj.idcard},#{obj.zhiye1},#{obj.hunyin},#{obj.xianzhuzhi},#{obj.xianyoubian},#{obj.hukoudz},#{obj.hukouyoubian},#{obj.workinfo},#{obj.dwtel},#{obj.dwyb},#{obj.lxrname},#{obj.lxrguanxi},#{obj.lxrdz},#{obj.lxrtel},#{obj.rylj},#{obj.rytime},#{obj.ryksbm},#{obj.cytime},#{obj.swsj},#{obj.xuexing},#{obj.rhxuexing},#{obj.binganzhiliang},#{obj.nijieshouyljgname},#{obj.juzhuxingzheng},#{obj.hukouquhua},#{obj.zlfq},#{obj.zlfqm},#{obj.zlfqn},#{obj.zlfqt},#{obj.xiandianhua} from dual)
+        </foreach>
+    </insert>
 </mapper>

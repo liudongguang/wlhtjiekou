@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.wlht.impl.mapper.StdhospitalofficeMapper">
+  <resultMap id="BaseResultMap" type="com.wlht.api.po.Stdhospitaloffice">
+    <!--
+      WARNING - @mbg.generated
+    -->
+    <id column="ID" jdbcType="NUMERIC" property="id" />
+    <result column="CCCODE_" jdbcType="VARCHAR" property="cccode" />
+    <result column="CODE_" jdbcType="VARCHAR" property="code" />
+    <result column="COMMENT_" jdbcType="VARCHAR" property="comment" />
+    <result column="EXISTINGBED_" jdbcType="NUMERIC" property="existingbed" />
+    <result column="FLAG_" jdbcType="NUMERIC" property="flag" />
+    <result column="FORMATIONBED_" jdbcType="NUMERIC" property="formationbed" />
+    <result column="INDEXCODE_" jdbcType="VARCHAR" property="indexcode" />
+    <result column="ISLEAF_" jdbcType="NUMERIC" property="isleaf" />
+    <result column="LEVEL_" jdbcType="NUMERIC" property="level" />
+    <result column="NAME_" jdbcType="VARCHAR" property="name" />
+    <result column="NAMEEN_" jdbcType="VARCHAR" property="nameen" />
+    <result column="NAMES_" jdbcType="VARCHAR" property="names" />
+    <result column="NAMESEN_" jdbcType="VARCHAR" property="namesen" />
+    <result column="ORGCODE_" jdbcType="VARCHAR" property="orgcode" />
+    <result column="PARENT_" jdbcType="VARCHAR" property="parent" />
+    <result column="PARENTID_" jdbcType="NUMERIC" property="parentid" />
+    <result column="SEQNO_" jdbcType="VARCHAR" property="seqno" />
+    <result column="SUBORGCODE_" jdbcType="VARCHAR" property="suborgcode" />
+    <result column="INTRO_" jdbcType="VARCHAR" property="intro" />
+    <result column="OFFICETYPE_" jdbcType="VARCHAR" property="officetype" />
+  </resultMap>
+  <select id="getKeshiCodeByName" resultType="string">
+    SELECT CODE_ from STDHOSPITALOFFICE_ where NAME_ LIKE #{name}||'%'
+  </select>
+</mapper>

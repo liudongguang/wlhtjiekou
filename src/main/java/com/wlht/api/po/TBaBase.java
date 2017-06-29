@@ -5,9 +5,11 @@ import java.util.Date;
 import javax.persistence.*;
 
 @Table(name = "T_BA_BASE")
+@SequenceGenerator(name="SEQ_T_BA_base",sequenceName="SEQ_T_BA_BASE",allocationSize=1)
 public class TBaBase {
     @Id
     @Column(name = "ID")
+    @GeneratedValue(strategy=GenerationType.SEQUENCE,generator="SEQ_T_BA_base")
     private Long id;
 
     /**

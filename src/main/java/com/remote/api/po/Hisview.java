@@ -1,17 +1,142 @@
 package com.remote.api.po;
 
+import com.ldg.api.util.DateUtil;
+import com.wlht.api.SysConstant;
+import com.wlht.api.WlhtDataReverseHelper;
+import com.wlht.api.WlhtStringUtil;
 import com.wlht.api.po.TBaBase;
+import com.wlht.api.service.ZiDianService;
+import org.apache.commons.lang3.StringUtils;
 
 import java.math.BigDecimal;
+import java.text.ParseException;
 import java.util.Date;
 import javax.persistence.*;
 
 @Table(name = "HISVIEW")
 public class Hisview {
-    public TBaBase getBABase(){
-        TBaBase base=new TBaBase();
-        return base;
+    public TBaBase getBABase(ZiDianService zdService) {
+        TBaBase newBase = new TBaBase();
+        newBase.setZzdm(SysConstant.zzdm);
+        newBase.setZzname(SysConstant.zzdmName);
+        newBase.setBaidentity(WlhtStringUtil.getBaIdentity(this.sku));// //3.病案号标识码
+        newBase.setYlfs(WlhtDataReverseHelper.getYlfs(this.ylfkfs));// 4.医疗付款方式
+        if (StringUtils.isNotBlank(this.zycs)) {
+            newBase.setZycs(Integer.parseInt(this.zycs));// 5.住院次数
+        }
+        newBase.setBanum(this.bah);// 6.住院号
+        newBase.setName(this.xm);// 7.病人姓名
+        newBase.setSex(WlhtDataReverseHelper.getXb(this.xb));//8.性别
+        if (StringUtils.isNotBlank(this.csrq)) {
+            try {
+                newBase.setBirthday(DateUtil.yyyy_MM_dd_HH_mmFormat
+                        .parse(this.csrq));
+            } catch (ParseException e) {
+                e.printStackTrace();
+            }// 9.出生日期
+        }
+//        String sui = base.getNianLing();// 10.年齡
+//        if (null != sui && sui.trim().length() >= 1) {
+//            if (sui.contains("岁")) {
+//                String suiStr = sui.substring(0, sui.indexOf("岁"));
+//                if (StrHandler.isNum(suiStr)
+//                        && (!StrHandler.isExsist(suiStr, "-"))) {
+//                    if (!suiStr.contains(".")) {
+//                        newBase.setAge_sui(Integer.parseInt(suiStr));
+//                    } else {
+//                        newBase.setAge_sui(Integer.parseInt(suiStr
+//                                .substring(0, suiStr.indexOf("."))));
+//                    }
+//                }
+//            } else {
+//                // System.out.println(sui);
+//            }
+//
+//        }
+//        // 没有设置过岁 5个月2天
+//        String xinshengerNianLing = base.getXinShengErNianling();
+//        String geStr = "个";
+//        if (StrHandler.isExsist(xinshengerNianLing, geStr)) {
+//            String numStr = xinshengerNianLing.substring(0,
+//                    xinshengerNianLing.indexOf(geStr));
+//            if (StrHandler.isKeYongNum(numStr)) {
+//                newBase.setAge_month(Integer.parseInt(numStr));
+//            }
+//        }
+//        String yueStr = "月";
+//        String tianStr = "天";
+//        // 没有设置过月
+//        if (StrHandler.isExsist(xinshengerNianLing, yueStr)
+//                && StrHandler.isExsist(xinshengerNianLing, tianStr)) {
+//            String numStr = xinshengerNianLing.substring(
+//                    xinshengerNianLing.indexOf(yueStr) + 1,
+//                    xinshengerNianLing.indexOf(tianStr));
+//            if (StrHandler.isKeYongNum(numStr)) {
+//                newBase.setAge_days(Integer.parseInt(numStr));
+//            }
+//        }
+
+        newBase.setGuoji("156");   //国籍
+        if (this.xsecstz != null) {
+            newBase.setXsecstizhong(this.xsecstz);// 12.新出生儿出生体重
+        }
+        if (this.xserytz != null) {
+            newBase.setXserytizhong(this.xserytz);// 13.新生儿入院体重
+        }
+        newBase.setCsd(this.csd);// 14.出生地
+        newBase.setJiguan(this.gg);// 15籍贯
+        if (StringUtils.isNotBlank(this.mz)) {
+            newBase.setMinzu(zdService.getMinZuCodeByName(this.mz)); // 16.民族
+        }
+        newBase.setIdcard(this.sfzh);// 17.身份证号
+        newBase.setZhiye1(WlhtDataReverseHelper.getzhiye(this.zy));// 18.职业
+        newBase.setHunyin(WlhtDataReverseHelper.gethunyin(this.hy));// //19.婚姻
+        newBase.setXianzhuzhi(this.xzz);// 20.现住址
+        newBase.setXiandianhua(this.dh);//现住址电话
+        newBase.setXianyoubian(this.yb1);// 21.现住址邮编
+        newBase.setHukoudz(this.hkdz);// 22.户口地址
+        newBase.setHukouyoubian(this.yb2);// 23.户口邮编
+        newBase.setWorkinfo(this.gzdwjdz);// 24.工作单位及地址
+        newBase.setDwtel(this.dwdh);// 25.单位电话
+        newBase.setDwyb(this.yb3);// 26.单位邮编
+        newBase.setLxrname(this.lxrxm);// 27.联系人姓名
+        newBase.setLxrguanxi(zdService.getLXRGX(this.gx));// 28.与联系人关系
+        newBase.setLxrdz(this.dz);// 29联系人地址工作单位及地址
+        newBase.setLxrtel(this.dh2);// 30.联系人电话
+        newBase.setRylj(WlhtDataReverseHelper.getrytj(this.rytj));// 31.入院途径
+        newBase.setRytime(this.rysj);// 32.入院时间
+        newBase.setRyksbm(zdService.getKeshiCodeByName(this.rykb));// 33.入院科室
+        newBase.setCytime(this.cysj);// 34.出院时间
+        newBase.setCyksbm(zdService.getKeshiCodeByName(this.cykb));// 35.出院科室
+        if (StringUtils.isNotBlank(swhzsj)) {
+            if (swhzsj.equals("-")) {
+                newBase.setSwsj(0);//
+            } else if (swhzsj.equals("有")) {
+                newBase.setSwsj(1);// 36.死亡患者是否尸检 有
+            }
+        }
+        newBase.setXuexing(WlhtDataReverseHelper.getXx(this.xx));// 37.血型
+        newBase.setRhxuexing(WlhtDataReverseHelper.getRh(this.rh));// 38.rh 血型
+        //String bazhiliang = base.getBingAnZhiLiang();
+        newBase.setBinganzhiliang(1);// 39.病案质量
+        String lyfs=WlhtDataReverseHelper.getYLFS(this.lyfs);
+        newBase.setLyfs(lyfs);// 40.离院方式
+        if(StringUtils.isNotBlank(lyfs)){
+            if (lyfs.equals("2")) {
+                newBase.setNijieshouyljgname(this.yzzyYljg);// 41.医嘱转院，拟接受机构名称
+            } else if (lyfs.equals("3")) {
+                newBase.setNijieshouyljgname(this.wsyYljg);// 42.医嘱转院，医嘱转社区卫生机构/乡镇卫生院
+            }
+        }
+
+        // String zzyjh = this.sfzzyjh;;// 43.在住院计划 1.无 2.有
+
+        if(StringUtils.isNotBlank(this.md)){
+            newBase.setZzymd(this.md.trim());// 44.在住院目的
+        }
+        return newBase;
     }
+
     private Long id;
     /**
      * 机构id
@@ -297,7 +422,6 @@ public class Hisview {
     private String jxys;
 
 
-
     /**
      * 编码员
      */
@@ -388,7 +512,6 @@ public class Hisview {
     private String qtzd1;
 
 
-
     /**
      * 入院病情1
      */
@@ -405,7 +528,6 @@ public class Hisview {
      */
     @Column(name = "QTZD2")
     private String qtzd2;
-
 
 
     /**
@@ -426,7 +548,6 @@ public class Hisview {
     private String qtzd3;
 
 
-
     /**
      * 入院病情3
      */
@@ -443,7 +564,6 @@ public class Hisview {
      */
     @Column(name = "QTZD4")
     private String qtzd4;
-
 
 
     /**
@@ -463,7 +583,6 @@ public class Hisview {
     private String qtzd5;
 
 
-
     /**
      * 入院病情5
      */
@@ -480,7 +599,6 @@ public class Hisview {
      */
     @Column(name = "QTZD6")
     private String qtzd6;
-
 
 
     /**
@@ -502,7 +620,6 @@ public class Hisview {
     private String qtzd7;
 
 
-
     /**
      * 入院病情7
      */
@@ -519,7 +636,6 @@ public class Hisview {
      */
     @Column(name = "QTZD8")
     private String qtzd8;
-
 
 
     /**
@@ -540,7 +656,6 @@ public class Hisview {
     private String qtzd9;
 
 
-
     /**
      * 入院病情9
      */
@@ -557,7 +672,6 @@ public class Hisview {
      */
     @Column(name = "QTZD10")
     private String qtzd10;
-
 
 
     /**
@@ -579,7 +693,6 @@ public class Hisview {
     private String qtzd11;
 
 
-
     /**
      * 入院病情11
      */
@@ -598,7 +711,6 @@ public class Hisview {
     private String qtzd12;
 
 
-
     /**
      * 入院病情12
      */
@@ -615,7 +727,6 @@ public class Hisview {
      */
     @Column(name = "QTZD13")
     private String qtzd13;
-
 
 
     /**
@@ -655,7 +766,6 @@ public class Hisview {
      */
     @Column(name = "QTZD15")
     private String qtzd15;
-
 
 
     /**
@@ -1236,8 +1346,6 @@ public class Hisview {
     private String wsyYljg;
 
 
-
-
     /**
      * 手术费
      */
@@ -1338,7 +1446,6 @@ public class Hisview {
     private BigDecimal lczdxmf;
 
 
-
     /**
      * 临床物理治疗费
      */
@@ -1359,11 +1466,6 @@ public class Hisview {
     private BigDecimal sszlf;
 
 
-
-
-
-
-
     /**
      * 中医类：中医治疗费
      */
@@ -1376,11 +1478,6 @@ public class Hisview {
      */
     @Column(name = "KJYWF")
     private BigDecimal kjywf;
-
-
-
-
-
 
 
     /**
@@ -1414,7 +1511,6 @@ public class Hisview {
     private BigDecimal xbyzlzpf;
 
 
-
     /**
      * 治疗用一次性医用材料费
      */
@@ -1432,7 +1528,6 @@ public class Hisview {
      */
     @Column(name = "QTF")
     private BigDecimal qtf;
-
 
 
     /**

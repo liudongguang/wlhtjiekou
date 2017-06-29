@@ -11,4 +11,5 @@ public interface SysConstant {
     String type_String = "java.lang.String";
     String type_Short = "java.lang.Short";
     String type_Date = "java.util.Date";
+
 }
