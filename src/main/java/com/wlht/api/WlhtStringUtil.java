@@ -23,7 +23,7 @@ public class WlhtStringUtil {
             }
             rtStr.append(lingStr).append(source);
         } else {
-            return null;
+            return getBaIdentity20170629(source);
         }
         return rtStr.toString();
     }

@@ -41,6 +41,7 @@ public class DataHandlerController {
             return "/index.jsp";
         }
         String handlerMsg=wlhtDataService.importDataByDate(param);
+        request.setAttribute("errmsg",handlerMsg);
         return "/index.jsp";
     }
 

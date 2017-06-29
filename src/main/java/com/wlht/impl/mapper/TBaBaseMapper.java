@@ -14,4 +14,6 @@ public interface TBaBaseMapper extends Mapper<TBaBase> {
     Long selectByWeiyiBiaoShi(String weiyibiaoshi);
 
     void insertBatchData(List<TBaBase> baseList);
+
+    int addOne(TBaBase item);
 }

@@ -128,4 +128,13 @@
             (select #{obj.baidentity},#{obj.zzdm},#{obj.zzname},#{obj.banum},#{obj.name},#{obj.cyksbm},#{obj.lyfs},#{obj.ylfs},#{obj.zycs},#{obj.sex},#{obj.birthday},#{obj.ageSui},#{obj.ageMonth},#{obj.ageDays},#{obj.guoji},#{obj.xsecstizhong},#{obj.xserytizhong},#{obj.csd},#{obj.jiguan},#{obj.minzu},#{obj.idcard},#{obj.zhiye1},#{obj.hunyin},#{obj.xianzhuzhi},#{obj.xianyoubian},#{obj.hukoudz},#{obj.hukouyoubian},#{obj.workinfo},#{obj.dwtel},#{obj.dwyb},#{obj.lxrname},#{obj.lxrguanxi},#{obj.lxrdz},#{obj.lxrtel},#{obj.rylj},#{obj.rytime},#{obj.ryksbm},#{obj.cytime},#{obj.swsj},#{obj.xuexing},#{obj.rhxuexing},#{obj.binganzhiliang},#{obj.nijieshouyljgname},#{obj.juzhuxingzheng},#{obj.hukouquhua},#{obj.zlfq},#{obj.zlfqm},#{obj.zlfqn},#{obj.zlfqt},#{obj.xiandianhua} from dual)
         </foreach>
     </insert>
+    <insert id="addOne" parameterType="com.wlht.api.po.TBaBase">
+        <selectKey resultType="long" order="BEFORE" keyProperty="id">
+            SELECT SEQ_T_BA_BASE.NEXTVAL FROM dual
+        </selectKey>
+        Insert into
+        T_BA_BASE(id,baidentity,zzdm,zzname,banum,name,cyksbm,lyfs,Ylfs,Zycs,Sex,Birthday,Age_sui,Age_month,Age_days,Guoji,Xsecstizhong,Xserytizhong,Csd,Jiguan,Minzu,Idcard,Zhiye1,Hunyin,Xianzhuzhi,Xianyoubian,Hukoudz,Hukouyoubian,Workinfo,Dwtel,Dwyb,Lxrname,Lxrguanxi,Lxrdz,Lxrtel,Rylj,Rytime,Ryksbm,Cytime,Swsj,Xuexing,Rhxuexing,Binganzhiliang,Nijieshouyljgname,juzhuxingzheng,hukouquhua,ZLFQ,ZLFQM,ZLFQN,ZLFQT,XIANDIANHUA)
+        values
+        (#{id},#{baidentity},#{zzdm},#{zzname},#{banum},#{name},#{cyksbm},#{lyfs},#{ylfs},#{zycs},#{sex},#{birthday},#{ageSui},#{ageMonth},#{ageDays},#{guoji},#{xsecstizhong},#{xserytizhong},#{csd},#{jiguan},#{minzu},#{idcard},#{zhiye1},#{hunyin},#{xianzhuzhi},#{xianyoubian},#{hukoudz},#{hukouyoubian},#{workinfo},#{dwtel},#{dwyb},#{lxrname},#{lxrguanxi},#{lxrdz},#{lxrtel},#{rylj},#{rytime},#{ryksbm},#{cytime},#{swsj},#{xuexing},#{rhxuexing},#{binganzhiliang},#{nijieshouyljgname},#{juzhuxingzheng},#{hukouquhua},#{zlfq},#{zlfqm},#{zlfqn},#{zlfqt},#{xiandianhua})
+    </insert>
 </mapper>

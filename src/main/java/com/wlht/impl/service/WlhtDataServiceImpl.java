@@ -3,6 +3,8 @@ package com.wlht.impl.service;
 import com.ldg.api.util.DateUtil;
 import com.remote.api.po.Hisview;
 import com.remote.api.service.RemoteHisService;
+import com.wlht.api.WlhtDataReverseHelper;
+import com.wlht.api.WlhtStringUtil;
 import com.wlht.api.po.TBaBase;
 import com.wlht.api.service.WlhtDataService;
 import com.wlht.api.service.ZiDianService;
@@ -56,27 +58,26 @@ public class WlhtDataServiceImpl implements WlhtDataService {
         //2.根据数据的唯一表示查询是否本地系统存在数据
         if (hisDataByDate.size() > 0) {
             hisDataByDate = hisDataByDate.stream().filter(item -> {
-                String weiyibiaoshi = item.getSku();
+                String weiyibiaoshi = WlhtStringUtil.getBaIdentity(item.getSku());
                 Long uid = baseMapper.selectByWeiyiBiaoShi(weiyibiaoshi);
                 if (uid != null) {
                     return false;
                 }
                 return true;
             }).collect(Collectors.toList());
+            if(hisDataByDate.size()==0){
+                return "都以导入完成！";
+            }
             List<TBaBase> baseList = hisDataByDate.stream().map(item -> item.getBABase(zidianservice)
             ).collect(Collectors.toList());
             //3.没有存在与本地系统的插入本地库
             baseList.forEach(item->{
-                System.out.println(item);
-                int i=baseMapper.insertSelective(item);
+                int i=baseMapper.addOne(item);
             });
-
-//            System.out.println(baseList);
-//            baseMapper.insertBatchData(baseList);
-//            System.out.println(baseList);
+            return "成功导入"+hisDataByDate.size()+"条信息";
         } else {
             return "无可导入的数据！";
         }
-        return null;
+
     }
 }

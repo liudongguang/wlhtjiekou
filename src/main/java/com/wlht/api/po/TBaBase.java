@@ -8,8 +8,6 @@ import javax.persistence.*;
 public class TBaBase {
     @Id
     @Column(name = "ID")
-    @GeneratedValue(strategy = GenerationType.IDENTITY,
-            generator = "select SEQ_T_BA_BASE.nextval from dual")
     private Long id;
 
     /**
