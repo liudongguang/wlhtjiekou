@@ -22,7 +22,7 @@ public class CustomExceptionResolver implements HandlerExceptionResolver {
         StringPrintWriter strintPrintWriter = new StringPrintWriter();
         ex.printStackTrace(strintPrintWriter);
         String errorInfo = strintPrintWriter.getString();
-        log.debug(errorInfo);
+        log.error(errorInfo);
         // 表示异步
         response.setCharacterEncoding("UTF-8");
         response.setContentType("application/json; charset=utf-8");

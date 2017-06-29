@@ -232,14 +232,9 @@ public class ExcelUtils<T> {
                 Field[] fields = t.getClass().getDeclaredFields();
                 //得到一行对象
                 Row row = rowIterator.next();
-                //得到列对象
-                int columnCount = 0;
-                //循环每一列
-                int fieldIndex = 0;
                 for (int i = row.getFirstCellNum(); i < row.getLastCellNum(); i++) {
                     Field field = fields[i];
                     field.setAccessible(true);
-
                     //得到单元格对象
                     Cell cell = row.getCell(i);
                     String ss = parseExcel(cell);

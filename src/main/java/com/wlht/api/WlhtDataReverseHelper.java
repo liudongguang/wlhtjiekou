@@ -65,11 +65,11 @@ public class WlhtDataReverseHelper {
     }
 
     public static String getYlfs(String source) {
-        return ylfs.get(source.trim()) == null ? "90" : ylfs.get(source.trim());
+        return ylfs.get(source) == null ? "90" : ylfs.get(source);
     }
 
     public static Integer getXb(String source) {
-        return xb.get(source.trim()) == null ? 9 : xb.get(source.trim());
+        return xb.get(source) == null ? 9 : xb.get(source);
     }
 
     public static void setMz(String key, String val) {
@@ -81,11 +81,11 @@ public class WlhtDataReverseHelper {
     }
 
     public static String getzhiye(String source) {
-        return zy.get(source.trim()) == null ? "90" : zy.get(source.trim());
+        return zy.get(source) == null ? "90" : zy.get(source);
     }
 
     public static String gethunyin(String source) {
-        return hy.get(source.trim()) == null ? "90" : hy.get(source.trim());
+        return hy.get(source) == null ? "90" : hy.get(source);
     }
 
     public static void setlxrgx(String key, String val) {
@@ -97,7 +97,7 @@ public class WlhtDataReverseHelper {
     }
 
     public static String getrytj(String source) {
-        return rytj.get(source.trim()) == null ? "9" : rytj.get(source.trim());
+        return rytj.get(source) == null ? "9" : rytj.get(source);
     }
 
     public static void setkeshi(String key, String val) {
@@ -109,14 +109,14 @@ public class WlhtDataReverseHelper {
     }
 
     public static Integer getXx(String source) {
-        return xx.get(source.trim()) == null ? 6 : xx.get(source.trim());
+        return xx.get(source) == null ? 6 : xx.get(source);
     }
 
     public static Integer getRh(String source) {
-        return rh.get(source.trim()) == null ? 4 : rh.get(source.trim());
+        return rh.get(source) == null ? 4 : rh.get(source);
     }
 
     public static String getYLFS(String source) {
-        return lyfs.get(source.trim()) == null ? "9" : lyfs.get(source.trim());
+        return lyfs.get(source) == null ? "9" : lyfs.get(source);
     }
 }

@@ -1,5 +1,6 @@
 package com.remote.impl.service;
 
+import com.remote.api.bo.HisviewExt;
 import com.remote.api.po.Hisview;
 import com.remote.api.service.RemoteHisService;
 import com.remote.impl.mapper.HisviewMapper;
@@ -27,10 +28,10 @@ public class RemoteHisServiceImpl implements RemoteHisService {
     }
 
     @Override
-    public int addRemotePatients(List<Hisview> rslist) {
+    public int addRemotePatients(List<HisviewExt> rslist) {
         rslist.forEach(item->{
             item.setId(null);
-            hisviewMapper.insertSelective(item);
+            hisviewMapper.addHisviewExt(item);
         });
         return 0;
     }

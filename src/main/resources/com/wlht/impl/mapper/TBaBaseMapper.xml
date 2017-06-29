@@ -119,6 +119,9 @@
     SELECT id from T_BA_BASE where BAIDENTITY=#{weiyibiaoshi}
   </select>
     <insert id="insertBatchData" parameterType="java.util.List">
+        <selectKey resultType="long" order="BEFORE" keyProperty="id">
+            SELECT SEQ_T_BA_BASE.NEXTVAL FROM dual
+        </selectKey>
         Insert into
         T_BA_BASE(baidentity,zzdm,zzname,banum,name,cyksbm,lyfs,Ylfs,Zycs,Sex,Birthday,Age_sui,Age_month,Age_days,Guoji,Xsecstizhong,Xserytizhong,Csd,Jiguan,Minzu,Idcard,Zhiye1,Hunyin,Xianzhuzhi,Xianyoubian,Hukoudz,Hukouyoubian,Workinfo,Dwtel,Dwyb,Lxrname,Lxrguanxi,Lxrdz,Lxrtel,Rylj,Rytime,Ryksbm,Cytime,Swsj,Xuexing,Rhxuexing,Binganzhiliang,Nijieshouyljgname,juzhuxingzheng,hukouquhua,ZLFQ,ZLFQM,ZLFQN,ZLFQT,XIANDIANHUA)
         <foreach collection="list" item="obj" separator="union all">

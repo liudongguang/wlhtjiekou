@@ -3,6 +3,7 @@ package com.ldg.controller;
 import com.ldg.api.excel.ExcelUtils;
 import com.ldg.api.util.minganci.MinganciUtil;
 import com.ldg.api.vo.ResultMsg;
+import com.remote.api.bo.HisviewExt;
 import com.remote.api.po.Hisview;
 import com.remote.api.service.RemoteHisService;
 import org.apache.poi.ss.formula.functions.T;
@@ -34,7 +35,7 @@ private RemoteHisService remoteHisService;
 
     @RequestMapping("/test2")
     public String test2(HttpServletRequest request) {
-        List<Hisview> rslist = ExcelUtils.readExcel("01山东病案软件接口(病案首页数据)(1).xlsx",Hisview.class);
+        List<HisviewExt> rslist = ExcelUtils.readExcel("01山东病案软件接口(病案首页数据)(1).xlsx",HisviewExt.class);
         remoteHisService.addRemotePatients(rslist);
         return "/test.jsp";
     }

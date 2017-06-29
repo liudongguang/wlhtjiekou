@@ -38,8 +38,9 @@ public class WlhtDataServiceImpl implements WlhtDataService {
 
     @Override
     public void test() {
+        System.out.println("--------------------------");
         List<Hisview> hisDataByDate = hisrmService.getHisDataByDate();
-        baseMapper.selectAll();
+        System.out.println(baseMapper.selectAll());
     }
 
     @Override
@@ -70,7 +71,9 @@ public class WlhtDataServiceImpl implements WlhtDataService {
 //            });
             List<TBaBase> baseList = hisDataByDate.stream().map(item -> item.getBABase(zidianservice)
             ).collect(Collectors.toList());
-            baseMapper.insertBatchData(baseList);
+            System.out.println(baseList);
+            //baseMapper.insertBatchData(baseList);
+            System.out.println(baseList);
         } else {
             return "无可导入的数据！";
         }

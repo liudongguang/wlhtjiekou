@@ -1,5 +1,6 @@
 package com.remote.api.service;
 
+import com.remote.api.bo.HisviewExt;
 import com.remote.api.po.Hisview;
 import com.wlht.api.vo.ImportParam;
 
@@ -13,5 +14,5 @@ public interface RemoteHisService {
 
     List<Hisview> selectBADateFromHis(ImportParam param);
 
-    int addRemotePatients(List<Hisview> rslist);
+    int addRemotePatients(List<HisviewExt> rslist);
 }

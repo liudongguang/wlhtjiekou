@@ -24,6 +24,6 @@
     <result column="STATCODE_" jdbcType="VARCHAR" property="statcode" />
   </resultMap>
   <select id="getLXRGXCodeByName" resultType="string">
-    SELECT CODE_ from STDDOMESTICRELATION_ where  NAME_ LIKE '%'||#{name}||'%'
+    SELECT CODE_ from STDDOMESTICRELATION_ where  NAME_ LIKE #{name}||'%'
   </select>
 </mapper>

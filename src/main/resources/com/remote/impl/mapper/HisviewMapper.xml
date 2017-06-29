@@ -243,4 +243,7 @@
   <select id="selectBADateFromHis" parameterType="com.wlht.api.vo.ImportParam" resultMap="BaseResultMap">
       SELECT * from HISVIEW where CYSJ BETWEEN #{starte} and #{end}
   </select>
+  <select id="addHisviewExt" parameterType="com.remote.api.bo.HisviewExt">
+
+  </select>
 </mapper>

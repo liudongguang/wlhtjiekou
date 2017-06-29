@@ -9,6 +9,8 @@ import com.wlht.impl.mapper.StdnationMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 /**
  * Created by LiuDongguang on 2017/6/29.
  */
@@ -23,19 +25,20 @@ public class ZiDianServiceImpl implements ZiDianService {
 
     @Override
     public String getMinZuCodeByName(String name) {
-        if(name==null){
-            name="";
-        }
-        String val=WlhtDataReverseHelper.getMz(name);
-        if(val!=null){
-            return val;
-        }else{
-            val=stdnationMapper.getMinZuCodeByName(name);
+        String val="01";
+        if(name!=null){
+             val=WlhtDataReverseHelper.getMz(name);//先从缓存获取
             if(val!=null){
-                WlhtDataReverseHelper.setMz(name,val);
+                return val;
             }else {
-               val="01";
-                WlhtDataReverseHelper.setMz(name,val);
+                List<String> dblist = stdnationMapper.getMinZuCodeByName(name);
+                if (dblist != null && dblist.size() > 0) {
+                    val = dblist.get(0);
+                    WlhtDataReverseHelper.setMz(name, val);
+                }else{
+                    val = "01";
+                    WlhtDataReverseHelper.setMz(name, val);
+                }
             }
         }
         return val;
@@ -43,19 +46,20 @@ public class ZiDianServiceImpl implements ZiDianService {
 
     @Override
     public String getLXRGX(String gx) {
-        if(gx==null){
-            gx="";
-        }
-        String val=WlhtDataReverseHelper.getlxrgx(gx);
-        if(val!=null){
-            return val;
-        }else{
-            val= stddomesticrelationMapper.getLXRGXCodeByName(gx);
+        String val="97";
+        if(gx!=null){
+            val=WlhtDataReverseHelper.getlxrgx(gx);
             if(val!=null){
-                WlhtDataReverseHelper.setlxrgx(gx,val);
-            }else {
-                val="97";
-                WlhtDataReverseHelper.setlxrgx(gx,val);
+                return val;
+            }else{
+                List<String> dblist=stddomesticrelationMapper.getLXRGXCodeByName(gx);
+                if(dblist!=null&&dblist.size()>0){
+                    val=dblist.get(0);
+                    WlhtDataReverseHelper.setlxrgx(gx,val);
+                }else{
+                    val="97";
+                    WlhtDataReverseHelper.setlxrgx(gx,val);
+                }
             }
         }
         return val;
@@ -63,19 +67,17 @@ public class ZiDianServiceImpl implements ZiDianService {
 
     @Override
     public String getKeshiCodeByName(String rykb) {
-        if(rykb==null){
-            rykb="";
-        }
-        String val=WlhtDataReverseHelper.getkeshi(rykb);
-        if(val!=null){
-            return val;
-        }else{
-            val= stdhospitalofficeDao.getKeshiCodeByName(rykb);
+        String val="";
+        if(rykb!=null){
+            val=WlhtDataReverseHelper.getkeshi(rykb);
             if(val!=null){
-                WlhtDataReverseHelper.setkeshi(rykb,val);
-            }else {
-                val="97";
-                WlhtDataReverseHelper.setkeshi(rykb,val);
+                return val;
+            }else{
+                List<String> dblist=stdhospitalofficeDao.getKeshiCodeByName(rykb);
+                if(dblist!=null&&dblist.size()>0){
+                    val=dblist.get(0);
+                    WlhtDataReverseHelper.setkeshi(rykb,val);
+                }
             }
         }
         return val;
