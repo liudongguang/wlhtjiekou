@@ -31,7 +31,7 @@ public class CustomExceptionResolver implements HandlerExceptionResolver {
             out = response.getWriter();
             ResultMsg rs = new ResultMsg();
             rs.setErrcode(500);
-            rs.setErrmsg("服务器异常！");
+            rs.setErrmsg(errorInfo);
             out.write(JsonUtil.parseToJson(rs));
         } catch (IOException e) {
             e.printStackTrace();

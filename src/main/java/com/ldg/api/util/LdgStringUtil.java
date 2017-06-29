@@ -45,4 +45,11 @@ public class LdgStringUtil {
         Matcher m = p.matcher(str);
         return m.matches();
     }
+
+    public static String getStringByLength(String source,int maxLength){
+        if(StringUtils.isNotBlank(source)&&source.length()>maxLength){
+           return source.substring(0,maxLength);
+        }
+        return source;
+    }
 }

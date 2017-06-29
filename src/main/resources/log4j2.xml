@@ -33,7 +33,7 @@
     </Appenders>
     <Loggers>
         <!-- 配置记录器级别 -->
-        <Root level="Error">
+        <Root level="ERROR">
             <AppenderRef ref="STDOUT"/>
         </Root>
         <logger name="com.remote.impl.mapper" level="DEBUG" additivity="false">

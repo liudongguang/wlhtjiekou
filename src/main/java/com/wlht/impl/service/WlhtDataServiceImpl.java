@@ -1,6 +1,7 @@
 package com.wlht.impl.service;
 
 import com.ldg.api.util.DateUtil;
+import com.ldg.api.util.LdgStringUtil;
 import com.remote.api.po.Hisview;
 import com.remote.api.service.RemoteHisService;
 import com.wlht.api.WlhtDataReverseHelper;
@@ -55,6 +56,8 @@ public class WlhtDataServiceImpl implements WlhtDataService {
         }
         //1.时间段查询
         List<Hisview> hisDataByDate = hisrmService.selectBADateFromHis(param);
+        StringBuilder datebetween=new StringBuilder(DateUtil.yyyy_MM_ddFormat.format(param.getStarte()));
+        datebetween.append(" 至 ").append(DateUtil.yyyy_MM_ddFormat.format(param.getEnd())).append("--->");
         //2.根据数据的唯一表示查询是否本地系统存在数据
         if (hisDataByDate.size() > 0) {
             hisDataByDate = hisDataByDate.stream().filter(item -> {
@@ -66,18 +69,21 @@ public class WlhtDataServiceImpl implements WlhtDataService {
                 return true;
             }).collect(Collectors.toList());
             if(hisDataByDate.size()==0){
-                return "都以导入完成！";
+                datebetween.append("都以导入完成！");
+                return datebetween.toString();
             }
             List<TBaBase> baseList = hisDataByDate.stream().map(item -> item.getBABase(zidianservice)
             ).collect(Collectors.toList());
+            System.out.println(baseList.size());
             //3.没有存在与本地系统的插入本地库
             baseList.forEach(item->{
-                System.out.println(item);
-                int i=baseMapper.addOne(item);
+                int i=baseMapper.insertSelective(item);
             });
-            return "成功导入"+hisDataByDate.size()+"条信息";
+            datebetween.append("成功导入").append(hisDataByDate.size()).append("条信息");
+            return datebetween.toString();
         } else {
-            return "无可导入的数据！";
+            datebetween.append("无可导入的数据！");
+            return datebetween.toString();
         }
 
     }

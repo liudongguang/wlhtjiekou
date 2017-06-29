@@ -1,6 +1,7 @@
 package com.remote.api.po;
 
 import com.ldg.api.util.DateUtil;
+import com.ldg.api.util.LdgStringUtil;
 import com.wlht.api.SysConstant;
 import com.wlht.api.WlhtDataReverseHelper;
 import com.wlht.api.WlhtStringUtil;
@@ -83,7 +84,7 @@ public class Hisview {
         if (this.xserytz != null) {
             newBase.setXserytizhong(this.xserytz);// 13.新生儿入院体重
         }
-        newBase.setCsd(this.csd);// 14.出生地
+        newBase.setCsd(LdgStringUtil.getStringByLength(this.csd,16));// 14.出生地
         newBase.setJiguan(this.gg);// 15籍贯
         if (StringUtils.isNotBlank(this.mz)) {
             newBase.setMinzu(zdService.getMinZuCodeByName(this.mz)); // 16.民族
