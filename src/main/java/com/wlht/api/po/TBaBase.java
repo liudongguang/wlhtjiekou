@@ -15,7 +15,7 @@ import java.util.List;
 public class TBaBase {
     private Hisview hisview;//保存着对应的his病案信息
     //获取责任人列表
-    public List<TBnzrr> getBAZRR(ZiDianService zidianservice) {
+    public List<TBnzrr> getBAZRR() {
         List<TBnzrr> zrrList=new ArrayList<>();
         String keZhuRen=hisview.getKzr();//科主任
         WlhtBeanReverseHelper.handlerZrr(zrrList,id,baidentity,banum,keZhuRen,name,zzdm,zzname,"11");
@@ -39,7 +39,7 @@ public class TBaBase {
         WlhtBeanReverseHelper.handlerZrr(zrrList,id,baidentity,banum,zhiKongHuShi,name,zzdm,zzname,"92");
         return zrrList;
     }
-    public List<TBnsscz> getSSCZ(ZiDianService zidianservice, List<TBnzrr> zrrList) throws ParseException {
+    public List<TBnsscz> getSSCZ(List<TBnzrr> zrrList) throws ParseException {
         List<TBnsscz> ssczList=new ArrayList<>();
         WlhtBeanReverseHelper.handlerSSCZ(id,baidentity,banum,name,"1",zrrList,ssczList,hisview.getSsjczbm1(),hisview.getSsjczrq1(),hisview.getSsjb1(),hisview.getSsjczmc1(),hisview.getSz1(),hisview.getYz1(),hisview.getEz1(),hisview.getQkdj1(),hisview.getQkyhlb1(),hisview.getMzfs1(),hisview.getMzys1());
         WlhtBeanReverseHelper.handlerSSCZ(id,baidentity,banum,name,"2",zrrList,ssczList,hisview.getSsjczbm2(),hisview.getSsjczrq2(),hisview.getSsjb2(),hisview.getSsjczmc2(),hisview.getSz2(),hisview.getYz2(),hisview.getEz2(),hisview.getQkdj2(),hisview.getQkyhlb2(),hisview.getMzfs2(),hisview.getMzys2());
@@ -49,6 +49,62 @@ public class TBaBase {
         WlhtBeanReverseHelper.handlerSSCZ(id,baidentity,banum,name,"6",zrrList,ssczList,hisview.getSsjczbm6(),hisview.getSsjczrq6(),hisview.getSsjb6(),hisview.getSsjczmc6(),hisview.getSz6(),hisview.getYz6(),hisview.getEz6(),hisview.getQkdj6(),hisview.getQkyhlb6(),hisview.getMzfs6(),hisview.getMzys6());
         WlhtBeanReverseHelper.handlerSSCZ(id,baidentity,banum,name,"7",zrrList,ssczList,hisview.getSsjczbm7(),hisview.getSsjczrq7(),hisview.getSsjb7(),hisview.getSsjczmc7(),hisview.getSz7(),hisview.getYz7(),hisview.getEz7(),hisview.getQkdj7(),hisview.getQkyhlb7(),hisview.getMzfs7(),hisview.getMzys7());
         return ssczList;
+    }
+    public List<TBnjbzd> getJBZD() {
+        List<TBnjbzd> jbzdList=new ArrayList<>();
+        WlhtBeanReverseHelper.handlerJBZD(id,baidentity,banum,name,jbzdList,hisview.getMzzd(),hisview.getJbbm(),null,"11");
+        WlhtBeanReverseHelper.handlerJBZD(id,baidentity,banum,name,jbzdList,hisview.getZyzd(),hisview.getJbdm(),hisview.getRybq(),"22");
+        WlhtBeanReverseHelper.handlerJBZD(id,baidentity,banum,name,jbzdList,hisview.getQtzd1(),hisview.getJbdm1(),hisview.getRybq1(),"23");
+        WlhtBeanReverseHelper.handlerJBZD(id,baidentity,banum,name,jbzdList,hisview.getQtzd2(),hisview.getJbdm2(),hisview.getRybq2(),"23");
+        WlhtBeanReverseHelper.handlerJBZD(id,baidentity,banum,name,jbzdList,hisview.getQtzd3(),hisview.getJbdm3(),hisview.getRybq3(),"23");
+        WlhtBeanReverseHelper.handlerJBZD(id,baidentity,banum,name,jbzdList,hisview.getQtzd4(),hisview.getJbdm4(),hisview.getRybq4(),"23");
+        WlhtBeanReverseHelper.handlerJBZD(id,baidentity,banum,name,jbzdList,hisview.getQtzd5(),hisview.getJbdm5(),hisview.getRybq5(),"23");
+        WlhtBeanReverseHelper.handlerJBZD(id,baidentity,banum,name,jbzdList,hisview.getQtzd6(),hisview.getJbdm6(),hisview.getRybq6(),"23");
+        WlhtBeanReverseHelper.handlerJBZD(id,baidentity,banum,name,jbzdList,hisview.getQtzd7(),hisview.getJbdm7(),hisview.getRybq7(),"23");
+        WlhtBeanReverseHelper.handlerJBZD(id,baidentity,banum,name,jbzdList,hisview.getQtzd8(),hisview.getJbdm8(),hisview.getRybq8(),"23");
+        WlhtBeanReverseHelper.handlerJBZD(id,baidentity,banum,name,jbzdList,hisview.getQtzd9(),hisview.getJbdm9(),hisview.getRybq9(),"23");
+        WlhtBeanReverseHelper.handlerJBZD(id,baidentity,banum,name,jbzdList,hisview.getQtzd10(),hisview.getJbdm10(),hisview.getRybq10(),"23");
+        WlhtBeanReverseHelper.handlerJBZD(id,baidentity,banum,name,jbzdList,hisview.getQtzd11(),hisview.getJbdm11(),hisview.getRybq11(),"23");
+        WlhtBeanReverseHelper.handlerJBZD(id,baidentity,banum,name,jbzdList,hisview.getQtzd12(),hisview.getJbdm12(),hisview.getRybq12(),"23");
+        WlhtBeanReverseHelper.handlerJBZD(id,baidentity,banum,name,jbzdList,hisview.getQtzd13(),hisview.getJbdm13(),hisview.getRybq13(),"23");
+        WlhtBeanReverseHelper.handlerJBZD(id,baidentity,banum,name,jbzdList,hisview.getQtzd14(),hisview.getJbdm14(),hisview.getRybq14(),"23");
+        WlhtBeanReverseHelper.handlerJBZD(id,baidentity,banum,name,jbzdList,hisview.getQtzd15(),hisview.getJbdm15(),hisview.getRybq15(),"23");
+        WlhtBeanReverseHelper.handlerJBZD(id,baidentity,banum,name,jbzdList,hisview.getWbyy(),hisview.getH23(),null,"91");
+        return jbzdList;
+    }
+    public List<TBnzyfy> getZLFY() {
+        List<TBnzyfy> ylfsList=new ArrayList<>();
+        WlhtBeanReverseHelper.handlerFY(id,baidentity,banum,name,ylfsList,hisview.getZfy(),"01");
+        WlhtBeanReverseHelper.handlerFY(id,baidentity,banum,name,ylfsList,hisview.getZfje(),"02");
+        WlhtBeanReverseHelper.handlerFY(id,baidentity,banum,name,ylfsList,hisview.getYlfuf(),"03");
+        WlhtBeanReverseHelper.handlerFY(id,baidentity,banum,name,ylfsList,hisview.getZlczf(),"04");
+        WlhtBeanReverseHelper.handlerFY(id,baidentity,banum,name,ylfsList,hisview.getHlf(),"05");
+        WlhtBeanReverseHelper.handlerFY(id,baidentity,banum,name,ylfsList,hisview.getQtfy(),"06");
+        WlhtBeanReverseHelper.handlerFY(id,baidentity,banum,name,ylfsList,hisview.getBlzdf(),"07");
+        WlhtBeanReverseHelper.handlerFY(id,baidentity,banum,name,ylfsList,hisview.getSyszdf(),"08");
+        WlhtBeanReverseHelper.handlerFY(id,baidentity,banum,name,ylfsList,hisview.getYxxzdf(),"09");
+        WlhtBeanReverseHelper.handlerFY(id,baidentity,banum,name,ylfsList,hisview.getLczdxmf(),"10");
+        WlhtBeanReverseHelper.handlerFY(id,baidentity,banum,name,ylfsList,hisview.getFsszlxmf(),"11");/////非手术治疗项目费
+        WlhtBeanReverseHelper.handlerFY(id,baidentity,banum,name,ylfsList,hisview.getWlzlf(),"12");//临床物理治疗费
+        WlhtBeanReverseHelper.handlerFY(id,baidentity,banum,name,ylfsList,hisview.getSszlf(),"13");//手术治疗费
+        WlhtBeanReverseHelper.handlerFY(id,baidentity,banum,name,ylfsList,hisview.getMaf(),"14");//麻醉费
+        WlhtBeanReverseHelper.handlerFY(id,baidentity,banum,name,ylfsList,hisview.getSsf(),"15");//手术费
+        WlhtBeanReverseHelper.handlerFY(id,baidentity,banum,name,ylfsList,hisview.getKff(),"16");//康复费
+        WlhtBeanReverseHelper.handlerFY(id,baidentity,banum,name,ylfsList,hisview.getZyzlf(),"17");//中医治疗费
+        WlhtBeanReverseHelper.handlerFY(id,baidentity,banum,name,ylfsList,hisview.getXyf(),"18");//西药费
+        WlhtBeanReverseHelper.handlerFY(id,baidentity,banum,name,ylfsList,hisview.getKjywf(),"19");//抗菌药物费用
+        WlhtBeanReverseHelper.handlerFY(id,baidentity,banum,name,ylfsList,hisview.getZcyf(),"20");//中成药费
+        WlhtBeanReverseHelper.handlerFY(id,baidentity,banum,name,ylfsList,hisview.getZcyf1(),"21");//中草药费
+        WlhtBeanReverseHelper.handlerFY(id,baidentity,banum,name,ylfsList,hisview.getXf(),"22");//血费
+        WlhtBeanReverseHelper.handlerFY(id,baidentity,banum,name,ylfsList,hisview.getBdblzpf(),"23");//白蛋白类制品费
+        WlhtBeanReverseHelper.handlerFY(id,baidentity,banum,name,ylfsList,hisview.getQdblzpf(),"24");//球蛋白类制品费
+        WlhtBeanReverseHelper.handlerFY(id,baidentity,banum,name,ylfsList,hisview.getNxyzlzpf(),"25");//凝血因子类制品费
+        WlhtBeanReverseHelper.handlerFY(id,baidentity,banum,name,ylfsList,hisview.getXbyzlzpf(),"26");//细胞因子类制品费
+        WlhtBeanReverseHelper.handlerFY(id,baidentity,banum,name,ylfsList,hisview.getHcyyclf(),"27");//检查用一次性医用材料费
+        WlhtBeanReverseHelper.handlerFY(id,baidentity,banum,name,ylfsList,hisview.getYyclf(),"28");//治疗用一次性医用材料费
+        WlhtBeanReverseHelper.handlerFY(id,baidentity,banum,name,ylfsList,hisview.getYcxyyclf(),"29");//手术用一次性医用材料费
+        WlhtBeanReverseHelper.handlerFY(id,baidentity,banum,name,ylfsList,hisview.getQtf(),"30");//其他费
+        return ylfsList;
     }
     private Long id;
 

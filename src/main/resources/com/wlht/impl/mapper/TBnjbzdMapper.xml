@@ -207,4 +207,23 @@
       ZHENDUANSHUNXU = #{zhenduanshunxu,jdbcType=NUMERIC}
     where ID = #{id,jdbcType=NUMERIC}
   </update>
+  <insert id="batchInsert" parameterType="java.util.List">
+    insert into T_BNJBZD
+     (ID, ZBLSH, JBIDENTITY,
+    ZZJGDM, ZZJGNAME, FZJGBSF,
+    BAH, NAME, JLH, ZDTYPE,
+    JBZDBM, ZDRYBQ, ZLJG,
+    SHOUXIEJIBING, ZHENDUANSHUNXU)
+    select SEQ_T_BNJBZD.NEXTVAL,cd.* from(
+    <foreach collection="list" index="index" item="item" separator="union all">
+      ( select
+      #{item.zblsh,jdbcType=NUMERIC}, #{item.jbidentity,jdbcType=VARCHAR},
+      #{item.zzjgdm,jdbcType=VARCHAR}, #{item.zzjgname,jdbcType=VARCHAR}, #{item.fzjgbsf,jdbcType=VARCHAR},
+      #{item.bah,jdbcType=VARCHAR}, #{item.name,jdbcType=VARCHAR}, #{item.jlh,jdbcType=VARCHAR}, #{item.zdtype,jdbcType=VARCHAR},
+      #{item.jbzdbm,jdbcType=VARCHAR}, #{item.zdrybq,jdbcType=VARCHAR}, #{item.zljg,jdbcType=VARCHAR},
+      #{item.shouxiejibing,jdbcType=VARCHAR}, #{item.zhenduanshunxu,jdbcType=NUMERIC}
+      from dual)
+    </foreach>
+    ) cd
+  </insert>
 </mapper>

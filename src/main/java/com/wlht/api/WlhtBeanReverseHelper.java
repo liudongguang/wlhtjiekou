@@ -2,10 +2,13 @@ package com.wlht.api;
 
 import com.ldg.api.util.DateUtil;
 import com.ldg.api.util.LdgStringUtil;
+import com.wlht.api.po.TBnjbzd;
 import com.wlht.api.po.TBnsscz;
 import com.wlht.api.po.TBnzrr;
+import com.wlht.api.po.TBnzyfy;
 import org.apache.commons.lang3.StringUtils;
 
+import java.math.BigDecimal;
 import java.text.ParseException;
 import java.util.HashMap;
 import java.util.List;
@@ -62,6 +65,13 @@ public class WlhtBeanReverseHelper {
      * @param mzfs       麻醉方式
      * @param mzys       麻醉医师
      * @throws ParseException
+     *
+     *
+     *
+     *
+    切口:0，I ,II ,III,
+
+    愈合:甲  乙  丙   其他
      */
     public static void handlerSSCZ(Long id, String baIdentity, String banum, String brname, String jlh, List<TBnzrr> zrrList, List<TBnsscz> ssczList, String ssjczbm, String ssjczrq, String ssjb, String ssjczmc, String sz, String yz, String ez, String qkdj, String qkyhlb, String mzfs, String mzys) throws ParseException {
         if (StringUtils.isNotBlank(ssjczbm)) {
@@ -83,40 +93,30 @@ public class WlhtBeanReverseHelper {
                     newsscz.setSsczbs("22");
                 }
             }
-//            String qkyhdj1 = null;// 切口愈合级别
-//            if (StringUtils.isNotBlank(qkyhlb)) {
-//                if (qkyd1.indexOf("/") != -1) {
-//                    String[] qikouAndYuHe = qkyd1.split("/");
-//                    String qikou = qikouAndYuHe[0];
-//                    if (qikou.indexOf("Ⅰ") != -1) {
-//                        qkyd1 = "2";
-//                    } else if (qikou.indexOf("Ⅱ") != -1) {
-//                        qkyd1 = "3";
-//                    } else if (qikou.indexOf("Ⅲ") != -1) {
-//                        qkyd1 = "4";
-//                    } else {
-//                        qkyd1 = "1";
-//                    }
-//                    String yuhe = qikouAndYuHe[1];
-//                    if (yuhe.indexOf("甲") != -1) {
-//                        qkyhdj1 = "1";
-//                    } else if (yuhe.indexOf("乙") != -1) {
-//                        qkyhdj1 = "2";
-//                    } else if (yuhe.indexOf("丙") != -1) {
-//                        qkyhdj1 = "3";
-//                    } else {
-//                        qkyhdj1 = "9";
-//                    }
-//                } else {
-//                    if (qkyd1.indexOf("甲") != -1) {
-//                        qkyhdj1 = "1";
-//                    } else if (qkyd1.indexOf("乙") != -1) {
-//                        qkyhdj1 = "2";
-//                    } else if (qkyd1.indexOf("丙") != -1) {
-//                        qkyhdj1 = "3";
-//                    }
-//                }
-//            }
+            if (StringUtils.isNotBlank(qkdj)) {
+                    if (qkdj.indexOf("Ⅰ") != -1) {
+                        qkdj = "2";
+                    } else if (qkdj.indexOf("Ⅱ") != -1) {
+                        qkdj = "3";
+                    } else if (qkdj.indexOf("Ⅲ") != -1) {
+                        qkdj = "4";
+                    } else {
+                        qkdj = "1";
+                    }
+                }
+                if(StringUtils.isNotBlank(qkyhlb)){
+                    if (qkyhlb.indexOf("甲") != -1) {
+                        qkyhlb = "1";
+                    } else if (qkyhlb.indexOf("乙") != -1) {
+                        qkyhlb = "2";
+                    } else if (qkyhlb.indexOf("丙") != -1) {
+                        qkyhlb = "3";
+                    } else {
+                        qkyhlb = "9";
+                    }
+                }
+
+
 
             if (StringUtils.isNotBlank(mzfs)) {
                 if (mzfs.indexOf("表面麻醉") != -1) {
@@ -189,5 +189,38 @@ public class WlhtBeanReverseHelper {
 
         }
 
+    }
+
+    public static void handlerJBZD(Long id, String baidentity, String banum, String name, List<TBnjbzd> jbzdList,String jbbm,String jbmc,String bq,String jbtype) {
+        if (StringUtils.isNotBlank(jbbm)) {
+            TBnjbzd newjbzd = new TBnjbzd();
+            ///
+            newjbzd.setZblsh(id);
+            newjbzd.setJbidentity(baidentity);
+            newjbzd.setBah(banum);
+            newjbzd.setName(name);
+            //
+            newjbzd.setZdtype(jbtype);
+            newjbzd.setJbzdbm(jbbm);
+            newjbzd.setShouxiejibing(jbmc);
+            newjbzd.setZdrybq(WlhtDataReverseHelper.getZdrybq(bq));
+            jbzdList.add(newjbzd);
+        }
+    }
+
+    public static void handlerFY(Long id, String baidentity, String banum, String name,List<TBnzyfy> ylfsList, BigDecimal jine, String jinetype) {
+        if(jine!=null) {
+            TBnzyfy newfy = new TBnzyfy();
+            //
+            newfy.setZblsh(id);
+            newfy.setBah(banum);
+            newfy.setName(name);
+            newfy.setZyidentity(baidentity);
+            newfy.setFzjgbsf("0");
+            //
+            newfy.setFylb(jinetype);
+            newfy.setJine(jine);
+            ylfsList.add(newfy);
+        }
     }
 }

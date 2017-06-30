@@ -2,6 +2,8 @@ package com.wlht.impl.mapper;
 
 import com.wlht.api.po.TBnzyfy;
 
+import java.util.List;
+
 public interface TBnzyfyMapper {
     int deleteByPrimaryKey(Long id);
 
@@ -14,4 +16,6 @@ public interface TBnzyfyMapper {
     int updateByPrimaryKeySelective(TBnzyfy record);
 
     int updateByPrimaryKey(TBnzyfy record);
+
+    void batchInsert(List<TBnzyfy> zlfyList);
 }

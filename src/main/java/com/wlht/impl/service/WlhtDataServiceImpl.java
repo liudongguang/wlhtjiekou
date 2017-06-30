@@ -7,9 +7,7 @@ import com.remote.api.po.Hisview;
 import com.remote.api.service.RemoteHisService;
 import com.wlht.api.WlhtDataReverseHelper;
 import com.wlht.api.WlhtStringUtil;
-import com.wlht.api.po.TBaBase;
-import com.wlht.api.po.TBnsscz;
-import com.wlht.api.po.TBnzrr;
+import com.wlht.api.po.*;
 import com.wlht.api.service.WlhtDataService;
 import com.wlht.api.service.ZiDianService;
 import com.wlht.api.vo.ImportParam;
@@ -82,14 +80,23 @@ public class WlhtDataServiceImpl implements WlhtDataService {
             for (TBaBase item : baseList) {
                 int i = baseMapper.insertSelective(item);
                 ///导入到其他表中
-                List<TBnzrr> zrrList = item.getBAZRR(zidianservice);//获取责任人列表
-                List<TBnsscz> ssczList = item.getSSCZ(zidianservice, zrrList);//手术列表
+                List<TBnzrr> zrrList = item.getBAZRR();//获取责任人列表
+                List<TBnsscz> ssczList = item.getSSCZ(zrrList);//手术列表
                 if(ssczList.size()>0){
-                    sszdDao.batchInsert(ssczList); //1.插入手术信息
+                   // sszdDao.batchInsert(ssczList); //1.插入手术信息
                 }
                 if(zrrList.size()>0) {
                     // zrrDao.batchInsert(zrrList);//2.插入责任人信息
                 }
+                //3.疾病
+                List<TBnjbzd> jbzdList = item.getJBZD();//疾病列表
+                System.out.println(jbzdList);
+                if(jbzdList.size()>0) {
+                  // jbzdDao.batchInsert(jbzdList);
+                }
+                //4.费用
+                List<TBnzyfy> zlfyList = item.getZLFY();//费用列表
+                zyfyDao.batchInsert(zlfyList);
             }
             datebetween.append("成功导入").append(hisDataByDate.size()).append("条信息");
             return datebetween.toString();

@@ -2,6 +2,8 @@ package com.wlht.impl.mapper;
 
 import com.wlht.api.po.TBnjbzd;
 
+import java.util.List;
+
 public interface TBnjbzdMapper {
     int deleteByPrimaryKey(Long id);
 
@@ -14,4 +16,6 @@ public interface TBnjbzdMapper {
     int updateByPrimaryKeySelective(TBnjbzd record);
 
     int updateByPrimaryKey(TBnjbzd record);
+
+    void batchInsert(List<TBnjbzd> jbzdList);
 }

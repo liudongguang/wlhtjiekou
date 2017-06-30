@@ -19,6 +19,8 @@ public class WlhtDataReverseHelper {
     private final static Map<String, Integer> xx = new HashMap<>();//血型
     private final static Map<String, Integer> rh = new HashMap<>();//RH血型
     private final static Map<String, String> lyfs = new ConcurrentHashMap<>();//离院方式
+
+    private final static Map<String, String> zdrybq = new HashMap<>();//诊断入院病情
     static {
         ylfs.put("全自费", "70");
         ylfs.put("新型农村合作医疗", "30");
@@ -62,6 +64,11 @@ public class WlhtDataReverseHelper {
         lyfs.put("医嘱转院","2");
         lyfs.put("医嘱转社区卫生服务机构/乡镇卫生院","3");
         lyfs.put("死亡","5");
+        //
+        zdrybq.put("有","1");
+        zdrybq.put("临床未确定","2");
+        zdrybq.put("情况不明","3");
+        zdrybq.put("无","4");
     }
 
     public static String getYlfs(String source) {
@@ -139,5 +146,11 @@ public class WlhtDataReverseHelper {
             return "9";
         }
         return lyfs.get(source) == null ? "9" : lyfs.get(source);
+    }
+    public static String getZdrybq(String source) {
+        if(source==null){
+            return "4";
+        }
+        return zdrybq.get(source) == null ? "9" : zdrybq.get(source);
     }
 }

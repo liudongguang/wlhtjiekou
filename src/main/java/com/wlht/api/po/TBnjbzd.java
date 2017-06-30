@@ -150,4 +150,25 @@ public class TBnjbzd {
     public void setZhenduanshunxu(Integer zhenduanshunxu) {
         this.zhenduanshunxu = zhenduanshunxu;
     }
+
+    @Override
+    public String toString() {
+        return "TBnjbzd{" +
+                "id=" + id +
+                ", zblsh=" + zblsh +
+                ", jbidentity='" + jbidentity + '\'' +
+                ", zzjgdm='" + zzjgdm + '\'' +
+                ", zzjgname='" + zzjgname + '\'' +
+                ", fzjgbsf='" + fzjgbsf + '\'' +
+                ", bah='" + bah + '\'' +
+                ", name='" + name + '\'' +
+                ", jlh='" + jlh + '\'' +
+                ", zdtype='" + zdtype + '\'' +
+                ", jbzdbm='" + jbzdbm + '\'' +
+                ", zdrybq='" + zdrybq + '\'' +
+                ", zljg='" + zljg + '\'' +
+                ", shouxiejibing='" + shouxiejibing + '\'' +
+                ", zhenduanshunxu=" + zhenduanshunxu +
+                '}';
+    }
 }

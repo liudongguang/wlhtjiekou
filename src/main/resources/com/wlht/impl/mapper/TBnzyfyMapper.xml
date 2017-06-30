@@ -149,4 +149,19 @@
       JINE = #{jine,jdbcType=NUMERIC}
     where ID = #{id,jdbcType=NUMERIC}
   </update>
+  <insert id="batchInsert" parameterType="java.util.List">
+    insert into T_BNZYFY
+    (ID, ZBLSH, ZYIDENTITY,
+    ZZJGDM, ZZJGNAME, FZJGBSF,
+    BAH, NAME, FYLB, JINE)
+    select SEQ_T_BNJBZD.NEXTVAL,cd.* from(
+    <foreach collection="list" index="index" item="item" separator="union all">
+      ( select
+      #{item.zblsh,jdbcType=NUMERIC}, #{item.zyidentity,jdbcType=VARCHAR},
+      #{item.zzjgdm,jdbcType=VARCHAR}, #{item.zzjgname,jdbcType=VARCHAR}, #{item.fzjgbsf,jdbcType=VARCHAR},
+      #{item.bah,jdbcType=VARCHAR}, #{item.name,jdbcType=VARCHAR}, #{item.fylb,jdbcType=VARCHAR}, #{item.jine,jdbcType=NUMERIC}
+      from dual)
+    </foreach>
+    ) cd
+  </insert>
 </mapper>
