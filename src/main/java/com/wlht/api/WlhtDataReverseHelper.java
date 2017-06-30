@@ -65,6 +65,9 @@ public class WlhtDataReverseHelper {
     }
 
     public static String getYlfs(String source) {
+        if(source==null){
+            return "90";
+        }
         return ylfs.get(source) == null ? "90" : ylfs.get(source);
     }
 
@@ -81,10 +84,16 @@ public class WlhtDataReverseHelper {
     }
 
     public static String getzhiye(String source) {
+        if(source==null){
+            return "90";
+        }
         return zy.get(source) == null ? "90" : zy.get(source);
     }
 
     public static String gethunyin(String source) {
+        if(source==null){
+            return "90";
+        }
         return hy.get(source) == null ? "90" : hy.get(source);
     }
 
@@ -97,6 +106,9 @@ public class WlhtDataReverseHelper {
     }
 
     public static String getrytj(String source) {
+        if(source==null){
+            return "9";
+        }
         return rytj.get(source) == null ? "9" : rytj.get(source);
     }
 
@@ -109,14 +121,23 @@ public class WlhtDataReverseHelper {
     }
 
     public static Integer getXx(String source) {
+        if(source==null){
+            return 6;
+        }
         return xx.get(source) == null ? 6 : xx.get(source);
     }
 
     public static Integer getRh(String source) {
+        if(source==null){
+            return 4;
+        }
         return rh.get(source) == null ? 4 : rh.get(source);
     }
 
     public static String getYLFS(String source) {
+        if(source==null){
+            return "9";
+        }
         return lyfs.get(source) == null ? "9" : lyfs.get(source);
     }
 }

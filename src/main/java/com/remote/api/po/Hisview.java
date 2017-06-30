@@ -16,11 +16,14 @@ import javax.persistence.*;
 
 @Table(name = "HISVIEW")
 public class Hisview {
+
     public TBaBase getBABase(ZiDianService zdService) {
         TBaBase newBase = new TBaBase();
         newBase.setZzdm(SysConstant.zzdm);
         newBase.setZzname(SysConstant.zzdmName);
-        newBase.setBaidentity(WlhtStringUtil.getBaIdentity(this.sku));// //3.病案号标识码
+        String baidentity=WlhtStringUtil.getBaIdentity(this.sku);
+        newBase.setBaidentity(baidentity);// //3.病案号标识码
+        this.sku=baidentity;
         newBase.setYlfs(WlhtDataReverseHelper.getYlfs(this.ylfkfs));// 4.医疗付款方式
         if (StringUtils.isNotBlank(this.zycs)) {
             newBase.setZycs(Integer.parseInt(this.zycs));// 5.住院次数
@@ -135,6 +138,7 @@ public class Hisview {
         if(StringUtils.isNotBlank(this.md)){
             newBase.setZzymd(this.md.trim());// 44.在住院目的
         }
+        newBase.setHisview(this);
         return newBase;
     }
 

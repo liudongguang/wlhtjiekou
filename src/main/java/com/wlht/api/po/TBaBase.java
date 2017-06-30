@@ -1,9 +1,55 @@
 package com.wlht.api.po;
 
+import com.remote.api.po.Hisview;
+import com.wlht.api.WlhtBeanReverseHelper;
+import com.wlht.api.WlhtDataReverseHelper;
+import com.wlht.api.service.ZiDianService;
+import org.apache.commons.lang3.StringUtils;
+
 import java.math.BigDecimal;
+import java.text.ParseException;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 public class TBaBase {
+    private Hisview hisview;//保存着对应的his病案信息
+    //获取责任人列表
+    public List<TBnzrr> getBAZRR(ZiDianService zidianservice) {
+        List<TBnzrr> zrrList=new ArrayList<>();
+        String keZhuRen=hisview.getKzr();//科主任
+        WlhtBeanReverseHelper.handlerZrr(zrrList,id,baidentity,banum,keZhuRen,name,zzdm,zzname,"11");
+        String zhuZhenYishi = hisview.getZrys();//主任医师
+        WlhtBeanReverseHelper.handlerZrr(zrrList,id,baidentity,banum,zhuZhenYishi,name,zzdm,zzname,"21");
+        String zhuZhiYiShi =hisview.getZzys() ;//主治医师
+        WlhtBeanReverseHelper.handlerZrr(zrrList,id,baidentity,banum,zhuZhiYiShi,name,zzdm,zzname,"23");
+        String zhuYuanYiShi = hisview.getZyys();//住院医师
+        WlhtBeanReverseHelper.handlerZrr(zrrList,id,baidentity,banum,zhuYuanYiShi,name,zzdm,zzname,"24");
+        String zeRenHuShi = hisview.getZrhs();//责任护士
+        WlhtBeanReverseHelper.handlerZrr(zrrList,id,baidentity,banum,zeRenHuShi,name,zzdm,zzname,"81");
+        String jinXiuZhiShi =hisview.getJxys();//进修医师
+        WlhtBeanReverseHelper.handlerZrr(zrrList,id,baidentity,banum,jinXiuZhiShi,name,zzdm,zzname,"25");
+        String shiXiYiShi = hisview.getSxys();//实习
+        WlhtBeanReverseHelper.handlerZrr(zrrList,id,baidentity,banum,shiXiYiShi,name,zzdm,zzname,"26");
+        String bianMaYuan = hisview.getBmy();//编码员
+        WlhtBeanReverseHelper.handlerZrr(zrrList,id,baidentity,banum,bianMaYuan,name,zzdm,zzname,"9");
+        String zhiKongYiShi = hisview.getZkys();//质控医师
+        WlhtBeanReverseHelper.handlerZrr(zrrList,id,baidentity,banum,zhiKongYiShi,name,zzdm,zzname,"91");
+        String zhiKongHuShi = hisview.getZkhs();//质控护士
+        WlhtBeanReverseHelper.handlerZrr(zrrList,id,baidentity,banum,zhiKongHuShi,name,zzdm,zzname,"92");
+        return zrrList;
+    }
+    public List<TBnsscz> getSSCZ(ZiDianService zidianservice, List<TBnzrr> zrrList) throws ParseException {
+        List<TBnsscz> ssczList=new ArrayList<>();
+        WlhtBeanReverseHelper.handlerSSCZ(id,baidentity,banum,name,"1",zrrList,ssczList,hisview.getSsjczbm1(),hisview.getSsjczrq1(),hisview.getSsjb1(),hisview.getSsjczmc1(),hisview.getSz1(),hisview.getYz1(),hisview.getEz1(),hisview.getQkdj1(),hisview.getQkyhlb1(),hisview.getMzfs1(),hisview.getMzys1());
+        WlhtBeanReverseHelper.handlerSSCZ(id,baidentity,banum,name,"2",zrrList,ssczList,hisview.getSsjczbm2(),hisview.getSsjczrq2(),hisview.getSsjb2(),hisview.getSsjczmc2(),hisview.getSz2(),hisview.getYz2(),hisview.getEz2(),hisview.getQkdj2(),hisview.getQkyhlb2(),hisview.getMzfs2(),hisview.getMzys2());
+        WlhtBeanReverseHelper.handlerSSCZ(id,baidentity,banum,name,"3",zrrList,ssczList,hisview.getSsjczbm3(),hisview.getSsjczrq3(),hisview.getSsjb3(),hisview.getSsjczmc3(),hisview.getSz3(),hisview.getYz3(),hisview.getEz3(),hisview.getQkdj3(),hisview.getQkyhlb3(),hisview.getMzfs3(),hisview.getMzys3());
+        WlhtBeanReverseHelper.handlerSSCZ(id,baidentity,banum,name,"4",zrrList,ssczList,hisview.getSsjczbm4(),hisview.getSsjczrq4(),hisview.getSsjb4(),hisview.getSsjczmc4(),hisview.getSz4(),hisview.getYz4(),hisview.getEz4(),hisview.getQkdj4(),hisview.getQkyhlb4(),hisview.getMzfs4(),hisview.getMzys4());
+        WlhtBeanReverseHelper.handlerSSCZ(id,baidentity,banum,name,"5",zrrList,ssczList,hisview.getSsjczbm5(),hisview.getSsjczrq5(),hisview.getSsjb5(),hisview.getSsjczmc5(),hisview.getSz5(),hisview.getYz5(),hisview.getEz5(),hisview.getQkdj5(),hisview.getQkyhlb5(),hisview.getMzfs5(),hisview.getMzys5());
+        WlhtBeanReverseHelper.handlerSSCZ(id,baidentity,banum,name,"6",zrrList,ssczList,hisview.getSsjczbm6(),hisview.getSsjczrq6(),hisview.getSsjb6(),hisview.getSsjczmc6(),hisview.getSz6(),hisview.getYz6(),hisview.getEz6(),hisview.getQkdj6(),hisview.getQkyhlb6(),hisview.getMzfs6(),hisview.getMzys6());
+        WlhtBeanReverseHelper.handlerSSCZ(id,baidentity,banum,name,"7",zrrList,ssczList,hisview.getSsjczbm7(),hisview.getSsjczrq7(),hisview.getSsjb7(),hisview.getSsjczmc7(),hisview.getSz7(),hisview.getYz7(),hisview.getEz7(),hisview.getQkdj7(),hisview.getQkyhlb7(),hisview.getMzfs7(),hisview.getMzys7());
+        return ssczList;
+    }
     private Long id;
 
     private String baidentity;
@@ -221,6 +267,14 @@ public class TBaBase {
     private Integer ycgfx;
 
     private Integer ddgfx;
+
+    public Hisview getHisview() {
+        return hisview;
+    }
+
+    public void setHisview(Hisview hisview) {
+        this.hisview = hisview;
+    }
 
     public Long getId() {
         return id;
@@ -1093,4 +1147,122 @@ public class TBaBase {
     public void setDdgfx(Integer ddgfx) {
         this.ddgfx = ddgfx;
     }
+
+    @Override
+    public String toString() {
+        return "TBaBase{" +
+                "id=" + id +
+                ", baidentity='" + baidentity + '\'' +
+                ", zzdm='" + zzdm + '\'' +
+                ", zzname='" + zzname + '\'' +
+                ", fzjgbsf='" + fzjgbsf + '\'' +
+                ", ylfs='" + ylfs + '\'' +
+                ", jkcard='" + jkcard + '\'' +
+                ", idcard='" + idcard + '\'' +
+                ", hzhm='" + hzhm + '\'' +
+                ", banum='" + banum + '\'' +
+                ", zycs=" + zycs +
+                ", name='" + name + '\'' +
+                ", sex=" + sex +
+                ", birthday=" + birthday +
+                ", guoji='" + guoji + '\'' +
+                ", csd='" + csd + '\'' +
+                ", jiguan='" + jiguan + '\'' +
+                ", minzu='" + minzu + '\'' +
+                ", zhiye1='" + zhiye1 + '\'' +
+                ", hunyin='" + hunyin + '\'' +
+                ", juzhuxingzheng='" + juzhuxingzheng + '\'' +
+                ", xianzhuzhi='" + xianzhuzhi + '\'' +
+                ", xiandianhua='" + xiandianhua + '\'' +
+                ", xianyoubian='" + xianyoubian + '\'' +
+                ", phone='" + phone + '\'' +
+                ", email='" + email + '\'' +
+                ", hukouquhua='" + hukouquhua + '\'' +
+                ", hukoudz='" + hukoudz + '\'' +
+                ", hukouyoubian='" + hukouyoubian + '\'' +
+                ", workinfo='" + workinfo + '\'' +
+                ", dwtel='" + dwtel + '\'' +
+                ", dwyb='" + dwyb + '\'' +
+                ", lxrname='" + lxrname + '\'' +
+                ", lxrguanxi='" + lxrguanxi + '\'' +
+                ", lxrdz='" + lxrdz + '\'' +
+                ", lxrtel='" + lxrtel + '\'' +
+                ", rylj='" + rylj + '\'' +
+                ", zryljgdm='" + zryljgdm + '\'' +
+                ", zrjgname='" + zrjgname + '\'' +
+                ", rytime=" + rytime +
+                ", ryksbm='" + ryksbm + '\'' +
+                ", cytime=" + cytime +
+                ", cyksbm='" + cyksbm + '\'' +
+                ", zyksname='" + zyksname + '\'' +
+                ", swyy='" + swyy + '\'' +
+                ", swsj=" + swsj +
+                ", xuexing=" + xuexing +
+                ", rhxuexing=" + rhxuexing +
+                ", binganzhiliang=" + binganzhiliang +
+                ", zkrq=" + zkrq +
+                ", lyfs='" + lyfs + '\'' +
+                ", nijieshouyljgdm='" + nijieshouyljgdm + '\'' +
+                ", nijieshouyljgname='" + nijieshouyljgname + '\'' +
+                ", zzymd='" + zzymd + '\'' +
+                ", zzyjgts=" + zzyjgts +
+                ", rylqhmtime=" + rylqhmtime +
+                ", xsecstizhong=" + xsecstizhong +
+                ", xserytizhong=" + xserytizhong +
+                ", rybingqing='" + rybingqing + '\'' +
+                ", zhuyaozdtime=" + zhuyaozdtime +
+                ", sfbw=" + sfbw +
+                ", qjcishu=" + qjcishu +
+                ", qjsuccesscishu=" + qjsuccesscishu +
+                ", yinanbing='" + yinanbing + '\'' +
+                ", suizhen=" + suizhen +
+                ", szdays=" + szdays +
+                ", cyfhqk='" + cyfhqk + '\'' +
+                ", rycyfhqk='" + rycyfhqk + '\'' +
+                ", shoushuqh='" + shoushuqh + '\'' +
+                ", yxbl='" + yxbl + '\'' +
+                ", lcbl='" + lcbl + '\'' +
+                ", ssbdslblqk='" + ssbdslblqk + '\'' +
+                ", sqshblqk='" + sqshblqk + '\'' +
+                ", lczdsjqk='" + lczdsjqk + '\'' +
+                ", ynhzcishu=" + ynhzcishu +
+                ", wyhzcishu=" + wyhzcishu +
+                ", shuye=" + shuye +
+                ", shuyefy=" + shuyefy +
+                ", kjyymd='" + kjyymd + '\'' +
+                ", kjyyfa='" + kjyyfa + '\'' +
+                ", zhusu='" + zhusu + '\'' +
+                ", tongzhidate=" + tongzhidate +
+                ", zhikongpingfen=" + zhikongpingfen +
+                ", zhikongzhe='" + zhikongzhe + '\'' +
+                ", updatedate=" + updatedate +
+                ", binglixiugaizhe='" + binglixiugaizhe + '\'' +
+                ", shangbaobiaoji=" + shangbaobiaoji +
+                ", weishoushuqi=" + weishoushuqi +
+                ", weishoushuzhi=" + weishoushuzhi +
+                ", jbpbm='" + jbpbm + '\'' +
+                ", zlfqt='" + zlfqt + '\'' +
+                ", zlfqn='" + zlfqn + '\'' +
+                ", zlfqm='" + zlfqm + '\'' +
+                ", sfdybz=" + sfdybz +
+                ", sslclj=" + sslclj +
+                ", wclclj=" + wclclj +
+                ", tclcljyy='" + tclcljyy + '\'' +
+                ", tclcljms='" + tclcljms + '\'' +
+                ", lcljbyyy='" + lcljbyyy + '\'' +
+                ", lcljbyms='" + lcljbyms + '\'' +
+                ", zlfq='" + zlfq + '\'' +
+                ", zlfhcd='" + zlfhcd + '\'' +
+                ", zlzdyj='" + zlzdyj + '\'' +
+                ", bnbiaoshi1='" + bnbiaoshi1 + '\'' +
+                ", ageSui=" + ageSui +
+                ", ageMonth=" + ageMonth +
+                ", ageDays=" + ageDays +
+                ", ycgfx=" + ycgfx +
+                ", ddgfx=" + ddgfx +
+                '}';
+    }
+
+
+
 }

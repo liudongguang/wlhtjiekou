@@ -1,5 +1,6 @@
 package com.wlht.impl.service;
 
+import com.ldg.api.excel.ExcelUtils;
 import com.ldg.api.util.DateUtil;
 import com.ldg.api.util.LdgStringUtil;
 import com.remote.api.po.Hisview;
@@ -7,6 +8,8 @@ import com.remote.api.service.RemoteHisService;
 import com.wlht.api.WlhtDataReverseHelper;
 import com.wlht.api.WlhtStringUtil;
 import com.wlht.api.po.TBaBase;
+import com.wlht.api.po.TBnsscz;
+import com.wlht.api.po.TBnzrr;
 import com.wlht.api.service.WlhtDataService;
 import com.wlht.api.service.ZiDianService;
 import com.wlht.api.vo.ImportParam;
@@ -14,6 +17,7 @@ import com.wlht.impl.mapper.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.text.ParseException;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -47,7 +51,7 @@ public class WlhtDataServiceImpl implements WlhtDataService {
     }
 
     @Override
-    public String importDataByDate(ImportParam param) {
+    public String importDataByDate(ImportParam param) throws Exception {
         int days = DateUtil.getZYTSForInt(param.getEnd(), param.getStarte());
         if (days < 0) {
             return "结束日期不能在开始日期之前！";
@@ -56,7 +60,7 @@ public class WlhtDataServiceImpl implements WlhtDataService {
         }
         //1.时间段查询
         List<Hisview> hisDataByDate = hisrmService.selectBADateFromHis(param);
-        StringBuilder datebetween=new StringBuilder(DateUtil.yyyy_MM_ddFormat.format(param.getStarte()));
+        StringBuilder datebetween = new StringBuilder(DateUtil.yyyy_MM_ddFormat.format(param.getStarte()));
         datebetween.append(" 至 ").append(DateUtil.yyyy_MM_ddFormat.format(param.getEnd())).append("--->");
         //2.根据数据的唯一表示查询是否本地系统存在数据
         if (hisDataByDate.size() > 0) {
@@ -68,17 +72,19 @@ public class WlhtDataServiceImpl implements WlhtDataService {
                 }
                 return true;
             }).collect(Collectors.toList());
-            if(hisDataByDate.size()==0){
+            if (hisDataByDate.size() == 0) {
                 datebetween.append("都以导入完成！");
                 return datebetween.toString();
             }
             List<TBaBase> baseList = hisDataByDate.stream().map(item -> item.getBABase(zidianservice)
             ).collect(Collectors.toList());
-            System.out.println(baseList.size());
             //3.没有存在与本地系统的插入本地库
-            baseList.forEach(item->{
-                int i=baseMapper.insertSelective(item);
-            });
+            for (TBaBase item : baseList) {
+                int i = baseMapper.insertSelective(item);
+                ///导入到其他表中
+                List<TBnzrr> zrrList = item.getBAZRR(zidianservice);//获取责任人列表
+                List<TBnsscz> ssczList = item.getSSCZ(zidianservice, zrrList);//手术列表
+            }
             datebetween.append("成功导入").append(hisDataByDate.size()).append("条信息");
             return datebetween.toString();
         } else {

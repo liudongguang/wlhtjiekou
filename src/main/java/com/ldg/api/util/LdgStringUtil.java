@@ -52,4 +52,14 @@ public class LdgStringUtil {
         }
         return source;
     }
+
+    public static boolean isNum(String source) {
+        if (StringUtils.isNotBlank(source)) {
+            return false;
+        }
+        boolean numState = source
+                .matches("^(([0-9]+)([.]([0-9]+))?|([.]([0-9]+))?)$");
+        return numState;
+    }
+
 }
