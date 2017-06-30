@@ -84,6 +84,12 @@ public class WlhtDataServiceImpl implements WlhtDataService {
                 ///导入到其他表中
                 List<TBnzrr> zrrList = item.getBAZRR(zidianservice);//获取责任人列表
                 List<TBnsscz> ssczList = item.getSSCZ(zidianservice, zrrList);//手术列表
+                if(ssczList.size()>0){
+                    sszdDao.batchInsert(ssczList); //1.插入手术信息
+                }
+                if(zrrList.size()>0) {
+                    // zrrDao.batchInsert(zrrList);//2.插入责任人信息
+                }
             }
             datebetween.append("成功导入").append(hisDataByDate.size()).append("条信息");
             return datebetween.toString();

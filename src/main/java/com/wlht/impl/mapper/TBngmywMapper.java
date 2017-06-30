@@ -1,7 +1,17 @@
 package com.wlht.impl.mapper;
 
 import com.wlht.api.po.TBngmyw;
-import tk.mybatis.mapper.common.Mapper;
 
-public interface TBngmywMapper extends Mapper<TBngmyw> {
+public interface TBngmywMapper {
+    int deleteByPrimaryKey(Long id);
+
+    int insert(TBngmyw record);
+
+    int insertSelective(TBngmyw record);
+
+    TBngmyw selectByPrimaryKey(Long id);
+
+    int updateByPrimaryKeySelective(TBngmyw record);
+
+    int updateByPrimaryKey(TBngmyw record);
 }

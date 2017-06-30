@@ -1,21 +1,199 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.wlht.impl.mapper.TBnzrrMapper">
-  <resultMap id="BaseResultMap" type="com.wlht.api.po.TBnzrr">
-    <!--
-      WARNING - @mbg.generated
-    -->
-    <id column="ID" jdbcType="NUMERIC" property="id" />
-    <result column="ZBLSH" jdbcType="NUMERIC" property="zblsh" />
-    <result column="ZRRIDENTITY" jdbcType="VARCHAR" property="zrridentity" />
-    <result column="ZZJGDM" jdbcType="VARCHAR" property="zzjgdm" />
-    <result column="ZZJGNAME" jdbcType="VARCHAR" property="zzjgname" />
-    <result column="FZJGBSF" jdbcType="VARCHAR" property="fzjgbsf" />
-    <result column="BNH" jdbcType="VARCHAR" property="bnh" />
-    <result column="NAME" jdbcType="VARCHAR" property="name" />
-    <result column="BAZRRTYPE" jdbcType="VARCHAR" property="bazrrtype" />
-    <result column="ZRRNAME" jdbcType="VARCHAR" property="zrrname" />
-    <result column="ZRRIDCARD" jdbcType="VARCHAR" property="zrridcard" />
-    <result column="JLH" jdbcType="VARCHAR" property="jlh" />
-  </resultMap>
+    <resultMap id="BaseResultMap" type="com.wlht.api.po.TBnzrr">
+        <id column="ID" jdbcType="NUMERIC" property="id"/>
+        <result column="ZBLSH" jdbcType="NUMERIC" property="zblsh"/>
+        <result column="ZRRIDENTITY" jdbcType="VARCHAR" property="zrridentity"/>
+        <result column="ZZJGDM" jdbcType="VARCHAR" property="zzjgdm"/>
+        <result column="ZZJGNAME" jdbcType="VARCHAR" property="zzjgname"/>
+        <result column="FZJGBSF" jdbcType="VARCHAR" property="fzjgbsf"/>
+        <result column="BNH" jdbcType="VARCHAR" property="bnh"/>
+        <result column="NAME" jdbcType="VARCHAR" property="name"/>
+        <result column="BAZRRTYPE" jdbcType="VARCHAR" property="bazrrtype"/>
+        <result column="ZRRNAME" jdbcType="VARCHAR" property="zrrname"/>
+        <result column="ZRRIDCARD" jdbcType="VARCHAR" property="zrridcard"/>
+        <result column="JLH" jdbcType="VARCHAR" property="jlh"/>
+    </resultMap>
+    <sql id="Base_Column_List">
+        ID, ZBLSH, ZRRIDENTITY, ZZJGDM, ZZJGNAME, FZJGBSF, BNH, NAME, BAZRRTYPE, ZRRNAME,
+        ZRRIDCARD, JLH
+    </sql>
+    <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List"/>
+        from T_BNZRR
+        where ID = #{id,jdbcType=NUMERIC}
+    </select>
+    <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+        DELETE FROM T_BNZRR
+        WHERE ID = #{id,jdbcType=NUMERIC}
+    </delete>
+    <insert id="insert" parameterType="com.wlht.api.po.TBnzrr">
+        INSERT INTO T_BNZRR (ID, ZBLSH, ZRRIDENTITY,
+                             ZZJGDM, ZZJGNAME, FZJGBSF,
+                             BNH, NAME, BAZRRTYPE,
+                             ZRRNAME, ZRRIDCARD, JLH
+        )
+        VALUES (#{id,jdbcType=NUMERIC}, #{zblsh,jdbcType=NUMERIC}, #{zrridentity,jdbcType=VARCHAR},
+                                        #{zzjgdm,jdbcType=VARCHAR}, #{zzjgname,jdbcType=VARCHAR},
+                                        #{fzjgbsf,jdbcType=VARCHAR},
+                                        #{bnh,jdbcType=VARCHAR}, #{name,jdbcType=VARCHAR},
+                                        #{bazrrtype,jdbcType=VARCHAR},
+                                        #{zrrname,jdbcType=VARCHAR}, #{zrridcard,jdbcType=VARCHAR},
+                #{jlh,jdbcType=VARCHAR}
+        )
+    </insert>
+    <insert id="insertSelective" parameterType="com.wlht.api.po.TBnzrr">
+        insert into T_BNZRR
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+
+                ID,
+
+            <if test="zblsh != null">
+                ZBLSH,
+            </if>
+            <if test="zrridentity != null">
+                ZRRIDENTITY,
+            </if>
+            <if test="zzjgdm != null">
+                ZZJGDM,
+            </if>
+            <if test="zzjgname != null">
+                ZZJGNAME,
+            </if>
+            <if test="fzjgbsf != null">
+                FZJGBSF,
+            </if>
+            <if test="bnh != null">
+                BNH,
+            </if>
+            <if test="name != null">
+                NAME,
+            </if>
+            <if test="bazrrtype != null">
+                BAZRRTYPE,
+            </if>
+            <if test="zrrname != null">
+                ZRRNAME,
+            </if>
+            <if test="zrridcard != null">
+                ZRRIDCARD,
+            </if>
+            <if test="jlh != null">
+                JLH,
+            </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            SEQ_T_BNZRR.nextval,
+            <if test="zblsh != null">
+                #{zblsh,jdbcType=NUMERIC},
+            </if>
+            <if test="zrridentity != null">
+                #{zrridentity,jdbcType=VARCHAR},
+            </if>
+            <if test="zzjgdm != null">
+                #{zzjgdm,jdbcType=VARCHAR},
+            </if>
+            <if test="zzjgname != null">
+                #{zzjgname,jdbcType=VARCHAR},
+            </if>
+            <if test="fzjgbsf != null">
+                #{fzjgbsf,jdbcType=VARCHAR},
+            </if>
+            <if test="bnh != null">
+                #{bnh,jdbcType=VARCHAR},
+            </if>
+            <if test="name != null">
+                #{name,jdbcType=VARCHAR},
+            </if>
+            <if test="bazrrtype != null">
+                #{bazrrtype,jdbcType=VARCHAR},
+            </if>
+            <if test="zrrname != null">
+                #{zrrname,jdbcType=VARCHAR},
+            </if>
+            <if test="zrridcard != null">
+                #{zrridcard,jdbcType=VARCHAR},
+            </if>
+            <if test="jlh != null">
+                #{jlh,jdbcType=VARCHAR},
+            </if>
+        </trim>
+    </insert>
+    <update id="updateByPrimaryKeySelective" parameterType="com.wlht.api.po.TBnzrr">
+        update T_BNZRR
+        <set>
+            <if test="zblsh != null">
+                ZBLSH = #{zblsh,jdbcType=NUMERIC},
+            </if>
+            <if test="zrridentity != null">
+                ZRRIDENTITY = #{zrridentity,jdbcType=VARCHAR},
+            </if>
+            <if test="zzjgdm != null">
+                ZZJGDM = #{zzjgdm,jdbcType=VARCHAR},
+            </if>
+            <if test="zzjgname != null">
+                ZZJGNAME = #{zzjgname,jdbcType=VARCHAR},
+            </if>
+            <if test="fzjgbsf != null">
+                FZJGBSF = #{fzjgbsf,jdbcType=VARCHAR},
+            </if>
+            <if test="bnh != null">
+                BNH = #{bnh,jdbcType=VARCHAR},
+            </if>
+            <if test="name != null">
+                NAME = #{name,jdbcType=VARCHAR},
+            </if>
+            <if test="bazrrtype != null">
+                BAZRRTYPE = #{bazrrtype,jdbcType=VARCHAR},
+            </if>
+            <if test="zrrname != null">
+                ZRRNAME = #{zrrname,jdbcType=VARCHAR},
+            </if>
+            <if test="zrridcard != null">
+                ZRRIDCARD = #{zrridcard,jdbcType=VARCHAR},
+            </if>
+            <if test="jlh != null">
+                JLH = #{jlh,jdbcType=VARCHAR},
+            </if>
+        </set>
+        where ID = #{id,jdbcType=NUMERIC}
+    </update>
+    <update id="updateByPrimaryKey" parameterType="com.wlht.api.po.TBnzrr">
+        UPDATE T_BNZRR
+        SET ZBLSH       = #{zblsh,jdbcType=NUMERIC},
+            ZRRIDENTITY = #{zrridentity,jdbcType=VARCHAR},
+            ZZJGDM      = #{zzjgdm,jdbcType=VARCHAR},
+            ZZJGNAME    = #{zzjgname,jdbcType=VARCHAR},
+            FZJGBSF     = #{fzjgbsf,jdbcType=VARCHAR},
+            BNH         = #{bnh,jdbcType=VARCHAR},
+            NAME        = #{name,jdbcType=VARCHAR},
+            BAZRRTYPE   = #{bazrrtype,jdbcType=VARCHAR},
+            ZRRNAME     = #{zrrname,jdbcType=VARCHAR},
+            ZRRIDCARD   = #{zrridcard,jdbcType=VARCHAR},
+            JLH         = #{jlh,jdbcType=VARCHAR}
+        WHERE ID = #{id,jdbcType=NUMERIC}
+    </update>
+    <insert id="batchInsert" parameterType="java.util.List">
+        insert into T_BNZRR
+        (ID, ZBLSH, ZRRIDENTITY,
+        ZZJGDM, ZZJGNAME, FZJGBSF,
+        BNH, NAME, BAZRRTYPE,
+        ZRRNAME, ZRRIDCARD, JLH
+        )
+        select SEQ_T_BNZRR.NEXTVAL,cd.* from(
+        <foreach collection="list" index="index" item="item" separator="union all">
+            ( select
+             #{item.zblsh,jdbcType=NUMERIC}, #{item.zrridentity,jdbcType=VARCHAR},
+            #{item.zzjgdm,jdbcType=VARCHAR}, #{item.zzjgname,jdbcType=VARCHAR},
+            #{item.fzjgbsf,jdbcType=VARCHAR},
+            #{item.bnh,jdbcType=VARCHAR}, #{item.name,jdbcType=VARCHAR},
+            #{item.bazrrtype,jdbcType=VARCHAR},
+            #{item.zrrname,jdbcType=VARCHAR}, #{item.zrridcard,jdbcType=VARCHAR},
+            #{item.jlh,jdbcType=VARCHAR}
+            from dual)
+        </foreach>
+        ) cd
+    </insert>
 </mapper>

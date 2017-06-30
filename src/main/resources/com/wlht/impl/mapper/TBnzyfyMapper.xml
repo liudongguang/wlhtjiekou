@@ -2,9 +2,6 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.wlht.impl.mapper.TBnzyfyMapper">
   <resultMap id="BaseResultMap" type="com.wlht.api.po.TBnzyfy">
-    <!--
-      WARNING - @mbg.generated
-    -->
     <id column="ID" jdbcType="NUMERIC" property="id" />
     <result column="ZBLSH" jdbcType="NUMERIC" property="zblsh" />
     <result column="ZYIDENTITY" jdbcType="VARCHAR" property="zyidentity" />
@@ -16,4 +13,140 @@
     <result column="FYLB" jdbcType="VARCHAR" property="fylb" />
     <result column="JINE" jdbcType="NUMERIC" property="jine" />
   </resultMap>
+  <sql id="Base_Column_List">
+    ID, ZBLSH, ZYIDENTITY, ZZJGDM, ZZJGNAME, FZJGBSF, BAH, NAME, FYLB, JINE
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from T_BNZYFY
+    where ID = #{id,jdbcType=NUMERIC}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+    delete from T_BNZYFY
+    where ID = #{id,jdbcType=NUMERIC}
+  </delete>
+  <insert id="insert" parameterType="com.wlht.api.po.TBnzyfy">
+    insert into T_BNZYFY (ID, ZBLSH, ZYIDENTITY, 
+      ZZJGDM, ZZJGNAME, FZJGBSF, 
+      BAH, NAME, FYLB, JINE
+      )
+    values (#{id,jdbcType=NUMERIC}, #{zblsh,jdbcType=NUMERIC}, #{zyidentity,jdbcType=VARCHAR}, 
+      #{zzjgdm,jdbcType=VARCHAR}, #{zzjgname,jdbcType=VARCHAR}, #{fzjgbsf,jdbcType=VARCHAR}, 
+      #{bah,jdbcType=VARCHAR}, #{name,jdbcType=VARCHAR}, #{fylb,jdbcType=VARCHAR}, #{jine,jdbcType=NUMERIC}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.wlht.api.po.TBnzyfy">
+    insert into T_BNZYFY
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        ID,
+      </if>
+      <if test="zblsh != null">
+        ZBLSH,
+      </if>
+      <if test="zyidentity != null">
+        ZYIDENTITY,
+      </if>
+      <if test="zzjgdm != null">
+        ZZJGDM,
+      </if>
+      <if test="zzjgname != null">
+        ZZJGNAME,
+      </if>
+      <if test="fzjgbsf != null">
+        FZJGBSF,
+      </if>
+      <if test="bah != null">
+        BAH,
+      </if>
+      <if test="name != null">
+        NAME,
+      </if>
+      <if test="fylb != null">
+        FYLB,
+      </if>
+      <if test="jine != null">
+        JINE,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=NUMERIC},
+      </if>
+      <if test="zblsh != null">
+        #{zblsh,jdbcType=NUMERIC},
+      </if>
+      <if test="zyidentity != null">
+        #{zyidentity,jdbcType=VARCHAR},
+      </if>
+      <if test="zzjgdm != null">
+        #{zzjgdm,jdbcType=VARCHAR},
+      </if>
+      <if test="zzjgname != null">
+        #{zzjgname,jdbcType=VARCHAR},
+      </if>
+      <if test="fzjgbsf != null">
+        #{fzjgbsf,jdbcType=VARCHAR},
+      </if>
+      <if test="bah != null">
+        #{bah,jdbcType=VARCHAR},
+      </if>
+      <if test="name != null">
+        #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="fylb != null">
+        #{fylb,jdbcType=VARCHAR},
+      </if>
+      <if test="jine != null">
+        #{jine,jdbcType=NUMERIC},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.wlht.api.po.TBnzyfy">
+    update T_BNZYFY
+    <set>
+      <if test="zblsh != null">
+        ZBLSH = #{zblsh,jdbcType=NUMERIC},
+      </if>
+      <if test="zyidentity != null">
+        ZYIDENTITY = #{zyidentity,jdbcType=VARCHAR},
+      </if>
+      <if test="zzjgdm != null">
+        ZZJGDM = #{zzjgdm,jdbcType=VARCHAR},
+      </if>
+      <if test="zzjgname != null">
+        ZZJGNAME = #{zzjgname,jdbcType=VARCHAR},
+      </if>
+      <if test="fzjgbsf != null">
+        FZJGBSF = #{fzjgbsf,jdbcType=VARCHAR},
+      </if>
+      <if test="bah != null">
+        BAH = #{bah,jdbcType=VARCHAR},
+      </if>
+      <if test="name != null">
+        NAME = #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="fylb != null">
+        FYLB = #{fylb,jdbcType=VARCHAR},
+      </if>
+      <if test="jine != null">
+        JINE = #{jine,jdbcType=NUMERIC},
+      </if>
+    </set>
+    where ID = #{id,jdbcType=NUMERIC}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.wlht.api.po.TBnzyfy">
+    update T_BNZYFY
+    set ZBLSH = #{zblsh,jdbcType=NUMERIC},
+      ZYIDENTITY = #{zyidentity,jdbcType=VARCHAR},
+      ZZJGDM = #{zzjgdm,jdbcType=VARCHAR},
+      ZZJGNAME = #{zzjgname,jdbcType=VARCHAR},
+      FZJGBSF = #{fzjgbsf,jdbcType=VARCHAR},
+      BAH = #{bah,jdbcType=VARCHAR},
+      NAME = #{name,jdbcType=VARCHAR},
+      FYLB = #{fylb,jdbcType=VARCHAR},
+      JINE = #{jine,jdbcType=NUMERIC}
+    where ID = #{id,jdbcType=NUMERIC}
+  </update>
 </mapper>

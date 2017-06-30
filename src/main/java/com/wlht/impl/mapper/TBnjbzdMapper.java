@@ -1,7 +1,17 @@
 package com.wlht.impl.mapper;
 
 import com.wlht.api.po.TBnjbzd;
-import tk.mybatis.mapper.common.Mapper;
 
-public interface TBnjbzdMapper extends Mapper<TBnjbzd> {
+public interface TBnjbzdMapper {
+    int deleteByPrimaryKey(Long id);
+
+    int insert(TBnjbzd record);
+
+    int insertSelective(TBnjbzd record);
+
+    TBnjbzd selectByPrimaryKey(Long id);
+
+    int updateByPrimaryKeySelective(TBnjbzd record);
+
+    int updateByPrimaryKey(TBnjbzd record);
 }

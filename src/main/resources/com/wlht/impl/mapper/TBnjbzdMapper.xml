@@ -2,9 +2,6 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.wlht.impl.mapper.TBnjbzdMapper">
   <resultMap id="BaseResultMap" type="com.wlht.api.po.TBnjbzd">
-    <!--
-      WARNING - @mbg.generated
-    -->
     <id column="ID" jdbcType="NUMERIC" property="id" />
     <result column="ZBLSH" jdbcType="NUMERIC" property="zblsh" />
     <result column="JBIDENTITY" jdbcType="VARCHAR" property="jbidentity" />
@@ -21,4 +18,193 @@
     <result column="SHOUXIEJIBING" jdbcType="VARCHAR" property="shouxiejibing" />
     <result column="ZHENDUANSHUNXU" jdbcType="NUMERIC" property="zhenduanshunxu" />
   </resultMap>
+  <sql id="Base_Column_List">
+    ID, ZBLSH, JBIDENTITY, ZZJGDM, ZZJGNAME, FZJGBSF, BAH, NAME, JLH, ZDTYPE, JBZDBM, 
+    ZDRYBQ, ZLJG, SHOUXIEJIBING, ZHENDUANSHUNXU
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from T_BNJBZD
+    where ID = #{id,jdbcType=NUMERIC}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+    delete from T_BNJBZD
+    where ID = #{id,jdbcType=NUMERIC}
+  </delete>
+  <insert id="insert" parameterType="com.wlht.api.po.TBnjbzd">
+    insert into T_BNJBZD (ID, ZBLSH, JBIDENTITY, 
+      ZZJGDM, ZZJGNAME, FZJGBSF, 
+      BAH, NAME, JLH, ZDTYPE, 
+      JBZDBM, ZDRYBQ, ZLJG, 
+      SHOUXIEJIBING, ZHENDUANSHUNXU)
+    values (#{id,jdbcType=NUMERIC}, #{zblsh,jdbcType=NUMERIC}, #{jbidentity,jdbcType=VARCHAR}, 
+      #{zzjgdm,jdbcType=VARCHAR}, #{zzjgname,jdbcType=VARCHAR}, #{fzjgbsf,jdbcType=VARCHAR}, 
+      #{bah,jdbcType=VARCHAR}, #{name,jdbcType=VARCHAR}, #{jlh,jdbcType=VARCHAR}, #{zdtype,jdbcType=VARCHAR}, 
+      #{jbzdbm,jdbcType=VARCHAR}, #{zdrybq,jdbcType=VARCHAR}, #{zljg,jdbcType=VARCHAR}, 
+      #{shouxiejibing,jdbcType=VARCHAR}, #{zhenduanshunxu,jdbcType=NUMERIC})
+  </insert>
+  <insert id="insertSelective" parameterType="com.wlht.api.po.TBnjbzd">
+    insert into T_BNJBZD
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        ID,
+      </if>
+      <if test="zblsh != null">
+        ZBLSH,
+      </if>
+      <if test="jbidentity != null">
+        JBIDENTITY,
+      </if>
+      <if test="zzjgdm != null">
+        ZZJGDM,
+      </if>
+      <if test="zzjgname != null">
+        ZZJGNAME,
+      </if>
+      <if test="fzjgbsf != null">
+        FZJGBSF,
+      </if>
+      <if test="bah != null">
+        BAH,
+      </if>
+      <if test="name != null">
+        NAME,
+      </if>
+      <if test="jlh != null">
+        JLH,
+      </if>
+      <if test="zdtype != null">
+        ZDTYPE,
+      </if>
+      <if test="jbzdbm != null">
+        JBZDBM,
+      </if>
+      <if test="zdrybq != null">
+        ZDRYBQ,
+      </if>
+      <if test="zljg != null">
+        ZLJG,
+      </if>
+      <if test="shouxiejibing != null">
+        SHOUXIEJIBING,
+      </if>
+      <if test="zhenduanshunxu != null">
+        ZHENDUANSHUNXU,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=NUMERIC},
+      </if>
+      <if test="zblsh != null">
+        #{zblsh,jdbcType=NUMERIC},
+      </if>
+      <if test="jbidentity != null">
+        #{jbidentity,jdbcType=VARCHAR},
+      </if>
+      <if test="zzjgdm != null">
+        #{zzjgdm,jdbcType=VARCHAR},
+      </if>
+      <if test="zzjgname != null">
+        #{zzjgname,jdbcType=VARCHAR},
+      </if>
+      <if test="fzjgbsf != null">
+        #{fzjgbsf,jdbcType=VARCHAR},
+      </if>
+      <if test="bah != null">
+        #{bah,jdbcType=VARCHAR},
+      </if>
+      <if test="name != null">
+        #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="jlh != null">
+        #{jlh,jdbcType=VARCHAR},
+      </if>
+      <if test="zdtype != null">
+        #{zdtype,jdbcType=VARCHAR},
+      </if>
+      <if test="jbzdbm != null">
+        #{jbzdbm,jdbcType=VARCHAR},
+      </if>
+      <if test="zdrybq != null">
+        #{zdrybq,jdbcType=VARCHAR},
+      </if>
+      <if test="zljg != null">
+        #{zljg,jdbcType=VARCHAR},
+      </if>
+      <if test="shouxiejibing != null">
+        #{shouxiejibing,jdbcType=VARCHAR},
+      </if>
+      <if test="zhenduanshunxu != null">
+        #{zhenduanshunxu,jdbcType=NUMERIC},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.wlht.api.po.TBnjbzd">
+    update T_BNJBZD
+    <set>
+      <if test="zblsh != null">
+        ZBLSH = #{zblsh,jdbcType=NUMERIC},
+      </if>
+      <if test="jbidentity != null">
+        JBIDENTITY = #{jbidentity,jdbcType=VARCHAR},
+      </if>
+      <if test="zzjgdm != null">
+        ZZJGDM = #{zzjgdm,jdbcType=VARCHAR},
+      </if>
+      <if test="zzjgname != null">
+        ZZJGNAME = #{zzjgname,jdbcType=VARCHAR},
+      </if>
+      <if test="fzjgbsf != null">
+        FZJGBSF = #{fzjgbsf,jdbcType=VARCHAR},
+      </if>
+      <if test="bah != null">
+        BAH = #{bah,jdbcType=VARCHAR},
+      </if>
+      <if test="name != null">
+        NAME = #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="jlh != null">
+        JLH = #{jlh,jdbcType=VARCHAR},
+      </if>
+      <if test="zdtype != null">
+        ZDTYPE = #{zdtype,jdbcType=VARCHAR},
+      </if>
+      <if test="jbzdbm != null">
+        JBZDBM = #{jbzdbm,jdbcType=VARCHAR},
+      </if>
+      <if test="zdrybq != null">
+        ZDRYBQ = #{zdrybq,jdbcType=VARCHAR},
+      </if>
+      <if test="zljg != null">
+        ZLJG = #{zljg,jdbcType=VARCHAR},
+      </if>
+      <if test="shouxiejibing != null">
+        SHOUXIEJIBING = #{shouxiejibing,jdbcType=VARCHAR},
+      </if>
+      <if test="zhenduanshunxu != null">
+        ZHENDUANSHUNXU = #{zhenduanshunxu,jdbcType=NUMERIC},
+      </if>
+    </set>
+    where ID = #{id,jdbcType=NUMERIC}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.wlht.api.po.TBnjbzd">
+    update T_BNJBZD
+    set ZBLSH = #{zblsh,jdbcType=NUMERIC},
+      JBIDENTITY = #{jbidentity,jdbcType=VARCHAR},
+      ZZJGDM = #{zzjgdm,jdbcType=VARCHAR},
+      ZZJGNAME = #{zzjgname,jdbcType=VARCHAR},
+      FZJGBSF = #{fzjgbsf,jdbcType=VARCHAR},
+      BAH = #{bah,jdbcType=VARCHAR},
+      NAME = #{name,jdbcType=VARCHAR},
+      JLH = #{jlh,jdbcType=VARCHAR},
+      ZDTYPE = #{zdtype,jdbcType=VARCHAR},
+      JBZDBM = #{jbzdbm,jdbcType=VARCHAR},
+      ZDRYBQ = #{zdrybq,jdbcType=VARCHAR},
+      ZLJG = #{zljg,jdbcType=VARCHAR},
+      SHOUXIEJIBING = #{shouxiejibing,jdbcType=VARCHAR},
+      ZHENDUANSHUNXU = #{zhenduanshunxu,jdbcType=NUMERIC}
+    where ID = #{id,jdbcType=NUMERIC}
+  </update>
 </mapper>

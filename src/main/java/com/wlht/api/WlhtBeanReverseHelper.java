@@ -35,6 +35,7 @@ public class WlhtBeanReverseHelper {
             newZrr.setZrridentity(baidentity);
             newZrr.setName(bingrenName);
             newZrr.setJlh("");
+            newZrr.setFzjgbsf("0");
             newZrr.setZzjgdm(zzdm);
             newZrr.setZzjgname(zzname);
             newZrr.setZrrname(zrrName);
@@ -66,16 +67,16 @@ public class WlhtBeanReverseHelper {
         if (StringUtils.isNotBlank(ssjczbm)) {
             TBnsscz newsscz = new TBnsscz();
             if (StringUtils.isNotBlank(ssjb)) {
-                if (ssjb.indexOf("一级手术") != -1) {
+                if (ssjb.indexOf("一级") != -1) {
                     ssjb = "1";
                     newsscz.setSsczbs("11");
-                } else if (ssjb.indexOf("二级手术") != -1) {
+                } else if (ssjb.indexOf("二级") != -1) {
                     newsscz.setSsczbs("11");
                     ssjb = "2";
-                } else if (ssjb.indexOf("三级手术") != -1) {
+                } else if (ssjb.indexOf("三级") != -1) {
                     newsscz.setSsczbs("11");
                     ssjb = "3";
-                } else if (ssjb.indexOf("四级手术") != -1) {
+                } else if (ssjb.indexOf("四级") != -1) {
                     newsscz.setSsczbs("11");
                     ssjb = "4";
                 } else {
@@ -148,13 +149,21 @@ public class WlhtBeanReverseHelper {
                 }
             }
 
-            // 手术
+            // 手术start
+
+            newsscz.setZblsh(id);
             newsscz.setSsidentity(baIdentity);
+            newsscz.setBah(banum);
+            newsscz.setName(brname);
             newsscz.setJlh(jlh);
-            // ///
             newsscz.setSsczbm(ssjczbm);// 1
             newsscz.setSsbmname(ssjczmc);// 2
-            newsscz.setSstarttime(DateUtil.yyyy_MM_dd_HH_mmFormat.parse(ssjczrq));// 3
+            if(StringUtils.isNotBlank(ssjczrq)&&ssjczrq.length()==10){
+                newsscz.setSstarttime(DateUtil.yyyy_MM_ddFormat.parse(ssjczrq));// 3
+            }else{
+                newsscz.setSstarttime(DateUtil.yyyy_MM_dd_HH_mmFormat.parse(ssjczrq));// 3
+            }
+
             if (StringUtils.isNotBlank(ssjb)) {
                 newsscz.setSslevel(ssjb);// 4
             }
@@ -164,7 +173,10 @@ public class WlhtBeanReverseHelper {
 //            if (LdgStringUtil.isNum(qkyhdj1)) {
 //                newsscz.setYhlevel(Integer.parseInt(qkyhdj1));// 6
 //            }
+            newsscz.setFzjgbsf("0");
             newsscz.setMzfs(mzfs);
+            ssczList.add(newsscz);//添加到手术列表集合
+            ////手术end
             // 责任人
             // ////手术者
             WlhtBeanReverseHelper.handlerZrr(zrrList, id, baIdentity, banum, sz, brname, SysConstant.zzdm, SysConstant.zzdmName, "31");
@@ -174,6 +186,7 @@ public class WlhtBeanReverseHelper {
             WlhtBeanReverseHelper.handlerZrr(zrrList, id, baIdentity, banum, ez, brname, SysConstant.zzdm, SysConstant.zzdmName, "32");
             //麻醉
             WlhtBeanReverseHelper.handlerZrr(zrrList, id, baIdentity, banum, mzys, brname, SysConstant.zzdm, SysConstant.zzdmName, "33");
+
         }
 
     }

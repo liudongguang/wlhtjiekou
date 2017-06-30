@@ -2,9 +2,6 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.wlht.impl.mapper.TBngmywMapper">
   <resultMap id="BaseResultMap" type="com.wlht.api.po.TBngmyw">
-    <!--
-      WARNING - @mbg.generated
-    -->
     <id column="ID" jdbcType="NUMERIC" property="id" />
     <result column="ZBLSH" jdbcType="NUMERIC" property="zblsh" />
     <result column="GMIDENTITY" jdbcType="VARCHAR" property="gmidentity" />
@@ -17,4 +14,150 @@
     <result column="BM" jdbcType="VARCHAR" property="bm" />
     <result column="GMYWNAME" jdbcType="VARCHAR" property="gmywname" />
   </resultMap>
+  <sql id="Base_Column_List">
+    ID, ZBLSH, GMIDENTITY, ZZJGDM, ZZJGNAME, FZJGBSF, BNH, NAME, JLH, BM, GMYWNAME
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from T_BNGMYW
+    where ID = #{id,jdbcType=NUMERIC}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+    delete from T_BNGMYW
+    where ID = #{id,jdbcType=NUMERIC}
+  </delete>
+  <insert id="insert" parameterType="com.wlht.api.po.TBngmyw">
+    insert into T_BNGMYW (ID, ZBLSH, GMIDENTITY, 
+      ZZJGDM, ZZJGNAME, FZJGBSF, 
+      BNH, NAME, JLH, BM, 
+      GMYWNAME)
+    values (#{id,jdbcType=NUMERIC}, #{zblsh,jdbcType=NUMERIC}, #{gmidentity,jdbcType=VARCHAR}, 
+      #{zzjgdm,jdbcType=VARCHAR}, #{zzjgname,jdbcType=VARCHAR}, #{fzjgbsf,jdbcType=VARCHAR}, 
+      #{bnh,jdbcType=VARCHAR}, #{name,jdbcType=VARCHAR}, #{jlh,jdbcType=VARCHAR}, #{bm,jdbcType=VARCHAR}, 
+      #{gmywname,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.wlht.api.po.TBngmyw">
+    insert into T_BNGMYW
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        ID,
+      </if>
+      <if test="zblsh != null">
+        ZBLSH,
+      </if>
+      <if test="gmidentity != null">
+        GMIDENTITY,
+      </if>
+      <if test="zzjgdm != null">
+        ZZJGDM,
+      </if>
+      <if test="zzjgname != null">
+        ZZJGNAME,
+      </if>
+      <if test="fzjgbsf != null">
+        FZJGBSF,
+      </if>
+      <if test="bnh != null">
+        BNH,
+      </if>
+      <if test="name != null">
+        NAME,
+      </if>
+      <if test="jlh != null">
+        JLH,
+      </if>
+      <if test="bm != null">
+        BM,
+      </if>
+      <if test="gmywname != null">
+        GMYWNAME,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=NUMERIC},
+      </if>
+      <if test="zblsh != null">
+        #{zblsh,jdbcType=NUMERIC},
+      </if>
+      <if test="gmidentity != null">
+        #{gmidentity,jdbcType=VARCHAR},
+      </if>
+      <if test="zzjgdm != null">
+        #{zzjgdm,jdbcType=VARCHAR},
+      </if>
+      <if test="zzjgname != null">
+        #{zzjgname,jdbcType=VARCHAR},
+      </if>
+      <if test="fzjgbsf != null">
+        #{fzjgbsf,jdbcType=VARCHAR},
+      </if>
+      <if test="bnh != null">
+        #{bnh,jdbcType=VARCHAR},
+      </if>
+      <if test="name != null">
+        #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="jlh != null">
+        #{jlh,jdbcType=VARCHAR},
+      </if>
+      <if test="bm != null">
+        #{bm,jdbcType=VARCHAR},
+      </if>
+      <if test="gmywname != null">
+        #{gmywname,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.wlht.api.po.TBngmyw">
+    update T_BNGMYW
+    <set>
+      <if test="zblsh != null">
+        ZBLSH = #{zblsh,jdbcType=NUMERIC},
+      </if>
+      <if test="gmidentity != null">
+        GMIDENTITY = #{gmidentity,jdbcType=VARCHAR},
+      </if>
+      <if test="zzjgdm != null">
+        ZZJGDM = #{zzjgdm,jdbcType=VARCHAR},
+      </if>
+      <if test="zzjgname != null">
+        ZZJGNAME = #{zzjgname,jdbcType=VARCHAR},
+      </if>
+      <if test="fzjgbsf != null">
+        FZJGBSF = #{fzjgbsf,jdbcType=VARCHAR},
+      </if>
+      <if test="bnh != null">
+        BNH = #{bnh,jdbcType=VARCHAR},
+      </if>
+      <if test="name != null">
+        NAME = #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="jlh != null">
+        JLH = #{jlh,jdbcType=VARCHAR},
+      </if>
+      <if test="bm != null">
+        BM = #{bm,jdbcType=VARCHAR},
+      </if>
+      <if test="gmywname != null">
+        GMYWNAME = #{gmywname,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where ID = #{id,jdbcType=NUMERIC}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.wlht.api.po.TBngmyw">
+    update T_BNGMYW
+    set ZBLSH = #{zblsh,jdbcType=NUMERIC},
+      GMIDENTITY = #{gmidentity,jdbcType=VARCHAR},
+      ZZJGDM = #{zzjgdm,jdbcType=VARCHAR},
+      ZZJGNAME = #{zzjgname,jdbcType=VARCHAR},
+      FZJGBSF = #{fzjgbsf,jdbcType=VARCHAR},
+      BNH = #{bnh,jdbcType=VARCHAR},
+      NAME = #{name,jdbcType=VARCHAR},
+      JLH = #{jlh,jdbcType=VARCHAR},
+      BM = #{bm,jdbcType=VARCHAR},
+      GMYWNAME = #{gmywname,jdbcType=VARCHAR}
+    where ID = #{id,jdbcType=NUMERIC}
+  </update>
 </mapper>

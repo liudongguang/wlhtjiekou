@@ -1,52 +1,597 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.wlht.impl.mapper.TBnssczMapper">
-  <resultMap id="BaseResultMap" type="com.wlht.api.po.TBnsscz">
-    <!--
-      WARNING - @mbg.generated
-    -->
-    <id column="ID" jdbcType="NUMERIC" property="id" />
-    <result column="ZBLSH" jdbcType="NUMERIC" property="zblsh" />
-    <result column="SSIDENTITY" jdbcType="VARCHAR" property="ssidentity" />
-    <result column="ZZJGDM" jdbcType="VARCHAR" property="zzjgdm" />
-    <result column="JGMCNAME" jdbcType="VARCHAR" property="jgmcname" />
-    <result column="FZJGBSF" jdbcType="VARCHAR" property="fzjgbsf" />
-    <result column="BAH" jdbcType="VARCHAR" property="bah" />
-    <result column="NAME" jdbcType="VARCHAR" property="name" />
-    <result column="JLH" jdbcType="VARCHAR" property="jlh" />
-    <result column="SSCZBS" jdbcType="VARCHAR" property="ssczbs" />
-    <result column="SSTARTTIME" jdbcType="TIMESTAMP" property="sstarttime" />
-    <result column="SSENDTIME" jdbcType="TIMESTAMP" property="ssendtime" />
-    <result column="SSLEVEL" jdbcType="VARCHAR" property="sslevel" />
-    <result column="SSCZBM" jdbcType="VARCHAR" property="ssczbm" />
-    <result column="QKLEVEL" jdbcType="NUMERIC" property="qklevel" />
-    <result column="YHLEVEL" jdbcType="NUMERIC" property="yhlevel" />
-    <result column="SSXZ" jdbcType="VARCHAR" property="ssxz" />
-    <result column="SSFXFJ" jdbcType="NUMERIC" property="ssfxfj" />
-    <result column="SSYPZB" jdbcType="NUMERIC" property="ssypzb" />
-    <result column="SSBW" jdbcType="VARCHAR" property="ssbw" />
-    <result column="SSGRBW" jdbcType="VARCHAR" property="ssgrbw" />
-    <result column="SSISNEW" jdbcType="NUMERIC" property="ssisnew" />
-    <result column="SSYWYL" jdbcType="NUMERIC" property="ssywyl" />
-    <result column="SSTIME" jdbcType="VARCHAR" property="sstime" />
-    <result column="SSCXL" jdbcType="NUMERIC" property="sscxl" />
-    <result column="SSBFZ" jdbcType="VARCHAR" property="ssbfz" />
-    <result column="CFSSMD" jdbcType="VARCHAR" property="cfssmd" />
-    <result column="MZFS" jdbcType="VARCHAR" property="mzfs" />
-    <result column="TWXH" jdbcType="VARCHAR" property="twxh" />
-    <result column="MZFJ" jdbcType="VARCHAR" property="mzfj" />
-    <result column="MZFYQ" jdbcType="VARCHAR" property="mzfyq" />
-    <result column="HZSHQX" jdbcType="VARCHAR" property="hzshqx" />
-    <result column="JRMZFSTIME" jdbcType="TIMESTAMP" property="jrmzfstime" />
-    <result column="LKMZFSTIME" jdbcType="TIMESTAMP" property="lkmzfstime" />
-    <result column="LIMZFSTIMEPF" jdbcType="NUMERIC" property="limzfstimepf" />
-    <result column="CFSSJH" jdbcType="VARCHAR" property="cfssjh" />
-    <result column="SSBMNAME" jdbcType="VARCHAR" property="ssbmname" />
-    <result column="HEBING1SSBM" jdbcType="VARCHAR" property="hebing1ssbm" />
-    <result column="HEBING1SSBMNAME" jdbcType="VARCHAR" property="hebing1ssbmname" />
-    <result column="HEBING2SSBM" jdbcType="VARCHAR" property="hebing2ssbm" />
-    <result column="HEBING2SSBMNAME" jdbcType="VARCHAR" property="hebing2ssbmname" />
-    <result column="HEBING3SSBM" jdbcType="VARCHAR" property="hebing3ssbm" />
-    <result column="HEBING3SSBMNAME" jdbcType="VARCHAR" property="hebing3ssbmname" />
-  </resultMap>
+    <resultMap id="BaseResultMap" type="com.wlht.api.po.TBnsscz">
+        <id column="ID" jdbcType="NUMERIC" property="id"/>
+        <result column="ZBLSH" jdbcType="NUMERIC" property="zblsh"/>
+        <result column="SSIDENTITY" jdbcType="VARCHAR" property="ssidentity"/>
+        <result column="ZZJGDM" jdbcType="VARCHAR" property="zzjgdm"/>
+        <result column="JGMCNAME" jdbcType="VARCHAR" property="jgmcname"/>
+        <result column="FZJGBSF" jdbcType="VARCHAR" property="fzjgbsf"/>
+        <result column="BAH" jdbcType="VARCHAR" property="bah"/>
+        <result column="NAME" jdbcType="VARCHAR" property="name"/>
+        <result column="JLH" jdbcType="VARCHAR" property="jlh"/>
+        <result column="SSCZBS" jdbcType="VARCHAR" property="ssczbs"/>
+        <result column="SSTARTTIME" jdbcType="TIMESTAMP" property="sstarttime"/>
+        <result column="SSENDTIME" jdbcType="TIMESTAMP" property="ssendtime"/>
+        <result column="SSLEVEL" jdbcType="VARCHAR" property="sslevel"/>
+        <result column="SSCZBM" jdbcType="VARCHAR" property="ssczbm"/>
+        <result column="QKLEVEL" jdbcType="NUMERIC" property="qklevel"/>
+        <result column="YHLEVEL" jdbcType="NUMERIC" property="yhlevel"/>
+        <result column="SSXZ" jdbcType="VARCHAR" property="ssxz"/>
+        <result column="SSFXFJ" jdbcType="NUMERIC" property="ssfxfj"/>
+        <result column="SSYPZB" jdbcType="NUMERIC" property="ssypzb"/>
+        <result column="SSBW" jdbcType="VARCHAR" property="ssbw"/>
+        <result column="SSGRBW" jdbcType="VARCHAR" property="ssgrbw"/>
+        <result column="SSISNEW" jdbcType="NUMERIC" property="ssisnew"/>
+        <result column="SSYWYL" jdbcType="NUMERIC" property="ssywyl"/>
+        <result column="SSTIME" jdbcType="VARCHAR" property="sstime"/>
+        <result column="SSCXL" jdbcType="NUMERIC" property="sscxl"/>
+        <result column="SSBFZ" jdbcType="VARCHAR" property="ssbfz"/>
+        <result column="CFSSMD" jdbcType="VARCHAR" property="cfssmd"/>
+        <result column="MZFS" jdbcType="VARCHAR" property="mzfs"/>
+        <result column="TWXH" jdbcType="VARCHAR" property="twxh"/>
+        <result column="MZFJ" jdbcType="VARCHAR" property="mzfj"/>
+        <result column="MZFYQ" jdbcType="VARCHAR" property="mzfyq"/>
+        <result column="HZSHQX" jdbcType="VARCHAR" property="hzshqx"/>
+        <result column="JRMZFSTIME" jdbcType="TIMESTAMP" property="jrmzfstime"/>
+        <result column="LKMZFSTIME" jdbcType="TIMESTAMP" property="lkmzfstime"/>
+        <result column="LIMZFSTIMEPF" jdbcType="NUMERIC" property="limzfstimepf"/>
+        <result column="CFSSJH" jdbcType="VARCHAR" property="cfssjh"/>
+        <result column="SSBMNAME" jdbcType="VARCHAR" property="ssbmname"/>
+        <result column="HEBING1SSBM" jdbcType="VARCHAR" property="hebing1ssbm"/>
+        <result column="HEBING1SSBMNAME" jdbcType="VARCHAR" property="hebing1ssbmname"/>
+        <result column="HEBING2SSBM" jdbcType="VARCHAR" property="hebing2ssbm"/>
+        <result column="HEBING2SSBMNAME" jdbcType="VARCHAR" property="hebing2ssbmname"/>
+        <result column="HEBING3SSBM" jdbcType="VARCHAR" property="hebing3ssbm"/>
+        <result column="HEBING3SSBMNAME" jdbcType="VARCHAR" property="hebing3ssbmname"/>
+    </resultMap>
+    <sql id="Base_Column_List">
+        ID, ZBLSH, SSIDENTITY, ZZJGDM, JGMCNAME, FZJGBSF, BAH, NAME, JLH, SSCZBS, SSTARTTIME,
+        SSENDTIME, SSLEVEL, SSCZBM, QKLEVEL, YHLEVEL, SSXZ, SSFXFJ, SSYPZB, SSBW, SSGRBW,
+        SSISNEW, SSYWYL, SSTIME, SSCXL, SSBFZ, CFSSMD, MZFS, TWXH, MZFJ, MZFYQ, HZSHQX, JRMZFSTIME,
+        LKMZFSTIME, LIMZFSTIMEPF, CFSSJH, SSBMNAME, HEBING1SSBM, HEBING1SSBMNAME, HEBING2SSBM,
+        HEBING2SSBMNAME, HEBING3SSBM, HEBING3SSBMNAME
+    </sql>
+    <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List"/>
+        from T_BNSSCZ
+        where ID = #{id,jdbcType=NUMERIC}
+    </select>
+    <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+        DELETE FROM T_BNSSCZ
+        WHERE ID = #{id,jdbcType=NUMERIC}
+    </delete>
+    <insert id="insert" parameterType="com.wlht.api.po.TBnsscz">
+        INSERT INTO T_BNSSCZ (ID, ZBLSH, SSIDENTITY,
+                              ZZJGDM, JGMCNAME, FZJGBSF,
+                              BAH, NAME, JLH, SSCZBS,
+                              SSTARTTIME, SSENDTIME, SSLEVEL,
+                              SSCZBM, QKLEVEL, YHLEVEL,
+                              SSXZ, SSFXFJ, SSYPZB,
+                              SSBW, SSGRBW, SSISNEW,
+                              SSYWYL, SSTIME, SSCXL,
+                              SSBFZ, CFSSMD, MZFS,
+                              TWXH, MZFJ, MZFYQ,
+                              HZSHQX, JRMZFSTIME, LKMZFSTIME,
+                              LIMZFSTIMEPF, CFSSJH, SSBMNAME,
+                              HEBING1SSBM, HEBING1SSBMNAME, HEBING2SSBM,
+                              HEBING2SSBMNAME, HEBING3SSBM, HEBING3SSBMNAME
+        )
+        VALUES (#{id,jdbcType=NUMERIC}, #{zblsh,jdbcType=NUMERIC}, #{ssidentity,jdbcType=VARCHAR},
+                                        #{zzjgdm,jdbcType=VARCHAR}, #{jgmcname,jdbcType=VARCHAR},
+                                        #{fzjgbsf,jdbcType=VARCHAR},
+                                        #{bah,jdbcType=VARCHAR}, #{name,jdbcType=VARCHAR}, #{jlh,jdbcType=VARCHAR},
+                                        #{ssczbs,jdbcType=VARCHAR},
+                                        #{sstarttime,jdbcType=TIMESTAMP}, #{ssendtime,jdbcType=TIMESTAMP},
+                                                                          #{sslevel,jdbcType=VARCHAR},
+                                                                          #{ssczbm,jdbcType=VARCHAR},
+                                                                          #{qklevel,jdbcType=NUMERIC},
+                                                                          #{yhlevel,jdbcType=NUMERIC},
+                                                                          #{ssxz,jdbcType=VARCHAR},
+                                                                          #{ssfxfj,jdbcType=NUMERIC},
+                                                                          #{ssypzb,jdbcType=NUMERIC},
+                                                                          #{ssbw,jdbcType=VARCHAR},
+                                                                          #{ssgrbw,jdbcType=VARCHAR},
+            #{ssisnew,jdbcType=NUMERIC},
+            #{ssywyl,jdbcType=NUMERIC}, #{sstime,jdbcType=VARCHAR}, #{sscxl,jdbcType=NUMERIC},
+            #{ssbfz,jdbcType=VARCHAR}, #{cfssmd,jdbcType=VARCHAR}, #{mzfs,jdbcType=VARCHAR},
+            #{twxh,jdbcType=VARCHAR}, #{mzfj,jdbcType=VARCHAR}, #{mzfyq,jdbcType=VARCHAR},
+            #{hzshqx,jdbcType=VARCHAR}, #{jrmzfstime,jdbcType=TIMESTAMP}, #{lkmzfstime,jdbcType=TIMESTAMP},
+            #{limzfstimepf,jdbcType=NUMERIC}, #{cfssjh,jdbcType=VARCHAR}, #{ssbmname,jdbcType=VARCHAR},
+            #{hebing1ssbm,jdbcType=VARCHAR}, #{hebing1ssbmname,jdbcType=VARCHAR}, #{hebing2ssbm,jdbcType=VARCHAR},
+            #{hebing2ssbmname,jdbcType=VARCHAR}, #{hebing3ssbm,jdbcType=VARCHAR}, #{hebing3ssbmname,jdbcType=VARCHAR}
+        )
+    </insert>
+    <insert id="insertSelective" parameterType="com.wlht.api.po.TBnsscz">
+        insert into T_BNSSCZ
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="id != null">
+                ID,
+            </if>
+            <if test="zblsh != null">
+                ZBLSH,
+            </if>
+            <if test="ssidentity != null">
+                SSIDENTITY,
+            </if>
+            <if test="zzjgdm != null">
+                ZZJGDM,
+            </if>
+            <if test="jgmcname != null">
+                JGMCNAME,
+            </if>
+            <if test="fzjgbsf != null">
+                FZJGBSF,
+            </if>
+            <if test="bah != null">
+                BAH,
+            </if>
+            <if test="name != null">
+                NAME,
+            </if>
+            <if test="jlh != null">
+                JLH,
+            </if>
+            <if test="ssczbs != null">
+                SSCZBS,
+            </if>
+            <if test="sstarttime != null">
+                SSTARTTIME,
+            </if>
+            <if test="ssendtime != null">
+                SSENDTIME,
+            </if>
+            <if test="sslevel != null">
+                SSLEVEL,
+            </if>
+            <if test="ssczbm != null">
+                SSCZBM,
+            </if>
+            <if test="qklevel != null">
+                QKLEVEL,
+            </if>
+            <if test="yhlevel != null">
+                YHLEVEL,
+            </if>
+            <if test="ssxz != null">
+                SSXZ,
+            </if>
+            <if test="ssfxfj != null">
+                SSFXFJ,
+            </if>
+            <if test="ssypzb != null">
+                SSYPZB,
+            </if>
+            <if test="ssbw != null">
+                SSBW,
+            </if>
+            <if test="ssgrbw != null">
+                SSGRBW,
+            </if>
+            <if test="ssisnew != null">
+                SSISNEW,
+            </if>
+            <if test="ssywyl != null">
+                SSYWYL,
+            </if>
+            <if test="sstime != null">
+                SSTIME,
+            </if>
+            <if test="sscxl != null">
+                SSCXL,
+            </if>
+            <if test="ssbfz != null">
+                SSBFZ,
+            </if>
+            <if test="cfssmd != null">
+                CFSSMD,
+            </if>
+            <if test="mzfs != null">
+                MZFS,
+            </if>
+            <if test="twxh != null">
+                TWXH,
+            </if>
+            <if test="mzfj != null">
+                MZFJ,
+            </if>
+            <if test="mzfyq != null">
+                MZFYQ,
+            </if>
+            <if test="hzshqx != null">
+                HZSHQX,
+            </if>
+            <if test="jrmzfstime != null">
+                JRMZFSTIME,
+            </if>
+            <if test="lkmzfstime != null">
+                LKMZFSTIME,
+            </if>
+            <if test="limzfstimepf != null">
+                LIMZFSTIMEPF,
+            </if>
+            <if test="cfssjh != null">
+                CFSSJH,
+            </if>
+            <if test="ssbmname != null">
+                SSBMNAME,
+            </if>
+            <if test="hebing1ssbm != null">
+                HEBING1SSBM,
+            </if>
+            <if test="hebing1ssbmname != null">
+                HEBING1SSBMNAME,
+            </if>
+            <if test="hebing2ssbm != null">
+                HEBING2SSBM,
+            </if>
+            <if test="hebing2ssbmname != null">
+                HEBING2SSBMNAME,
+            </if>
+            <if test="hebing3ssbm != null">
+                HEBING3SSBM,
+            </if>
+            <if test="hebing3ssbmname != null">
+                HEBING3SSBMNAME,
+            </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="id != null">
+                #{id,jdbcType=NUMERIC},
+            </if>
+            <if test="zblsh != null">
+                #{zblsh,jdbcType=NUMERIC},
+            </if>
+            <if test="ssidentity != null">
+                #{ssidentity,jdbcType=VARCHAR},
+            </if>
+            <if test="zzjgdm != null">
+                #{zzjgdm,jdbcType=VARCHAR},
+            </if>
+            <if test="jgmcname != null">
+                #{jgmcname,jdbcType=VARCHAR},
+            </if>
+            <if test="fzjgbsf != null">
+                #{fzjgbsf,jdbcType=VARCHAR},
+            </if>
+            <if test="bah != null">
+                #{bah,jdbcType=VARCHAR},
+            </if>
+            <if test="name != null">
+                #{name,jdbcType=VARCHAR},
+            </if>
+            <if test="jlh != null">
+                #{jlh,jdbcType=VARCHAR},
+            </if>
+            <if test="ssczbs != null">
+                #{ssczbs,jdbcType=VARCHAR},
+            </if>
+            <if test="sstarttime != null">
+                #{sstarttime,jdbcType=TIMESTAMP},
+            </if>
+            <if test="ssendtime != null">
+                #{ssendtime,jdbcType=TIMESTAMP},
+            </if>
+            <if test="sslevel != null">
+                #{sslevel,jdbcType=VARCHAR},
+            </if>
+            <if test="ssczbm != null">
+                #{ssczbm,jdbcType=VARCHAR},
+            </if>
+            <if test="qklevel != null">
+                #{qklevel,jdbcType=NUMERIC},
+            </if>
+            <if test="yhlevel != null">
+                #{yhlevel,jdbcType=NUMERIC},
+            </if>
+            <if test="ssxz != null">
+                #{ssxz,jdbcType=VARCHAR},
+            </if>
+            <if test="ssfxfj != null">
+                #{ssfxfj,jdbcType=NUMERIC},
+            </if>
+            <if test="ssypzb != null">
+                #{ssypzb,jdbcType=NUMERIC},
+            </if>
+            <if test="ssbw != null">
+                #{ssbw,jdbcType=VARCHAR},
+            </if>
+            <if test="ssgrbw != null">
+                #{ssgrbw,jdbcType=VARCHAR},
+            </if>
+            <if test="ssisnew != null">
+                #{ssisnew,jdbcType=NUMERIC},
+            </if>
+            <if test="ssywyl != null">
+                #{ssywyl,jdbcType=NUMERIC},
+            </if>
+            <if test="sstime != null">
+                #{sstime,jdbcType=VARCHAR},
+            </if>
+            <if test="sscxl != null">
+                #{sscxl,jdbcType=NUMERIC},
+            </if>
+            <if test="ssbfz != null">
+                #{ssbfz,jdbcType=VARCHAR},
+            </if>
+            <if test="cfssmd != null">
+                #{cfssmd,jdbcType=VARCHAR},
+            </if>
+            <if test="mzfs != null">
+                #{mzfs,jdbcType=VARCHAR},
+            </if>
+            <if test="twxh != null">
+                #{twxh,jdbcType=VARCHAR},
+            </if>
+            <if test="mzfj != null">
+                #{mzfj,jdbcType=VARCHAR},
+            </if>
+            <if test="mzfyq != null">
+                #{mzfyq,jdbcType=VARCHAR},
+            </if>
+            <if test="hzshqx != null">
+                #{hzshqx,jdbcType=VARCHAR},
+            </if>
+            <if test="jrmzfstime != null">
+                #{jrmzfstime,jdbcType=TIMESTAMP},
+            </if>
+            <if test="lkmzfstime != null">
+                #{lkmzfstime,jdbcType=TIMESTAMP},
+            </if>
+            <if test="limzfstimepf != null">
+                #{limzfstimepf,jdbcType=NUMERIC},
+            </if>
+            <if test="cfssjh != null">
+                #{cfssjh,jdbcType=VARCHAR},
+            </if>
+            <if test="ssbmname != null">
+                #{ssbmname,jdbcType=VARCHAR},
+            </if>
+            <if test="hebing1ssbm != null">
+                #{hebing1ssbm,jdbcType=VARCHAR},
+            </if>
+            <if test="hebing1ssbmname != null">
+                #{hebing1ssbmname,jdbcType=VARCHAR},
+            </if>
+            <if test="hebing2ssbm != null">
+                #{hebing2ssbm,jdbcType=VARCHAR},
+            </if>
+            <if test="hebing2ssbmname != null">
+                #{hebing2ssbmname,jdbcType=VARCHAR},
+            </if>
+            <if test="hebing3ssbm != null">
+                #{hebing3ssbm,jdbcType=VARCHAR},
+            </if>
+            <if test="hebing3ssbmname != null">
+                #{hebing3ssbmname,jdbcType=VARCHAR},
+            </if>
+        </trim>
+    </insert>
+    <update id="updateByPrimaryKeySelective" parameterType="com.wlht.api.po.TBnsscz">
+        update T_BNSSCZ
+        <set>
+            <if test="zblsh != null">
+                ZBLSH = #{zblsh,jdbcType=NUMERIC},
+            </if>
+            <if test="ssidentity != null">
+                SSIDENTITY = #{ssidentity,jdbcType=VARCHAR},
+            </if>
+            <if test="zzjgdm != null">
+                ZZJGDM = #{zzjgdm,jdbcType=VARCHAR},
+            </if>
+            <if test="jgmcname != null">
+                JGMCNAME = #{jgmcname,jdbcType=VARCHAR},
+            </if>
+            <if test="fzjgbsf != null">
+                FZJGBSF = #{fzjgbsf,jdbcType=VARCHAR},
+            </if>
+            <if test="bah != null">
+                BAH = #{bah,jdbcType=VARCHAR},
+            </if>
+            <if test="name != null">
+                NAME = #{name,jdbcType=VARCHAR},
+            </if>
+            <if test="jlh != null">
+                JLH = #{jlh,jdbcType=VARCHAR},
+            </if>
+            <if test="ssczbs != null">
+                SSCZBS = #{ssczbs,jdbcType=VARCHAR},
+            </if>
+            <if test="sstarttime != null">
+                SSTARTTIME = #{sstarttime,jdbcType=TIMESTAMP},
+            </if>
+            <if test="ssendtime != null">
+                SSENDTIME = #{ssendtime,jdbcType=TIMESTAMP},
+            </if>
+            <if test="sslevel != null">
+                SSLEVEL = #{sslevel,jdbcType=VARCHAR},
+            </if>
+            <if test="ssczbm != null">
+                SSCZBM = #{ssczbm,jdbcType=VARCHAR},
+            </if>
+            <if test="qklevel != null">
+                QKLEVEL = #{qklevel,jdbcType=NUMERIC},
+            </if>
+            <if test="yhlevel != null">
+                YHLEVEL = #{yhlevel,jdbcType=NUMERIC},
+            </if>
+            <if test="ssxz != null">
+                SSXZ = #{ssxz,jdbcType=VARCHAR},
+            </if>
+            <if test="ssfxfj != null">
+                SSFXFJ = #{ssfxfj,jdbcType=NUMERIC},
+            </if>
+            <if test="ssypzb != null">
+                SSYPZB = #{ssypzb,jdbcType=NUMERIC},
+            </if>
+            <if test="ssbw != null">
+                SSBW = #{ssbw,jdbcType=VARCHAR},
+            </if>
+            <if test="ssgrbw != null">
+                SSGRBW = #{ssgrbw,jdbcType=VARCHAR},
+            </if>
+            <if test="ssisnew != null">
+                SSISNEW = #{ssisnew,jdbcType=NUMERIC},
+            </if>
+            <if test="ssywyl != null">
+                SSYWYL = #{ssywyl,jdbcType=NUMERIC},
+            </if>
+            <if test="sstime != null">
+                SSTIME = #{sstime,jdbcType=VARCHAR},
+            </if>
+            <if test="sscxl != null">
+                SSCXL = #{sscxl,jdbcType=NUMERIC},
+            </if>
+            <if test="ssbfz != null">
+                SSBFZ = #{ssbfz,jdbcType=VARCHAR},
+            </if>
+            <if test="cfssmd != null">
+                CFSSMD = #{cfssmd,jdbcType=VARCHAR},
+            </if>
+            <if test="mzfs != null">
+                MZFS = #{mzfs,jdbcType=VARCHAR},
+            </if>
+            <if test="twxh != null">
+                TWXH = #{twxh,jdbcType=VARCHAR},
+            </if>
+            <if test="mzfj != null">
+                MZFJ = #{mzfj,jdbcType=VARCHAR},
+            </if>
+            <if test="mzfyq != null">
+                MZFYQ = #{mzfyq,jdbcType=VARCHAR},
+            </if>
+            <if test="hzshqx != null">
+                HZSHQX = #{hzshqx,jdbcType=VARCHAR},
+            </if>
+            <if test="jrmzfstime != null">
+                JRMZFSTIME = #{jrmzfstime,jdbcType=TIMESTAMP},
+            </if>
+            <if test="lkmzfstime != null">
+                LKMZFSTIME = #{lkmzfstime,jdbcType=TIMESTAMP},
+            </if>
+            <if test="limzfstimepf != null">
+                LIMZFSTIMEPF = #{limzfstimepf,jdbcType=NUMERIC},
+            </if>
+            <if test="cfssjh != null">
+                CFSSJH = #{cfssjh,jdbcType=VARCHAR},
+            </if>
+            <if test="ssbmname != null">
+                SSBMNAME = #{ssbmname,jdbcType=VARCHAR},
+            </if>
+            <if test="hebing1ssbm != null">
+                HEBING1SSBM = #{hebing1ssbm,jdbcType=VARCHAR},
+            </if>
+            <if test="hebing1ssbmname != null">
+                HEBING1SSBMNAME = #{hebing1ssbmname,jdbcType=VARCHAR},
+            </if>
+            <if test="hebing2ssbm != null">
+                HEBING2SSBM = #{hebing2ssbm,jdbcType=VARCHAR},
+            </if>
+            <if test="hebing2ssbmname != null">
+                HEBING2SSBMNAME = #{hebing2ssbmname,jdbcType=VARCHAR},
+            </if>
+            <if test="hebing3ssbm != null">
+                HEBING3SSBM = #{hebing3ssbm,jdbcType=VARCHAR},
+            </if>
+            <if test="hebing3ssbmname != null">
+                HEBING3SSBMNAME = #{hebing3ssbmname,jdbcType=VARCHAR},
+            </if>
+        </set>
+        where ID = #{id,jdbcType=NUMERIC}
+    </update>
+    <update id="updateByPrimaryKey" parameterType="com.wlht.api.po.TBnsscz">
+        UPDATE T_BNSSCZ
+        SET ZBLSH           = #{zblsh,jdbcType=NUMERIC},
+            SSIDENTITY      = #{ssidentity,jdbcType=VARCHAR},
+            ZZJGDM          = #{zzjgdm,jdbcType=VARCHAR},
+            JGMCNAME        = #{jgmcname,jdbcType=VARCHAR},
+            FZJGBSF         = #{fzjgbsf,jdbcType=VARCHAR},
+            BAH             = #{bah,jdbcType=VARCHAR},
+            NAME            = #{name,jdbcType=VARCHAR},
+            JLH             = #{jlh,jdbcType=VARCHAR},
+            SSCZBS          = #{ssczbs,jdbcType=VARCHAR},
+            SSTARTTIME      = #{sstarttime,jdbcType=TIMESTAMP},
+            SSENDTIME       = #{ssendtime,jdbcType=TIMESTAMP},
+            SSLEVEL         = #{sslevel,jdbcType=VARCHAR},
+            SSCZBM          = #{ssczbm,jdbcType=VARCHAR},
+            QKLEVEL         = #{qklevel,jdbcType=NUMERIC},
+            YHLEVEL         = #{yhlevel,jdbcType=NUMERIC},
+            SSXZ            = #{ssxz,jdbcType=VARCHAR},
+            SSFXFJ          = #{ssfxfj,jdbcType=NUMERIC},
+            SSYPZB          = #{ssypzb,jdbcType=NUMERIC},
+            SSBW            = #{ssbw,jdbcType=VARCHAR},
+            SSGRBW          = #{ssgrbw,jdbcType=VARCHAR},
+            SSISNEW         = #{ssisnew,jdbcType=NUMERIC},
+            SSYWYL          = #{ssywyl,jdbcType=NUMERIC},
+            SSTIME          = #{sstime,jdbcType=VARCHAR},
+            SSCXL           = #{sscxl,jdbcType=NUMERIC},
+            SSBFZ           = #{ssbfz,jdbcType=VARCHAR},
+            CFSSMD          = #{cfssmd,jdbcType=VARCHAR},
+            MZFS            = #{mzfs,jdbcType=VARCHAR},
+            TWXH            = #{twxh,jdbcType=VARCHAR},
+            MZFJ            = #{mzfj,jdbcType=VARCHAR},
+            MZFYQ           = #{mzfyq,jdbcType=VARCHAR},
+            HZSHQX          = #{hzshqx,jdbcType=VARCHAR},
+            JRMZFSTIME      = #{jrmzfstime,jdbcType=TIMESTAMP},
+            LKMZFSTIME      = #{lkmzfstime,jdbcType=TIMESTAMP},
+            LIMZFSTIMEPF    = #{limzfstimepf,jdbcType=NUMERIC},
+            CFSSJH          = #{cfssjh,jdbcType=VARCHAR},
+            SSBMNAME        = #{ssbmname,jdbcType=VARCHAR},
+            HEBING1SSBM     = #{hebing1ssbm,jdbcType=VARCHAR},
+            HEBING1SSBMNAME = #{hebing1ssbmname,jdbcType=VARCHAR},
+            HEBING2SSBM     = #{hebing2ssbm,jdbcType=VARCHAR},
+            HEBING2SSBMNAME = #{hebing2ssbmname,jdbcType=VARCHAR},
+            HEBING3SSBM     = #{hebing3ssbm,jdbcType=VARCHAR},
+            HEBING3SSBMNAME = #{hebing3ssbmname,jdbcType=VARCHAR}
+        WHERE ID = #{id,jdbcType=NUMERIC}
+    </update>
+    <insert id="batchInsert" parameterType="java.util.List">
+        insert into T_BNSSCZ
+        (ID, ZBLSH, SSIDENTITY,
+        ZZJGDM, JGMCNAME, FZJGBSF,
+        BAH, NAME, JLH, SSCZBS,
+        SSTARTTIME, SSENDTIME, SSLEVEL,
+        SSCZBM, QKLEVEL, YHLEVEL,
+        SSXZ, SSFXFJ, SSYPZB,
+        SSBW, SSGRBW, SSISNEW,
+        SSYWYL, SSTIME, SSCXL,
+        SSBFZ, CFSSMD, MZFS,
+        TWXH, MZFJ, MZFYQ,
+        HZSHQX, JRMZFSTIME, LKMZFSTIME,
+        LIMZFSTIMEPF, CFSSJH, SSBMNAME,
+        HEBING1SSBM, HEBING1SSBMNAME, HEBING2SSBM,
+        HEBING2SSBMNAME, HEBING3SSBM, HEBING3SSBMNAME
+        )
+        select SEQ_T_BNSSCZ.NEXTVAL,cd.* from(
+        <foreach collection="list" index="index" item="item" separator="union all">
+            ( select
+             #{item.zblsh,jdbcType=NUMERIC}, #{item.ssidentity,jdbcType=VARCHAR},
+            #{item.zzjgdm,jdbcType=VARCHAR}, #{item.jgmcname,jdbcType=VARCHAR},
+            #{item.fzjgbsf,jdbcType=VARCHAR},
+            #{item.bah,jdbcType=VARCHAR}, #{item.name,jdbcType=VARCHAR}, #{item.jlh,jdbcType=VARCHAR},
+            #{item.ssczbs,jdbcType=VARCHAR},
+            #{item.sstarttime,jdbcType=TIMESTAMP}, #{item.ssendtime,jdbcType=TIMESTAMP},
+            #{item.sslevel,jdbcType=VARCHAR},
+            #{item.ssczbm,jdbcType=VARCHAR},
+            #{item.qklevel,jdbcType=NUMERIC},
+            #{item.yhlevel,jdbcType=NUMERIC},
+            #{item.ssxz,jdbcType=VARCHAR},
+            #{item.ssfxfj,jdbcType=NUMERIC},
+            #{item.ssypzb,jdbcType=NUMERIC},
+            #{item.ssbw,jdbcType=VARCHAR},
+            #{item.ssgrbw,jdbcType=VARCHAR},
+            #{item.ssisnew,jdbcType=NUMERIC},
+            #{item.ssywyl,jdbcType=NUMERIC}, #{item.sstime,jdbcType=VARCHAR}, #{item.sscxl,jdbcType=NUMERIC},
+            #{item.ssbfz,jdbcType=VARCHAR}, #{item.cfssmd,jdbcType=VARCHAR}, #{item.mzfs,jdbcType=VARCHAR},
+            #{item.twxh,jdbcType=VARCHAR}, #{item.mzfj,jdbcType=VARCHAR}, #{item.mzfyq,jdbcType=VARCHAR},
+            #{item.hzshqx,jdbcType=VARCHAR}, #{item.jrmzfstime,jdbcType=TIMESTAMP}, #{item.lkmzfstime,jdbcType=TIMESTAMP},
+            #{item.limzfstimepf,jdbcType=NUMERIC}, #{item.cfssjh,jdbcType=VARCHAR}, #{item.ssbmname,jdbcType=VARCHAR},
+            #{item.hebing1ssbm,jdbcType=VARCHAR}, #{item.hebing1ssbmname,jdbcType=VARCHAR}, #{item.hebing2ssbm,jdbcType=VARCHAR},
+            #{item.hebing2ssbmname,jdbcType=VARCHAR}, #{item.hebing3ssbm,jdbcType=VARCHAR}, #{item.hebing3ssbmname,jdbcType=VARCHAR}
+            from dual)
+        </foreach>
+        ) cd
+    </insert>
 </mapper>
