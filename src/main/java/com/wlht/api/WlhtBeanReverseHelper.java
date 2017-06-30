@@ -2,10 +2,7 @@ package com.wlht.api;
 
 import com.ldg.api.util.DateUtil;
 import com.ldg.api.util.LdgStringUtil;
-import com.wlht.api.po.TBnjbzd;
-import com.wlht.api.po.TBnsscz;
-import com.wlht.api.po.TBnzrr;
-import com.wlht.api.po.TBnzyfy;
+import com.wlht.api.po.*;
 import org.apache.commons.lang3.StringUtils;
 
 import java.math.BigDecimal;
@@ -36,6 +33,8 @@ public class WlhtBeanReverseHelper {
             newZrr.setZblsh(baseid);
             newZrr.setBnh(banum);
             newZrr.setZrridentity(baidentity);
+            newZrr.setZzjgdm(SysConstant.zzdm);
+            newZrr.setZzjgname(SysConstant.zzdmName);
             newZrr.setName(bingrenName);
             newZrr.setJlh("");
             newZrr.setFzjgbsf("0");
@@ -155,6 +154,8 @@ public class WlhtBeanReverseHelper {
             newsscz.setSsidentity(baIdentity);
             newsscz.setBah(banum);
             newsscz.setName(brname);
+            newsscz.setZzjgdm(SysConstant.zzdm);
+            newsscz.setJgmcname(SysConstant.zzdmName);
             newsscz.setJlh(jlh);
             newsscz.setSsczbm(ssjczbm);// 1
             newsscz.setSsbmname(ssjczmc);// 2
@@ -199,6 +200,8 @@ public class WlhtBeanReverseHelper {
             newjbzd.setJbidentity(baidentity);
             newjbzd.setBah(banum);
             newjbzd.setName(name);
+            newjbzd.setZzjgdm(SysConstant.zzdm);
+            newjbzd.setZzjgname(SysConstant.zzdmName);
             //
             newjbzd.setZdtype(jbtype);
             newjbzd.setJbzdbm(jbbm);
@@ -217,10 +220,29 @@ public class WlhtBeanReverseHelper {
             newfy.setName(name);
             newfy.setZyidentity(baidentity);
             newfy.setFzjgbsf("0");
+            newfy.setZzjgdm(SysConstant.zzdm);
+            newfy.setZzjgname(SysConstant.zzdmName);
             //
             newfy.setFylb(jinetype);
             newfy.setJine(jine);
             ylfsList.add(newfy);
+        }
+    }
+
+    public static void handGMYW(Long id, String baidentity, String banum, String name, List<TBngmyw> gmywList, String gmyw,String jlh) {
+        if (StringUtils.isNotBlank(gmyw)) {
+            TBngmyw tywgm = new TBngmyw();
+            tywgm.setZblsh(id);
+            tywgm.setGmidentity(baidentity);
+            tywgm.setBnh(banum);
+            tywgm.setName(name);
+            tywgm.setFzjgbsf("0");
+            tywgm.setZzjgdm(SysConstant.zzdm);
+            tywgm.setZzjgname(SysConstant.zzdmName);
+            tywgm.setJlh(jlh);
+            tywgm.setBm("99");
+            tywgm.setGmywname(gmyw);
+            gmywList.add(tywgm);
         }
     }
 }

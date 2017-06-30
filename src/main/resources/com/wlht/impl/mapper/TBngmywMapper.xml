@@ -160,4 +160,21 @@
       GMYWNAME = #{gmywname,jdbcType=VARCHAR}
     where ID = #{id,jdbcType=NUMERIC}
   </update>
+  <insert id="batchInsert" parameterType="java.util.List">
+    insert into T_BNGMYW
+    (ID, ZBLSH, GMIDENTITY,
+    ZZJGDM, ZZJGNAME, FZJGBSF,
+    BNH, NAME, JLH, BM,
+    GMYWNAME)
+    select SEQ_T_BNJBZD.NEXTVAL,cd.* from(
+    <foreach collection="list" index="index" item="item" separator="union all">
+      ( select
+      #{item.zblsh,jdbcType=NUMERIC}, #{item.gmidentity,jdbcType=VARCHAR},
+      #{item.zzjgdm,jdbcType=VARCHAR}, #{item.zzjgname,jdbcType=VARCHAR}, #{item.fzjgbsf,jdbcType=VARCHAR},
+      #{item.bnh,jdbcType=VARCHAR}, #{item.name,jdbcType=VARCHAR}, #{item.jlh,jdbcType=VARCHAR}, #{item.bm,jdbcType=VARCHAR},
+      #{item.gmywname,jdbcType=VARCHAR}
+      from dual)
+    </foreach>
+    ) cd
+  </insert>
 </mapper>

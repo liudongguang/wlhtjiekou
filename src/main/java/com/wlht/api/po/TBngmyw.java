@@ -110,4 +110,21 @@ public class TBngmyw {
     public void setGmywname(String gmywname) {
         this.gmywname = gmywname;
     }
+
+    @Override
+    public String toString() {
+        return "TBngmyw{" +
+                "id=" + id +
+                ", zblsh=" + zblsh +
+                ", gmidentity='" + gmidentity + '\'' +
+                ", zzjgdm='" + zzjgdm + '\'' +
+                ", zzjgname='" + zzjgname + '\'' +
+                ", fzjgbsf='" + fzjgbsf + '\'' +
+                ", bnh='" + bnh + '\'' +
+                ", name='" + name + '\'' +
+                ", jlh='" + jlh + '\'' +
+                ", bm='" + bm + '\'' +
+                ", gmywname='" + gmywname + '\'' +
+                '}';
+    }
 }

@@ -12,6 +12,7 @@ import com.wlht.api.service.WlhtDataService;
 import com.wlht.api.service.ZiDianService;
 import com.wlht.api.vo.ImportParam;
 import com.wlht.impl.mapper.*;
+import org.apache.poi.ss.formula.functions.T;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -96,7 +97,14 @@ public class WlhtDataServiceImpl implements WlhtDataService {
                 }
                 //4.费用
                 List<TBnzyfy> zlfyList = item.getZLFY();//费用列表
-                zyfyDao.batchInsert(zlfyList);
+                if(zlfyList.size()>0) {
+                   // zyfyDao.batchInsert(zlfyList);
+                }
+                //5.过敏药物
+                List<TBngmyw> gmywList=item.getGMYW();//过敏药物
+                if(gmywList.size()>0) {
+                    gmywDao.batchInsert(gmywList);
+                }
             }
             datebetween.append("成功导入").append(hisDataByDate.size()).append("条信息");
             return datebetween.toString();

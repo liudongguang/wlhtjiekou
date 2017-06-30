@@ -9,6 +9,7 @@ import org.apache.commons.lang3.StringUtils;
 import java.math.BigDecimal;
 import java.text.ParseException;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Date;
 import java.util.List;
 
@@ -105,6 +106,25 @@ public class TBaBase {
         WlhtBeanReverseHelper.handlerFY(id,baidentity,banum,name,ylfsList,hisview.getYcxyyclf(),"29");//手术用一次性医用材料费
         WlhtBeanReverseHelper.handlerFY(id,baidentity,banum,name,ylfsList,hisview.getQtf(),"30");//其他费
         return ylfsList;
+    }
+    public List<TBngmyw> getGMYW() {
+        List<TBngmyw> gmywList=new ArrayList<>();
+        String ywgm=hisview.getYwgm();
+        System.out.println(ywgm+"          "+hisview.getGmyw());
+        if(StringUtils.isNotBlank(ywgm)&&ywgm.indexOf("有")!=-1){
+            final Integer[] jlh = {1};
+             String guominyaowu=hisview.getGmyw();
+             if(StringUtils.isNotBlank(guominyaowu)&&guominyaowu.indexOf(" ")!=-1){
+                 List<String> gmlist= Arrays.asList(guominyaowu.split(" "));
+                 gmlist.forEach(gmyw->{
+                     WlhtBeanReverseHelper.handGMYW(id,baidentity,banum,name,gmywList,gmyw, jlh[0].toString());
+                     jlh[0]++;
+                 });
+             }else{
+                 WlhtBeanReverseHelper.handGMYW(id,baidentity,banum,name,gmywList,guominyaowu, jlh[0].toString());
+             }
+        }
+        return gmywList;
     }
     private Long id;
 
