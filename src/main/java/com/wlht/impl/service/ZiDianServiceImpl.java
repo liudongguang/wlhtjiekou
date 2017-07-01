@@ -1,8 +1,13 @@
 package com.wlht.impl.service;
 
+import com.github.pagehelper.PageHelper;
+import com.github.pagehelper.PageInfo;
+import com.ldg.api.vo.PageParam;
 import com.wlht.api.WlhtDataReverseHelper;
 import com.wlht.api.po.Stdhospitaloffice;
 import com.wlht.api.service.ZiDianService;
+import com.wlht.api.vo.HospitalOfficeVo;
+import com.wlht.api.vo.SearForKs;
 import com.wlht.impl.mapper.StddomesticrelationMapper;
 import com.wlht.impl.mapper.StdhospitalofficeMapper;
 import com.wlht.impl.mapper.StdnationMapper;
@@ -81,5 +86,11 @@ public class ZiDianServiceImpl implements ZiDianService {
             }
         }
         return val;
+    }
+
+    @Override
+    public PageInfo<HospitalOfficeVo> getAllHospitalOffice(PageParam pageParam, SearForKs param) {
+        PageInfo<HospitalOfficeVo> pageInfo = PageHelper.startPage(pageParam.getPageNum(), pageParam.getPageSize(), true).doSelectPageInfo(() -> stdhospitalofficeDao.getAllHospitalOffice(param));
+        return pageInfo;
     }
 }

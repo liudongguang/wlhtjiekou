@@ -362,5 +362,4 @@ public class Stdhospitaloffice {
     public void setOfficetype(String officetype) {
         this.officetype = officetype;
     }
-
 }
