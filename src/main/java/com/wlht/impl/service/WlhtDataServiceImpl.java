@@ -7,6 +7,7 @@ import com.remote.api.po.Hisview;
 import com.remote.api.service.RemoteHisService;
 import com.wlht.api.WlhtDataReverseHelper;
 import com.wlht.api.WlhtStringUtil;
+import com.wlht.api.bo.DelBaseInfo;
 import com.wlht.api.po.*;
 import com.wlht.api.service.WlhtDataService;
 import com.wlht.api.service.ZiDianService;
@@ -17,6 +18,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.text.ParseException;
+import java.util.Date;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -83,27 +85,27 @@ public class WlhtDataServiceImpl implements WlhtDataService {
                 ///导入到其他表中
                 List<TBnzrr> zrrList = item.getBAZRR();//获取责任人列表
                 List<TBnsscz> ssczList = item.getSSCZ(zrrList);//手术列表
-                if(ssczList.size()>0){
-                   // sszdDao.batchInsert(ssczList); //1.插入手术信息
+                if (ssczList.size() > 0) {
+                    // sszdDao.batchInsert(ssczList); //1.插入手术信息
                 }
-                if(zrrList.size()>0) {
+                if (zrrList.size() > 0) {
                     // zrrDao.batchInsert(zrrList);//2.插入责任人信息
                 }
                 //3.疾病
                 List<TBnjbzd> jbzdList = item.getJBZD();//疾病列表
                 System.out.println(jbzdList);
-                if(jbzdList.size()>0) {
-                  // jbzdDao.batchInsert(jbzdList);
+                if (jbzdList.size() > 0) {
+                    // jbzdDao.batchInsert(jbzdList);
                 }
                 //4.费用
                 List<TBnzyfy> zlfyList = item.getZLFY();//费用列表
-                if(zlfyList.size()>0) {
-                   // zyfyDao.batchInsert(zlfyList);
+                if (zlfyList.size() > 0) {
+                    // zyfyDao.batchInsert(zlfyList);
                 }
                 //5.过敏药物
-                List<TBngmyw> gmywList=item.getGMYW();//过敏药物
-                if(gmywList.size()>0) {
-                    gmywDao.batchInsert(gmywList);
+                List<TBngmyw> gmywList = item.getGMYW();//过敏药物
+                if (gmywList.size() > 0) {
+                    //  gmywDao.batchInsert(gmywList);
                 }
             }
             datebetween.append("成功导入").append(hisDataByDate.size()).append("条信息");
@@ -112,6 +114,81 @@ public class WlhtDataServiceImpl implements WlhtDataService {
             datebetween.append("无可导入的数据！");
             return datebetween.toString();
         }
+    }
 
+    @Override
+    public void delChongfuInfo() {
+        // 1.获取重复的记录中最早的那条，删除这条，保留最近日期的记录
+        List<DelBaseInfo> delList = baseMapper.getDelBaseInfo();
+        // 2.删除记录，费用，疾病，过敏药物，手术操作，责任人
+        if (delList != null && delList.size() > 0) {
+            delGuanlianBiao(delList);
+        }
+    }
+
+    /**
+     * 删除信息包括关联的
+     *
+     * @param delList
+     */
+    private void delGuanlianBiao(List<DelBaseInfo> delList) {
+        // 1.删除基本信息
+        baseMapper.batchDelete(delList);
+        // 2.删除疾病信息
+        jbzdDao.batchDelete(delList);
+        // 3.删除手术操作信息
+        sszdDao.batchDelete(delList);
+        // 4.删除费用信息
+        zyfyDao.batchDelete(delList);
+        // 5.删除责任人信息
+        zrrDao.batchDelete(delList);
+        // 6.删除过敏药物
+        gmywDao.batchDelete(delList);
+    }
+
+    @Override
+    public String importFeiYongDataByDate(ImportParam param) {
+        Date startDate_fy= param.getStarte();
+        Date endDate_fy=param.getEnd();
+        int days = DateUtil.getZYTSForInt(param.getEnd(), param.getStarte());
+        if (days < 0) {
+            return "结束日期不能在开始日期之前！";
+        } else if (days / 30 >= 3) {
+            return "日期区间不能大于3个月！";
+        }
+        Integer delFyState = param.getDelFyState();
+        StringBuilder hdStr = new StringBuilder();
+        if (delFyState != null && delFyState == 1) {
+            int delFYNum = zyfyDao.delExsitFYXX(param);
+            hdStr.append("费用删除数：").append(delFYNum);
+        }
+        // 1.抽取范围内的费用
+//        List<TBnzyfy> fyList = zyfyDao.getFyYong(startDate_fy, endDate_fy);
+//        hdStr.append("  范围内费用条数：").append(fyList.size());
+//        // 2.获取时间范围内没有费用的基本信息，初始化费用信息与基本信息
+//        List<TBaBase> exsistBaseInfo = wlthSV.getExsistBaseInfo(
+//                startDate_fy, endDate_fy);
+//        hdStr.append("  没有费用基本信息数：").append(exsistBaseInfo.size());
+//        WlhtParsedFYModel fyParsed = new WlhtParsedFYModel();
+//        fyParsed.setFyList(fyList);
+//        fyParsed.initDate();
+//        if (exsistBaseInfo != null && exsistBaseInfo.size() != 0) {
+//            // 3.插入费用信息
+//            int haveFYNum = 0;
+//            for (TBaBase base : exsistBaseInfo) {
+//                String baIdentity = base.getBaidentity();
+//                List<TBnzyfy> addFYList = fyParsed
+//                        .getFYByIdentity(baIdentity);
+//                if (addFYList != null && addFYList.size() > 0) {
+//                    wlthSV.addFYList(base, addFYList);
+//                    haveFYNum++;
+//                }
+//            }
+//            hdStr.append("  费用插入完成！补入费用条数：").append(haveFYNum);
+//            HandlerStrFY = hdStr.toString();
+//            System.out.println(HandlerStrFY);
+//        }
+
+        return null;
     }
 }

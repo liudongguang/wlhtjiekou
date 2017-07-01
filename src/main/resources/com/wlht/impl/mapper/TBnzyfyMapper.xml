@@ -164,4 +164,13 @@
     </foreach>
     ) cd
   </insert>
+  <delete id="batchDelete">
+    <foreach collection="list" item="item" index="index" open="begin" close="; end;" separator=";">
+      delete from T_BNZYFY where zblsh=#{item.id,jdbcType=NUMERIC} and ZYIDENTITY=#{item.Identity,jdbcType=VARCHAR}
+    </foreach>
+  </delete>
+  <delete id="delExsitFYXX" parameterType="com.wlht.api.vo.ImportParam">
+    delete from T_BNZYFY where EXISTS ( select baidentity from t_ba_base where T_BNZYFY.zyidentity= baidentity
+                                                                               and  cytime BETWEEN #{starte} and #{end}
+  </delete>
 </mapper>

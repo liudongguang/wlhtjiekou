@@ -1,5 +1,6 @@
 package com.wlht.impl.mapper;
 
+import com.wlht.api.bo.DelBaseInfo;
 import com.wlht.api.po.TBngmyw;
 
 import java.util.List;
@@ -18,4 +19,6 @@ public interface TBngmywMapper {
     int updateByPrimaryKey(TBngmyw record);
 
     void batchInsert(List<TBngmyw> gmywList);
+
+    void batchDelete(List<DelBaseInfo> delList);
 }

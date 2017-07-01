@@ -1,5 +1,6 @@
 package com.wlht.impl.mapper;
 
+import com.wlht.api.bo.DelBaseInfo;
 import com.wlht.api.po.TBnsscz;
 
 import java.util.List;
@@ -18,4 +19,6 @@ public interface TBnssczMapper {
     int updateByPrimaryKey(TBnsscz record);
 
     void batchInsert(List<TBnsscz> ssczList);
+
+    void batchDelete(List<DelBaseInfo> delList);
 }

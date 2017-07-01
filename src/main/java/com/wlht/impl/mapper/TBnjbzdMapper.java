@@ -1,5 +1,6 @@
 package com.wlht.impl.mapper;
 
+import com.wlht.api.bo.DelBaseInfo;
 import com.wlht.api.po.TBnjbzd;
 
 import java.util.List;
@@ -18,4 +19,6 @@ public interface TBnjbzdMapper {
     int updateByPrimaryKey(TBnjbzd record);
 
     void batchInsert(List<TBnjbzd> jbzdList);
+
+    void batchDelete(List<DelBaseInfo> delList);
 }

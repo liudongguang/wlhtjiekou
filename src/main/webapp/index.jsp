@@ -32,18 +32,5 @@
 			style="width: 100px" />
 		 <input type="submit" value="导入数据">
 	</form><br/>
-	
-	  <p>选择日期范围进行导入费用数据，将没有费用的记录进行导入！日期范围最大不要超过3个月！</p>
-     <p style="color: red">
-	<form action="wlhtData/wlthDRFY" method="post">
-		<input type="text" name="starte" value="${param.starte}"
-			onfocus="WdatePicker({dateFmt:'yyyy-MM-dd'})" class="Wdate input"
-			style="width: 100px" /> - <input type="text" name="end"
-			id="end" value="${param.end}"
-			onfocus="WdatePicker({dateFmt:'yyyy-MM-dd'})" class="Wdate input"
-			style="width: 100px" />
-			<input type="checkbox" name="delFyState" value="1"/>删除已有费用
-		 <input type="submit" value="导入数据"/>
-	</form><br/>
 </body>
 </html>

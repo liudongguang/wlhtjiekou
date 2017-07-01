@@ -21,9 +21,9 @@ public class Hisview {
         TBaBase newBase = new TBaBase();
         newBase.setZzdm(SysConstant.zzdm);
         newBase.setZzname(SysConstant.zzdmName);
-        String baidentity=WlhtStringUtil.getBaIdentity(this.sku);
+        String baidentity = WlhtStringUtil.getBaIdentity(this.sku);
         newBase.setBaidentity(baidentity);// //3.病案号标识码
-        this.sku=baidentity;
+        this.sku = baidentity;
         newBase.setYlfs(WlhtDataReverseHelper.getYlfs(this.ylfkfs));// 4.医疗付款方式
         if (StringUtils.isNotBlank(this.zycs)) {
             newBase.setZycs(Integer.parseInt(this.zycs));// 5.住院次数
@@ -39,55 +39,27 @@ public class Hisview {
                 e.printStackTrace();
             }// 9.出生日期
         }
-//        String sui = base.getNianLing();// 10.年齡
-//        if (null != sui && sui.trim().length() >= 1) {
-//            if (sui.contains("岁")) {
-//                String suiStr = sui.substring(0, sui.indexOf("岁"));
-//                if (StrHandler.isNum(suiStr)
-//                        && (!StrHandler.isExsist(suiStr, "-"))) {
-//                    if (!suiStr.contains(".")) {
-//                        newBase.setAge_sui(Integer.parseInt(suiStr));
-//                    } else {
-//                        newBase.setAge_sui(Integer.parseInt(suiStr
-//                                .substring(0, suiStr.indexOf("."))));
-//                    }
-//                }
-//            } else {
-//                // System.out.println(sui);
-//            }
-//
-//        }
-//        // 没有设置过岁 5个月2天
-//        String xinshengerNianLing = base.getXinShengErNianling();
-//        String geStr = "个";
-//        if (StrHandler.isExsist(xinshengerNianLing, geStr)) {
-//            String numStr = xinshengerNianLing.substring(0,
-//                    xinshengerNianLing.indexOf(geStr));
-//            if (StrHandler.isKeYongNum(numStr)) {
-//                newBase.setAge_month(Integer.parseInt(numStr));
-//            }
-//        }
-//        String yueStr = "月";
-//        String tianStr = "天";
-//        // 没有设置过月
-//        if (StrHandler.isExsist(xinshengerNianLing, yueStr)
-//                && StrHandler.isExsist(xinshengerNianLing, tianStr)) {
-//            String numStr = xinshengerNianLing.substring(
-//                    xinshengerNianLing.indexOf(yueStr) + 1,
-//                    xinshengerNianLing.indexOf(tianStr));
-//            if (StrHandler.isKeYongNum(numStr)) {
-//                newBase.setAge_days(Integer.parseInt(numStr));
-//            }
-//        }
-
-        newBase.setGuoji("156");   //国籍
+        //10年龄
+        if (this.agesui != null) {
+            newBase.setAgeSui(agesui);
+        } else if (this.agemonth != null) {
+            newBase.setAgeMonth(agemonth);
+        } else if (this.agedays != null) {
+            newBase.setAgeDays(agedays);
+        } else {
+            if (this.cysj != null && newBase.getBirthday() != null) {
+                int sagesui = DateUtil.getyearsCha(cysj, newBase.getBirthday());
+                newBase.setAgeSui(sagesui);
+            }
+        }
+        newBase.setGuoji("156");   //11.国籍
         if (this.xsecstz != null) {
             newBase.setXsecstizhong(this.xsecstz);// 12.新出生儿出生体重
         }
         if (this.xserytz != null) {
             newBase.setXserytizhong(this.xserytz);// 13.新生儿入院体重
         }
-        newBase.setCsd(LdgStringUtil.getStringByLength(this.csd,16));// 14.出生地
+        newBase.setCsd(LdgStringUtil.getStringByLength(this.csd, 16));// 14.出生地
         newBase.setJiguan(this.gg);// 15籍贯
         if (StringUtils.isNotBlank(this.mz)) {
             newBase.setMinzu(zdService.getMinZuCodeByName(this.mz)); // 16.民族
@@ -123,9 +95,9 @@ public class Hisview {
         newBase.setRhxuexing(WlhtDataReverseHelper.getRh(this.rh));// 38.rh 血型
         //String bazhiliang = base.getBingAnZhiLiang();
         newBase.setBinganzhiliang(1);// 39.病案质量
-        String lyfs=WlhtDataReverseHelper.getYLFS(this.lyfs);
+        String lyfs = WlhtDataReverseHelper.getYLFS(this.lyfs);
         newBase.setLyfs(lyfs);// 40.离院方式
-        if(StringUtils.isNotBlank(lyfs)){
+        if (StringUtils.isNotBlank(lyfs)) {
             if (lyfs.equals("2")) {
                 newBase.setNijieshouyljgname(this.yzzyYljg);// 41.医嘱转院，拟接受机构名称
             } else if (lyfs.equals("3")) {
@@ -135,7 +107,7 @@ public class Hisview {
 
         // String zzyjh = this.sfzzyjh;;// 43.在住院计划 1.无 2.有
 
-        if(StringUtils.isNotBlank(this.md)){
+        if (StringUtils.isNotBlank(this.md)) {
             newBase.setZzymd(this.md.trim());// 44.在住院目的
         }
         newBase.setHisview(this);
@@ -1533,6 +1505,36 @@ public class Hisview {
     @Column(name = "QTF")
     private BigDecimal qtf;
 
+    @Column(name = "AGESUI")
+    private Integer agesui;
+    @Column(name = "AGEMONTH")
+    private Integer agemonth;
+    @Column(name = "AGEDAYS")
+    private Integer agedays;
+
+    public Integer getAgesui() {
+        return agesui;
+    }
+
+    public void setAgesui(Integer agesui) {
+        this.agesui = agesui;
+    }
+
+    public Integer getAgemonth() {
+        return agemonth;
+    }
+
+    public void setAgemonth(Integer agemonth) {
+        this.agemonth = agemonth;
+    }
+
+    public Integer getAgedays() {
+        return agedays;
+    }
+
+    public void setAgedays(Integer agedays) {
+        this.agedays = agedays;
+    }
 
     /**
      * 获取机构id

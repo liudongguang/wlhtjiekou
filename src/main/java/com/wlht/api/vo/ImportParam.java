@@ -37,4 +37,13 @@ public class ImportParam {
     public void setDelFyState(Integer delFyState) {
         this.delFyState = delFyState;
     }
+
+    @Override
+    public String toString() {
+        return "ImportParam{" +
+                "starte=" + starte +
+                ", end=" + end +
+                ", delFyState=" + delFyState +
+                '}';
+    }
 }

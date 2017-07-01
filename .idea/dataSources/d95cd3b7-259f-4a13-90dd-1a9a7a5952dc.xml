@@ -4,9 +4,9 @@
     <root id="1"/>
     <schema id="2" parent="1" name="YCYL">
       <ObjectId>107</ObjectId>
-      <IntrospectionTimestamp>2017-06-28.14:24:51</IntrospectionTimestamp>
+      <IntrospectionTimestamp>2017-07-01.08:06:21</IntrospectionTimestamp>
       <CreatedTimestamp>2017-06-28.14:05:40</CreatedTimestamp>
-      <ModifiedTimestamp>2017-06-28.14:05:40</ModifiedTimestamp>
+      <ModifiedTimestamp>2017-07-01.07:54:01</ModifiedTimestamp>
       <CommentsHash>1431861963695273</CommentsHash>
       <Current>1</Current>
       <Visible>1</Visible>
@@ -128,7 +128,7 @@
     <table id="41" parent="2" name="HISVIEW">
       <ObjectId>73390</ObjectId>
       <CreatedTimestamp>2017-06-28.14:05:40</CreatedTimestamp>
-      <ModifiedTimestamp>2017-06-28.14:05:40</ModifiedTimestamp>
+      <ModifiedTimestamp>2017-07-01.07:54:01</ModifiedTimestamp>
       <TemporaryPreserve>1</TemporaryPreserve>
     </table>
     <column id="42" parent="41" name="JGID">
@@ -1299,6 +1299,18 @@
     <column id="275" parent="41" name="RYH_F">
       <Position>234</Position>
       <Comment>颅脑损伤患者入院后时间：分</Comment>
+      <DataType>NUMBER(12)|0</DataType>
+    </column>
+    <column id="276" parent="41" name="AGESUI">
+      <Position>235</Position>
+      <DataType>NUMBER(12)|0</DataType>
+    </column>
+    <column id="277" parent="41" name="AGEMONTH">
+      <Position>236</Position>
+      <DataType>NUMBER(12)|0</DataType>
+    </column>
+    <column id="278" parent="41" name="AGEDAYS">
+      <Position>237</Position>
       <DataType>NUMBER(12)|0</DataType>
     </column>
   </database-model>

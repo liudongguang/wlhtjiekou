@@ -1,7 +1,10 @@
 package com.wlht.impl.mapper;
 
+import com.wlht.api.bo.DelBaseInfo;
 import com.wlht.api.po.TBnzyfy;
+import com.wlht.api.vo.ImportParam;
 
+import java.util.Date;
 import java.util.List;
 
 public interface TBnzyfyMapper {
@@ -18,4 +21,8 @@ public interface TBnzyfyMapper {
     int updateByPrimaryKey(TBnzyfy record);
 
     void batchInsert(List<TBnzyfy> zlfyList);
+
+    void batchDelete(List<DelBaseInfo> delList);
+
+    int delExsitFYXX(ImportParam param);
 }

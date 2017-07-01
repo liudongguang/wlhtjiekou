@@ -9,4 +9,8 @@ public interface WlhtDataService {
     void test();
 
     String importDataByDate(ImportParam param) throws Exception;
+
+    void delChongfuInfo();
+
+    String importFeiYongDataByDate(ImportParam param);
 }

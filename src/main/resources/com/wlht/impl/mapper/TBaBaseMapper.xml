@@ -1,1326 +1,1371 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.wlht.impl.mapper.TBaBaseMapper">
-  <resultMap id="BaseResultMap" type="com.wlht.api.po.TBaBase">
-    <id column="ID" jdbcType="NUMERIC" property="id" />
-    <result column="BAIDENTITY" jdbcType="VARCHAR" property="baidentity" />
-    <result column="ZZDM" jdbcType="VARCHAR" property="zzdm" />
-    <result column="ZZNAME" jdbcType="VARCHAR" property="zzname" />
-    <result column="FZJGBSF" jdbcType="VARCHAR" property="fzjgbsf" />
-    <result column="YLFS" jdbcType="VARCHAR" property="ylfs" />
-    <result column="JKCARD" jdbcType="VARCHAR" property="jkcard" />
-    <result column="IDCARD" jdbcType="VARCHAR" property="idcard" />
-    <result column="HZHM" jdbcType="VARCHAR" property="hzhm" />
-    <result column="BANUM" jdbcType="VARCHAR" property="banum" />
-    <result column="ZYCS" jdbcType="NUMERIC" property="zycs" />
-    <result column="NAME" jdbcType="VARCHAR" property="name" />
-    <result column="SEX" jdbcType="NUMERIC" property="sex" />
-    <result column="BIRTHDAY" jdbcType="TIMESTAMP" property="birthday" />
-    <result column="GUOJI" jdbcType="VARCHAR" property="guoji" />
-    <result column="CSD" jdbcType="VARCHAR" property="csd" />
-    <result column="JIGUAN" jdbcType="VARCHAR" property="jiguan" />
-    <result column="MINZU" jdbcType="VARCHAR" property="minzu" />
-    <result column="ZHIYE1" jdbcType="VARCHAR" property="zhiye1" />
-    <result column="HUNYIN" jdbcType="VARCHAR" property="hunyin" />
-    <result column="JUZHUXINGZHENG" jdbcType="VARCHAR" property="juzhuxingzheng" />
-    <result column="XIANZHUZHI" jdbcType="VARCHAR" property="xianzhuzhi" />
-    <result column="XIANDIANHUA" jdbcType="VARCHAR" property="xiandianhua" />
-    <result column="XIANYOUBIAN" jdbcType="VARCHAR" property="xianyoubian" />
-    <result column="PHONE" jdbcType="VARCHAR" property="phone" />
-    <result column="EMAIL" jdbcType="VARCHAR" property="email" />
-    <result column="HUKOUQUHUA" jdbcType="VARCHAR" property="hukouquhua" />
-    <result column="HUKOUDZ" jdbcType="VARCHAR" property="hukoudz" />
-    <result column="HUKOUYOUBIAN" jdbcType="VARCHAR" property="hukouyoubian" />
-    <result column="WORKINFO" jdbcType="VARCHAR" property="workinfo" />
-    <result column="DWTEL" jdbcType="VARCHAR" property="dwtel" />
-    <result column="DWYB" jdbcType="VARCHAR" property="dwyb" />
-    <result column="LXRNAME" jdbcType="VARCHAR" property="lxrname" />
-    <result column="LXRGUANXI" jdbcType="VARCHAR" property="lxrguanxi" />
-    <result column="LXRDZ" jdbcType="VARCHAR" property="lxrdz" />
-    <result column="LXRTEL" jdbcType="VARCHAR" property="lxrtel" />
-    <result column="RYLJ" jdbcType="VARCHAR" property="rylj" />
-    <result column="ZRYLJGDM" jdbcType="VARCHAR" property="zryljgdm" />
-    <result column="ZRJGNAME" jdbcType="VARCHAR" property="zrjgname" />
-    <result column="RYTIME" jdbcType="TIMESTAMP" property="rytime" />
-    <result column="RYKSBM" jdbcType="VARCHAR" property="ryksbm" />
-    <result column="CYTIME" jdbcType="TIMESTAMP" property="cytime" />
-    <result column="CYKSBM" jdbcType="VARCHAR" property="cyksbm" />
-    <result column="ZYKSNAME" jdbcType="VARCHAR" property="zyksname" />
-    <result column="SWYY" jdbcType="VARCHAR" property="swyy" />
-    <result column="SWSJ" jdbcType="NUMERIC" property="swsj" />
-    <result column="XUEXING" jdbcType="NUMERIC" property="xuexing" />
-    <result column="RHXUEXING" jdbcType="NUMERIC" property="rhxuexing" />
-    <result column="BINGANZHILIANG" jdbcType="NUMERIC" property="binganzhiliang" />
-    <result column="ZKRQ" jdbcType="TIMESTAMP" property="zkrq" />
-    <result column="LYFS" jdbcType="VARCHAR" property="lyfs" />
-    <result column="NIJIESHOUYLJGDM" jdbcType="VARCHAR" property="nijieshouyljgdm" />
-    <result column="NIJIESHOUYLJGNAME" jdbcType="VARCHAR" property="nijieshouyljgname" />
-    <result column="ZZYMD" jdbcType="VARCHAR" property="zzymd" />
-    <result column="ZZYJGTS" jdbcType="NUMERIC" property="zzyjgts" />
-    <result column="RYLQHMTIME" jdbcType="TIMESTAMP" property="rylqhmtime" />
-    <result column="XSECSTIZHONG" jdbcType="NUMERIC" property="xsecstizhong" />
-    <result column="XSERYTIZHONG" jdbcType="NUMERIC" property="xserytizhong" />
-    <result column="RYBINGQING" jdbcType="VARCHAR" property="rybingqing" />
-    <result column="ZHUYAOZDTIME" jdbcType="TIMESTAMP" property="zhuyaozdtime" />
-    <result column="SFBW" jdbcType="NUMERIC" property="sfbw" />
-    <result column="QJCISHU" jdbcType="NUMERIC" property="qjcishu" />
-    <result column="QJSUCCESSCISHU" jdbcType="NUMERIC" property="qjsuccesscishu" />
-    <result column="YINANBING" jdbcType="VARCHAR" property="yinanbing" />
-    <result column="SUIZHEN" jdbcType="NUMERIC" property="suizhen" />
-    <result column="SZDAYS" jdbcType="NUMERIC" property="szdays" />
-    <result column="CYFHQK" jdbcType="VARCHAR" property="cyfhqk" />
-    <result column="RYCYFHQK" jdbcType="VARCHAR" property="rycyfhqk" />
-    <result column="SHOUSHUQH" jdbcType="VARCHAR" property="shoushuqh" />
-    <result column="YXBL" jdbcType="VARCHAR" property="yxbl" />
-    <result column="LCBL" jdbcType="VARCHAR" property="lcbl" />
-    <result column="SSBDSLBLQK" jdbcType="VARCHAR" property="ssbdslblqk" />
-    <result column="SQSHBLQK" jdbcType="VARCHAR" property="sqshblqk" />
-    <result column="LCZDSJQK" jdbcType="VARCHAR" property="lczdsjqk" />
-    <result column="YNHZCISHU" jdbcType="NUMERIC" property="ynhzcishu" />
-    <result column="WYHZCISHU" jdbcType="NUMERIC" property="wyhzcishu" />
-    <result column="SHUYE" jdbcType="NUMERIC" property="shuye" />
-    <result column="SHUYEFY" jdbcType="NUMERIC" property="shuyefy" />
-    <result column="KJYYMD" jdbcType="VARCHAR" property="kjyymd" />
-    <result column="KJYYFA" jdbcType="VARCHAR" property="kjyyfa" />
-    <result column="ZHUSU" jdbcType="VARCHAR" property="zhusu" />
-    <result column="TONGZHIDATE" jdbcType="TIMESTAMP" property="tongzhidate" />
-    <result column="ZHIKONGPINGFEN" jdbcType="NUMERIC" property="zhikongpingfen" />
-    <result column="ZHIKONGZHE" jdbcType="VARCHAR" property="zhikongzhe" />
-    <result column="UPDATEDATE" jdbcType="TIMESTAMP" property="updatedate" />
-    <result column="BINGLIXIUGAIZHE" jdbcType="VARCHAR" property="binglixiugaizhe" />
-    <result column="SHANGBAOBIAOJI" jdbcType="NUMERIC" property="shangbaobiaoji" />
-    <result column="WEISHOUSHUQI" jdbcType="TIMESTAMP" property="weishoushuqi" />
-    <result column="WEISHOUSHUZHI" jdbcType="TIMESTAMP" property="weishoushuzhi" />
-    <result column="JBPBM" jdbcType="VARCHAR" property="jbpbm" />
-    <result column="ZLFQT" jdbcType="VARCHAR" property="zlfqt" />
-    <result column="ZLFQN" jdbcType="VARCHAR" property="zlfqn" />
-    <result column="ZLFQM" jdbcType="VARCHAR" property="zlfqm" />
-    <result column="SFDYBZ" jdbcType="NUMERIC" property="sfdybz" />
-    <result column="SSLCLJ" jdbcType="NUMERIC" property="sslclj" />
-    <result column="WCLCLJ" jdbcType="NUMERIC" property="wclclj" />
-    <result column="TCLCLJYY" jdbcType="VARCHAR" property="tclcljyy" />
-    <result column="TCLCLJMS" jdbcType="VARCHAR" property="tclcljms" />
-    <result column="LCLJBYYY" jdbcType="VARCHAR" property="lcljbyyy" />
-    <result column="LCLJBYMS" jdbcType="VARCHAR" property="lcljbyms" />
-    <result column="ZLFQ" jdbcType="VARCHAR" property="zlfq" />
-    <result column="ZLFHCD" jdbcType="VARCHAR" property="zlfhcd" />
-    <result column="ZLZDYJ" jdbcType="VARCHAR" property="zlzdyj" />
-    <result column="BNBIAOSHI1" jdbcType="VARCHAR" property="bnbiaoshi1" />
-    <result column="AGE_SUI" jdbcType="NUMERIC" property="ageSui" />
-    <result column="AGE_MONTH" jdbcType="NUMERIC" property="ageMonth" />
-    <result column="AGE_DAYS" jdbcType="NUMERIC" property="ageDays" />
-    <result column="YCGFX" jdbcType="NUMERIC" property="ycgfx" />
-    <result column="DDGFX" jdbcType="NUMERIC" property="ddgfx" />
-  </resultMap>
-  <sql id="Base_Column_List">
-    ID, BAIDENTITY, ZZDM, ZZNAME, FZJGBSF, YLFS, JKCARD, IDCARD, HZHM, BANUM, ZYCS, NAME, 
-    SEX, BIRTHDAY, GUOJI, CSD, JIGUAN, MINZU, ZHIYE1, HUNYIN, JUZHUXINGZHENG, XIANZHUZHI, 
-    XIANDIANHUA, XIANYOUBIAN, PHONE, EMAIL, HUKOUQUHUA, HUKOUDZ, HUKOUYOUBIAN, WORKINFO, 
-    DWTEL, DWYB, LXRNAME, LXRGUANXI, LXRDZ, LXRTEL, RYLJ, ZRYLJGDM, ZRJGNAME, RYTIME, 
-    RYKSBM, CYTIME, CYKSBM, ZYKSNAME, SWYY, SWSJ, XUEXING, RHXUEXING, BINGANZHILIANG, 
-    ZKRQ, LYFS, NIJIESHOUYLJGDM, NIJIESHOUYLJGNAME, ZZYMD, ZZYJGTS, RYLQHMTIME, XSECSTIZHONG, 
-    XSERYTIZHONG, RYBINGQING, ZHUYAOZDTIME, SFBW, QJCISHU, QJSUCCESSCISHU, YINANBING, 
-    SUIZHEN, SZDAYS, CYFHQK, RYCYFHQK, SHOUSHUQH, YXBL, LCBL, SSBDSLBLQK, SQSHBLQK, LCZDSJQK, 
-    YNHZCISHU, WYHZCISHU, SHUYE, SHUYEFY, KJYYMD, KJYYFA, ZHUSU, TONGZHIDATE, ZHIKONGPINGFEN, 
-    ZHIKONGZHE, UPDATEDATE, BINGLIXIUGAIZHE, SHANGBAOBIAOJI, WEISHOUSHUQI, WEISHOUSHUZHI, 
-    JBPBM, ZLFQT, ZLFQN, ZLFQM, SFDYBZ, SSLCLJ, WCLCLJ, TCLCLJYY, TCLCLJMS, LCLJBYYY, 
-    LCLJBYMS, ZLFQ, ZLFHCD, ZLZDYJ, BNBIAOSHI1, AGE_SUI, AGE_MONTH, AGE_DAYS, YCGFX, 
-    DDGFX
-  </sql>
-  <select id="selectAll">
-    select
-    <include refid="Base_Column_List" />
-    from T_BA_BASE
-  </select>
-  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
-    select 
-    <include refid="Base_Column_List" />
-    from T_BA_BASE
-    where ID = #{id,jdbcType=NUMERIC}
-  </select>
-  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
-    delete from T_BA_BASE
-    where ID = #{id,jdbcType=NUMERIC}
-  </delete>
-  <insert id="insert" parameterType="com.wlht.api.po.TBaBase">
-    insert into T_BA_BASE (ID, BAIDENTITY, ZZDM, 
-      ZZNAME, FZJGBSF, YLFS, 
-      JKCARD, IDCARD, HZHM, 
-      BANUM, ZYCS, NAME, 
-      SEX, BIRTHDAY, GUOJI, 
-      CSD, JIGUAN, MINZU, 
-      ZHIYE1, HUNYIN, JUZHUXINGZHENG, 
-      XIANZHUZHI, XIANDIANHUA, XIANYOUBIAN, 
-      PHONE, EMAIL, HUKOUQUHUA, 
-      HUKOUDZ, HUKOUYOUBIAN, WORKINFO, 
-      DWTEL, DWYB, LXRNAME, 
-      LXRGUANXI, LXRDZ, LXRTEL, 
-      RYLJ, ZRYLJGDM, ZRJGNAME, 
-      RYTIME, RYKSBM, CYTIME, 
-      CYKSBM, ZYKSNAME, SWYY, 
-      SWSJ, XUEXING, RHXUEXING, 
-      BINGANZHILIANG, ZKRQ, LYFS, 
-      NIJIESHOUYLJGDM, NIJIESHOUYLJGNAME, ZZYMD, 
-      ZZYJGTS, RYLQHMTIME, XSECSTIZHONG, 
-      XSERYTIZHONG, RYBINGQING, ZHUYAOZDTIME, 
-      SFBW, QJCISHU, QJSUCCESSCISHU, 
-      YINANBING, SUIZHEN, SZDAYS, 
-      CYFHQK, RYCYFHQK, SHOUSHUQH, 
-      YXBL, LCBL, SSBDSLBLQK, 
-      SQSHBLQK, LCZDSJQK, YNHZCISHU, 
-      WYHZCISHU, SHUYE, SHUYEFY, 
-      KJYYMD, KJYYFA, ZHUSU, 
-      TONGZHIDATE, ZHIKONGPINGFEN, ZHIKONGZHE, 
-      UPDATEDATE, BINGLIXIUGAIZHE, SHANGBAOBIAOJI, 
-      WEISHOUSHUQI, WEISHOUSHUZHI, JBPBM, 
-      ZLFQT, ZLFQN, ZLFQM, 
-      SFDYBZ, SSLCLJ, WCLCLJ, 
-      TCLCLJYY, TCLCLJMS, LCLJBYYY, 
-      LCLJBYMS, ZLFQ, ZLFHCD, 
-      ZLZDYJ, BNBIAOSHI1, AGE_SUI, 
-      AGE_MONTH, AGE_DAYS, YCGFX, 
-      DDGFX)
-    values (#{id,jdbcType=NUMERIC}, #{baidentity,jdbcType=VARCHAR}, #{zzdm,jdbcType=VARCHAR}, 
-      #{zzname,jdbcType=VARCHAR}, #{fzjgbsf,jdbcType=VARCHAR}, #{ylfs,jdbcType=VARCHAR}, 
-      #{jkcard,jdbcType=VARCHAR}, #{idcard,jdbcType=VARCHAR}, #{hzhm,jdbcType=VARCHAR}, 
-      #{banum,jdbcType=VARCHAR}, #{zycs,jdbcType=NUMERIC}, #{name,jdbcType=VARCHAR}, 
-      #{sex,jdbcType=NUMERIC}, #{birthday,jdbcType=TIMESTAMP}, #{guoji,jdbcType=VARCHAR}, 
-      #{csd,jdbcType=VARCHAR}, #{jiguan,jdbcType=VARCHAR}, #{minzu,jdbcType=VARCHAR}, 
-      #{zhiye1,jdbcType=VARCHAR}, #{hunyin,jdbcType=VARCHAR}, #{juzhuxingzheng,jdbcType=VARCHAR}, 
-      #{xianzhuzhi,jdbcType=VARCHAR}, #{xiandianhua,jdbcType=VARCHAR}, #{xianyoubian,jdbcType=VARCHAR}, 
-      #{phone,jdbcType=VARCHAR}, #{email,jdbcType=VARCHAR}, #{hukouquhua,jdbcType=VARCHAR}, 
-      #{hukoudz,jdbcType=VARCHAR}, #{hukouyoubian,jdbcType=VARCHAR}, #{workinfo,jdbcType=VARCHAR}, 
-      #{dwtel,jdbcType=VARCHAR}, #{dwyb,jdbcType=VARCHAR}, #{lxrname,jdbcType=VARCHAR}, 
-      #{lxrguanxi,jdbcType=VARCHAR}, #{lxrdz,jdbcType=VARCHAR}, #{lxrtel,jdbcType=VARCHAR}, 
-      #{rylj,jdbcType=VARCHAR}, #{zryljgdm,jdbcType=VARCHAR}, #{zrjgname,jdbcType=VARCHAR}, 
-      #{rytime,jdbcType=TIMESTAMP}, #{ryksbm,jdbcType=VARCHAR}, #{cytime,jdbcType=TIMESTAMP}, 
-      #{cyksbm,jdbcType=VARCHAR}, #{zyksname,jdbcType=VARCHAR}, #{swyy,jdbcType=VARCHAR}, 
-      #{swsj,jdbcType=NUMERIC}, #{xuexing,jdbcType=NUMERIC}, #{rhxuexing,jdbcType=NUMERIC}, 
-      #{binganzhiliang,jdbcType=NUMERIC}, #{zkrq,jdbcType=TIMESTAMP}, #{lyfs,jdbcType=VARCHAR}, 
-      #{nijieshouyljgdm,jdbcType=VARCHAR}, #{nijieshouyljgname,jdbcType=VARCHAR}, #{zzymd,jdbcType=VARCHAR}, 
-      #{zzyjgts,jdbcType=NUMERIC}, #{rylqhmtime,jdbcType=TIMESTAMP}, #{xsecstizhong,jdbcType=NUMERIC}, 
-      #{xserytizhong,jdbcType=NUMERIC}, #{rybingqing,jdbcType=VARCHAR}, #{zhuyaozdtime,jdbcType=TIMESTAMP}, 
-      #{sfbw,jdbcType=NUMERIC}, #{qjcishu,jdbcType=NUMERIC}, #{qjsuccesscishu,jdbcType=NUMERIC}, 
-      #{yinanbing,jdbcType=VARCHAR}, #{suizhen,jdbcType=NUMERIC}, #{szdays,jdbcType=NUMERIC}, 
-      #{cyfhqk,jdbcType=VARCHAR}, #{rycyfhqk,jdbcType=VARCHAR}, #{shoushuqh,jdbcType=VARCHAR}, 
-      #{yxbl,jdbcType=VARCHAR}, #{lcbl,jdbcType=VARCHAR}, #{ssbdslblqk,jdbcType=VARCHAR}, 
-      #{sqshblqk,jdbcType=VARCHAR}, #{lczdsjqk,jdbcType=VARCHAR}, #{ynhzcishu,jdbcType=NUMERIC}, 
-      #{wyhzcishu,jdbcType=NUMERIC}, #{shuye,jdbcType=NUMERIC}, #{shuyefy,jdbcType=NUMERIC}, 
-      #{kjyymd,jdbcType=VARCHAR}, #{kjyyfa,jdbcType=VARCHAR}, #{zhusu,jdbcType=VARCHAR}, 
-      #{tongzhidate,jdbcType=TIMESTAMP}, #{zhikongpingfen,jdbcType=NUMERIC}, #{zhikongzhe,jdbcType=VARCHAR}, 
-      #{updatedate,jdbcType=TIMESTAMP}, #{binglixiugaizhe,jdbcType=VARCHAR}, #{shangbaobiaoji,jdbcType=NUMERIC}, 
-      #{weishoushuqi,jdbcType=TIMESTAMP}, #{weishoushuzhi,jdbcType=TIMESTAMP}, #{jbpbm,jdbcType=VARCHAR}, 
-      #{zlfqt,jdbcType=VARCHAR}, #{zlfqn,jdbcType=VARCHAR}, #{zlfqm,jdbcType=VARCHAR}, 
-      #{sfdybz,jdbcType=NUMERIC}, #{sslclj,jdbcType=NUMERIC}, #{wclclj,jdbcType=NUMERIC}, 
-      #{tclcljyy,jdbcType=VARCHAR}, #{tclcljms,jdbcType=VARCHAR}, #{lcljbyyy,jdbcType=VARCHAR}, 
-      #{lcljbyms,jdbcType=VARCHAR}, #{zlfq,jdbcType=VARCHAR}, #{zlfhcd,jdbcType=VARCHAR}, 
-      #{zlzdyj,jdbcType=VARCHAR}, #{bnbiaoshi1,jdbcType=VARCHAR}, #{ageSui,jdbcType=NUMERIC}, 
-      #{ageMonth,jdbcType=NUMERIC}, #{ageDays,jdbcType=NUMERIC}, #{ycgfx,jdbcType=NUMERIC}, 
-      #{ddgfx,jdbcType=NUMERIC})
-  </insert>
-  <insert id="insertSelective" parameterType="com.wlht.api.po.TBaBase">
-      <selectKey keyProperty="id" order="BEFORE" resultType="long">
-          SELECT SEQ_T_BA_BASE.NEXTVAL FROM dual
-      </selectKey>
-    insert into T_BA_BASE
-    <trim prefix="(" suffix=")" suffixOverrides=",">
-        ID,
-      <if test="baidentity != null">
-        BAIDENTITY,
-      </if>
-      <if test="zzdm != null">
-        ZZDM,
-      </if>
-      <if test="zzname != null">
-        ZZNAME,
-      </if>
-      <if test="fzjgbsf != null">
-        FZJGBSF,
-      </if>
-      <if test="ylfs != null">
-        YLFS,
-      </if>
-      <if test="jkcard != null">
-        JKCARD,
-      </if>
-      <if test="idcard != null">
-        IDCARD,
-      </if>
-      <if test="hzhm != null">
-        HZHM,
-      </if>
-      <if test="banum != null">
-        BANUM,
-      </if>
-      <if test="zycs != null">
-        ZYCS,
-      </if>
-      <if test="name != null">
-        NAME,
-      </if>
-      <if test="sex != null">
-        SEX,
-      </if>
-      <if test="birthday != null">
-        BIRTHDAY,
-      </if>
-      <if test="guoji != null">
-        GUOJI,
-      </if>
-      <if test="csd != null">
-        CSD,
-      </if>
-      <if test="jiguan != null">
-        JIGUAN,
-      </if>
-      <if test="minzu != null">
-        MINZU,
-      </if>
-      <if test="zhiye1 != null">
-        ZHIYE1,
-      </if>
-      <if test="hunyin != null">
-        HUNYIN,
-      </if>
-      <if test="juzhuxingzheng != null">
-        JUZHUXINGZHENG,
-      </if>
-      <if test="xianzhuzhi != null">
-        XIANZHUZHI,
-      </if>
-      <if test="xiandianhua != null">
-        XIANDIANHUA,
-      </if>
-      <if test="xianyoubian != null">
-        XIANYOUBIAN,
-      </if>
-      <if test="phone != null">
-        PHONE,
-      </if>
-      <if test="email != null">
-        EMAIL,
-      </if>
-      <if test="hukouquhua != null">
-        HUKOUQUHUA,
-      </if>
-      <if test="hukoudz != null">
-        HUKOUDZ,
-      </if>
-      <if test="hukouyoubian != null">
-        HUKOUYOUBIAN,
-      </if>
-      <if test="workinfo != null">
-        WORKINFO,
-      </if>
-      <if test="dwtel != null">
-        DWTEL,
-      </if>
-      <if test="dwyb != null">
-        DWYB,
-      </if>
-      <if test="lxrname != null">
-        LXRNAME,
-      </if>
-      <if test="lxrguanxi != null">
-        LXRGUANXI,
-      </if>
-      <if test="lxrdz != null">
-        LXRDZ,
-      </if>
-      <if test="lxrtel != null">
-        LXRTEL,
-      </if>
-      <if test="rylj != null">
-        RYLJ,
-      </if>
-      <if test="zryljgdm != null">
-        ZRYLJGDM,
-      </if>
-      <if test="zrjgname != null">
-        ZRJGNAME,
-      </if>
-      <if test="rytime != null">
-        RYTIME,
-      </if>
-      <if test="ryksbm != null">
-        RYKSBM,
-      </if>
-      <if test="cytime != null">
-        CYTIME,
-      </if>
-      <if test="cyksbm != null">
-        CYKSBM,
-      </if>
-      <if test="zyksname != null">
-        ZYKSNAME,
-      </if>
-      <if test="swyy != null">
-        SWYY,
-      </if>
-      <if test="swsj != null">
-        SWSJ,
-      </if>
-      <if test="xuexing != null">
-        XUEXING,
-      </if>
-      <if test="rhxuexing != null">
-        RHXUEXING,
-      </if>
-      <if test="binganzhiliang != null">
-        BINGANZHILIANG,
-      </if>
-      <if test="zkrq != null">
-        ZKRQ,
-      </if>
-      <if test="lyfs != null">
-        LYFS,
-      </if>
-      <if test="nijieshouyljgdm != null">
-        NIJIESHOUYLJGDM,
-      </if>
-      <if test="nijieshouyljgname != null">
-        NIJIESHOUYLJGNAME,
-      </if>
-      <if test="zzymd != null">
-        ZZYMD,
-      </if>
-      <if test="zzyjgts != null">
-        ZZYJGTS,
-      </if>
-      <if test="rylqhmtime != null">
-        RYLQHMTIME,
-      </if>
-      <if test="xsecstizhong != null">
-        XSECSTIZHONG,
-      </if>
-      <if test="xserytizhong != null">
-        XSERYTIZHONG,
-      </if>
-      <if test="rybingqing != null">
-        RYBINGQING,
-      </if>
-      <if test="zhuyaozdtime != null">
-        ZHUYAOZDTIME,
-      </if>
-      <if test="sfbw != null">
-        SFBW,
-      </if>
-      <if test="qjcishu != null">
-        QJCISHU,
-      </if>
-      <if test="qjsuccesscishu != null">
-        QJSUCCESSCISHU,
-      </if>
-      <if test="yinanbing != null">
-        YINANBING,
-      </if>
-      <if test="suizhen != null">
-        SUIZHEN,
-      </if>
-      <if test="szdays != null">
-        SZDAYS,
-      </if>
-      <if test="cyfhqk != null">
-        CYFHQK,
-      </if>
-      <if test="rycyfhqk != null">
-        RYCYFHQK,
-      </if>
-      <if test="shoushuqh != null">
-        SHOUSHUQH,
-      </if>
-      <if test="yxbl != null">
-        YXBL,
-      </if>
-      <if test="lcbl != null">
-        LCBL,
-      </if>
-      <if test="ssbdslblqk != null">
-        SSBDSLBLQK,
-      </if>
-      <if test="sqshblqk != null">
-        SQSHBLQK,
-      </if>
-      <if test="lczdsjqk != null">
-        LCZDSJQK,
-      </if>
-      <if test="ynhzcishu != null">
-        YNHZCISHU,
-      </if>
-      <if test="wyhzcishu != null">
-        WYHZCISHU,
-      </if>
-      <if test="shuye != null">
-        SHUYE,
-      </if>
-      <if test="shuyefy != null">
-        SHUYEFY,
-      </if>
-      <if test="kjyymd != null">
-        KJYYMD,
-      </if>
-      <if test="kjyyfa != null">
-        KJYYFA,
-      </if>
-      <if test="zhusu != null">
-        ZHUSU,
-      </if>
-      <if test="tongzhidate != null">
-        TONGZHIDATE,
-      </if>
-      <if test="zhikongpingfen != null">
-        ZHIKONGPINGFEN,
-      </if>
-      <if test="zhikongzhe != null">
-        ZHIKONGZHE,
-      </if>
-      <if test="updatedate != null">
-        UPDATEDATE,
-      </if>
-      <if test="binglixiugaizhe != null">
-        BINGLIXIUGAIZHE,
-      </if>
-      <if test="shangbaobiaoji != null">
-        SHANGBAOBIAOJI,
-      </if>
-      <if test="weishoushuqi != null">
-        WEISHOUSHUQI,
-      </if>
-      <if test="weishoushuzhi != null">
-        WEISHOUSHUZHI,
-      </if>
-      <if test="jbpbm != null">
-        JBPBM,
-      </if>
-      <if test="zlfqt != null">
-        ZLFQT,
-      </if>
-      <if test="zlfqn != null">
-        ZLFQN,
-      </if>
-      <if test="zlfqm != null">
-        ZLFQM,
-      </if>
-      <if test="sfdybz != null">
-        SFDYBZ,
-      </if>
-      <if test="sslclj != null">
-        SSLCLJ,
-      </if>
-      <if test="wclclj != null">
-        WCLCLJ,
-      </if>
-      <if test="tclcljyy != null">
-        TCLCLJYY,
-      </if>
-      <if test="tclcljms != null">
-        TCLCLJMS,
-      </if>
-      <if test="lcljbyyy != null">
-        LCLJBYYY,
-      </if>
-      <if test="lcljbyms != null">
-        LCLJBYMS,
-      </if>
-      <if test="zlfq != null">
-        ZLFQ,
-      </if>
-      <if test="zlfhcd != null">
-        ZLFHCD,
-      </if>
-      <if test="zlzdyj != null">
-        ZLZDYJ,
-      </if>
-      <if test="bnbiaoshi1 != null">
-        BNBIAOSHI1,
-      </if>
-      <if test="ageSui != null">
-        AGE_SUI,
-      </if>
-      <if test="ageMonth != null">
-        AGE_MONTH,
-      </if>
-      <if test="ageDays != null">
-        AGE_DAYS,
-      </if>
-      <if test="ycgfx != null">
-        YCGFX,
-      </if>
-      <if test="ddgfx != null">
-        DDGFX,
-      </if>
-    </trim>
-    <trim prefix="values (" suffix=")" suffixOverrides=",">
-        #{id,jdbcType=NUMERIC},
-      <if test="baidentity != null">
-        #{baidentity,jdbcType=VARCHAR},
-      </if>
-      <if test="zzdm != null">
-        #{zzdm,jdbcType=VARCHAR},
-      </if>
-      <if test="zzname != null">
-        #{zzname,jdbcType=VARCHAR},
-      </if>
-      <if test="fzjgbsf != null">
-        #{fzjgbsf,jdbcType=VARCHAR},
-      </if>
-      <if test="ylfs != null">
-        #{ylfs,jdbcType=VARCHAR},
-      </if>
-      <if test="jkcard != null">
-        #{jkcard,jdbcType=VARCHAR},
-      </if>
-      <if test="idcard != null">
-        #{idcard,jdbcType=VARCHAR},
-      </if>
-      <if test="hzhm != null">
-        #{hzhm,jdbcType=VARCHAR},
-      </if>
-      <if test="banum != null">
-        #{banum,jdbcType=VARCHAR},
-      </if>
-      <if test="zycs != null">
-        #{zycs,jdbcType=NUMERIC},
-      </if>
-      <if test="name != null">
-        #{name,jdbcType=VARCHAR},
-      </if>
-      <if test="sex != null">
-        #{sex,jdbcType=NUMERIC},
-      </if>
-      <if test="birthday != null">
-        #{birthday,jdbcType=TIMESTAMP},
-      </if>
-      <if test="guoji != null">
-        #{guoji,jdbcType=VARCHAR},
-      </if>
-      <if test="csd != null">
-        #{csd,jdbcType=VARCHAR},
-      </if>
-      <if test="jiguan != null">
-        #{jiguan,jdbcType=VARCHAR},
-      </if>
-      <if test="minzu != null">
-        #{minzu,jdbcType=VARCHAR},
-      </if>
-      <if test="zhiye1 != null">
-        #{zhiye1,jdbcType=VARCHAR},
-      </if>
-      <if test="hunyin != null">
-        #{hunyin,jdbcType=VARCHAR},
-      </if>
-      <if test="juzhuxingzheng != null">
-        #{juzhuxingzheng,jdbcType=VARCHAR},
-      </if>
-      <if test="xianzhuzhi != null">
-        #{xianzhuzhi,jdbcType=VARCHAR},
-      </if>
-      <if test="xiandianhua != null">
-        #{xiandianhua,jdbcType=VARCHAR},
-      </if>
-      <if test="xianyoubian != null">
-        #{xianyoubian,jdbcType=VARCHAR},
-      </if>
-      <if test="phone != null">
-        #{phone,jdbcType=VARCHAR},
-      </if>
-      <if test="email != null">
-        #{email,jdbcType=VARCHAR},
-      </if>
-      <if test="hukouquhua != null">
-        #{hukouquhua,jdbcType=VARCHAR},
-      </if>
-      <if test="hukoudz != null">
-        #{hukoudz,jdbcType=VARCHAR},
-      </if>
-      <if test="hukouyoubian != null">
-        #{hukouyoubian,jdbcType=VARCHAR},
-      </if>
-      <if test="workinfo != null">
-        #{workinfo,jdbcType=VARCHAR},
-      </if>
-      <if test="dwtel != null">
-        #{dwtel,jdbcType=VARCHAR},
-      </if>
-      <if test="dwyb != null">
-        #{dwyb,jdbcType=VARCHAR},
-      </if>
-      <if test="lxrname != null">
-        #{lxrname,jdbcType=VARCHAR},
-      </if>
-      <if test="lxrguanxi != null">
-        #{lxrguanxi,jdbcType=VARCHAR},
-      </if>
-      <if test="lxrdz != null">
-        #{lxrdz,jdbcType=VARCHAR},
-      </if>
-      <if test="lxrtel != null">
-        #{lxrtel,jdbcType=VARCHAR},
-      </if>
-      <if test="rylj != null">
-        #{rylj,jdbcType=VARCHAR},
-      </if>
-      <if test="zryljgdm != null">
-        #{zryljgdm,jdbcType=VARCHAR},
-      </if>
-      <if test="zrjgname != null">
-        #{zrjgname,jdbcType=VARCHAR},
-      </if>
-      <if test="rytime != null">
-        #{rytime,jdbcType=TIMESTAMP},
-      </if>
-      <if test="ryksbm != null">
-        #{ryksbm,jdbcType=VARCHAR},
-      </if>
-      <if test="cytime != null">
-        #{cytime,jdbcType=TIMESTAMP},
-      </if>
-      <if test="cyksbm != null">
-        #{cyksbm,jdbcType=VARCHAR},
-      </if>
-      <if test="zyksname != null">
-        #{zyksname,jdbcType=VARCHAR},
-      </if>
-      <if test="swyy != null">
-        #{swyy,jdbcType=VARCHAR},
-      </if>
-      <if test="swsj != null">
-        #{swsj,jdbcType=NUMERIC},
-      </if>
-      <if test="xuexing != null">
-        #{xuexing,jdbcType=NUMERIC},
-      </if>
-      <if test="rhxuexing != null">
-        #{rhxuexing,jdbcType=NUMERIC},
-      </if>
-      <if test="binganzhiliang != null">
-        #{binganzhiliang,jdbcType=NUMERIC},
-      </if>
-      <if test="zkrq != null">
-        #{zkrq,jdbcType=TIMESTAMP},
-      </if>
-      <if test="lyfs != null">
-        #{lyfs,jdbcType=VARCHAR},
-      </if>
-      <if test="nijieshouyljgdm != null">
-        #{nijieshouyljgdm,jdbcType=VARCHAR},
-      </if>
-      <if test="nijieshouyljgname != null">
-        #{nijieshouyljgname,jdbcType=VARCHAR},
-      </if>
-      <if test="zzymd != null">
-        #{zzymd,jdbcType=VARCHAR},
-      </if>
-      <if test="zzyjgts != null">
-        #{zzyjgts,jdbcType=NUMERIC},
-      </if>
-      <if test="rylqhmtime != null">
-        #{rylqhmtime,jdbcType=TIMESTAMP},
-      </if>
-      <if test="xsecstizhong != null">
-        #{xsecstizhong,jdbcType=NUMERIC},
-      </if>
-      <if test="xserytizhong != null">
-        #{xserytizhong,jdbcType=NUMERIC},
-      </if>
-      <if test="rybingqing != null">
-        #{rybingqing,jdbcType=VARCHAR},
-      </if>
-      <if test="zhuyaozdtime != null">
-        #{zhuyaozdtime,jdbcType=TIMESTAMP},
-      </if>
-      <if test="sfbw != null">
-        #{sfbw,jdbcType=NUMERIC},
-      </if>
-      <if test="qjcishu != null">
-        #{qjcishu,jdbcType=NUMERIC},
-      </if>
-      <if test="qjsuccesscishu != null">
-        #{qjsuccesscishu,jdbcType=NUMERIC},
-      </if>
-      <if test="yinanbing != null">
-        #{yinanbing,jdbcType=VARCHAR},
-      </if>
-      <if test="suizhen != null">
-        #{suizhen,jdbcType=NUMERIC},
-      </if>
-      <if test="szdays != null">
-        #{szdays,jdbcType=NUMERIC},
-      </if>
-      <if test="cyfhqk != null">
-        #{cyfhqk,jdbcType=VARCHAR},
-      </if>
-      <if test="rycyfhqk != null">
-        #{rycyfhqk,jdbcType=VARCHAR},
-      </if>
-      <if test="shoushuqh != null">
-        #{shoushuqh,jdbcType=VARCHAR},
-      </if>
-      <if test="yxbl != null">
-        #{yxbl,jdbcType=VARCHAR},
-      </if>
-      <if test="lcbl != null">
-        #{lcbl,jdbcType=VARCHAR},
-      </if>
-      <if test="ssbdslblqk != null">
-        #{ssbdslblqk,jdbcType=VARCHAR},
-      </if>
-      <if test="sqshblqk != null">
-        #{sqshblqk,jdbcType=VARCHAR},
-      </if>
-      <if test="lczdsjqk != null">
-        #{lczdsjqk,jdbcType=VARCHAR},
-      </if>
-      <if test="ynhzcishu != null">
-        #{ynhzcishu,jdbcType=NUMERIC},
-      </if>
-      <if test="wyhzcishu != null">
-        #{wyhzcishu,jdbcType=NUMERIC},
-      </if>
-      <if test="shuye != null">
-        #{shuye,jdbcType=NUMERIC},
-      </if>
-      <if test="shuyefy != null">
-        #{shuyefy,jdbcType=NUMERIC},
-      </if>
-      <if test="kjyymd != null">
-        #{kjyymd,jdbcType=VARCHAR},
-      </if>
-      <if test="kjyyfa != null">
-        #{kjyyfa,jdbcType=VARCHAR},
-      </if>
-      <if test="zhusu != null">
-        #{zhusu,jdbcType=VARCHAR},
-      </if>
-      <if test="tongzhidate != null">
-        #{tongzhidate,jdbcType=TIMESTAMP},
-      </if>
-      <if test="zhikongpingfen != null">
-        #{zhikongpingfen,jdbcType=NUMERIC},
-      </if>
-      <if test="zhikongzhe != null">
-        #{zhikongzhe,jdbcType=VARCHAR},
-      </if>
-      <if test="updatedate != null">
-        #{updatedate,jdbcType=TIMESTAMP},
-      </if>
-      <if test="binglixiugaizhe != null">
-        #{binglixiugaizhe,jdbcType=VARCHAR},
-      </if>
-      <if test="shangbaobiaoji != null">
-        #{shangbaobiaoji,jdbcType=NUMERIC},
-      </if>
-      <if test="weishoushuqi != null">
-        #{weishoushuqi,jdbcType=TIMESTAMP},
-      </if>
-      <if test="weishoushuzhi != null">
-        #{weishoushuzhi,jdbcType=TIMESTAMP},
-      </if>
-      <if test="jbpbm != null">
-        #{jbpbm,jdbcType=VARCHAR},
-      </if>
-      <if test="zlfqt != null">
-        #{zlfqt,jdbcType=VARCHAR},
-      </if>
-      <if test="zlfqn != null">
-        #{zlfqn,jdbcType=VARCHAR},
-      </if>
-      <if test="zlfqm != null">
-        #{zlfqm,jdbcType=VARCHAR},
-      </if>
-      <if test="sfdybz != null">
-        #{sfdybz,jdbcType=NUMERIC},
-      </if>
-      <if test="sslclj != null">
-        #{sslclj,jdbcType=NUMERIC},
-      </if>
-      <if test="wclclj != null">
-        #{wclclj,jdbcType=NUMERIC},
-      </if>
-      <if test="tclcljyy != null">
-        #{tclcljyy,jdbcType=VARCHAR},
-      </if>
-      <if test="tclcljms != null">
-        #{tclcljms,jdbcType=VARCHAR},
-      </if>
-      <if test="lcljbyyy != null">
-        #{lcljbyyy,jdbcType=VARCHAR},
-      </if>
-      <if test="lcljbyms != null">
-        #{lcljbyms,jdbcType=VARCHAR},
-      </if>
-      <if test="zlfq != null">
-        #{zlfq,jdbcType=VARCHAR},
-      </if>
-      <if test="zlfhcd != null">
-        #{zlfhcd,jdbcType=VARCHAR},
-      </if>
-      <if test="zlzdyj != null">
-        #{zlzdyj,jdbcType=VARCHAR},
-      </if>
-      <if test="bnbiaoshi1 != null">
-        #{bnbiaoshi1,jdbcType=VARCHAR},
-      </if>
-      <if test="ageSui != null">
-        #{ageSui,jdbcType=NUMERIC},
-      </if>
-      <if test="ageMonth != null">
-        #{ageMonth,jdbcType=NUMERIC},
-      </if>
-      <if test="ageDays != null">
-        #{ageDays,jdbcType=NUMERIC},
-      </if>
-      <if test="ycgfx != null">
-        #{ycgfx,jdbcType=NUMERIC},
-      </if>
-      <if test="ddgfx != null">
-        #{ddgfx,jdbcType=NUMERIC},
-      </if>
-    </trim>
-  </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.wlht.api.po.TBaBase">
-    update T_BA_BASE
-    <set>
-      <if test="baidentity != null">
-        BAIDENTITY = #{baidentity,jdbcType=VARCHAR},
-      </if>
-      <if test="zzdm != null">
-        ZZDM = #{zzdm,jdbcType=VARCHAR},
-      </if>
-      <if test="zzname != null">
-        ZZNAME = #{zzname,jdbcType=VARCHAR},
-      </if>
-      <if test="fzjgbsf != null">
-        FZJGBSF = #{fzjgbsf,jdbcType=VARCHAR},
-      </if>
-      <if test="ylfs != null">
-        YLFS = #{ylfs,jdbcType=VARCHAR},
-      </if>
-      <if test="jkcard != null">
-        JKCARD = #{jkcard,jdbcType=VARCHAR},
-      </if>
-      <if test="idcard != null">
-        IDCARD = #{idcard,jdbcType=VARCHAR},
-      </if>
-      <if test="hzhm != null">
-        HZHM = #{hzhm,jdbcType=VARCHAR},
-      </if>
-      <if test="banum != null">
-        BANUM = #{banum,jdbcType=VARCHAR},
-      </if>
-      <if test="zycs != null">
-        ZYCS = #{zycs,jdbcType=NUMERIC},
-      </if>
-      <if test="name != null">
-        NAME = #{name,jdbcType=VARCHAR},
-      </if>
-      <if test="sex != null">
-        SEX = #{sex,jdbcType=NUMERIC},
-      </if>
-      <if test="birthday != null">
-        BIRTHDAY = #{birthday,jdbcType=TIMESTAMP},
-      </if>
-      <if test="guoji != null">
-        GUOJI = #{guoji,jdbcType=VARCHAR},
-      </if>
-      <if test="csd != null">
-        CSD = #{csd,jdbcType=VARCHAR},
-      </if>
-      <if test="jiguan != null">
-        JIGUAN = #{jiguan,jdbcType=VARCHAR},
-      </if>
-      <if test="minzu != null">
-        MINZU = #{minzu,jdbcType=VARCHAR},
-      </if>
-      <if test="zhiye1 != null">
-        ZHIYE1 = #{zhiye1,jdbcType=VARCHAR},
-      </if>
-      <if test="hunyin != null">
-        HUNYIN = #{hunyin,jdbcType=VARCHAR},
-      </if>
-      <if test="juzhuxingzheng != null">
-        JUZHUXINGZHENG = #{juzhuxingzheng,jdbcType=VARCHAR},
-      </if>
-      <if test="xianzhuzhi != null">
-        XIANZHUZHI = #{xianzhuzhi,jdbcType=VARCHAR},
-      </if>
-      <if test="xiandianhua != null">
-        XIANDIANHUA = #{xiandianhua,jdbcType=VARCHAR},
-      </if>
-      <if test="xianyoubian != null">
-        XIANYOUBIAN = #{xianyoubian,jdbcType=VARCHAR},
-      </if>
-      <if test="phone != null">
-        PHONE = #{phone,jdbcType=VARCHAR},
-      </if>
-      <if test="email != null">
-        EMAIL = #{email,jdbcType=VARCHAR},
-      </if>
-      <if test="hukouquhua != null">
-        HUKOUQUHUA = #{hukouquhua,jdbcType=VARCHAR},
-      </if>
-      <if test="hukoudz != null">
-        HUKOUDZ = #{hukoudz,jdbcType=VARCHAR},
-      </if>
-      <if test="hukouyoubian != null">
-        HUKOUYOUBIAN = #{hukouyoubian,jdbcType=VARCHAR},
-      </if>
-      <if test="workinfo != null">
-        WORKINFO = #{workinfo,jdbcType=VARCHAR},
-      </if>
-      <if test="dwtel != null">
-        DWTEL = #{dwtel,jdbcType=VARCHAR},
-      </if>
-      <if test="dwyb != null">
-        DWYB = #{dwyb,jdbcType=VARCHAR},
-      </if>
-      <if test="lxrname != null">
-        LXRNAME = #{lxrname,jdbcType=VARCHAR},
-      </if>
-      <if test="lxrguanxi != null">
-        LXRGUANXI = #{lxrguanxi,jdbcType=VARCHAR},
-      </if>
-      <if test="lxrdz != null">
-        LXRDZ = #{lxrdz,jdbcType=VARCHAR},
-      </if>
-      <if test="lxrtel != null">
-        LXRTEL = #{lxrtel,jdbcType=VARCHAR},
-      </if>
-      <if test="rylj != null">
-        RYLJ = #{rylj,jdbcType=VARCHAR},
-      </if>
-      <if test="zryljgdm != null">
-        ZRYLJGDM = #{zryljgdm,jdbcType=VARCHAR},
-      </if>
-      <if test="zrjgname != null">
-        ZRJGNAME = #{zrjgname,jdbcType=VARCHAR},
-      </if>
-      <if test="rytime != null">
-        RYTIME = #{rytime,jdbcType=TIMESTAMP},
-      </if>
-      <if test="ryksbm != null">
-        RYKSBM = #{ryksbm,jdbcType=VARCHAR},
-      </if>
-      <if test="cytime != null">
-        CYTIME = #{cytime,jdbcType=TIMESTAMP},
-      </if>
-      <if test="cyksbm != null">
-        CYKSBM = #{cyksbm,jdbcType=VARCHAR},
-      </if>
-      <if test="zyksname != null">
-        ZYKSNAME = #{zyksname,jdbcType=VARCHAR},
-      </if>
-      <if test="swyy != null">
-        SWYY = #{swyy,jdbcType=VARCHAR},
-      </if>
-      <if test="swsj != null">
-        SWSJ = #{swsj,jdbcType=NUMERIC},
-      </if>
-      <if test="xuexing != null">
-        XUEXING = #{xuexing,jdbcType=NUMERIC},
-      </if>
-      <if test="rhxuexing != null">
-        RHXUEXING = #{rhxuexing,jdbcType=NUMERIC},
-      </if>
-      <if test="binganzhiliang != null">
-        BINGANZHILIANG = #{binganzhiliang,jdbcType=NUMERIC},
-      </if>
-      <if test="zkrq != null">
-        ZKRQ = #{zkrq,jdbcType=TIMESTAMP},
-      </if>
-      <if test="lyfs != null">
-        LYFS = #{lyfs,jdbcType=VARCHAR},
-      </if>
-      <if test="nijieshouyljgdm != null">
-        NIJIESHOUYLJGDM = #{nijieshouyljgdm,jdbcType=VARCHAR},
-      </if>
-      <if test="nijieshouyljgname != null">
-        NIJIESHOUYLJGNAME = #{nijieshouyljgname,jdbcType=VARCHAR},
-      </if>
-      <if test="zzymd != null">
-        ZZYMD = #{zzymd,jdbcType=VARCHAR},
-      </if>
-      <if test="zzyjgts != null">
-        ZZYJGTS = #{zzyjgts,jdbcType=NUMERIC},
-      </if>
-      <if test="rylqhmtime != null">
-        RYLQHMTIME = #{rylqhmtime,jdbcType=TIMESTAMP},
-      </if>
-      <if test="xsecstizhong != null">
-        XSECSTIZHONG = #{xsecstizhong,jdbcType=NUMERIC},
-      </if>
-      <if test="xserytizhong != null">
-        XSERYTIZHONG = #{xserytizhong,jdbcType=NUMERIC},
-      </if>
-      <if test="rybingqing != null">
-        RYBINGQING = #{rybingqing,jdbcType=VARCHAR},
-      </if>
-      <if test="zhuyaozdtime != null">
-        ZHUYAOZDTIME = #{zhuyaozdtime,jdbcType=TIMESTAMP},
-      </if>
-      <if test="sfbw != null">
-        SFBW = #{sfbw,jdbcType=NUMERIC},
-      </if>
-      <if test="qjcishu != null">
-        QJCISHU = #{qjcishu,jdbcType=NUMERIC},
-      </if>
-      <if test="qjsuccesscishu != null">
-        QJSUCCESSCISHU = #{qjsuccesscishu,jdbcType=NUMERIC},
-      </if>
-      <if test="yinanbing != null">
-        YINANBING = #{yinanbing,jdbcType=VARCHAR},
-      </if>
-      <if test="suizhen != null">
-        SUIZHEN = #{suizhen,jdbcType=NUMERIC},
-      </if>
-      <if test="szdays != null">
-        SZDAYS = #{szdays,jdbcType=NUMERIC},
-      </if>
-      <if test="cyfhqk != null">
-        CYFHQK = #{cyfhqk,jdbcType=VARCHAR},
-      </if>
-      <if test="rycyfhqk != null">
-        RYCYFHQK = #{rycyfhqk,jdbcType=VARCHAR},
-      </if>
-      <if test="shoushuqh != null">
-        SHOUSHUQH = #{shoushuqh,jdbcType=VARCHAR},
-      </if>
-      <if test="yxbl != null">
-        YXBL = #{yxbl,jdbcType=VARCHAR},
-      </if>
-      <if test="lcbl != null">
-        LCBL = #{lcbl,jdbcType=VARCHAR},
-      </if>
-      <if test="ssbdslblqk != null">
-        SSBDSLBLQK = #{ssbdslblqk,jdbcType=VARCHAR},
-      </if>
-      <if test="sqshblqk != null">
-        SQSHBLQK = #{sqshblqk,jdbcType=VARCHAR},
-      </if>
-      <if test="lczdsjqk != null">
-        LCZDSJQK = #{lczdsjqk,jdbcType=VARCHAR},
-      </if>
-      <if test="ynhzcishu != null">
-        YNHZCISHU = #{ynhzcishu,jdbcType=NUMERIC},
-      </if>
-      <if test="wyhzcishu != null">
-        WYHZCISHU = #{wyhzcishu,jdbcType=NUMERIC},
-      </if>
-      <if test="shuye != null">
-        SHUYE = #{shuye,jdbcType=NUMERIC},
-      </if>
-      <if test="shuyefy != null">
-        SHUYEFY = #{shuyefy,jdbcType=NUMERIC},
-      </if>
-      <if test="kjyymd != null">
-        KJYYMD = #{kjyymd,jdbcType=VARCHAR},
-      </if>
-      <if test="kjyyfa != null">
-        KJYYFA = #{kjyyfa,jdbcType=VARCHAR},
-      </if>
-      <if test="zhusu != null">
-        ZHUSU = #{zhusu,jdbcType=VARCHAR},
-      </if>
-      <if test="tongzhidate != null">
-        TONGZHIDATE = #{tongzhidate,jdbcType=TIMESTAMP},
-      </if>
-      <if test="zhikongpingfen != null">
-        ZHIKONGPINGFEN = #{zhikongpingfen,jdbcType=NUMERIC},
-      </if>
-      <if test="zhikongzhe != null">
-        ZHIKONGZHE = #{zhikongzhe,jdbcType=VARCHAR},
-      </if>
-      <if test="updatedate != null">
-        UPDATEDATE = #{updatedate,jdbcType=TIMESTAMP},
-      </if>
-      <if test="binglixiugaizhe != null">
-        BINGLIXIUGAIZHE = #{binglixiugaizhe,jdbcType=VARCHAR},
-      </if>
-      <if test="shangbaobiaoji != null">
-        SHANGBAOBIAOJI = #{shangbaobiaoji,jdbcType=NUMERIC},
-      </if>
-      <if test="weishoushuqi != null">
-        WEISHOUSHUQI = #{weishoushuqi,jdbcType=TIMESTAMP},
-      </if>
-      <if test="weishoushuzhi != null">
-        WEISHOUSHUZHI = #{weishoushuzhi,jdbcType=TIMESTAMP},
-      </if>
-      <if test="jbpbm != null">
-        JBPBM = #{jbpbm,jdbcType=VARCHAR},
-      </if>
-      <if test="zlfqt != null">
-        ZLFQT = #{zlfqt,jdbcType=VARCHAR},
-      </if>
-      <if test="zlfqn != null">
-        ZLFQN = #{zlfqn,jdbcType=VARCHAR},
-      </if>
-      <if test="zlfqm != null">
-        ZLFQM = #{zlfqm,jdbcType=VARCHAR},
-      </if>
-      <if test="sfdybz != null">
-        SFDYBZ = #{sfdybz,jdbcType=NUMERIC},
-      </if>
-      <if test="sslclj != null">
-        SSLCLJ = #{sslclj,jdbcType=NUMERIC},
-      </if>
-      <if test="wclclj != null">
-        WCLCLJ = #{wclclj,jdbcType=NUMERIC},
-      </if>
-      <if test="tclcljyy != null">
-        TCLCLJYY = #{tclcljyy,jdbcType=VARCHAR},
-      </if>
-      <if test="tclcljms != null">
-        TCLCLJMS = #{tclcljms,jdbcType=VARCHAR},
-      </if>
-      <if test="lcljbyyy != null">
-        LCLJBYYY = #{lcljbyyy,jdbcType=VARCHAR},
-      </if>
-      <if test="lcljbyms != null">
-        LCLJBYMS = #{lcljbyms,jdbcType=VARCHAR},
-      </if>
-      <if test="zlfq != null">
-        ZLFQ = #{zlfq,jdbcType=VARCHAR},
-      </if>
-      <if test="zlfhcd != null">
-        ZLFHCD = #{zlfhcd,jdbcType=VARCHAR},
-      </if>
-      <if test="zlzdyj != null">
-        ZLZDYJ = #{zlzdyj,jdbcType=VARCHAR},
-      </if>
-      <if test="bnbiaoshi1 != null">
-        BNBIAOSHI1 = #{bnbiaoshi1,jdbcType=VARCHAR},
-      </if>
-      <if test="ageSui != null">
-        AGE_SUI = #{ageSui,jdbcType=NUMERIC},
-      </if>
-      <if test="ageMonth != null">
-        AGE_MONTH = #{ageMonth,jdbcType=NUMERIC},
-      </if>
-      <if test="ageDays != null">
-        AGE_DAYS = #{ageDays,jdbcType=NUMERIC},
-      </if>
-      <if test="ycgfx != null">
-        YCGFX = #{ycgfx,jdbcType=NUMERIC},
-      </if>
-      <if test="ddgfx != null">
-        DDGFX = #{ddgfx,jdbcType=NUMERIC},
-      </if>
-    </set>
-    where ID = #{id,jdbcType=NUMERIC}
-  </update>
-  <update id="updateByPrimaryKey" parameterType="com.wlht.api.po.TBaBase">
-    update T_BA_BASE
-    set BAIDENTITY = #{baidentity,jdbcType=VARCHAR},
-      ZZDM = #{zzdm,jdbcType=VARCHAR},
-      ZZNAME = #{zzname,jdbcType=VARCHAR},
-      FZJGBSF = #{fzjgbsf,jdbcType=VARCHAR},
-      YLFS = #{ylfs,jdbcType=VARCHAR},
-      JKCARD = #{jkcard,jdbcType=VARCHAR},
-      IDCARD = #{idcard,jdbcType=VARCHAR},
-      HZHM = #{hzhm,jdbcType=VARCHAR},
-      BANUM = #{banum,jdbcType=VARCHAR},
-      ZYCS = #{zycs,jdbcType=NUMERIC},
-      NAME = #{name,jdbcType=VARCHAR},
-      SEX = #{sex,jdbcType=NUMERIC},
-      BIRTHDAY = #{birthday,jdbcType=TIMESTAMP},
-      GUOJI = #{guoji,jdbcType=VARCHAR},
-      CSD = #{csd,jdbcType=VARCHAR},
-      JIGUAN = #{jiguan,jdbcType=VARCHAR},
-      MINZU = #{minzu,jdbcType=VARCHAR},
-      ZHIYE1 = #{zhiye1,jdbcType=VARCHAR},
-      HUNYIN = #{hunyin,jdbcType=VARCHAR},
-      JUZHUXINGZHENG = #{juzhuxingzheng,jdbcType=VARCHAR},
-      XIANZHUZHI = #{xianzhuzhi,jdbcType=VARCHAR},
-      XIANDIANHUA = #{xiandianhua,jdbcType=VARCHAR},
-      XIANYOUBIAN = #{xianyoubian,jdbcType=VARCHAR},
-      PHONE = #{phone,jdbcType=VARCHAR},
-      EMAIL = #{email,jdbcType=VARCHAR},
-      HUKOUQUHUA = #{hukouquhua,jdbcType=VARCHAR},
-      HUKOUDZ = #{hukoudz,jdbcType=VARCHAR},
-      HUKOUYOUBIAN = #{hukouyoubian,jdbcType=VARCHAR},
-      WORKINFO = #{workinfo,jdbcType=VARCHAR},
-      DWTEL = #{dwtel,jdbcType=VARCHAR},
-      DWYB = #{dwyb,jdbcType=VARCHAR},
-      LXRNAME = #{lxrname,jdbcType=VARCHAR},
-      LXRGUANXI = #{lxrguanxi,jdbcType=VARCHAR},
-      LXRDZ = #{lxrdz,jdbcType=VARCHAR},
-      LXRTEL = #{lxrtel,jdbcType=VARCHAR},
-      RYLJ = #{rylj,jdbcType=VARCHAR},
-      ZRYLJGDM = #{zryljgdm,jdbcType=VARCHAR},
-      ZRJGNAME = #{zrjgname,jdbcType=VARCHAR},
-      RYTIME = #{rytime,jdbcType=TIMESTAMP},
-      RYKSBM = #{ryksbm,jdbcType=VARCHAR},
-      CYTIME = #{cytime,jdbcType=TIMESTAMP},
-      CYKSBM = #{cyksbm,jdbcType=VARCHAR},
-      ZYKSNAME = #{zyksname,jdbcType=VARCHAR},
-      SWYY = #{swyy,jdbcType=VARCHAR},
-      SWSJ = #{swsj,jdbcType=NUMERIC},
-      XUEXING = #{xuexing,jdbcType=NUMERIC},
-      RHXUEXING = #{rhxuexing,jdbcType=NUMERIC},
-      BINGANZHILIANG = #{binganzhiliang,jdbcType=NUMERIC},
-      ZKRQ = #{zkrq,jdbcType=TIMESTAMP},
-      LYFS = #{lyfs,jdbcType=VARCHAR},
-      NIJIESHOUYLJGDM = #{nijieshouyljgdm,jdbcType=VARCHAR},
-      NIJIESHOUYLJGNAME = #{nijieshouyljgname,jdbcType=VARCHAR},
-      ZZYMD = #{zzymd,jdbcType=VARCHAR},
-      ZZYJGTS = #{zzyjgts,jdbcType=NUMERIC},
-      RYLQHMTIME = #{rylqhmtime,jdbcType=TIMESTAMP},
-      XSECSTIZHONG = #{xsecstizhong,jdbcType=NUMERIC},
-      XSERYTIZHONG = #{xserytizhong,jdbcType=NUMERIC},
-      RYBINGQING = #{rybingqing,jdbcType=VARCHAR},
-      ZHUYAOZDTIME = #{zhuyaozdtime,jdbcType=TIMESTAMP},
-      SFBW = #{sfbw,jdbcType=NUMERIC},
-      QJCISHU = #{qjcishu,jdbcType=NUMERIC},
-      QJSUCCESSCISHU = #{qjsuccesscishu,jdbcType=NUMERIC},
-      YINANBING = #{yinanbing,jdbcType=VARCHAR},
-      SUIZHEN = #{suizhen,jdbcType=NUMERIC},
-      SZDAYS = #{szdays,jdbcType=NUMERIC},
-      CYFHQK = #{cyfhqk,jdbcType=VARCHAR},
-      RYCYFHQK = #{rycyfhqk,jdbcType=VARCHAR},
-      SHOUSHUQH = #{shoushuqh,jdbcType=VARCHAR},
-      YXBL = #{yxbl,jdbcType=VARCHAR},
-      LCBL = #{lcbl,jdbcType=VARCHAR},
-      SSBDSLBLQK = #{ssbdslblqk,jdbcType=VARCHAR},
-      SQSHBLQK = #{sqshblqk,jdbcType=VARCHAR},
-      LCZDSJQK = #{lczdsjqk,jdbcType=VARCHAR},
-      YNHZCISHU = #{ynhzcishu,jdbcType=NUMERIC},
-      WYHZCISHU = #{wyhzcishu,jdbcType=NUMERIC},
-      SHUYE = #{shuye,jdbcType=NUMERIC},
-      SHUYEFY = #{shuyefy,jdbcType=NUMERIC},
-      KJYYMD = #{kjyymd,jdbcType=VARCHAR},
-      KJYYFA = #{kjyyfa,jdbcType=VARCHAR},
-      ZHUSU = #{zhusu,jdbcType=VARCHAR},
-      TONGZHIDATE = #{tongzhidate,jdbcType=TIMESTAMP},
-      ZHIKONGPINGFEN = #{zhikongpingfen,jdbcType=NUMERIC},
-      ZHIKONGZHE = #{zhikongzhe,jdbcType=VARCHAR},
-      UPDATEDATE = #{updatedate,jdbcType=TIMESTAMP},
-      BINGLIXIUGAIZHE = #{binglixiugaizhe,jdbcType=VARCHAR},
-      SHANGBAOBIAOJI = #{shangbaobiaoji,jdbcType=NUMERIC},
-      WEISHOUSHUQI = #{weishoushuqi,jdbcType=TIMESTAMP},
-      WEISHOUSHUZHI = #{weishoushuzhi,jdbcType=TIMESTAMP},
-      JBPBM = #{jbpbm,jdbcType=VARCHAR},
-      ZLFQT = #{zlfqt,jdbcType=VARCHAR},
-      ZLFQN = #{zlfqn,jdbcType=VARCHAR},
-      ZLFQM = #{zlfqm,jdbcType=VARCHAR},
-      SFDYBZ = #{sfdybz,jdbcType=NUMERIC},
-      SSLCLJ = #{sslclj,jdbcType=NUMERIC},
-      WCLCLJ = #{wclclj,jdbcType=NUMERIC},
-      TCLCLJYY = #{tclcljyy,jdbcType=VARCHAR},
-      TCLCLJMS = #{tclcljms,jdbcType=VARCHAR},
-      LCLJBYYY = #{lcljbyyy,jdbcType=VARCHAR},
-      LCLJBYMS = #{lcljbyms,jdbcType=VARCHAR},
-      ZLFQ = #{zlfq,jdbcType=VARCHAR},
-      ZLFHCD = #{zlfhcd,jdbcType=VARCHAR},
-      ZLZDYJ = #{zlzdyj,jdbcType=VARCHAR},
-      BNBIAOSHI1 = #{bnbiaoshi1,jdbcType=VARCHAR},
-      AGE_SUI = #{ageSui,jdbcType=NUMERIC},
-      AGE_MONTH = #{ageMonth,jdbcType=NUMERIC},
-      AGE_DAYS = #{ageDays,jdbcType=NUMERIC},
-      YCGFX = #{ycgfx,jdbcType=NUMERIC},
-      DDGFX = #{ddgfx,jdbcType=NUMERIC}
-    where ID = #{id,jdbcType=NUMERIC}
-  </update>
+    <resultMap id="BaseResultMap" type="com.wlht.api.po.TBaBase">
+        <id column="ID" jdbcType="NUMERIC" property="id"/>
+        <result column="BAIDENTITY" jdbcType="VARCHAR" property="baidentity"/>
+        <result column="ZZDM" jdbcType="VARCHAR" property="zzdm"/>
+        <result column="ZZNAME" jdbcType="VARCHAR" property="zzname"/>
+        <result column="FZJGBSF" jdbcType="VARCHAR" property="fzjgbsf"/>
+        <result column="YLFS" jdbcType="VARCHAR" property="ylfs"/>
+        <result column="JKCARD" jdbcType="VARCHAR" property="jkcard"/>
+        <result column="IDCARD" jdbcType="VARCHAR" property="idcard"/>
+        <result column="HZHM" jdbcType="VARCHAR" property="hzhm"/>
+        <result column="BANUM" jdbcType="VARCHAR" property="banum"/>
+        <result column="ZYCS" jdbcType="NUMERIC" property="zycs"/>
+        <result column="NAME" jdbcType="VARCHAR" property="name"/>
+        <result column="SEX" jdbcType="NUMERIC" property="sex"/>
+        <result column="BIRTHDAY" jdbcType="TIMESTAMP" property="birthday"/>
+        <result column="GUOJI" jdbcType="VARCHAR" property="guoji"/>
+        <result column="CSD" jdbcType="VARCHAR" property="csd"/>
+        <result column="JIGUAN" jdbcType="VARCHAR" property="jiguan"/>
+        <result column="MINZU" jdbcType="VARCHAR" property="minzu"/>
+        <result column="ZHIYE1" jdbcType="VARCHAR" property="zhiye1"/>
+        <result column="HUNYIN" jdbcType="VARCHAR" property="hunyin"/>
+        <result column="JUZHUXINGZHENG" jdbcType="VARCHAR" property="juzhuxingzheng"/>
+        <result column="XIANZHUZHI" jdbcType="VARCHAR" property="xianzhuzhi"/>
+        <result column="XIANDIANHUA" jdbcType="VARCHAR" property="xiandianhua"/>
+        <result column="XIANYOUBIAN" jdbcType="VARCHAR" property="xianyoubian"/>
+        <result column="PHONE" jdbcType="VARCHAR" property="phone"/>
+        <result column="EMAIL" jdbcType="VARCHAR" property="email"/>
+        <result column="HUKOUQUHUA" jdbcType="VARCHAR" property="hukouquhua"/>
+        <result column="HUKOUDZ" jdbcType="VARCHAR" property="hukoudz"/>
+        <result column="HUKOUYOUBIAN" jdbcType="VARCHAR" property="hukouyoubian"/>
+        <result column="WORKINFO" jdbcType="VARCHAR" property="workinfo"/>
+        <result column="DWTEL" jdbcType="VARCHAR" property="dwtel"/>
+        <result column="DWYB" jdbcType="VARCHAR" property="dwyb"/>
+        <result column="LXRNAME" jdbcType="VARCHAR" property="lxrname"/>
+        <result column="LXRGUANXI" jdbcType="VARCHAR" property="lxrguanxi"/>
+        <result column="LXRDZ" jdbcType="VARCHAR" property="lxrdz"/>
+        <result column="LXRTEL" jdbcType="VARCHAR" property="lxrtel"/>
+        <result column="RYLJ" jdbcType="VARCHAR" property="rylj"/>
+        <result column="ZRYLJGDM" jdbcType="VARCHAR" property="zryljgdm"/>
+        <result column="ZRJGNAME" jdbcType="VARCHAR" property="zrjgname"/>
+        <result column="RYTIME" jdbcType="TIMESTAMP" property="rytime"/>
+        <result column="RYKSBM" jdbcType="VARCHAR" property="ryksbm"/>
+        <result column="CYTIME" jdbcType="TIMESTAMP" property="cytime"/>
+        <result column="CYKSBM" jdbcType="VARCHAR" property="cyksbm"/>
+        <result column="ZYKSNAME" jdbcType="VARCHAR" property="zyksname"/>
+        <result column="SWYY" jdbcType="VARCHAR" property="swyy"/>
+        <result column="SWSJ" jdbcType="NUMERIC" property="swsj"/>
+        <result column="XUEXING" jdbcType="NUMERIC" property="xuexing"/>
+        <result column="RHXUEXING" jdbcType="NUMERIC" property="rhxuexing"/>
+        <result column="BINGANZHILIANG" jdbcType="NUMERIC" property="binganzhiliang"/>
+        <result column="ZKRQ" jdbcType="TIMESTAMP" property="zkrq"/>
+        <result column="LYFS" jdbcType="VARCHAR" property="lyfs"/>
+        <result column="NIJIESHOUYLJGDM" jdbcType="VARCHAR" property="nijieshouyljgdm"/>
+        <result column="NIJIESHOUYLJGNAME" jdbcType="VARCHAR" property="nijieshouyljgname"/>
+        <result column="ZZYMD" jdbcType="VARCHAR" property="zzymd"/>
+        <result column="ZZYJGTS" jdbcType="NUMERIC" property="zzyjgts"/>
+        <result column="RYLQHMTIME" jdbcType="TIMESTAMP" property="rylqhmtime"/>
+        <result column="XSECSTIZHONG" jdbcType="NUMERIC" property="xsecstizhong"/>
+        <result column="XSERYTIZHONG" jdbcType="NUMERIC" property="xserytizhong"/>
+        <result column="RYBINGQING" jdbcType="VARCHAR" property="rybingqing"/>
+        <result column="ZHUYAOZDTIME" jdbcType="TIMESTAMP" property="zhuyaozdtime"/>
+        <result column="SFBW" jdbcType="NUMERIC" property="sfbw"/>
+        <result column="QJCISHU" jdbcType="NUMERIC" property="qjcishu"/>
+        <result column="QJSUCCESSCISHU" jdbcType="NUMERIC" property="qjsuccesscishu"/>
+        <result column="YINANBING" jdbcType="VARCHAR" property="yinanbing"/>
+        <result column="SUIZHEN" jdbcType="NUMERIC" property="suizhen"/>
+        <result column="SZDAYS" jdbcType="NUMERIC" property="szdays"/>
+        <result column="CYFHQK" jdbcType="VARCHAR" property="cyfhqk"/>
+        <result column="RYCYFHQK" jdbcType="VARCHAR" property="rycyfhqk"/>
+        <result column="SHOUSHUQH" jdbcType="VARCHAR" property="shoushuqh"/>
+        <result column="YXBL" jdbcType="VARCHAR" property="yxbl"/>
+        <result column="LCBL" jdbcType="VARCHAR" property="lcbl"/>
+        <result column="SSBDSLBLQK" jdbcType="VARCHAR" property="ssbdslblqk"/>
+        <result column="SQSHBLQK" jdbcType="VARCHAR" property="sqshblqk"/>
+        <result column="LCZDSJQK" jdbcType="VARCHAR" property="lczdsjqk"/>
+        <result column="YNHZCISHU" jdbcType="NUMERIC" property="ynhzcishu"/>
+        <result column="WYHZCISHU" jdbcType="NUMERIC" property="wyhzcishu"/>
+        <result column="SHUYE" jdbcType="NUMERIC" property="shuye"/>
+        <result column="SHUYEFY" jdbcType="NUMERIC" property="shuyefy"/>
+        <result column="KJYYMD" jdbcType="VARCHAR" property="kjyymd"/>
+        <result column="KJYYFA" jdbcType="VARCHAR" property="kjyyfa"/>
+        <result column="ZHUSU" jdbcType="VARCHAR" property="zhusu"/>
+        <result column="TONGZHIDATE" jdbcType="TIMESTAMP" property="tongzhidate"/>
+        <result column="ZHIKONGPINGFEN" jdbcType="NUMERIC" property="zhikongpingfen"/>
+        <result column="ZHIKONGZHE" jdbcType="VARCHAR" property="zhikongzhe"/>
+        <result column="UPDATEDATE" jdbcType="TIMESTAMP" property="updatedate"/>
+        <result column="BINGLIXIUGAIZHE" jdbcType="VARCHAR" property="binglixiugaizhe"/>
+        <result column="SHANGBAOBIAOJI" jdbcType="NUMERIC" property="shangbaobiaoji"/>
+        <result column="WEISHOUSHUQI" jdbcType="TIMESTAMP" property="weishoushuqi"/>
+        <result column="WEISHOUSHUZHI" jdbcType="TIMESTAMP" property="weishoushuzhi"/>
+        <result column="JBPBM" jdbcType="VARCHAR" property="jbpbm"/>
+        <result column="ZLFQT" jdbcType="VARCHAR" property="zlfqt"/>
+        <result column="ZLFQN" jdbcType="VARCHAR" property="zlfqn"/>
+        <result column="ZLFQM" jdbcType="VARCHAR" property="zlfqm"/>
+        <result column="SFDYBZ" jdbcType="NUMERIC" property="sfdybz"/>
+        <result column="SSLCLJ" jdbcType="NUMERIC" property="sslclj"/>
+        <result column="WCLCLJ" jdbcType="NUMERIC" property="wclclj"/>
+        <result column="TCLCLJYY" jdbcType="VARCHAR" property="tclcljyy"/>
+        <result column="TCLCLJMS" jdbcType="VARCHAR" property="tclcljms"/>
+        <result column="LCLJBYYY" jdbcType="VARCHAR" property="lcljbyyy"/>
+        <result column="LCLJBYMS" jdbcType="VARCHAR" property="lcljbyms"/>
+        <result column="ZLFQ" jdbcType="VARCHAR" property="zlfq"/>
+        <result column="ZLFHCD" jdbcType="VARCHAR" property="zlfhcd"/>
+        <result column="ZLZDYJ" jdbcType="VARCHAR" property="zlzdyj"/>
+        <result column="BNBIAOSHI1" jdbcType="VARCHAR" property="bnbiaoshi1"/>
+        <result column="AGE_SUI" jdbcType="NUMERIC" property="ageSui"/>
+        <result column="AGE_MONTH" jdbcType="NUMERIC" property="ageMonth"/>
+        <result column="AGE_DAYS" jdbcType="NUMERIC" property="ageDays"/>
+        <result column="YCGFX" jdbcType="NUMERIC" property="ycgfx"/>
+        <result column="DDGFX" jdbcType="NUMERIC" property="ddgfx"/>
+    </resultMap>
+    <sql id="Base_Column_List">
+        ID, BAIDENTITY, ZZDM, ZZNAME, FZJGBSF, YLFS, JKCARD, IDCARD, HZHM, BANUM, ZYCS, NAME,
+        SEX, BIRTHDAY, GUOJI, CSD, JIGUAN, MINZU, ZHIYE1, HUNYIN, JUZHUXINGZHENG, XIANZHUZHI,
+        XIANDIANHUA, XIANYOUBIAN, PHONE, EMAIL, HUKOUQUHUA, HUKOUDZ, HUKOUYOUBIAN, WORKINFO,
+        DWTEL, DWYB, LXRNAME, LXRGUANXI, LXRDZ, LXRTEL, RYLJ, ZRYLJGDM, ZRJGNAME, RYTIME,
+        RYKSBM, CYTIME, CYKSBM, ZYKSNAME, SWYY, SWSJ, XUEXING, RHXUEXING, BINGANZHILIANG,
+        ZKRQ, LYFS, NIJIESHOUYLJGDM, NIJIESHOUYLJGNAME, ZZYMD, ZZYJGTS, RYLQHMTIME, XSECSTIZHONG,
+        XSERYTIZHONG, RYBINGQING, ZHUYAOZDTIME, SFBW, QJCISHU, QJSUCCESSCISHU, YINANBING,
+        SUIZHEN, SZDAYS, CYFHQK, RYCYFHQK, SHOUSHUQH, YXBL, LCBL, SSBDSLBLQK, SQSHBLQK, LCZDSJQK,
+        YNHZCISHU, WYHZCISHU, SHUYE, SHUYEFY, KJYYMD, KJYYFA, ZHUSU, TONGZHIDATE, ZHIKONGPINGFEN,
+        ZHIKONGZHE, UPDATEDATE, BINGLIXIUGAIZHE, SHANGBAOBIAOJI, WEISHOUSHUQI, WEISHOUSHUZHI,
+        JBPBM, ZLFQT, ZLFQN, ZLFQM, SFDYBZ, SSLCLJ, WCLCLJ, TCLCLJYY, TCLCLJMS, LCLJBYYY,
+        LCLJBYMS, ZLFQ, ZLFHCD, ZLZDYJ, BNBIAOSHI1, AGE_SUI, AGE_MONTH, AGE_DAYS, YCGFX,
+        DDGFX
+    </sql>
+    <select id="selectAll">
+        select
+        <include refid="Base_Column_List"/>
+        from T_BA_BASE
+    </select>
+    <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List"/>
+        from T_BA_BASE
+        where ID = #{id,jdbcType=NUMERIC}
+    </select>
+    <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+        DELETE FROM T_BA_BASE
+        WHERE ID = #{id,jdbcType=NUMERIC}
+    </delete>
+    <insert id="insert" parameterType="com.wlht.api.po.TBaBase">
+        INSERT INTO T_BA_BASE (ID, BAIDENTITY, ZZDM,
+                               ZZNAME, FZJGBSF, YLFS,
+                               JKCARD, IDCARD, HZHM,
+                               BANUM, ZYCS, NAME,
+                               SEX, BIRTHDAY, GUOJI,
+                               CSD, JIGUAN, MINZU,
+                               ZHIYE1, HUNYIN, JUZHUXINGZHENG,
+                               XIANZHUZHI, XIANDIANHUA, XIANYOUBIAN,
+                               PHONE, EMAIL, HUKOUQUHUA,
+                               HUKOUDZ, HUKOUYOUBIAN, WORKINFO,
+                               DWTEL, DWYB, LXRNAME,
+                               LXRGUANXI, LXRDZ, LXRTEL,
+                               RYLJ, ZRYLJGDM, ZRJGNAME,
+                               RYTIME, RYKSBM, CYTIME,
+                               CYKSBM, ZYKSNAME, SWYY,
+                               SWSJ, XUEXING, RHXUEXING,
+                               BINGANZHILIANG, ZKRQ, LYFS,
+                               NIJIESHOUYLJGDM, NIJIESHOUYLJGNAME, ZZYMD,
+                               ZZYJGTS, RYLQHMTIME, XSECSTIZHONG,
+                               XSERYTIZHONG, RYBINGQING, ZHUYAOZDTIME,
+                               SFBW, QJCISHU, QJSUCCESSCISHU,
+                               YINANBING, SUIZHEN, SZDAYS,
+                               CYFHQK, RYCYFHQK, SHOUSHUQH,
+                               YXBL, LCBL, SSBDSLBLQK,
+                               SQSHBLQK, LCZDSJQK, YNHZCISHU,
+                               WYHZCISHU, SHUYE, SHUYEFY,
+                               KJYYMD, KJYYFA, ZHUSU,
+                               TONGZHIDATE, ZHIKONGPINGFEN, ZHIKONGZHE,
+                               UPDATEDATE, BINGLIXIUGAIZHE, SHANGBAOBIAOJI,
+                               WEISHOUSHUQI, WEISHOUSHUZHI, JBPBM,
+                               ZLFQT, ZLFQN, ZLFQM,
+                               SFDYBZ, SSLCLJ, WCLCLJ,
+                               TCLCLJYY, TCLCLJMS, LCLJBYYY,
+                               LCLJBYMS, ZLFQ, ZLFHCD,
+                               ZLZDYJ, BNBIAOSHI1, AGE_SUI,
+                               AGE_MONTH, AGE_DAYS, YCGFX,
+                               DDGFX)
+        VALUES (#{id,jdbcType=NUMERIC}, #{baidentity,jdbcType=VARCHAR}, #{zzdm,jdbcType=VARCHAR},
+                                        #{zzname,jdbcType=VARCHAR}, #{fzjgbsf,jdbcType=VARCHAR},
+                                        #{ylfs,jdbcType=VARCHAR},
+                                        #{jkcard,jdbcType=VARCHAR}, #{idcard,jdbcType=VARCHAR},
+                                        #{hzhm,jdbcType=VARCHAR},
+                                        #{banum,jdbcType=VARCHAR}, #{zycs,jdbcType=NUMERIC}, #{name,jdbcType=VARCHAR},
+                                                                                             #{sex,jdbcType=NUMERIC},
+                                                                                             #{birthday,jdbcType=TIMESTAMP},
+                                                                                             #{guoji,jdbcType=VARCHAR},
+                                                                                             #{csd,jdbcType=VARCHAR},
+                                                                                             #{jiguan,jdbcType=VARCHAR},
+                                                                                             #{minzu,jdbcType=VARCHAR},
+                                                                                             #{zhiye1,jdbcType=VARCHAR},
+                                                                                             #{hunyin,jdbcType=VARCHAR},
+                                                                                             #{juzhuxingzheng,jdbcType=VARCHAR},
+            #{xianzhuzhi,jdbcType=VARCHAR}, #{xiandianhua,jdbcType=VARCHAR}, #{xianyoubian,jdbcType=VARCHAR},
+            #{phone,jdbcType=VARCHAR}, #{email,jdbcType=VARCHAR}, #{hukouquhua,jdbcType=VARCHAR},
+            #{hukoudz,jdbcType=VARCHAR}, #{hukouyoubian,jdbcType=VARCHAR}, #{workinfo,jdbcType=VARCHAR},
+            #{dwtel,jdbcType=VARCHAR}, #{dwyb,jdbcType=VARCHAR}, #{lxrname,jdbcType=VARCHAR},
+                                       #{lxrguanxi,jdbcType=VARCHAR}, #{lxrdz,jdbcType=VARCHAR},
+                                       #{lxrtel,jdbcType=VARCHAR},
+                                       #{rylj,jdbcType=VARCHAR}, #{zryljgdm,jdbcType=VARCHAR},
+                                       #{zrjgname,jdbcType=VARCHAR},
+                                       #{rytime,jdbcType=TIMESTAMP}, #{ryksbm,jdbcType=VARCHAR},
+            #{cytime,jdbcType=TIMESTAMP},
+            #{cyksbm,jdbcType=VARCHAR}, #{zyksname,jdbcType=VARCHAR}, #{swyy,jdbcType=VARCHAR},
+            #{swsj,jdbcType=NUMERIC}, #{xuexing,jdbcType=NUMERIC}, #{rhxuexing,jdbcType=NUMERIC},
+            #{binganzhiliang,jdbcType=NUMERIC}, #{zkrq,jdbcType=TIMESTAMP}, #{lyfs,jdbcType=VARCHAR},
+            #{nijieshouyljgdm,jdbcType=VARCHAR}, #{nijieshouyljgname,jdbcType=VARCHAR}, #{zzymd,jdbcType=VARCHAR},
+            #{zzyjgts,jdbcType=NUMERIC}, #{rylqhmtime,jdbcType=TIMESTAMP}, #{xsecstizhong,jdbcType=NUMERIC},
+            #{xserytizhong,jdbcType=NUMERIC}, #{rybingqing,jdbcType=VARCHAR}, #{zhuyaozdtime,jdbcType=TIMESTAMP},
+            #{sfbw,jdbcType=NUMERIC}, #{qjcishu,jdbcType=NUMERIC}, #{qjsuccesscishu,jdbcType=NUMERIC},
+                                      #{yinanbing,jdbcType=VARCHAR}, #{suizhen,jdbcType=NUMERIC},
+                                      #{szdays,jdbcType=NUMERIC},
+                                      #{cyfhqk,jdbcType=VARCHAR}, #{rycyfhqk,jdbcType=VARCHAR},
+                                      #{shoushuqh,jdbcType=VARCHAR},
+                                      #{yxbl,jdbcType=VARCHAR}, #{lcbl,jdbcType=VARCHAR},
+            #{ssbdslblqk,jdbcType=VARCHAR},
+            #{sqshblqk,jdbcType=VARCHAR}, #{lczdsjqk,jdbcType=VARCHAR}, #{ynhzcishu,jdbcType=NUMERIC},
+            #{wyhzcishu,jdbcType=NUMERIC}, #{shuye,jdbcType=NUMERIC}, #{shuyefy,jdbcType=NUMERIC},
+            #{kjyymd,jdbcType=VARCHAR}, #{kjyyfa,jdbcType=VARCHAR}, #{zhusu,jdbcType=VARCHAR},
+            #{tongzhidate,jdbcType=TIMESTAMP}, #{zhikongpingfen,jdbcType=NUMERIC}, #{zhikongzhe,jdbcType=VARCHAR},
+            #{updatedate,jdbcType=TIMESTAMP}, #{binglixiugaizhe,jdbcType=VARCHAR}, #{shangbaobiaoji,jdbcType=NUMERIC},
+            #{weishoushuqi,jdbcType=TIMESTAMP}, #{weishoushuzhi,jdbcType=TIMESTAMP}, #{jbpbm,jdbcType=VARCHAR},
+            #{zlfqt,jdbcType=VARCHAR}, #{zlfqn,jdbcType=VARCHAR}, #{zlfqm,jdbcType=VARCHAR},
+                                       #{sfdybz,jdbcType=NUMERIC}, #{sslclj,jdbcType=NUMERIC},
+                                       #{wclclj,jdbcType=NUMERIC},
+                                       #{tclcljyy,jdbcType=VARCHAR}, #{tclcljms,jdbcType=VARCHAR},
+                                       #{lcljbyyy,jdbcType=VARCHAR},
+                                       #{lcljbyms,jdbcType=VARCHAR}, #{zlfq,jdbcType=VARCHAR},
+                #{zlfhcd,jdbcType=VARCHAR},
+                #{zlzdyj,jdbcType=VARCHAR}, #{bnbiaoshi1,jdbcType=VARCHAR}, #{ageSui,jdbcType=NUMERIC},
+                #{ageMonth,jdbcType=NUMERIC}, #{ageDays,jdbcType=NUMERIC}, #{ycgfx,jdbcType=NUMERIC},
+                #{ddgfx,jdbcType=NUMERIC})
+    </insert>
+    <insert id="insertSelective" parameterType="com.wlht.api.po.TBaBase">
+        <selectKey keyProperty="id" order="BEFORE" resultType="long">
+            SELECT SEQ_T_BA_BASE.NEXTVAL FROM dual
+        </selectKey>
+        insert into T_BA_BASE
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            ID,
+            <if test="baidentity != null">
+                BAIDENTITY,
+            </if>
+            <if test="zzdm != null">
+                ZZDM,
+            </if>
+            <if test="zzname != null">
+                ZZNAME,
+            </if>
+            <if test="fzjgbsf != null">
+                FZJGBSF,
+            </if>
+            <if test="ylfs != null">
+                YLFS,
+            </if>
+            <if test="jkcard != null">
+                JKCARD,
+            </if>
+            <if test="idcard != null">
+                IDCARD,
+            </if>
+            <if test="hzhm != null">
+                HZHM,
+            </if>
+            <if test="banum != null">
+                BANUM,
+            </if>
+            <if test="zycs != null">
+                ZYCS,
+            </if>
+            <if test="name != null">
+                NAME,
+            </if>
+            <if test="sex != null">
+                SEX,
+            </if>
+            <if test="birthday != null">
+                BIRTHDAY,
+            </if>
+            <if test="guoji != null">
+                GUOJI,
+            </if>
+            <if test="csd != null">
+                CSD,
+            </if>
+            <if test="jiguan != null">
+                JIGUAN,
+            </if>
+            <if test="minzu != null">
+                MINZU,
+            </if>
+            <if test="zhiye1 != null">
+                ZHIYE1,
+            </if>
+            <if test="hunyin != null">
+                HUNYIN,
+            </if>
+            <if test="juzhuxingzheng != null">
+                JUZHUXINGZHENG,
+            </if>
+            <if test="xianzhuzhi != null">
+                XIANZHUZHI,
+            </if>
+            <if test="xiandianhua != null">
+                XIANDIANHUA,
+            </if>
+            <if test="xianyoubian != null">
+                XIANYOUBIAN,
+            </if>
+            <if test="phone != null">
+                PHONE,
+            </if>
+            <if test="email != null">
+                EMAIL,
+            </if>
+            <if test="hukouquhua != null">
+                HUKOUQUHUA,
+            </if>
+            <if test="hukoudz != null">
+                HUKOUDZ,
+            </if>
+            <if test="hukouyoubian != null">
+                HUKOUYOUBIAN,
+            </if>
+            <if test="workinfo != null">
+                WORKINFO,
+            </if>
+            <if test="dwtel != null">
+                DWTEL,
+            </if>
+            <if test="dwyb != null">
+                DWYB,
+            </if>
+            <if test="lxrname != null">
+                LXRNAME,
+            </if>
+            <if test="lxrguanxi != null">
+                LXRGUANXI,
+            </if>
+            <if test="lxrdz != null">
+                LXRDZ,
+            </if>
+            <if test="lxrtel != null">
+                LXRTEL,
+            </if>
+            <if test="rylj != null">
+                RYLJ,
+            </if>
+            <if test="zryljgdm != null">
+                ZRYLJGDM,
+            </if>
+            <if test="zrjgname != null">
+                ZRJGNAME,
+            </if>
+            <if test="rytime != null">
+                RYTIME,
+            </if>
+            <if test="ryksbm != null">
+                RYKSBM,
+            </if>
+            <if test="cytime != null">
+                CYTIME,
+            </if>
+            <if test="cyksbm != null">
+                CYKSBM,
+            </if>
+            <if test="zyksname != null">
+                ZYKSNAME,
+            </if>
+            <if test="swyy != null">
+                SWYY,
+            </if>
+            <if test="swsj != null">
+                SWSJ,
+            </if>
+            <if test="xuexing != null">
+                XUEXING,
+            </if>
+            <if test="rhxuexing != null">
+                RHXUEXING,
+            </if>
+            <if test="binganzhiliang != null">
+                BINGANZHILIANG,
+            </if>
+            <if test="zkrq != null">
+                ZKRQ,
+            </if>
+            <if test="lyfs != null">
+                LYFS,
+            </if>
+            <if test="nijieshouyljgdm != null">
+                NIJIESHOUYLJGDM,
+            </if>
+            <if test="nijieshouyljgname != null">
+                NIJIESHOUYLJGNAME,
+            </if>
+            <if test="zzymd != null">
+                ZZYMD,
+            </if>
+            <if test="zzyjgts != null">
+                ZZYJGTS,
+            </if>
+            <if test="rylqhmtime != null">
+                RYLQHMTIME,
+            </if>
+            <if test="xsecstizhong != null">
+                XSECSTIZHONG,
+            </if>
+            <if test="xserytizhong != null">
+                XSERYTIZHONG,
+            </if>
+            <if test="rybingqing != null">
+                RYBINGQING,
+            </if>
+            <if test="zhuyaozdtime != null">
+                ZHUYAOZDTIME,
+            </if>
+            <if test="sfbw != null">
+                SFBW,
+            </if>
+            <if test="qjcishu != null">
+                QJCISHU,
+            </if>
+            <if test="qjsuccesscishu != null">
+                QJSUCCESSCISHU,
+            </if>
+            <if test="yinanbing != null">
+                YINANBING,
+            </if>
+            <if test="suizhen != null">
+                SUIZHEN,
+            </if>
+            <if test="szdays != null">
+                SZDAYS,
+            </if>
+            <if test="cyfhqk != null">
+                CYFHQK,
+            </if>
+            <if test="rycyfhqk != null">
+                RYCYFHQK,
+            </if>
+            <if test="shoushuqh != null">
+                SHOUSHUQH,
+            </if>
+            <if test="yxbl != null">
+                YXBL,
+            </if>
+            <if test="lcbl != null">
+                LCBL,
+            </if>
+            <if test="ssbdslblqk != null">
+                SSBDSLBLQK,
+            </if>
+            <if test="sqshblqk != null">
+                SQSHBLQK,
+            </if>
+            <if test="lczdsjqk != null">
+                LCZDSJQK,
+            </if>
+            <if test="ynhzcishu != null">
+                YNHZCISHU,
+            </if>
+            <if test="wyhzcishu != null">
+                WYHZCISHU,
+            </if>
+            <if test="shuye != null">
+                SHUYE,
+            </if>
+            <if test="shuyefy != null">
+                SHUYEFY,
+            </if>
+            <if test="kjyymd != null">
+                KJYYMD,
+            </if>
+            <if test="kjyyfa != null">
+                KJYYFA,
+            </if>
+            <if test="zhusu != null">
+                ZHUSU,
+            </if>
+            <if test="tongzhidate != null">
+                TONGZHIDATE,
+            </if>
+            <if test="zhikongpingfen != null">
+                ZHIKONGPINGFEN,
+            </if>
+            <if test="zhikongzhe != null">
+                ZHIKONGZHE,
+            </if>
+            <if test="updatedate != null">
+                UPDATEDATE,
+            </if>
+            <if test="binglixiugaizhe != null">
+                BINGLIXIUGAIZHE,
+            </if>
+            <if test="shangbaobiaoji != null">
+                SHANGBAOBIAOJI,
+            </if>
+            <if test="weishoushuqi != null">
+                WEISHOUSHUQI,
+            </if>
+            <if test="weishoushuzhi != null">
+                WEISHOUSHUZHI,
+            </if>
+            <if test="jbpbm != null">
+                JBPBM,
+            </if>
+            <if test="zlfqt != null">
+                ZLFQT,
+            </if>
+            <if test="zlfqn != null">
+                ZLFQN,
+            </if>
+            <if test="zlfqm != null">
+                ZLFQM,
+            </if>
+            <if test="sfdybz != null">
+                SFDYBZ,
+            </if>
+            <if test="sslclj != null">
+                SSLCLJ,
+            </if>
+            <if test="wclclj != null">
+                WCLCLJ,
+            </if>
+            <if test="tclcljyy != null">
+                TCLCLJYY,
+            </if>
+            <if test="tclcljms != null">
+                TCLCLJMS,
+            </if>
+            <if test="lcljbyyy != null">
+                LCLJBYYY,
+            </if>
+            <if test="lcljbyms != null">
+                LCLJBYMS,
+            </if>
+            <if test="zlfq != null">
+                ZLFQ,
+            </if>
+            <if test="zlfhcd != null">
+                ZLFHCD,
+            </if>
+            <if test="zlzdyj != null">
+                ZLZDYJ,
+            </if>
+            <if test="bnbiaoshi1 != null">
+                BNBIAOSHI1,
+            </if>
+            <if test="ageSui != null">
+                AGE_SUI,
+            </if>
+            <if test="ageMonth != null">
+                AGE_MONTH,
+            </if>
+            <if test="ageDays != null">
+                AGE_DAYS,
+            </if>
+            <if test="ycgfx != null">
+                YCGFX,
+            </if>
+            <if test="ddgfx != null">
+                DDGFX,
+            </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            #{id,jdbcType=NUMERIC},
+            <if test="baidentity != null">
+                #{baidentity,jdbcType=VARCHAR},
+            </if>
+            <if test="zzdm != null">
+                #{zzdm,jdbcType=VARCHAR},
+            </if>
+            <if test="zzname != null">
+                #{zzname,jdbcType=VARCHAR},
+            </if>
+            <if test="fzjgbsf != null">
+                #{fzjgbsf,jdbcType=VARCHAR},
+            </if>
+            <if test="ylfs != null">
+                #{ylfs,jdbcType=VARCHAR},
+            </if>
+            <if test="jkcard != null">
+                #{jkcard,jdbcType=VARCHAR},
+            </if>
+            <if test="idcard != null">
+                #{idcard,jdbcType=VARCHAR},
+            </if>
+            <if test="hzhm != null">
+                #{hzhm,jdbcType=VARCHAR},
+            </if>
+            <if test="banum != null">
+                #{banum,jdbcType=VARCHAR},
+            </if>
+            <if test="zycs != null">
+                #{zycs,jdbcType=NUMERIC},
+            </if>
+            <if test="name != null">
+                #{name,jdbcType=VARCHAR},
+            </if>
+            <if test="sex != null">
+                #{sex,jdbcType=NUMERIC},
+            </if>
+            <if test="birthday != null">
+                #{birthday,jdbcType=TIMESTAMP},
+            </if>
+            <if test="guoji != null">
+                #{guoji,jdbcType=VARCHAR},
+            </if>
+            <if test="csd != null">
+                #{csd,jdbcType=VARCHAR},
+            </if>
+            <if test="jiguan != null">
+                #{jiguan,jdbcType=VARCHAR},
+            </if>
+            <if test="minzu != null">
+                #{minzu,jdbcType=VARCHAR},
+            </if>
+            <if test="zhiye1 != null">
+                #{zhiye1,jdbcType=VARCHAR},
+            </if>
+            <if test="hunyin != null">
+                #{hunyin,jdbcType=VARCHAR},
+            </if>
+            <if test="juzhuxingzheng != null">
+                #{juzhuxingzheng,jdbcType=VARCHAR},
+            </if>
+            <if test="xianzhuzhi != null">
+                #{xianzhuzhi,jdbcType=VARCHAR},
+            </if>
+            <if test="xiandianhua != null">
+                #{xiandianhua,jdbcType=VARCHAR},
+            </if>
+            <if test="xianyoubian != null">
+                #{xianyoubian,jdbcType=VARCHAR},
+            </if>
+            <if test="phone != null">
+                #{phone,jdbcType=VARCHAR},
+            </if>
+            <if test="email != null">
+                #{email,jdbcType=VARCHAR},
+            </if>
+            <if test="hukouquhua != null">
+                #{hukouquhua,jdbcType=VARCHAR},
+            </if>
+            <if test="hukoudz != null">
+                #{hukoudz,jdbcType=VARCHAR},
+            </if>
+            <if test="hukouyoubian != null">
+                #{hukouyoubian,jdbcType=VARCHAR},
+            </if>
+            <if test="workinfo != null">
+                #{workinfo,jdbcType=VARCHAR},
+            </if>
+            <if test="dwtel != null">
+                #{dwtel,jdbcType=VARCHAR},
+            </if>
+            <if test="dwyb != null">
+                #{dwyb,jdbcType=VARCHAR},
+            </if>
+            <if test="lxrname != null">
+                #{lxrname,jdbcType=VARCHAR},
+            </if>
+            <if test="lxrguanxi != null">
+                #{lxrguanxi,jdbcType=VARCHAR},
+            </if>
+            <if test="lxrdz != null">
+                #{lxrdz,jdbcType=VARCHAR},
+            </if>
+            <if test="lxrtel != null">
+                #{lxrtel,jdbcType=VARCHAR},
+            </if>
+            <if test="rylj != null">
+                #{rylj,jdbcType=VARCHAR},
+            </if>
+            <if test="zryljgdm != null">
+                #{zryljgdm,jdbcType=VARCHAR},
+            </if>
+            <if test="zrjgname != null">
+                #{zrjgname,jdbcType=VARCHAR},
+            </if>
+            <if test="rytime != null">
+                #{rytime,jdbcType=TIMESTAMP},
+            </if>
+            <if test="ryksbm != null">
+                #{ryksbm,jdbcType=VARCHAR},
+            </if>
+            <if test="cytime != null">
+                #{cytime,jdbcType=TIMESTAMP},
+            </if>
+            <if test="cyksbm != null">
+                #{cyksbm,jdbcType=VARCHAR},
+            </if>
+            <if test="zyksname != null">
+                #{zyksname,jdbcType=VARCHAR},
+            </if>
+            <if test="swyy != null">
+                #{swyy,jdbcType=VARCHAR},
+            </if>
+            <if test="swsj != null">
+                #{swsj,jdbcType=NUMERIC},
+            </if>
+            <if test="xuexing != null">
+                #{xuexing,jdbcType=NUMERIC},
+            </if>
+            <if test="rhxuexing != null">
+                #{rhxuexing,jdbcType=NUMERIC},
+            </if>
+            <if test="binganzhiliang != null">
+                #{binganzhiliang,jdbcType=NUMERIC},
+            </if>
+            <if test="zkrq != null">
+                #{zkrq,jdbcType=TIMESTAMP},
+            </if>
+            <if test="lyfs != null">
+                #{lyfs,jdbcType=VARCHAR},
+            </if>
+            <if test="nijieshouyljgdm != null">
+                #{nijieshouyljgdm,jdbcType=VARCHAR},
+            </if>
+            <if test="nijieshouyljgname != null">
+                #{nijieshouyljgname,jdbcType=VARCHAR},
+            </if>
+            <if test="zzymd != null">
+                #{zzymd,jdbcType=VARCHAR},
+            </if>
+            <if test="zzyjgts != null">
+                #{zzyjgts,jdbcType=NUMERIC},
+            </if>
+            <if test="rylqhmtime != null">
+                #{rylqhmtime,jdbcType=TIMESTAMP},
+            </if>
+            <if test="xsecstizhong != null">
+                #{xsecstizhong,jdbcType=NUMERIC},
+            </if>
+            <if test="xserytizhong != null">
+                #{xserytizhong,jdbcType=NUMERIC},
+            </if>
+            <if test="rybingqing != null">
+                #{rybingqing,jdbcType=VARCHAR},
+            </if>
+            <if test="zhuyaozdtime != null">
+                #{zhuyaozdtime,jdbcType=TIMESTAMP},
+            </if>
+            <if test="sfbw != null">
+                #{sfbw,jdbcType=NUMERIC},
+            </if>
+            <if test="qjcishu != null">
+                #{qjcishu,jdbcType=NUMERIC},
+            </if>
+            <if test="qjsuccesscishu != null">
+                #{qjsuccesscishu,jdbcType=NUMERIC},
+            </if>
+            <if test="yinanbing != null">
+                #{yinanbing,jdbcType=VARCHAR},
+            </if>
+            <if test="suizhen != null">
+                #{suizhen,jdbcType=NUMERIC},
+            </if>
+            <if test="szdays != null">
+                #{szdays,jdbcType=NUMERIC},
+            </if>
+            <if test="cyfhqk != null">
+                #{cyfhqk,jdbcType=VARCHAR},
+            </if>
+            <if test="rycyfhqk != null">
+                #{rycyfhqk,jdbcType=VARCHAR},
+            </if>
+            <if test="shoushuqh != null">
+                #{shoushuqh,jdbcType=VARCHAR},
+            </if>
+            <if test="yxbl != null">
+                #{yxbl,jdbcType=VARCHAR},
+            </if>
+            <if test="lcbl != null">
+                #{lcbl,jdbcType=VARCHAR},
+            </if>
+            <if test="ssbdslblqk != null">
+                #{ssbdslblqk,jdbcType=VARCHAR},
+            </if>
+            <if test="sqshblqk != null">
+                #{sqshblqk,jdbcType=VARCHAR},
+            </if>
+            <if test="lczdsjqk != null">
+                #{lczdsjqk,jdbcType=VARCHAR},
+            </if>
+            <if test="ynhzcishu != null">
+                #{ynhzcishu,jdbcType=NUMERIC},
+            </if>
+            <if test="wyhzcishu != null">
+                #{wyhzcishu,jdbcType=NUMERIC},
+            </if>
+            <if test="shuye != null">
+                #{shuye,jdbcType=NUMERIC},
+            </if>
+            <if test="shuyefy != null">
+                #{shuyefy,jdbcType=NUMERIC},
+            </if>
+            <if test="kjyymd != null">
+                #{kjyymd,jdbcType=VARCHAR},
+            </if>
+            <if test="kjyyfa != null">
+                #{kjyyfa,jdbcType=VARCHAR},
+            </if>
+            <if test="zhusu != null">
+                #{zhusu,jdbcType=VARCHAR},
+            </if>
+            <if test="tongzhidate != null">
+                #{tongzhidate,jdbcType=TIMESTAMP},
+            </if>
+            <if test="zhikongpingfen != null">
+                #{zhikongpingfen,jdbcType=NUMERIC},
+            </if>
+            <if test="zhikongzhe != null">
+                #{zhikongzhe,jdbcType=VARCHAR},
+            </if>
+            <if test="updatedate != null">
+                #{updatedate,jdbcType=TIMESTAMP},
+            </if>
+            <if test="binglixiugaizhe != null">
+                #{binglixiugaizhe,jdbcType=VARCHAR},
+            </if>
+            <if test="shangbaobiaoji != null">
+                #{shangbaobiaoji,jdbcType=NUMERIC},
+            </if>
+            <if test="weishoushuqi != null">
+                #{weishoushuqi,jdbcType=TIMESTAMP},
+            </if>
+            <if test="weishoushuzhi != null">
+                #{weishoushuzhi,jdbcType=TIMESTAMP},
+            </if>
+            <if test="jbpbm != null">
+                #{jbpbm,jdbcType=VARCHAR},
+            </if>
+            <if test="zlfqt != null">
+                #{zlfqt,jdbcType=VARCHAR},
+            </if>
+            <if test="zlfqn != null">
+                #{zlfqn,jdbcType=VARCHAR},
+            </if>
+            <if test="zlfqm != null">
+                #{zlfqm,jdbcType=VARCHAR},
+            </if>
+            <if test="sfdybz != null">
+                #{sfdybz,jdbcType=NUMERIC},
+            </if>
+            <if test="sslclj != null">
+                #{sslclj,jdbcType=NUMERIC},
+            </if>
+            <if test="wclclj != null">
+                #{wclclj,jdbcType=NUMERIC},
+            </if>
+            <if test="tclcljyy != null">
+                #{tclcljyy,jdbcType=VARCHAR},
+            </if>
+            <if test="tclcljms != null">
+                #{tclcljms,jdbcType=VARCHAR},
+            </if>
+            <if test="lcljbyyy != null">
+                #{lcljbyyy,jdbcType=VARCHAR},
+            </if>
+            <if test="lcljbyms != null">
+                #{lcljbyms,jdbcType=VARCHAR},
+            </if>
+            <if test="zlfq != null">
+                #{zlfq,jdbcType=VARCHAR},
+            </if>
+            <if test="zlfhcd != null">
+                #{zlfhcd,jdbcType=VARCHAR},
+            </if>
+            <if test="zlzdyj != null">
+                #{zlzdyj,jdbcType=VARCHAR},
+            </if>
+            <if test="bnbiaoshi1 != null">
+                #{bnbiaoshi1,jdbcType=VARCHAR},
+            </if>
+            <if test="ageSui != null">
+                #{ageSui,jdbcType=NUMERIC},
+            </if>
+            <if test="ageMonth != null">
+                #{ageMonth,jdbcType=NUMERIC},
+            </if>
+            <if test="ageDays != null">
+                #{ageDays,jdbcType=NUMERIC},
+            </if>
+            <if test="ycgfx != null">
+                #{ycgfx,jdbcType=NUMERIC},
+            </if>
+            <if test="ddgfx != null">
+                #{ddgfx,jdbcType=NUMERIC},
+            </if>
+        </trim>
+    </insert>
+    <update id="updateByPrimaryKeySelective" parameterType="com.wlht.api.po.TBaBase">
+        update T_BA_BASE
+        <set>
+            <if test="baidentity != null">
+                BAIDENTITY = #{baidentity,jdbcType=VARCHAR},
+            </if>
+            <if test="zzdm != null">
+                ZZDM = #{zzdm,jdbcType=VARCHAR},
+            </if>
+            <if test="zzname != null">
+                ZZNAME = #{zzname,jdbcType=VARCHAR},
+            </if>
+            <if test="fzjgbsf != null">
+                FZJGBSF = #{fzjgbsf,jdbcType=VARCHAR},
+            </if>
+            <if test="ylfs != null">
+                YLFS = #{ylfs,jdbcType=VARCHAR},
+            </if>
+            <if test="jkcard != null">
+                JKCARD = #{jkcard,jdbcType=VARCHAR},
+            </if>
+            <if test="idcard != null">
+                IDCARD = #{idcard,jdbcType=VARCHAR},
+            </if>
+            <if test="hzhm != null">
+                HZHM = #{hzhm,jdbcType=VARCHAR},
+            </if>
+            <if test="banum != null">
+                BANUM = #{banum,jdbcType=VARCHAR},
+            </if>
+            <if test="zycs != null">
+                ZYCS = #{zycs,jdbcType=NUMERIC},
+            </if>
+            <if test="name != null">
+                NAME = #{name,jdbcType=VARCHAR},
+            </if>
+            <if test="sex != null">
+                SEX = #{sex,jdbcType=NUMERIC},
+            </if>
+            <if test="birthday != null">
+                BIRTHDAY = #{birthday,jdbcType=TIMESTAMP},
+            </if>
+            <if test="guoji != null">
+                GUOJI = #{guoji,jdbcType=VARCHAR},
+            </if>
+            <if test="csd != null">
+                CSD = #{csd,jdbcType=VARCHAR},
+            </if>
+            <if test="jiguan != null">
+                JIGUAN = #{jiguan,jdbcType=VARCHAR},
+            </if>
+            <if test="minzu != null">
+                MINZU = #{minzu,jdbcType=VARCHAR},
+            </if>
+            <if test="zhiye1 != null">
+                ZHIYE1 = #{zhiye1,jdbcType=VARCHAR},
+            </if>
+            <if test="hunyin != null">
+                HUNYIN = #{hunyin,jdbcType=VARCHAR},
+            </if>
+            <if test="juzhuxingzheng != null">
+                JUZHUXINGZHENG = #{juzhuxingzheng,jdbcType=VARCHAR},
+            </if>
+            <if test="xianzhuzhi != null">
+                XIANZHUZHI = #{xianzhuzhi,jdbcType=VARCHAR},
+            </if>
+            <if test="xiandianhua != null">
+                XIANDIANHUA = #{xiandianhua,jdbcType=VARCHAR},
+            </if>
+            <if test="xianyoubian != null">
+                XIANYOUBIAN = #{xianyoubian,jdbcType=VARCHAR},
+            </if>
+            <if test="phone != null">
+                PHONE = #{phone,jdbcType=VARCHAR},
+            </if>
+            <if test="email != null">
+                EMAIL = #{email,jdbcType=VARCHAR},
+            </if>
+            <if test="hukouquhua != null">
+                HUKOUQUHUA = #{hukouquhua,jdbcType=VARCHAR},
+            </if>
+            <if test="hukoudz != null">
+                HUKOUDZ = #{hukoudz,jdbcType=VARCHAR},
+            </if>
+            <if test="hukouyoubian != null">
+                HUKOUYOUBIAN = #{hukouyoubian,jdbcType=VARCHAR},
+            </if>
+            <if test="workinfo != null">
+                WORKINFO = #{workinfo,jdbcType=VARCHAR},
+            </if>
+            <if test="dwtel != null">
+                DWTEL = #{dwtel,jdbcType=VARCHAR},
+            </if>
+            <if test="dwyb != null">
+                DWYB = #{dwyb,jdbcType=VARCHAR},
+            </if>
+            <if test="lxrname != null">
+                LXRNAME = #{lxrname,jdbcType=VARCHAR},
+            </if>
+            <if test="lxrguanxi != null">
+                LXRGUANXI = #{lxrguanxi,jdbcType=VARCHAR},
+            </if>
+            <if test="lxrdz != null">
+                LXRDZ = #{lxrdz,jdbcType=VARCHAR},
+            </if>
+            <if test="lxrtel != null">
+                LXRTEL = #{lxrtel,jdbcType=VARCHAR},
+            </if>
+            <if test="rylj != null">
+                RYLJ = #{rylj,jdbcType=VARCHAR},
+            </if>
+            <if test="zryljgdm != null">
+                ZRYLJGDM = #{zryljgdm,jdbcType=VARCHAR},
+            </if>
+            <if test="zrjgname != null">
+                ZRJGNAME = #{zrjgname,jdbcType=VARCHAR},
+            </if>
+            <if test="rytime != null">
+                RYTIME = #{rytime,jdbcType=TIMESTAMP},
+            </if>
+            <if test="ryksbm != null">
+                RYKSBM = #{ryksbm,jdbcType=VARCHAR},
+            </if>
+            <if test="cytime != null">
+                CYTIME = #{cytime,jdbcType=TIMESTAMP},
+            </if>
+            <if test="cyksbm != null">
+                CYKSBM = #{cyksbm,jdbcType=VARCHAR},
+            </if>
+            <if test="zyksname != null">
+                ZYKSNAME = #{zyksname,jdbcType=VARCHAR},
+            </if>
+            <if test="swyy != null">
+                SWYY = #{swyy,jdbcType=VARCHAR},
+            </if>
+            <if test="swsj != null">
+                SWSJ = #{swsj,jdbcType=NUMERIC},
+            </if>
+            <if test="xuexing != null">
+                XUEXING = #{xuexing,jdbcType=NUMERIC},
+            </if>
+            <if test="rhxuexing != null">
+                RHXUEXING = #{rhxuexing,jdbcType=NUMERIC},
+            </if>
+            <if test="binganzhiliang != null">
+                BINGANZHILIANG = #{binganzhiliang,jdbcType=NUMERIC},
+            </if>
+            <if test="zkrq != null">
+                ZKRQ = #{zkrq,jdbcType=TIMESTAMP},
+            </if>
+            <if test="lyfs != null">
+                LYFS = #{lyfs,jdbcType=VARCHAR},
+            </if>
+            <if test="nijieshouyljgdm != null">
+                NIJIESHOUYLJGDM = #{nijieshouyljgdm,jdbcType=VARCHAR},
+            </if>
+            <if test="nijieshouyljgname != null">
+                NIJIESHOUYLJGNAME = #{nijieshouyljgname,jdbcType=VARCHAR},
+            </if>
+            <if test="zzymd != null">
+                ZZYMD = #{zzymd,jdbcType=VARCHAR},
+            </if>
+            <if test="zzyjgts != null">
+                ZZYJGTS = #{zzyjgts,jdbcType=NUMERIC},
+            </if>
+            <if test="rylqhmtime != null">
+                RYLQHMTIME = #{rylqhmtime,jdbcType=TIMESTAMP},
+            </if>
+            <if test="xsecstizhong != null">
+                XSECSTIZHONG = #{xsecstizhong,jdbcType=NUMERIC},
+            </if>
+            <if test="xserytizhong != null">
+                XSERYTIZHONG = #{xserytizhong,jdbcType=NUMERIC},
+            </if>
+            <if test="rybingqing != null">
+                RYBINGQING = #{rybingqing,jdbcType=VARCHAR},
+            </if>
+            <if test="zhuyaozdtime != null">
+                ZHUYAOZDTIME = #{zhuyaozdtime,jdbcType=TIMESTAMP},
+            </if>
+            <if test="sfbw != null">
+                SFBW = #{sfbw,jdbcType=NUMERIC},
+            </if>
+            <if test="qjcishu != null">
+                QJCISHU = #{qjcishu,jdbcType=NUMERIC},
+            </if>
+            <if test="qjsuccesscishu != null">
+                QJSUCCESSCISHU = #{qjsuccesscishu,jdbcType=NUMERIC},
+            </if>
+            <if test="yinanbing != null">
+                YINANBING = #{yinanbing,jdbcType=VARCHAR},
+            </if>
+            <if test="suizhen != null">
+                SUIZHEN = #{suizhen,jdbcType=NUMERIC},
+            </if>
+            <if test="szdays != null">
+                SZDAYS = #{szdays,jdbcType=NUMERIC},
+            </if>
+            <if test="cyfhqk != null">
+                CYFHQK = #{cyfhqk,jdbcType=VARCHAR},
+            </if>
+            <if test="rycyfhqk != null">
+                RYCYFHQK = #{rycyfhqk,jdbcType=VARCHAR},
+            </if>
+            <if test="shoushuqh != null">
+                SHOUSHUQH = #{shoushuqh,jdbcType=VARCHAR},
+            </if>
+            <if test="yxbl != null">
+                YXBL = #{yxbl,jdbcType=VARCHAR},
+            </if>
+            <if test="lcbl != null">
+                LCBL = #{lcbl,jdbcType=VARCHAR},
+            </if>
+            <if test="ssbdslblqk != null">
+                SSBDSLBLQK = #{ssbdslblqk,jdbcType=VARCHAR},
+            </if>
+            <if test="sqshblqk != null">
+                SQSHBLQK = #{sqshblqk,jdbcType=VARCHAR},
+            </if>
+            <if test="lczdsjqk != null">
+                LCZDSJQK = #{lczdsjqk,jdbcType=VARCHAR},
+            </if>
+            <if test="ynhzcishu != null">
+                YNHZCISHU = #{ynhzcishu,jdbcType=NUMERIC},
+            </if>
+            <if test="wyhzcishu != null">
+                WYHZCISHU = #{wyhzcishu,jdbcType=NUMERIC},
+            </if>
+            <if test="shuye != null">
+                SHUYE = #{shuye,jdbcType=NUMERIC},
+            </if>
+            <if test="shuyefy != null">
+                SHUYEFY = #{shuyefy,jdbcType=NUMERIC},
+            </if>
+            <if test="kjyymd != null">
+                KJYYMD = #{kjyymd,jdbcType=VARCHAR},
+            </if>
+            <if test="kjyyfa != null">
+                KJYYFA = #{kjyyfa,jdbcType=VARCHAR},
+            </if>
+            <if test="zhusu != null">
+                ZHUSU = #{zhusu,jdbcType=VARCHAR},
+            </if>
+            <if test="tongzhidate != null">
+                TONGZHIDATE = #{tongzhidate,jdbcType=TIMESTAMP},
+            </if>
+            <if test="zhikongpingfen != null">
+                ZHIKONGPINGFEN = #{zhikongpingfen,jdbcType=NUMERIC},
+            </if>
+            <if test="zhikongzhe != null">
+                ZHIKONGZHE = #{zhikongzhe,jdbcType=VARCHAR},
+            </if>
+            <if test="updatedate != null">
+                UPDATEDATE = #{updatedate,jdbcType=TIMESTAMP},
+            </if>
+            <if test="binglixiugaizhe != null">
+                BINGLIXIUGAIZHE = #{binglixiugaizhe,jdbcType=VARCHAR},
+            </if>
+            <if test="shangbaobiaoji != null">
+                SHANGBAOBIAOJI = #{shangbaobiaoji,jdbcType=NUMERIC},
+            </if>
+            <if test="weishoushuqi != null">
+                WEISHOUSHUQI = #{weishoushuqi,jdbcType=TIMESTAMP},
+            </if>
+            <if test="weishoushuzhi != null">
+                WEISHOUSHUZHI = #{weishoushuzhi,jdbcType=TIMESTAMP},
+            </if>
+            <if test="jbpbm != null">
+                JBPBM = #{jbpbm,jdbcType=VARCHAR},
+            </if>
+            <if test="zlfqt != null">
+                ZLFQT = #{zlfqt,jdbcType=VARCHAR},
+            </if>
+            <if test="zlfqn != null">
+                ZLFQN = #{zlfqn,jdbcType=VARCHAR},
+            </if>
+            <if test="zlfqm != null">
+                ZLFQM = #{zlfqm,jdbcType=VARCHAR},
+            </if>
+            <if test="sfdybz != null">
+                SFDYBZ = #{sfdybz,jdbcType=NUMERIC},
+            </if>
+            <if test="sslclj != null">
+                SSLCLJ = #{sslclj,jdbcType=NUMERIC},
+            </if>
+            <if test="wclclj != null">
+                WCLCLJ = #{wclclj,jdbcType=NUMERIC},
+            </if>
+            <if test="tclcljyy != null">
+                TCLCLJYY = #{tclcljyy,jdbcType=VARCHAR},
+            </if>
+            <if test="tclcljms != null">
+                TCLCLJMS = #{tclcljms,jdbcType=VARCHAR},
+            </if>
+            <if test="lcljbyyy != null">
+                LCLJBYYY = #{lcljbyyy,jdbcType=VARCHAR},
+            </if>
+            <if test="lcljbyms != null">
+                LCLJBYMS = #{lcljbyms,jdbcType=VARCHAR},
+            </if>
+            <if test="zlfq != null">
+                ZLFQ = #{zlfq,jdbcType=VARCHAR},
+            </if>
+            <if test="zlfhcd != null">
+                ZLFHCD = #{zlfhcd,jdbcType=VARCHAR},
+            </if>
+            <if test="zlzdyj != null">
+                ZLZDYJ = #{zlzdyj,jdbcType=VARCHAR},
+            </if>
+            <if test="bnbiaoshi1 != null">
+                BNBIAOSHI1 = #{bnbiaoshi1,jdbcType=VARCHAR},
+            </if>
+            <if test="ageSui != null">
+                AGE_SUI = #{ageSui,jdbcType=NUMERIC},
+            </if>
+            <if test="ageMonth != null">
+                AGE_MONTH = #{ageMonth,jdbcType=NUMERIC},
+            </if>
+            <if test="ageDays != null">
+                AGE_DAYS = #{ageDays,jdbcType=NUMERIC},
+            </if>
+            <if test="ycgfx != null">
+                YCGFX = #{ycgfx,jdbcType=NUMERIC},
+            </if>
+            <if test="ddgfx != null">
+                DDGFX = #{ddgfx,jdbcType=NUMERIC},
+            </if>
+        </set>
+        where ID = #{id,jdbcType=NUMERIC}
+    </update>
+    <update id="updateByPrimaryKey" parameterType="com.wlht.api.po.TBaBase">
+        UPDATE T_BA_BASE
+        SET BAIDENTITY        = #{baidentity,jdbcType=VARCHAR},
+            ZZDM              = #{zzdm,jdbcType=VARCHAR},
+            ZZNAME            = #{zzname,jdbcType=VARCHAR},
+            FZJGBSF           = #{fzjgbsf,jdbcType=VARCHAR},
+            YLFS              = #{ylfs,jdbcType=VARCHAR},
+            JKCARD            = #{jkcard,jdbcType=VARCHAR},
+            IDCARD            = #{idcard,jdbcType=VARCHAR},
+            HZHM              = #{hzhm,jdbcType=VARCHAR},
+            BANUM             = #{banum,jdbcType=VARCHAR},
+            ZYCS              = #{zycs,jdbcType=NUMERIC},
+            NAME              = #{name,jdbcType=VARCHAR},
+            SEX               = #{sex,jdbcType=NUMERIC},
+            BIRTHDAY          = #{birthday,jdbcType=TIMESTAMP},
+            GUOJI             = #{guoji,jdbcType=VARCHAR},
+            CSD               = #{csd,jdbcType=VARCHAR},
+            JIGUAN            = #{jiguan,jdbcType=VARCHAR},
+            MINZU             = #{minzu,jdbcType=VARCHAR},
+            ZHIYE1            = #{zhiye1,jdbcType=VARCHAR},
+            HUNYIN            = #{hunyin,jdbcType=VARCHAR},
+            JUZHUXINGZHENG    = #{juzhuxingzheng,jdbcType=VARCHAR},
+            XIANZHUZHI        = #{xianzhuzhi,jdbcType=VARCHAR},
+            XIANDIANHUA       = #{xiandianhua,jdbcType=VARCHAR},
+            XIANYOUBIAN       = #{xianyoubian,jdbcType=VARCHAR},
+            PHONE             = #{phone,jdbcType=VARCHAR},
+            EMAIL             = #{email,jdbcType=VARCHAR},
+            HUKOUQUHUA        = #{hukouquhua,jdbcType=VARCHAR},
+            HUKOUDZ           = #{hukoudz,jdbcType=VARCHAR},
+            HUKOUYOUBIAN      = #{hukouyoubian,jdbcType=VARCHAR},
+            WORKINFO          = #{workinfo,jdbcType=VARCHAR},
+            DWTEL             = #{dwtel,jdbcType=VARCHAR},
+            DWYB              = #{dwyb,jdbcType=VARCHAR},
+            LXRNAME           = #{lxrname,jdbcType=VARCHAR},
+            LXRGUANXI         = #{lxrguanxi,jdbcType=VARCHAR},
+            LXRDZ             = #{lxrdz,jdbcType=VARCHAR},
+            LXRTEL            = #{lxrtel,jdbcType=VARCHAR},
+            RYLJ              = #{rylj,jdbcType=VARCHAR},
+            ZRYLJGDM          = #{zryljgdm,jdbcType=VARCHAR},
+            ZRJGNAME          = #{zrjgname,jdbcType=VARCHAR},
+            RYTIME            = #{rytime,jdbcType=TIMESTAMP},
+            RYKSBM            = #{ryksbm,jdbcType=VARCHAR},
+            CYTIME            = #{cytime,jdbcType=TIMESTAMP},
+            CYKSBM            = #{cyksbm,jdbcType=VARCHAR},
+            ZYKSNAME          = #{zyksname,jdbcType=VARCHAR},
+            SWYY              = #{swyy,jdbcType=VARCHAR},
+            SWSJ              = #{swsj,jdbcType=NUMERIC},
+            XUEXING           = #{xuexing,jdbcType=NUMERIC},
+            RHXUEXING         = #{rhxuexing,jdbcType=NUMERIC},
+            BINGANZHILIANG    = #{binganzhiliang,jdbcType=NUMERIC},
+            ZKRQ              = #{zkrq,jdbcType=TIMESTAMP},
+            LYFS              = #{lyfs,jdbcType=VARCHAR},
+            NIJIESHOUYLJGDM   = #{nijieshouyljgdm,jdbcType=VARCHAR},
+            NIJIESHOUYLJGNAME = #{nijieshouyljgname,jdbcType=VARCHAR},
+            ZZYMD             = #{zzymd,jdbcType=VARCHAR},
+            ZZYJGTS           = #{zzyjgts,jdbcType=NUMERIC},
+            RYLQHMTIME        = #{rylqhmtime,jdbcType=TIMESTAMP},
+            XSECSTIZHONG      = #{xsecstizhong,jdbcType=NUMERIC},
+            XSERYTIZHONG      = #{xserytizhong,jdbcType=NUMERIC},
+            RYBINGQING        = #{rybingqing,jdbcType=VARCHAR},
+            ZHUYAOZDTIME      = #{zhuyaozdtime,jdbcType=TIMESTAMP},
+            SFBW              = #{sfbw,jdbcType=NUMERIC},
+            QJCISHU           = #{qjcishu,jdbcType=NUMERIC},
+            QJSUCCESSCISHU    = #{qjsuccesscishu,jdbcType=NUMERIC},
+            YINANBING         = #{yinanbing,jdbcType=VARCHAR},
+            SUIZHEN           = #{suizhen,jdbcType=NUMERIC},
+            SZDAYS            = #{szdays,jdbcType=NUMERIC},
+            CYFHQK            = #{cyfhqk,jdbcType=VARCHAR},
+            RYCYFHQK          = #{rycyfhqk,jdbcType=VARCHAR},
+            SHOUSHUQH         = #{shoushuqh,jdbcType=VARCHAR},
+            YXBL              = #{yxbl,jdbcType=VARCHAR},
+            LCBL              = #{lcbl,jdbcType=VARCHAR},
+            SSBDSLBLQK        = #{ssbdslblqk,jdbcType=VARCHAR},
+            SQSHBLQK          = #{sqshblqk,jdbcType=VARCHAR},
+            LCZDSJQK          = #{lczdsjqk,jdbcType=VARCHAR},
+            YNHZCISHU         = #{ynhzcishu,jdbcType=NUMERIC},
+            WYHZCISHU         = #{wyhzcishu,jdbcType=NUMERIC},
+            SHUYE             = #{shuye,jdbcType=NUMERIC},
+            SHUYEFY           = #{shuyefy,jdbcType=NUMERIC},
+            KJYYMD            = #{kjyymd,jdbcType=VARCHAR},
+            KJYYFA            = #{kjyyfa,jdbcType=VARCHAR},
+            ZHUSU             = #{zhusu,jdbcType=VARCHAR},
+            TONGZHIDATE       = #{tongzhidate,jdbcType=TIMESTAMP},
+            ZHIKONGPINGFEN    = #{zhikongpingfen,jdbcType=NUMERIC},
+            ZHIKONGZHE        = #{zhikongzhe,jdbcType=VARCHAR},
+            UPDATEDATE        = #{updatedate,jdbcType=TIMESTAMP},
+            BINGLIXIUGAIZHE   = #{binglixiugaizhe,jdbcType=VARCHAR},
+            SHANGBAOBIAOJI    = #{shangbaobiaoji,jdbcType=NUMERIC},
+            WEISHOUSHUQI      = #{weishoushuqi,jdbcType=TIMESTAMP},
+            WEISHOUSHUZHI     = #{weishoushuzhi,jdbcType=TIMESTAMP},
+            JBPBM             = #{jbpbm,jdbcType=VARCHAR},
+            ZLFQT             = #{zlfqt,jdbcType=VARCHAR},
+            ZLFQN             = #{zlfqn,jdbcType=VARCHAR},
+            ZLFQM             = #{zlfqm,jdbcType=VARCHAR},
+            SFDYBZ            = #{sfdybz,jdbcType=NUMERIC},
+            SSLCLJ            = #{sslclj,jdbcType=NUMERIC},
+            WCLCLJ            = #{wclclj,jdbcType=NUMERIC},
+            TCLCLJYY          = #{tclcljyy,jdbcType=VARCHAR},
+            TCLCLJMS          = #{tclcljms,jdbcType=VARCHAR},
+            LCLJBYYY          = #{lcljbyyy,jdbcType=VARCHAR},
+            LCLJBYMS          = #{lcljbyms,jdbcType=VARCHAR},
+            ZLFQ              = #{zlfq,jdbcType=VARCHAR},
+            ZLFHCD            = #{zlfhcd,jdbcType=VARCHAR},
+            ZLZDYJ            = #{zlzdyj,jdbcType=VARCHAR},
+            BNBIAOSHI1        = #{bnbiaoshi1,jdbcType=VARCHAR},
+            AGE_SUI           = #{ageSui,jdbcType=NUMERIC},
+            AGE_MONTH         = #{ageMonth,jdbcType=NUMERIC},
+            AGE_DAYS          = #{ageDays,jdbcType=NUMERIC},
+            YCGFX             = #{ycgfx,jdbcType=NUMERIC},
+            DDGFX             = #{ddgfx,jdbcType=NUMERIC}
+        WHERE ID = #{id,jdbcType=NUMERIC}
+    </update>
     <select id="selectByWeiyiBiaoShi" resultType="long">
-    SELECT id from T_BA_BASE where BAIDENTITY=#{weiyibiaoshi}
-  </select>
+        SELECT id
+        FROM T_BA_BASE
+        WHERE BAIDENTITY = #{weiyibiaoshi}
+    </select>
+    <select id="getDelBaseInfo" resultType="com.wlht.api.bo.DelBaseInfo">
+        SELECT
+            a.id,
+            b.baidentity,
+            b.mintime
+        FROM t_ba_base a, (
+                              SELECT
+                                  min(cytime) AS mintime,
+                                  baidentity
+                              FROM t_ba_base
+                              WHERE baidentity IN (
+                                  SELECT baidentity
+                                  FROM t_ba_base
+                                  GROUP BY baidentity
+                                  HAVING count(baidentity) > 1
+                              )
+                              GROUP BY baidentity) b
+        WHERE a.baidentity = b.baidentity AND a.cytime = b.mintime
+    </select>
+
+
+    <delete id="batchDelete">
+        <foreach collection="list" item="item" index="index" open="begin" close="; end;" separator=";">
+            delete from t_ba_base where id=#{item.id,jdbcType=NUMERIC} and BAIDENTITY=#{item.Identity,jdbcType=VARCHAR}
+        </foreach>
+    </delete>
 </mapper>

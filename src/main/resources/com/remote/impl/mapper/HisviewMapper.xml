@@ -239,11 +239,11 @@
     <result column="RYH_T" jdbcType="NUMERIC" property="ryhT" />
     <result column="RYH_XS" jdbcType="NUMERIC" property="ryhXs" />
     <result column="RYH_F" jdbcType="NUMERIC" property="ryhF" />
+    <result column="AGESUI" jdbcType="NUMERIC" property="agesui" />
+    <result column="AGEMONTH" jdbcType="NUMERIC" property="agemonth" />
+    <result column="AGEDAYS" jdbcType="NUMERIC" property="agedays" />
   </resultMap>
   <select id="selectBADateFromHis" parameterType="com.wlht.api.vo.ImportParam" resultMap="BaseResultMap">
       SELECT * from HISVIEW where CYSJ BETWEEN #{starte} and #{end}
-  </select>
-  <select id="addHisviewExt" parameterType="com.remote.api.bo.HisviewExt">
-
   </select>
 </mapper>

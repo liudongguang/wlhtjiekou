@@ -226,4 +226,9 @@
     </foreach>
     ) cd
   </insert>
+  <delete id="batchDelete">
+    <foreach collection="list" item="item" index="index" open="begin" close="; end;" separator=";">
+      delete from T_BNJBZD where zblsh=#{item.id,jdbcType=NUMERIC} and JBIDENTITY=#{item.Identity,jdbcType=VARCHAR}
+    </foreach>
+  </delete>
 </mapper>

@@ -1,14 +1,19 @@
 package com.wlht.controller;
 
+import com.ldg.api.util.DateUtil;
+import com.ldg.api.util.LdgRequestUtil;
 import com.ldg.api.vo.ResultMsg;
 import com.wlht.api.service.WlhtDataService;
 import com.wlht.api.vo.ImportParam;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.servlet.http.HttpServletRequest;
+import java.util.Date;
 import java.util.UUID;
 
 /**
@@ -17,6 +22,7 @@ import java.util.UUID;
 @Controller
 @RequestMapping(value = "/wlhtData")
 public class DataHandlerController {
+    public static final Logger logger = LoggerFactory.getLogger(DataHandlerController.class);
     @Autowired
    private WlhtDataService wlhtDataService;
 
@@ -52,7 +58,30 @@ public class DataHandlerController {
      * @throws Exception
      */
     @RequestMapping(value = "/wlthDRFY")
-    public String wlthDRFY(HttpServletRequest request) throws Exception {
+    public String wlthDRFY(HttpServletRequest request, ImportParam param) throws Exception {
+        if(param.getStarte()==null||param.getEnd()==null){
+            request.setAttribute("errmsg","时间必填！");
+            return "/index.jsp";
+        }
+        String handlerMsg=wlhtDataService.importFeiYongDataByDate(param);
+        request.setAttribute("errmsg",handlerMsg);
+        return "/index.jsp";
+    }
+
+    /**
+     * 任务1
+     * @return
+     * @throws Exception
+     */
+    public String wlthDRForTast() throws Exception{
+        Date[] date=DateUtil.getBeforeDATEBetween(new Date(),20);
+        ImportParam param=new ImportParam();
+        param.setStarte(date[0]);
+        param.setEnd(date[1]);
+        String handlerMsg=wlhtDataService.importDataByDate(param);
+        wlhtDataService.delChongfuInfo(); // 删除重复记录
+        System.out.println("-------执行了信息插入task-------");
+        logger.info(handlerMsg);
         return "/index.jsp";
     }
 }
