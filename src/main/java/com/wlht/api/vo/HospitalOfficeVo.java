@@ -10,6 +10,24 @@ public class HospitalOfficeVo {
     private String biaozhunLiShuName;
     private String ksType;
     private String shouzimuIndex;
+    private String yyidentity;//医院标识
+    private String pinyin;//拼音首字母
+
+    public String getPinyin() {
+        return pinyin;
+    }
+
+    public void setPinyin(String pinyin) {
+        this.pinyin = pinyin;
+    }
+
+    public String getYyidentity() {
+        return yyidentity;
+    }
+
+    public void setYyidentity(String yyidentity) {
+        this.yyidentity = yyidentity;
+    }
 
     public String getKeshiBM() {
         return KeshiBM;

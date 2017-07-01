@@ -206,6 +206,15 @@ function initAjaxForm(jq_form, jq_button, excuteResponse, validateState, validat
                         return false;
                     }
                 }
+                if (jq_this.is("select")) {
+                    if (jq_this.val()) {
+                        flag = true;
+                    } else {
+                        handlerError(jq_this);
+                        flag = false;
+                        return false;
+                    }
+                }
             });
             return flag;
         }
@@ -267,6 +276,12 @@ function initAjaxForm(jq_form, jq_button, excuteResponse, validateState, validat
             jqobj.focus();
         });
     }
+}
+function alertNullMsg(jqobj){
+    layer.alert(jqobj.attr("errInfo"),function (index) {
+        layer.close(index);
+        jqobj.focus();
+    });
 }
 // //////////////////////////////////显示图片
 function initDisplayImg(inputFileID, imageDIVID) {

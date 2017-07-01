@@ -7,6 +7,34 @@ public class SearForKs {
     private String ksName;
     private String ksType;
     private String yyIdentity;
+   //查询医生使用
+    private String ysName;
+    private String cardId;
+    private String suozaiksbm;
+
+    public String getYsName() {
+        return ysName;
+    }
+
+    public void setYsName(String ysName) {
+        this.ysName = ysName;
+    }
+
+    public String getCardId() {
+        return cardId;
+    }
+
+    public void setCardId(String cardId) {
+        this.cardId = cardId;
+    }
+
+    public String getSuozaiksbm() {
+        return suozaiksbm;
+    }
+
+    public void setSuozaiksbm(String suozaiksbm) {
+        this.suozaiksbm = suozaiksbm;
+    }
 
     public String getYyIdentity() {
         return yyIdentity;

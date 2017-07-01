@@ -26,6 +26,7 @@ public class DateUtil {
     public static final DateFormat yyyy_MM_ddFormat = new SimpleDateFormat("yyyy-MM-dd");
     public static final SimpleDateFormat yyyy_MM_dd_HH_mmFormat = new SimpleDateFormat(yyyy_MM_dd_HH_mm);
 
+
     public static String getNowStr_yyyyMMddHHmmss() {
         return yyyyMMddHHmmssFormat.format(new Date());
     }
@@ -269,5 +270,12 @@ public class DateUtil {
         cysjCal.set(Calendar.SECOND, 0);
         i = (int) ((cysjCal.getTimeInMillis() - rysjCal.getTimeInMillis()) / 1000 / 60 / 60 / 24);
         return i;
+    }
+
+
+    public static Date getDateBySFZNUM(String sfz) throws ParseException {
+        String sfzBirthDay = sfz.substring(6, 14);
+        Date rtDate = yyyyMMddFormat.parse(sfzBirthDay);
+        return rtDate;
     }
 }

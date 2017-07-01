@@ -52,5 +52,29 @@
         <if test="ksType!=null and ksType!=''">
             and office.officetype_ = #{ksType,jdbcType=VARCHAR}
         </if>
+        order by office.id desc
+    </select>
+    <select id="checkKSName" parameterType="com.wlht.api.vo.HospitalOfficeVo" resultType="decimal">
+               select id from STDHOSPITALOFFICE_ where orgcode_=#{yyidentity,jdbcType=VARCHAR} and name_=#{mingcheng}
+    </select>
+    <select id="checkKSCode" parameterType="com.wlht.api.vo.HospitalOfficeVo" resultType="decimal">
+        select id from STDHOSPITALOFFICE_ where orgcode_=#{yyidentity,jdbcType=VARCHAR} and code_=#{KeshiBM}
+    </select>
+    <insert id="saveKSXXInfo" parameterType="com.wlht.api.vo.HospitalOfficeVo">
+        insert into Stdhospitaloffice_(ID,CCCODE_,CODE_,INDEXCODE_,NAME_,ORGCODE_,OFFICETYPE_) values(SEQ_T_BNGMYW.NEXTVAL,#{biaozhunLiShu,jdbcType=VARCHAR},#{KeshiBM,jdbcType=VARCHAR},#{pinyin,jdbcType=VARCHAR},#{mingcheng,jdbcType=VARCHAR},#{yyidentity,jdbcType=VARCHAR},#{ksType,jdbcType=VARCHAR})
+    </insert>
+    <select id="searchKSINFO" parameterType="com.wlht.api.vo.FbaiduParam" resultType="com.wlht.api.vo.ZiDianBaseVo">
+        select  CODE_ as code,NAME_ as name from STDHOSPITALOFFICE_
+        <where>
+            <if test="searchType==1">
+                CODE_ like #{searVal}||'%'
+            </if>
+            <if test="searchType==2">
+                INDEXCODE_ like #{searVal}||'%'
+            </if>
+            <if test="searchType==3">
+                NAME_ like #{searVal}||'%'
+            </if>
+        </where>
     </select>
 </mapper>

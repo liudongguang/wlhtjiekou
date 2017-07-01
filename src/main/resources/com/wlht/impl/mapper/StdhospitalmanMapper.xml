@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.wlht.impl.mapper.StdhospitalmanMapper">
+    <resultMap id="BaseResultMap" type="com.wlht.api.po.Stdhospitalman">
+        <!--
+          WARNING - @mbg.generated
+        -->
+        <id column="ID" jdbcType="NUMERIC" property="id"/>
+        <result column="ADDRESS_" jdbcType="VARCHAR" property="address"/>
+        <result column="ADMINPOST_" jdbcType="VARCHAR" property="adminpost"/>
+        <result column="BIRTHDAY_" jdbcType="TIMESTAMP" property="birthday"/>
+        <result column="CCCODE_" jdbcType="VARCHAR" property="cccode"/>
+        <result column="COMMENT_" jdbcType="VARCHAR" property="comment"/>
+        <result column="EDUCATION_" jdbcType="VARCHAR" property="education"/>
+        <result column="EMAIL_" jdbcType="VARCHAR" property="email"/>
+        <result column="FLAG_" jdbcType="NUMERIC" property="flag"/>
+        <result column="HOMEADDRESS_" jdbcType="VARCHAR" property="homeaddress"/>
+        <result column="HOMEPAGE_" jdbcType="VARCHAR" property="homepage"/>
+        <result column="HOMETEL_" jdbcType="VARCHAR" property="hometel"/>
+        <result column="IDCARD_" jdbcType="VARCHAR" property="idcard"/>
+        <result column="INDEXCODE_" jdbcType="VARCHAR" property="indexcode"/>
+        <result column="INTRO_" jdbcType="VARCHAR" property="intro"/>
+        <result column="ISLEAF_" jdbcType="NUMERIC" property="isleaf"/>
+        <result column="LEVEL_" jdbcType="NUMERIC" property="level"/>
+        <result column="MAJOR_" jdbcType="VARCHAR" property="major"/>
+        <result column="MOBILE_" jdbcType="VARCHAR" property="mobile"/>
+        <result column="NAME_" jdbcType="VARCHAR" property="name"/>
+        <result column="NATION_" jdbcType="VARCHAR" property="nation"/>
+        <result column="NATIONALITY_" jdbcType="VARCHAR" property="nationality"/>
+        <result column="OFFICECODE_" jdbcType="VARCHAR" property="officecode"/>
+        <result column="OPERATIONSPECIALITY_" jdbcType="VARCHAR" property="operationspeciality"/>
+        <result column="ORGCODE_" jdbcType="VARCHAR" property="orgcode"/>
+        <result column="OTHERLINK_" jdbcType="VARCHAR" property="otherlink"/>
+        <result column="PARENT_" jdbcType="VARCHAR" property="parent"/>
+        <result column="PARENTID_" jdbcType="NUMERIC" property="parentid"/>
+        <result column="PHONE_" jdbcType="VARCHAR" property="phone"/>
+        <result column="POSTRANK_" jdbcType="VARCHAR" property="postrank"/>
+        <result column="POSTTECHNOLOGY_" jdbcType="VARCHAR" property="posttechnology"/>
+        <result column="SEQNO_" jdbcType="VARCHAR" property="seqno"/>
+        <result column="SEX_" jdbcType="VARCHAR" property="sex"/>
+        <result column="SPECIALITY_" jdbcType="VARCHAR" property="speciality"/>
+        <result column="SUBORGCODE_" jdbcType="VARCHAR" property="suborgcode"/>
+        <result column="SUBJECTCLASS_" jdbcType="VARCHAR" property="subjectclass"/>
+        <result column="PHOTOURL_" jdbcType="VARCHAR" property="photourl"/>
+        <result column="SIGNATUREURL_" jdbcType="VARCHAR" property="signatureurl"/>
+        <result column="OUTPATIENTSERVICEOFFICE_" jdbcType="VARCHAR" property="outpatientserviceoffice"/>
+        <result column="DOCTORPRACTICERANGE_" jdbcType="VARCHAR" property="doctorpracticerange"/>
+        <result column="EDUCATIONALLEVEL_" jdbcType="VARCHAR" property="educationallevel"/>
+        <result column="MARRIAGE_" jdbcType="VARCHAR" property="marriage"/>
+        <result column="PRACTISINGCERTIFICATE_" jdbcType="VARCHAR" property="practisingcertificate"/>
+        <result column="WORKDAY_" jdbcType="TIMESTAMP" property="workday"/>
+        <result column="ISACTIVED_" jdbcType="NUMERIC" property="isactived"/>
+    </resultMap>
+    <resultMap extends="BaseResultMap" id="ResultMapWithBLOBs" type="com.wlht.api.po.Stdhospitalman">
+        <!--
+          WARNING - @mbg.generated
+        -->
+        <result column="PHOTO_" jdbcType="BLOB" property="photo"/>
+        <result column="SIGNATURE_" jdbcType="BLOB" property="signature"/>
+    </resultMap>
+    <sql id="Base_Column_List">
+        <!--
+          WARNING - @mbg.generated
+        -->
+        ID, ADDRESS_, ADMINPOST_, BIRTHDAY_, CCCODE_, COMMENT_, EDUCATION_, EMAIL_, FLAG_,
+        HOMEADDRESS_, HOMEPAGE_, HOMETEL_, IDCARD_, INDEXCODE_, INTRO_, ISLEAF_, LEVEL_,
+        MAJOR_, MOBILE_, NAME_, NATION_, NATIONALITY_, OFFICECODE_, OPERATIONSPECIALITY_,
+        ORGCODE_, OTHERLINK_, PARENT_, PARENTID_, PHONE_, POSTRANK_, POSTTECHNOLOGY_, SEQNO_,
+        SEX_, SPECIALITY_, SUBORGCODE_, SUBJECTCLASS_, PHOTOURL_, SIGNATUREURL_, OUTPATIENTSERVICEOFFICE_,
+        DOCTORPRACTICERANGE_, EDUCATIONALLEVEL_, MARRIAGE_, PRACTISINGCERTIFICATE_, WORKDAY_,
+        ISACTIVED_
+    </sql>
+    <sql id="Blob_Column_List">
+        <!--
+          WARNING - @mbg.generated
+        -->
+        PHOTO_, SIGNATURE_
+    </sql>
+    <select id="getAllHospitalMan" parameterType="com.wlht.api.vo.SearForKs"
+            resultType="com.wlht.api.vo.HospitalDoctorVo">
+        select renyuan.ID as id,renyuan.name_ as ysname,renyuan.idcard_ as idcard,office.name_ as
+        suozaiks,renyuan.BIRTHDAY_ as birthday,renyuan.WORKDAY_ as workday,renyuan.ISACTIVED_ as sfqy from
+        stdhospitalman_ renyuan, stdhospitaloffice_ office
+        where renyuan.OFFICECODE_=office.code_(+) and renyuan.orgcode_= #{yyIdentity}
+        <if test="suozaiksbm!=null and suozaiksbm!=''">
+            and renyuan.OFFICECODE_ = #{suozaiksbm,jdbcType=VARCHAR}
+        </if>
+        <if test="ysName!=null and ysName!=''">
+            and renyuan.name_ like #{ysName,jdbcType=VARCHAR}||'%'
+        </if>
+        <if test="cardId!=null and cardId!=''">
+            and renyuan.idcard_ like #{cardId,jdbcType=VARCHAR}||'%'
+        </if>
+        order by renyuan.id desc
+    </select>
+    <select id="checkIDCardForHospitalMan" resultType="decimal" parameterType="com.wlht.api.vo.HospitalDoctorVo">
+        SELECT id from stdhospitalman_ where idcard_=#{idcard}
+    </select>
+    <insert id="saveYSXXInfo" parameterType="com.wlht.api.vo.HospitalDoctorVo">
+        insert into stdhospitalman_(ID,name_,idcard_,OFFICECODE_,ORGCODE_,BIRTHDAY_,WORKDAY_,INDEXCODE_,ISACTIVED_) values(SEQ_T_BNGMYW.NEXTVAL,#{ysname,jdbcType=VARCHAR},#{idcard,jdbcType=VARCHAR},#{suozaiks,jdbcType=VARCHAR},#{yyidentity,jdbcType=VARCHAR},#{birthday,jdbcType=TIMESTAMP},#{workday,jdbcType=TIMESTAMP},#{pinyinIndex,jdbcType=VARCHAR},1)
+    </insert>
+</mapper>
