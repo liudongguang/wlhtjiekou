@@ -130,6 +130,7 @@ public class CmdpExtraController {
     @RequestMapping(value = "/searchKSINFO")
     @ResponseBody
     public  ResultMsg searchKSINFO(HttpServletRequest request, FbaiduParam param) {
+        System.out.println(param);
         param.setYybaidentity("49557184-0");
         ResultMsg msg = new ResultMsg();
         List<ZiDianBaseVo> ksList=ziDianService.searchKSINFO(param);

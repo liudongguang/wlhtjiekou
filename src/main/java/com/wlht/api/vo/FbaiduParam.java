@@ -8,7 +8,7 @@ import org.apache.commons.lang3.StringUtils;
  */
 public class FbaiduParam {
     private String searVal;
-    private int searchType;
+    private int searchType=1;
     private String yybaidentity;
 
     public String getYybaidentity() {
@@ -24,9 +24,8 @@ public class FbaiduParam {
     }
 
     public void setSearVal(String searVal) {
-        this.searVal = searVal;
         if(StringUtils.isNotBlank(searVal)){
-            if(SysConstant.pattern_number.matcher(searVal).matches()){
+            if(SysConstant.pattern_code.matcher(searVal).matches()){
                 searchType=SysConstant.searchTYPE_NUM;
             }else if(SysConstant.getPattern_str.matcher(searVal).matches()){
                 searchType=SysConstant.searchTYPE_Str;
@@ -34,6 +33,7 @@ public class FbaiduParam {
                 searchType=SysConstant.searchTYPE_HanZi;
             }
         }
+        this.searVal = searVal;
     }
 
     public int getSearchType() {
@@ -44,8 +44,17 @@ public class FbaiduParam {
         this.searchType = searchType;
     }
 
+    @Override
+    public String toString() {
+        return "FbaiduParam{" +
+                "searVal='" + searVal + '\'' +
+                ", searchType=" + searchType +
+                ", yybaidentity='" + yybaidentity + '\'' +
+                '}';
+    }
+
     public static void main(String[] args) {
-        System.out.println(SysConstant.pattern_number.matcher("112.3").matches());
-        System.out.println(SysConstant.getPattern_str.matcher("a1bS").matches());
+        System.out.println(SysConstant.pattern_code.matcher("1a").matches());
+        System.out.println(SysConstant.getPattern_str.matcher("abS").matches());
     }
 }

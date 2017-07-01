@@ -28,13 +28,10 @@
         <div class="form-group">
             <label class="col-md-2 control-label">所在科室*</label>
             <div class="col-md-8">
-                <input id="ksinputID" name="KeshiBM" type="text" required errInfo="所在科室不能为空" class="form-control" placeholder="所在科室">
+                <input id="ksinputID"  type="text"  class="form-control" placeholder="所在科室">
+                <input id="ksinputbmID" name="KeshiBM" type="hidden" required errInfo="所在科室不能为空">
                 <div id="disRSDIVID" class="bdsug" style="height: auto; display: none;">
                     <ul id="addULID">
-                        <li data-key="萨德" class="bdsug-overflow">萨德<i class="c-icon c-icon-bear-round"></i></li>
-                        <li data-key="萨德事件" class="bdsug-overflow">萨德事件</li>
-                        <li data-key="萨德最新消息" class="bdsug-overflow">萨德最新消息</li>
-                        <li data-key="萨顶顶" class="bdsug-overflow">萨顶顶</li>
                     </ul>
                 </div>
             </div>
@@ -44,7 +41,8 @@
         <button class="btn btn-primary" id="subBT" type="button">保存</button>
         <button id="backBTID" href="/cmdphd/getAllHospitalMan" class="btn btn-default" type="button">返回</button>
     </div>
-    <input type="hidden" id="baidu_inputid" value="ksinputID"/>
+    <input type="hidden" id="baidu_inputhanzid" value="ksinputID"/>
+    <input type="hidden" id="baidu_inputbianmaid" value="ksinputbmID"/>
     <input type="hidden" id="baidu_searurl" value="/cmdphd/searchKSINFO"/>
 </div>
 <script language="javascript" type="text/javascript" src="assets/js/main/ajaxForm.js"></script>
