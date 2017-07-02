@@ -177,7 +177,7 @@ function initAjaxForm(jq_form, jq_button, excuteResponse, validateState, validat
     function showRequest() {
         if (validateState) {
             var flag = true;
-            $("[required]").each(function () {
+            jq_form.find("[required]").each(function () {
                 var jq_this = $(this);
                 if (jq_this.is("textarea")) {
                     if (jq_this.val()) {
@@ -198,6 +198,15 @@ function initAjaxForm(jq_form, jq_button, excuteResponse, validateState, validat
                     }
                 }
                 if (jq_this.is("input[type=hidden]")) {
+                    if (jq_this.val()) {
+                        flag = true;
+                    } else {
+                        handlerError(jq_this);
+                        flag = false;
+                        return false;
+                    }
+                }
+                if (jq_this.is("input[type=file]")) {
                     if (jq_this.val()) {
                         flag = true;
                     } else {

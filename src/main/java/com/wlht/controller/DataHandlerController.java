@@ -2,8 +2,11 @@ package com.wlht.controller;
 
 import com.ldg.api.util.DateUtil;
 import com.ldg.api.util.LdgRequestUtil;
+import com.ldg.api.util.RequestFileUtil;
 import com.ldg.api.vo.ResultMsg;
+import com.wlht.api.SessionUtil;
 import com.wlht.api.service.WlhtDataService;
+import com.wlht.api.vo.HospitalOfficeVo;
 import com.wlht.api.vo.ImportParam;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -11,9 +14,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.multipart.MultipartFile;
 
 import javax.servlet.http.HttpServletRequest;
+import java.io.IOException;
 import java.util.Date;
+import java.util.List;
 import java.util.UUID;
 
 /**
@@ -83,5 +89,38 @@ public class DataHandlerController {
         System.out.println("-------执行了信息插入task-------");
         logger.info(handlerMsg);
         return "/index.jsp";
+    }
+
+    /**
+     * 导入科室
+     * @param request
+     * @return
+     * @throws IOException
+     */
+    @RequestMapping(value = "/ksExcelImport")
+    public  String ksExcelImport(HttpServletRequest request) throws IOException {
+        ResultMsg msg = new ResultMsg();
+        List<MultipartFile> uploadFile = RequestFileUtil.getUploadFile(request);
+        if(uploadFile!=null&&uploadFile.size()==1){
+            MultipartFile file=uploadFile.get(0);
+            System.out.println(file);
+        }
+        return "/cmdp/importexcel/index.jsp";
+    }
+    /**
+     * 导入科室
+     * @param request
+     * @return
+     * @throws IOException
+     */
+    @RequestMapping(value = "/yishiExcelImport")
+    public  String yishiExcelImport(HttpServletRequest request) throws IOException {
+        ResultMsg msg = new ResultMsg();
+        List<MultipartFile> uploadFile = RequestFileUtil.getUploadFile(request);
+        if(uploadFile!=null&&uploadFile.size()==1){
+            MultipartFile file=uploadFile.get(0);
+            System.out.println(file);
+        }
+        return "/cmdp/importexcel/index.jsp";
     }
 }

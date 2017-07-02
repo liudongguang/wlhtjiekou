@@ -36,7 +36,7 @@ public class CmdpExtraController {
             request.setAttribute("message","用户名或密码错误！");
             return "/cmdp/login.jsp";
         }
-        return "/cmdp/index.jsp";
+        return "redirect:/cmdp/index.jsp";
     }
     @RequestMapping(value = "/loginOut")
     public String loginOut(HttpServletRequest request, ImportParam param) throws Exception {
