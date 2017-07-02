@@ -13,6 +13,7 @@ import java.util.List;
 public interface ZiDianService {
     /**
      * 获取民族编码通过姓名
+     *
      * @param name
      * @return
      */
@@ -20,6 +21,7 @@ public interface ZiDianService {
 
     /**
      * 联系人关系
+     *
      * @param gx
      * @return
      */
@@ -27,6 +29,7 @@ public interface ZiDianService {
 
     /**
      * 获取科室编码通过科室名称
+     *
      * @param rykb
      * @return
      */
@@ -34,6 +37,7 @@ public interface ZiDianService {
 
     /**
      * 获取医院科室字典
+     *
      * @param pageParam
      * @param param
      * @return
@@ -42,6 +46,7 @@ public interface ZiDianService {
 
     /**
      * 根据科室名称，科室编码判断是否存在
+     *
      * @param param
      * @return
      */
@@ -49,6 +54,7 @@ public interface ZiDianService {
 
     /**
      * 添加科室数据
+     *
      * @param param
      * @return
      */
@@ -56,6 +62,7 @@ public interface ZiDianService {
 
     /**
      * 获取医生列表
+     *
      * @param pageParam
      * @param param
      * @return
@@ -64,6 +71,7 @@ public interface ZiDianService {
 
     /**
      * 通过身份证好查询是否存在
+     *
      * @param param
      * @return
      */
@@ -71,18 +79,20 @@ public interface ZiDianService {
 
     /**
      * 保存医生信息
+     *
      * @param param
      * @return
      */
     int saveYSXXInfo(HospitalDoctorVo param) throws ParseException;
+
     /**
-     *
      * 查找科室，通过代码，简拼，汉字
      */
 
     List<ZiDianBaseVo> searchKSINFO(FbaiduParam param);
 
-    /** * 查找隶属国家标准，通过代码，简拼，汉字
+    /**
+     * 查找隶属国家标准，通过代码，简拼，汉字
      *
      * @param param
      * @return
@@ -91,6 +101,7 @@ public interface ZiDianService {
 
     /**
      * 根据id删除医生
+     *
      * @param param
      * @return
      */
@@ -98,6 +109,7 @@ public interface ZiDianService {
 
     /**
      * 根据id获取医生信息
+     *
      * @param param
      * @return
      */
@@ -105,6 +117,7 @@ public interface ZiDianService {
 
     /**
      * 通过科室编码与医院标识查询
+     *
      * @param item
      * @return
      */
@@ -112,6 +125,7 @@ public interface ZiDianService {
 
     /**
      * 修改科室信息
+     *
      * @param item
      * @return
      */
@@ -119,6 +133,7 @@ public interface ZiDianService {
 
     /**
      * 按身份证查询
+     *
      * @param item
      * @return
      */
@@ -126,8 +141,17 @@ public interface ZiDianService {
 
     /**
      * 修改医师信息
+     *
      * @param item
      * @return
      */
     int updateYSXXInfo(HospitalDoctorVo item) throws ParseException;
+
+    /**
+     * 通过科室名称获取科室编码
+     *
+     * @param ksname
+     * @return
+     */
+    List<String> selectKeshiCodeByName(String ksname);
 }

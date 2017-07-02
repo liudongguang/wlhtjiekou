@@ -45,7 +45,7 @@ public class CmdpExtraController {
     }
     @RequestMapping(value = "/getAllHospitalOffice")
     public String getAllHospitalOffice(HttpServletRequest request, PageParam pageParam, SearForKs param) throws Exception {
-        param.setYyIdentity("49557184-0");
+        param.setYyIdentity(SessionUtil.getYyIdentityForCZY(request));
         PageInfo<HospitalOfficeVo> page = ziDianService.getAllHospitalOffice(pageParam, param);
         request.setAttribute("page",page);
         return "/cmdp/keshi/disList.jsp";

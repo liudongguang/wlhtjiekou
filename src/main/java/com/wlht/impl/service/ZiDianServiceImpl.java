@@ -210,5 +210,8 @@ public class ZiDianServiceImpl implements ZiDianService {
         return null;
     }
 
-
+    @Override
+    public List<String> selectKeshiCodeByName(String ksname) {
+        return stdhospitalofficeDao.selectKeshiCodeByName(ksname);
+    }
 }

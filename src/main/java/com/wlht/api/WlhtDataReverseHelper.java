@@ -21,6 +21,8 @@ public class WlhtDataReverseHelper {
     private final static Map<String, String> lyfs = new ConcurrentHashMap<>();//离院方式
 
     private final static Map<String, String> zdrybq = new HashMap<>();//诊断入院病情
+
+    private final static Map<String, String> keshiType = new HashMap<>();//科室类型
     static {
         ylfs.put("全自费", "70");
         ylfs.put("新型农村合作医疗", "30");
@@ -69,6 +71,13 @@ public class WlhtDataReverseHelper {
         zdrybq.put("临床未确定","2");
         zdrybq.put("情况不明","3");
         zdrybq.put("无","4");
+        //
+        keshiType.put("门诊科室","1");
+        keshiType.put("住院科室","2");
+        keshiType.put("医技科室","3");
+        keshiType.put("管理科室","4");
+        keshiType.put("后勤科室","5");
+        keshiType.put("其他科室","6");
     }
 
     public static String getYlfs(String source) {
@@ -151,6 +160,12 @@ public class WlhtDataReverseHelper {
         if(source==null){
             return "4";
         }
-        return zdrybq.get(source) == null ? "9" : zdrybq.get(source);
+        return zdrybq.get(source) == null ? "4" : zdrybq.get(source);
+    }
+    public static String getKeShiType(String source) {
+        if(source==null){
+            return "6";
+        }
+        return keshiType.get(source) == null ? "6" : keshiType.get(source);
     }
 }

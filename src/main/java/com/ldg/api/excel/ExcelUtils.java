@@ -139,7 +139,7 @@ public class ExcelUtils<T> {
     }
 
 
-    public static <T> List<T> readExcel( InputStream in, Class<T> clazz,String fileName) throws Exception {
+    public static <T> List<T> readExcel(InputStream in, Class<T> clazz, String fileName) throws Exception {
         Workbook workbook = null;
         List<T> rtList = new ArrayList<>();
         try {
@@ -154,50 +154,28 @@ public class ExcelUtils<T> {
             int rowCount = 0;
             //循环每一行
             rowIterator.next();
-        while (rowIterator.hasNext()) {
-            T t = clazz.newInstance(); //创建新的对象
-            Field[] fields = t.getClass().getDeclaredFields();
-            //得到一行对象
-            Row row = rowIterator.next();
-            int fieldLength=fields.length;
-            int colsSize=row.getLastCellNum();
-            if(colsSize>fieldLength){
-                colsSize=fieldLength;
+            while (rowIterator.hasNext()) {
+                T t = clazz.newInstance(); //创建新的对象
+                Field[] fields = t.getClass().getDeclaredFields();
+                //得到一行对象
+                Row row = rowIterator.next();
+                int fieldLength = fields.length;
+                int colsSize = row.getLastCellNum();
+                if (colsSize > fieldLength) {
+                    colsSize = fieldLength;
+                }
+                for (int i = row.getFirstCellNum(); i < colsSize; i++) {
+                    Field field = fields[i];
+                    field.setAccessible(true);
+                    //得到单元格对象
+                    Cell cell = row.getCell(i);
+                    String ss = parseExcel(cell, i);
+                    //   System.out.println(ss+"   "+"  "+i+"   "+field.getName());
+                    setStrVal(field, t, ss);
+                }
+                // System.out.println("--------------------");
+                rtList.add(t);
             }
-            for (int i = row.getFirstCellNum(); i < colsSize; i++) {
-                Field field = fields[i];
-                field.setAccessible(true);
-                //得到单元格对象
-                Cell cell = row.getCell(i);
-                String ss = parseExcel(cell,i);
-             //   System.out.println(ss+"   "+"  "+i+"   "+field.getName());
-                setStrVal(field, t, ss);
-            }
-           // System.out.println("--------------------");
-            rtList.add(t);
-        }
-    } catch (Exception e) {
-        throw e;
-    } finally {
-        try {
-            if (in != null) {
-                in.close();
-            }
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
-        return rtList;
-    }
-    public static <T> List<T> readExcel(String fileName, Class<T> clazz) throws Exception {
-        Workbook workbook = null;
-        Sheet sheet = null;
-        InputStream in = null;
-        List<T> rtList =null;
-        try {
-            ClassPathResource hospitalInterface = new ClassPathResource(fileName);
-            in = hospitalInterface.getInputStream();
-            rtList=readExcel( in, clazz,fileName);
         } catch (Exception e) {
             throw e;
         } finally {
@@ -212,7 +190,30 @@ public class ExcelUtils<T> {
         return rtList;
     }
 
-    private static String parseExcel(Cell cell,int i) {
+    public static <T> List<T> readExcel(String fileName, Class<T> clazz) throws Exception {
+        Workbook workbook = null;
+        Sheet sheet = null;
+        InputStream in = null;
+        List<T> rtList = null;
+        try {
+            ClassPathResource hospitalInterface = new ClassPathResource(fileName);
+            in = hospitalInterface.getInputStream();
+            rtList = readExcel(in, clazz, fileName);
+        } catch (Exception e) {
+            throw e;
+        } finally {
+            try {
+                if (in != null) {
+                    in.close();
+                }
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+        return rtList;
+    }
+
+    private static String parseExcel(Cell cell, int i) {
         String result = "";
         if (cell == null) {
             return result;
@@ -255,7 +256,7 @@ public class ExcelUtils<T> {
                 result = "";
                 break;
             default:
-                System.out.println(cell.getCellType() + "+++++++++++"+i);
+                System.out.println(cell.getCellType() + "+++++++++++" + i);
                 result = "";
                 break;
         }
@@ -268,7 +269,7 @@ public class ExcelUtils<T> {
             case SysConstant.type_String:
                 if (StringUtils.isNotBlank(val)) {
                     field.set(t, val);
-                }else{
+                } else {
                     field.set(t, "");
                 }
                 break;
@@ -280,9 +281,9 @@ public class ExcelUtils<T> {
                 break;
             case SysConstant.type_Date:
                 if (StringUtils.isNotBlank(val)) {
-                    if(val.length()==8){
+                    if (val.length() == 8) {
                         field.set(t, DateUtil.yyyy_MM_ddFormat.parse(val));
-                    }else{
+                    } else {
                         field.set(t, DateUtil.yyyy_MM_dd_HH_mmFormat.parse(val));
                     }
                 }
@@ -294,7 +295,7 @@ public class ExcelUtils<T> {
                 }
                 if (StringUtils.isNotBlank(val) && val.indexOf("天") != -1) {
                     val = val.substring(0, val.indexOf("天"));
-                    double year=Math.ceil(Long.valueOf(val)*1.0/365);
+                    double year = Math.ceil(Long.valueOf(val) * 1.0 / 365);
                     field.set(t, Long.valueOf((long) year));
                 } else if (StringUtils.isNotBlank(val)) {
                     field.set(t, Long.valueOf(val));
@@ -311,9 +312,33 @@ public class ExcelUtils<T> {
                 }
                 break;
             default:
-                System.out.println(type+"     "+field.getName());
+                System.out.println(type + "     " + field.getName());
                 break;
         }
+    }
+
+    public static List<String> getFirstRowCols(InputStream in, String fileName) throws IOException {
+        Workbook workbook = null;
+        List<String> rtList = new ArrayList<>();
+
+        if (fileName.toLowerCase().endsWith("xlsx")) {
+            workbook = new XSSFWorkbook(in);
+        } else if (fileName.toLowerCase().endsWith("xls")) {
+            workbook = new HSSFWorkbook(in);
+        }
+        Sheet sheet = workbook.getSheetAt(0);
+        //得到行的迭代器
+        Iterator<Row> rowIterator = sheet.iterator();
+        while (rowIterator.hasNext()) {
+            Row row = rowIterator.next();
+            for (int i = row.getFirstCellNum(); i < row.getLastCellNum(); i++) {
+                String val = parseExcel(row.getCell(i), i);
+                rtList.add(val);
+            }
+            break;
+        }
+        return rtList;
+
     }
 
     public static void main(String[] args) {

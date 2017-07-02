@@ -2,6 +2,7 @@ package com.wlht.impl.mapper;
 
 import com.wlht.api.po.Stdhospitaloffice;
 import com.wlht.api.vo.*;
+import org.apache.ibatis.annotations.Param;
 import tk.mybatis.mapper.common.Mapper;
 
 import java.math.BigDecimal;
@@ -47,4 +48,11 @@ public interface StdhospitalofficeMapper extends Mapper<Stdhospitaloffice> {
      * @return
      */
     int updateKSXXInfo(HospitalOfficeVo item);
+
+    /**
+     * 获取科室编码通过科室名称
+     * @param ksname
+     * @return
+     */
+    List<String> selectKeshiCodeByName(@Param("ksname") String ksname);
 }

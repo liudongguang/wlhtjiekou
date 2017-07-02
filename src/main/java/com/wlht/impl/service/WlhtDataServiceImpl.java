@@ -100,26 +100,25 @@ public class WlhtDataServiceImpl implements WlhtDataService {
                 List<TBnzrr> zrrList = item.getBAZRR();//获取责任人列表
                 List<TBnsscz> ssczList = item.getSSCZ(zrrList);//手术列表
                 if (ssczList.size() > 0) {
-                    // sszdDao.batchInsert(ssczList); //1.插入手术信息
+                     sszdDao.batchInsert(ssczList); //1.插入手术信息
                 }
                 if (zrrList.size() > 0) {
-                    // zrrDao.batchInsert(zrrList);//2.插入责任人信息
+                     zrrDao.batchInsert(zrrList);//2.插入责任人信息
                 }
                 //3.疾病
                 List<TBnjbzd> jbzdList = item.getJBZD();//疾病列表
-                System.out.println(jbzdList);
                 if (jbzdList.size() > 0) {
-                    // jbzdDao.batchInsert(jbzdList);
+                     jbzdDao.batchInsert(jbzdList);
                 }
                 //4.费用
                 List<TBnzyfy> zlfyList = item.getZLFY();//费用列表
                 if (zlfyList.size() > 0) {
-                    // zyfyDao.batchInsert(zlfyList);
+                     zyfyDao.batchInsert(zlfyList);
                 }
                 //5.过敏药物
                 List<TBngmyw> gmywList = item.getGMYW();//过敏药物
                 if (gmywList.size() > 0) {
-                    //  gmywDao.batchInsert(gmywList);
+                      gmywDao.batchInsert(gmywList);
                 }
             }
             datebetween.append("成功导入").append(hisDataByDate.size()).append("条信息");
@@ -216,9 +215,11 @@ public class WlhtDataServiceImpl implements WlhtDataService {
         List<MultipartFile> uploadFile = RequestFileUtil.getUploadFile(request);
         if (uploadFile != null && uploadFile.size() == 1) {
             MultipartFile file = uploadFile.get(0);
+            if (file.getOriginalFilename().indexOf("keshi") == -1) {
+                return "文件错误！";
+            }
             String yyidneity = SessionUtil.getYyIdentityForCZY(request);
             InputStream excelIns = file.getInputStream();
-            System.out.println(file.getOriginalFilename());
             List<HospitalOfficeVo> rlist = ExcelUtils.readExcel(excelIns, HospitalOfficeVo.class, file.getOriginalFilename());
             final int[] saveNum = {0};
             final int[] updateNum = {0};
@@ -229,6 +230,8 @@ public class WlhtDataServiceImpl implements WlhtDataService {
                 if (StringUtils.isNotBlank(ksmc)) {
                     mitem.setPinyin(PingyinHandler.converterToFirstSpell(ksmc));//设置拼音首字母
                 }
+                String kstype = mitem.getKsType();
+                mitem.setKsType(WlhtDataReverseHelper.getKeShiType(kstype));
                 return mitem;
             }).forEach(item -> {
                 Long id = zidianservice.checkKSExistsByKSCodeAndYYIdentity(item);
@@ -251,23 +254,30 @@ public class WlhtDataServiceImpl implements WlhtDataService {
         List<MultipartFile> uploadFile = RequestFileUtil.getUploadFile(request);
         if (uploadFile != null && uploadFile.size() == 1) {
             MultipartFile file = uploadFile.get(0);
+            if (file.getOriginalFilename().indexOf("renyuan") == -1) {
+                return "文件错误！";
+            }
             String yyidneity = SessionUtil.getYyIdentityForCZY(request);
             InputStream excelIns = file.getInputStream();
-            System.out.println(file.getOriginalFilename());
             List<HospitalDoctorVo> rlist = ExcelUtils.readExcel(excelIns, HospitalDoctorVo.class, file.getOriginalFilename());
-            System.out.println(rlist);
             final int[] saveNum = {0};
             final int[] updateNum = {0};
             final int[] noIDCARDNum = {0};
             StringBuilder sbd = new StringBuilder();
             rlist.stream().map(mitem -> {
                 mitem.setYyidentity(yyidneity);
+                String ksname = mitem.getSuozaiks();
+                List<String> ksCodeList = zidianservice.selectKeshiCodeByName(ksname);
+                if (ksCodeList != null && ksCodeList.size() > 0) {
+                    mitem.setSuozaiks(ksCodeList.get(0));
+                }
                 return mitem;
             }).forEach(item -> {
                 if (StringUtils.isNotBlank(item.getIdcard())) {
-                    Long id = zidianservice.checkYiShiExistsByIDCardAndYYIdentity(item);
+                    Long id = zidianservice.checkYiShiExistsByIDCardAndYYIdentity(item);//通过身份证号与医院标识查询
                     if (id == null) {
                         try {
+                            item.setId(null);
                             zidianservice.saveYSXXInfo(item);
                         } catch (ParseException e) {
                             e.printStackTrace();
@@ -275,6 +285,7 @@ public class WlhtDataServiceImpl implements WlhtDataService {
                         saveNum[0]++;
                     } else {
                         try {
+                            item.setId(id);
                             zidianservice.updateYSXXInfo(item);
                         } catch (ParseException e) {
                             e.printStackTrace();

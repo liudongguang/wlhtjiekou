@@ -42,7 +42,7 @@
     </select>
     <select id="getAllHospitalOffice" parameterType="com.wlht.api.vo.SearForKs"
             resultType="com.wlht.api.vo.HospitalOfficeVo">
-        select office.code_ as KeshiBM,office.name_ as mingcheng,office.cccode_ as biaozhunLiShu,guojiabiaozhun.name_ as
+        select office.code_ as keshiBM,office.name_ as mingcheng,office.cccode_ as biaozhunLiShu,guojiabiaozhun.name_ as
         biaozhunLiShuName,kstype.name_ as ksType,office.EXISTINGBED_ as chuangweiShu,office.indexcode_ as shouzimuIndex
         from STDHOSPITALOFFICE_ office,STDCONSULTATIONSUBJECT_ guojiabiaozhun,STDOFFICETYPE_ kstype where
         office.cccode_=guojiabiaozhun.code_(+) and office.officetype_=kstype.code_(+) and orgcode_=#{yyIdentity,jdbcType=VARCHAR}
@@ -58,10 +58,10 @@
                select id from STDHOSPITALOFFICE_ where orgcode_=#{yyidentity,jdbcType=VARCHAR} and name_=#{mingcheng}
     </select>
     <select id="checkKSCode" parameterType="com.wlht.api.vo.HospitalOfficeVo" resultType="decimal">
-        select id from STDHOSPITALOFFICE_ where orgcode_=#{yyidentity,jdbcType=VARCHAR} and code_=#{KeshiBM}
+        select id from STDHOSPITALOFFICE_ where orgcode_=#{yyidentity,jdbcType=VARCHAR} and code_=#{keshiBM}
     </select>
     <insert id="saveKSXXInfo" parameterType="com.wlht.api.vo.HospitalOfficeVo">
-        insert into Stdhospitaloffice_(ID,CCCODE_,CODE_,INDEXCODE_,NAME_,ORGCODE_,OFFICETYPE_) values(SEQ_T_BNGMYW.NEXTVAL,#{biaozhunLiShu,jdbcType=VARCHAR},#{KeshiBM,jdbcType=VARCHAR},#{pinyin,jdbcType=VARCHAR},#{mingcheng,jdbcType=VARCHAR},#{yyidentity,jdbcType=VARCHAR},#{ksType,jdbcType=VARCHAR})
+        insert into Stdhospitaloffice_(ID,CCCODE_,CODE_,INDEXCODE_,NAME_,ORGCODE_,OFFICETYPE_) values(SEQ_T_BNGMYW.NEXTVAL,#{biaozhunLiShu,jdbcType=VARCHAR},#{keshiBM,jdbcType=VARCHAR},#{pinyin,jdbcType=VARCHAR},#{mingcheng,jdbcType=VARCHAR},#{yyidentity,jdbcType=VARCHAR},#{ksType,jdbcType=VARCHAR})
     </insert>
     <select id="searchKSINFO" parameterType="com.wlht.api.vo.FbaiduParam" resultType="com.wlht.api.vo.ZiDianBaseVo">
         select  CODE_ as code,NAME_ as name from STDHOSPITALOFFICE_
@@ -81,4 +81,7 @@
          update STDHOSPITALOFFICE_ set NAME_=#{mingcheng,jdbcType=VARCHAR},INDEXCODE_=#{pinyin,jdbcType=VARCHAR},OFFICETYPE_=#{ksType,jdbcType=VARCHAR}
         where CODE_=#{keshiBM,jdbcType=VARCHAR} and ORGCODE_=#{yyidentity,jdbcType=VARCHAR}
     </update>
+    <select id="selectKeshiCodeByName" parameterType="string" resultType="string">
+        SELECT CODE_ from STDHOSPITALOFFICE_ where NAME_=#{ksname,jdbcType=VARCHAR}
+    </select>
 </mapper>

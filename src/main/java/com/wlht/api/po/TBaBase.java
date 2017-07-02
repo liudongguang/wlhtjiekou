@@ -110,7 +110,6 @@ public class TBaBase {
     public List<TBngmyw> getGMYW() {
         List<TBngmyw> gmywList=new ArrayList<>();
         String ywgm=hisview.getYwgm();
-        System.out.println(ywgm+"          "+hisview.getGmyw());
         if(StringUtils.isNotBlank(ywgm)&&ywgm.indexOf("有")!=-1){
             final Integer[] jlh = {1};
              String guominyaowu=hisview.getGmyw();

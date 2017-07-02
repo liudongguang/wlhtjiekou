@@ -36,10 +36,10 @@
         <Root level="ERROR">
             <AppenderRef ref="STDOUT"/>
         </Root>
-        <logger name="com.remote.impl.mapper" level="DEBUG" additivity="false">
+        <logger name="com.remote.impl.mapper" level="ERROR" additivity="false">
             <appender-ref ref="STDOUT"/>
         </logger>
-        <logger name="com.wlht.impl.mapper" level="DEBUG" additivity="false">
+        <logger name="com.wlht.impl.mapper" level="ERROR" additivity="false">
             <appender-ref ref="STDOUT"/>
         </logger>
         <logger name="com.wlht.controller.DataHandlerController" level="INFO" additivity="false">

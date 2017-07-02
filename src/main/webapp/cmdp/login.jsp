@@ -39,7 +39,6 @@
 </head>
 
 <body>
-${pageContext.request.contextPath }
 <!-- Top content -->
 <div class="top-content">
     <div class="inner-bg">

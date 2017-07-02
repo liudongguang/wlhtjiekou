@@ -86,7 +86,7 @@ public class DataHandlerController {
         param.setEnd(date[1]);
         String handlerMsg=wlhtDataService.importDataByDate(param);
         wlhtDataService.delChongfuInfo(); // 删除重复记录
-        System.out.println("-------执行了信息插入task-------");
+        System.out.println("-------执行了信息插入-------");
         logger.info(handlerMsg);
         return "/index.jsp";
     }
