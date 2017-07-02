@@ -1,3 +1,8 @@
+.bdsug{
+    position: absolute;
+    background-color: #FFFFFF;
+    z-index: 300;
+}
 .bdsug li {
     color: #000;
     cursor: default;

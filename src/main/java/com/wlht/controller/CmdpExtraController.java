@@ -25,11 +25,12 @@ public class CmdpExtraController {
     @RequestMapping(value = "/login")
     public String login(HttpServletRequest request, ImportParam param) throws Exception {
 
-        return "/index.jsp";
+        return "/cmdp/index.jsp";
     }
     @RequestMapping(value = "/loginOut")
     public String loginOut(HttpServletRequest request, ImportParam param) throws Exception {
-        return "/index.jsp";
+        request.getSession().invalidate();
+        return "/cmdp/login.jsp";
     }
     @RequestMapping(value = "/getAllHospitalOffice")
     public String getAllHospitalOffice(HttpServletRequest request, PageParam pageParam, SearForKs param) throws Exception {
@@ -122,6 +123,32 @@ public class CmdpExtraController {
     }
 
     /**
+     * 根据id删除医生
+     * @param request
+     * @param param
+     * @return
+     * @throws Exception
+     */
+    @RequestMapping(value = "/delHoapitalMan")
+    public String delHoapitalMan(HttpServletRequest request,HospitalDoctorVo param) throws Exception {
+        int insertNum=ziDianService.delHoapitalMan(param);
+        return "/cmdphd/getAllHospitalMan";
+    }
+
+    /**
+     * 修改医生
+     * @param request
+     * @param param
+     * @return
+     * @throws Exception
+     */
+    @RequestMapping(value = "/editHoapitalMan")
+    public String editHoapitalMan(HttpServletRequest request,HospitalDoctorVo param) throws Exception {
+        HospitalDoctorVo hospitalMan=ziDianService.getHoapitalManByIdForEdit(param);
+        request.setAttribute("obj",hospitalMan);
+        return "/cmdp/doctor/add.jsp";
+    }
+    /**
      * 查找科室，通过代码，简拼，汉字
      * @param request
      * @param param
@@ -130,10 +157,25 @@ public class CmdpExtraController {
     @RequestMapping(value = "/searchKSINFO")
     @ResponseBody
     public  ResultMsg searchKSINFO(HttpServletRequest request, FbaiduParam param) {
-        System.out.println(param);
         param.setYybaidentity("49557184-0");
         ResultMsg msg = new ResultMsg();
         List<ZiDianBaseVo> ksList=ziDianService.searchKSINFO(param);
+        msg.setData(ksList);
+        return msg;
+    }
+
+    /**
+     * 查找隶属国家标准，通过代码，简拼，汉字
+     * @param request
+     * @param param
+     * @return
+     */
+    @RequestMapping(value = "/searchLSKSGJBZINFO")
+    @ResponseBody
+    public  ResultMsg searchLSKSGJBZINFO(HttpServletRequest request, FbaiduParam param) {
+        param.setYybaidentity("49557184-0");
+        ResultMsg msg = new ResultMsg();
+        List<ZiDianBaseVo> ksList=ziDianService.searchLSKSGJBZINFO(param);
         msg.setData(ksList);
         return msg;
     }

@@ -3,7 +3,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
-
+<link rel="stylesheet" href="assets/css/baidu.css">
 <div class="clearfix"></div>
 <div class="col-md-6">
     <form class="form-horizontal" id="subForm" method="post" action="cmdphd/saveKSXXInfo">
@@ -23,7 +23,12 @@
         <div class="form-group">
             <label class="col-md-2 control-label">隶属国家标准*</label>
             <div class="col-md-8">
-                <input class="form-control" name="biaozhunLiShu" required errInfo="隶属国家标准不能为空" type="text" placeholder="隶属国家标准">
+                <input id="biaozhunLiShuID" class="form-control" type="text" placeholder="隶属国家标准" fangbaidu_searurl="/cmdphd/searchLSKSGJBZINFO" />
+                <input id="biaozhunLiShuID_BM" name="biaozhunLiShu" type="hidden" required errInfo="隶属国家标准不能为空"/>
+                <div id="disRSDIVID" class="bdsug" style="height: auto; display: none;">
+                    <ul id="addULID">
+                    </ul>
+                </div>
             </div>
         </div>
         <div class="form-group">
@@ -47,5 +52,6 @@
     </div>
 </div>
 <script language="javascript" type="text/javascript" src="assets/js/main/ajaxForm.js"></script>
+<script language="javascript" type="text/javascript" src="assets/js/main/baidu.js"></script>
 <script language="javascript" type="text/javascript" src="assets/js/cmdp/keshi/add.js"></script>
 

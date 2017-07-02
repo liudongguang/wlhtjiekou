@@ -81,4 +81,25 @@ public interface ZiDianService {
      */
 
     List<ZiDianBaseVo> searchKSINFO(FbaiduParam param);
+
+    /** * 查找隶属国家标准，通过代码，简拼，汉字
+     *
+     * @param param
+     * @return
+     */
+    List<ZiDianBaseVo> searchLSKSGJBZINFO(FbaiduParam param);
+
+    /**
+     * 根据id删除医生
+     * @param param
+     * @return
+     */
+    int delHoapitalMan(HospitalDoctorVo param);
+
+    /**
+     * 根据id获取医生信息
+     * @param param
+     * @return
+     */
+    HospitalDoctorVo getHoapitalManByIdForEdit(HospitalDoctorVo param);
 }

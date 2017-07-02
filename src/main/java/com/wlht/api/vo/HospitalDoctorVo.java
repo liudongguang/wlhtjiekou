@@ -16,6 +16,15 @@ public class HospitalDoctorVo {
 
     private String yyidentity;//医院标识
     private String pinyinIndex;//姓名拼音首字母
+    private String suozaiksBm;//所在科室编码
+
+    public String getSuozaiksBm() {
+        return suozaiksBm;
+    }
+
+    public void setSuozaiksBm(String suozaiksBm) {
+        this.suozaiksBm = suozaiksBm;
+    }
 
     public String getPinyinIndex() {
         return pinyinIndex;

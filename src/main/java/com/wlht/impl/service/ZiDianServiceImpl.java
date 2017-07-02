@@ -10,10 +10,7 @@ import com.wlht.api.po.Stdhospitalman;
 import com.wlht.api.po.Stdhospitaloffice;
 import com.wlht.api.service.ZiDianService;
 import com.wlht.api.vo.*;
-import com.wlht.impl.mapper.StddomesticrelationMapper;
-import com.wlht.impl.mapper.StdhospitalmanMapper;
-import com.wlht.impl.mapper.StdhospitalofficeMapper;
-import com.wlht.impl.mapper.StdnationMapper;
+import com.wlht.impl.mapper.*;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -36,6 +33,8 @@ public class ZiDianServiceImpl implements ZiDianService {
     private StdhospitalofficeMapper stdhospitalofficeDao;
     @Autowired
     private StdhospitalmanMapper stdhospitalmanDao;
+    @Autowired
+    private StdconsultationsubjectMapper stdconsultationsubjectMapper;
     @Override
     public String getMinZuCodeByName(String name) {
         String val = "01";
@@ -149,11 +148,29 @@ public class ZiDianServiceImpl implements ZiDianService {
         if(StringUtils.isNotBlank(sfz)&&sfz.length()==18){
             Date date=DateUtil.getDateBySFZNUM(sfz);
         }
+        if(param.getId()!=null){
+            return stdhospitalmanDao.updateByPrimaryKeySelectiveForSave(param);
+        }
         return stdhospitalmanDao.saveYSXXInfo(param);
     }
 
     @Override
     public List<ZiDianBaseVo> searchKSINFO(FbaiduParam param) {
         return stdhospitalofficeDao.searchKSINFO(param);
+    }
+
+    @Override
+    public List<ZiDianBaseVo> searchLSKSGJBZINFO(FbaiduParam param) {
+        return stdconsultationsubjectMapper.searchLSKSGJBZINFO(param);
+    }
+
+    @Override
+    public int delHoapitalMan(HospitalDoctorVo param) {
+        return stdhospitalmanDao.deleteByPrimaryKey(param.getId());
+    }
+
+    @Override
+    public HospitalDoctorVo getHoapitalManByIdForEdit(HospitalDoctorVo param) {
+        return stdhospitalmanDao.getHoapitalManByIdForEdit(param);
     }
 }

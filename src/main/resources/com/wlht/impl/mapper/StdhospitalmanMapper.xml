@@ -93,10 +93,41 @@
         </if>
         order by renyuan.id desc
     </select>
+    <select id="getHoapitalManByIdForEdit" parameterType="com.wlht.api.vo.HospitalDoctorVo"
+            resultType="com.wlht.api.vo.HospitalDoctorVo">
+        SELECT
+            renyuan.ID         AS id,
+            renyuan.name_      AS ysname,
+            renyuan.idcard_    AS idcard,
+            office.name_       AS
+                                  suozaiks,
+            office.code_       AS
+                                  suozaiksBm,
+            renyuan.BIRTHDAY_  AS birthday,
+            renyuan.WORKDAY_   AS workday,
+            renyuan.ISACTIVED_ AS sfqy
+        FROM
+            stdhospitalman_ renyuan, stdhospitaloffice_ office
+        WHERE renyuan.OFFICECODE_ = office.code_ (+) AND renyuan.id = #{id,jdbcType=NUMERIC}
+    </select>
+
     <select id="checkIDCardForHospitalMan" resultType="decimal" parameterType="com.wlht.api.vo.HospitalDoctorVo">
-        SELECT id from stdhospitalman_ where idcard_=#{idcard}
+        SELECT id
+        FROM stdhospitalman_
+        WHERE idcard_ = #{idcard}
     </select>
     <insert id="saveYSXXInfo" parameterType="com.wlht.api.vo.HospitalDoctorVo">
-        insert into stdhospitalman_(ID,name_,idcard_,OFFICECODE_,ORGCODE_,BIRTHDAY_,WORKDAY_,INDEXCODE_,ISACTIVED_) values(SEQ_T_BNGMYW.NEXTVAL,#{ysname,jdbcType=VARCHAR},#{idcard,jdbcType=VARCHAR},#{suozaiks,jdbcType=VARCHAR},#{yyidentity,jdbcType=VARCHAR},#{birthday,jdbcType=TIMESTAMP},#{workday,jdbcType=TIMESTAMP},#{pinyinIndex,jdbcType=VARCHAR},1)
+        INSERT INTO stdhospitalman_ (ID, name_, idcard_, OFFICECODE_, ORGCODE_, BIRTHDAY_, WORKDAY_, INDEXCODE_, ISACTIVED_)
+        VALUES
+            (SEQ_T_BNGMYW.NEXTVAL, #{ysname,jdbcType=VARCHAR}, #{idcard,jdbcType=VARCHAR}, #{suozaiks,jdbcType=VARCHAR},
+             #{yyidentity,jdbcType=VARCHAR}, #{birthday,jdbcType=TIMESTAMP}, #{workday,jdbcType=TIMESTAMP},
+             #{pinyinIndex,jdbcType=VARCHAR}, 1)
     </insert>
+    <update id="updateByPrimaryKeySelectiveForSave" parameterType="com.wlht.api.vo.HospitalDoctorVo">
+        UPDATE stdhospitalman_
+        SET name_       = #{ysname,jdbcType=VARCHAR}, idcard_ = #{idcard,jdbcType=VARCHAR},
+            OFFICECODE_ = #{suozaiks,jdbcType=VARCHAR}, ORGCODE_ = #{yyidentity,jdbcType=VARCHAR},
+            WORKDAY_    = #{workday,jdbcType=TIMESTAMP}, INDEXCODE_ = #{pinyinIndex,jdbcType=VARCHAR}
+        WHERE id = #{id,jdbcType=NUMERIC}
+    </update>
 </mapper>

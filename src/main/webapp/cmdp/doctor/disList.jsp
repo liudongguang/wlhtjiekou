@@ -52,9 +52,9 @@
                 <td><fmt:formatDate value="${obj.workday}" pattern="yyyy-MM-dd HH:mm:ss"></fmt:formatDate></td>
                 <td>
                     <a class="label label-success" ajaxthispage searFormID="subForm" pageNum="${page.pageNum}"
-                       href="/sdeyfollowup/delManager?id=${obj.id}">修改</a>
+                       href="/cmdphd/editHoapitalMan?id=${obj.id}">修改</a>
                     <a class="label label-warning" ajaxdel searFormID="subForm" pageNum="${page.pageNum}"
-                       href="/sdeyfollowup/delManager?id=${obj.id}">删除</a>
+                       href="/cmdphd/delHoapitalMan?id=${obj.id}">删除</a>
                 </td>
             </tr>
         </c:forEach>
