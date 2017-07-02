@@ -12,6 +12,7 @@ import com.wlht.api.po.*;
 import com.wlht.api.service.WlhtDataService;
 import com.wlht.api.service.ZiDianService;
 import com.wlht.api.vo.ImportParam;
+import com.wlht.api.vo.LoginParam;
 import com.wlht.impl.mapper.*;
 import org.apache.poi.ss.formula.functions.T;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -43,6 +44,8 @@ public class WlhtDataServiceImpl implements WlhtDataService {
     private TBnzyfyMapper zyfyDao;
     @Autowired
     private ZiDianService zidianservice;
+    @Autowired
+    private TCzyMapper tCzyMapper;
 
     @Override
     public void test() {
@@ -190,5 +193,10 @@ public class WlhtDataServiceImpl implements WlhtDataService {
 //        }
 
         return null;
+    }
+
+    @Override
+    public TCzy selectCzy(LoginParam param) {
+        return tCzyMapper.selectCzy(param);
     }
 }

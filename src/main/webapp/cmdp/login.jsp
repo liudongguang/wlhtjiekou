@@ -71,7 +71,7 @@ ${pageContext.request.contextPath }
                               class="login-form">
                             <div class="form-group">
                                 <label class="sr-only" for="form-username">Username</label> <input
-                                    type="text" name="username" placeholder="用户名..." value=""
+                                    type="text" name="name" placeholder="用户名..." value=""
                                     class="form-username form-control" id="form-username">
                             </div>
                             <div class="form-group">

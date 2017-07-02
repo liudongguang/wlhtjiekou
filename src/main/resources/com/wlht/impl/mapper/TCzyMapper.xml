@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.wlht.impl.mapper.TCzyMapper">
+  <resultMap id="BaseResultMap" type="com.wlht.api.po.TCzy">
+    <!--
+      WARNING - @mbg.generated
+    -->
+    <id column="ID" jdbcType="NUMERIC" property="id" />
+    <result column="SEX" jdbcType="VARCHAR" property="sex" />
+    <result column="CARDID" jdbcType="VARCHAR" property="cardid" />
+    <result column="NAME" jdbcType="VARCHAR" property="name" />
+    <result column="PASSWORD" jdbcType="VARCHAR" property="password" />
+    <result column="BHQX" jdbcType="VARCHAR" property="bhqx" />
+    <result column="YYIDENTIRY" jdbcType="VARCHAR" property="yyidentiry" />
+    <result column="EMAIL" jdbcType="VARCHAR" property="email" />
+    <result column="TELPHONE" jdbcType="VARCHAR" property="telphone" />
+    <result column="YYNAME" jdbcType="VARCHAR" property="yyname" />
+    <result column="JINRUQX" jdbcType="VARCHAR" property="jinruqx" />
+    <result column="GLKSBM" jdbcType="VARCHAR" property="glksbm" />
+    <result column="GLSHENHEKS" jdbcType="VARCHAR" property="glshenheks" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--
+      WARNING - @mbg.generated
+    -->
+    ID, SEX, CARDID, NAME, PASSWORD, BHQX, YYIDENTIRY, EMAIL, TELPHONE, YYNAME, JINRUQX, 
+    GLKSBM, GLSHENHEKS
+  </sql>
+  <select id="selectCzy" parameterType="com.wlht.api.vo.LoginParam" resultMap="BaseResultMap">
+       SELECT <include refid="Base_Column_List"></include> from T_CZY where NAME=#{name,jdbcType=VARCHAR} and PASSWORD=#{password,jdbcType=VARCHAR}
+  </select>
+</mapper>

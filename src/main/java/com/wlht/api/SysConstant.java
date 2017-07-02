@@ -18,5 +18,6 @@ public interface SysConstant {
     int searchTYPE_NUM=1;
     int searchTYPE_Str=2;
     int searchTYPE_HanZi=3;
+    String sessionUSER="user";
 
 }

@@ -105,7 +105,8 @@
                                   suozaiksBm,
             renyuan.BIRTHDAY_  AS birthday,
             renyuan.WORKDAY_   AS workday,
-            renyuan.ISACTIVED_ AS sfqy
+            renyuan.ISACTIVED_ AS sfqy,
+            renyuan.ORGCODE_   AS yyidentity
         FROM
             stdhospitalman_ renyuan, stdhospitaloffice_ office
         WHERE renyuan.OFFICECODE_ = office.code_ (+) AND renyuan.id = #{id,jdbcType=NUMERIC}

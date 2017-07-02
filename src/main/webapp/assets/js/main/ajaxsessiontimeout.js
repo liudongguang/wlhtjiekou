@@ -10,7 +10,7 @@ $.ajaxSetup({
 				shadeClose : true
 			}, function(index) {
 				layer.close(index);
-				window.location.href=$("#basePath").val()+"/login.jsp";
+				window.location.href=$("#basePath").val()+"/cmdp/login.jsp";
 			});
 		}
 	}

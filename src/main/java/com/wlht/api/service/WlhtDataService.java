@@ -2,8 +2,10 @@ package com.wlht.api.service;
 
 import com.github.pagehelper.PageInfo;
 import com.ldg.api.vo.PageParam;
+import com.wlht.api.po.TCzy;
 import com.wlht.api.vo.HospitalOfficeVo;
 import com.wlht.api.vo.ImportParam;
+import com.wlht.api.vo.LoginParam;
 import com.wlht.api.vo.SearForKs;
 
 /**
@@ -18,4 +20,5 @@ public interface WlhtDataService {
 
     String importFeiYongDataByDate(ImportParam param);
 
+    TCzy selectCzy(LoginParam param);
 }

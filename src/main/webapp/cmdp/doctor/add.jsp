@@ -8,6 +8,7 @@
 <div class="col-md-6">
     <form class="form-horizontal" id="subForm" method="post" action="cmdphd/saveYSXXInfo">
         <input type="hidden" id="ysID" name="id" value="${obj.id}"/>
+        <input type="hidden" id="yyidentityID" name="yyidentity" value="${obj.yyidentity}"/>
         <div class="form-group">
             <label class="col-md-2 control-label">医师名称*</label>
             <div class="col-md-8">

@@ -70,5 +70,12 @@
             <value>5242880</value>
         </property>
     </bean>
-
+    <mvc:interceptors>
+        <mvc:interceptor>
+            <mvc:mapping path="/cmdphd/**" />
+            <mvc:mapping path="/wlhtData/**" />
+            <mvc:exclude-mapping path="/cmdphd/login"/>
+            <bean class="com.wlht.interceptor.ManagerLoginInterceptor"></bean>
+        </mvc:interceptor>
+    </mvc:interceptors>
 </beans>
