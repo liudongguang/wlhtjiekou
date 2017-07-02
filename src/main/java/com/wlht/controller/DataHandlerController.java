@@ -98,29 +98,21 @@ public class DataHandlerController {
      * @throws IOException
      */
     @RequestMapping(value = "/ksExcelImport")
-    public  String ksExcelImport(HttpServletRequest request) throws IOException {
-        ResultMsg msg = new ResultMsg();
-        List<MultipartFile> uploadFile = RequestFileUtil.getUploadFile(request);
-        if(uploadFile!=null&&uploadFile.size()==1){
-            MultipartFile file=uploadFile.get(0);
-            System.out.println(file);
-        }
+    public  String ksExcelImport(HttpServletRequest request) throws Exception {
+        String msg=wlhtDataService.ksExcelImport(request);
+        request.setAttribute("ksmessage",msg);
         return "/cmdp/importexcel/index.jsp";
     }
     /**
-     * 导入科室
+     * 导入医师
      * @param request
      * @return
      * @throws IOException
      */
     @RequestMapping(value = "/yishiExcelImport")
-    public  String yishiExcelImport(HttpServletRequest request) throws IOException {
-        ResultMsg msg = new ResultMsg();
-        List<MultipartFile> uploadFile = RequestFileUtil.getUploadFile(request);
-        if(uploadFile!=null&&uploadFile.size()==1){
-            MultipartFile file=uploadFile.get(0);
-            System.out.println(file);
-        }
+    public  String yishiExcelImport(HttpServletRequest request) throws Exception {
+        String  msg=wlhtDataService.yishiExcelImport(request);
+        request.setAttribute("yishimessage",msg);
         return "/cmdp/importexcel/index.jsp";
     }
 }

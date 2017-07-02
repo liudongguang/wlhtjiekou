@@ -67,14 +67,18 @@
         select  CODE_ as code,NAME_ as name from STDHOSPITALOFFICE_
         <where>
             <if test="searchType==1">
-                CODE_ like #{searVal}||'%'
+                CODE_ like #{searVal,jdbcType=VARCHAR}||'%'
             </if>
             <if test="searchType==2">
-                INDEXCODE_ like upper(#{searVal})||'%'
+                INDEXCODE_ like upper(#{searVal,jdbcType=VARCHAR})||'%'
             </if>
             <if test="searchType==3">
-                NAME_ like #{searVal}||'%'
+                NAME_ like #{searVal,jdbcType=VARCHAR}||'%'
             </if>
         </where>
     </select>
+    <update id="updateKSXXInfo" parameterType="com.wlht.api.vo.HospitalOfficeVo">
+         update STDHOSPITALOFFICE_ set NAME_=#{mingcheng,jdbcType=VARCHAR},INDEXCODE_=#{pinyin,jdbcType=VARCHAR},OFFICETYPE_=#{ksType,jdbcType=VARCHAR}
+        where CODE_=#{keshiBM,jdbcType=VARCHAR} and ORGCODE_=#{yyidentity,jdbcType=VARCHAR}
+    </update>
 </mapper>

@@ -8,6 +8,9 @@ import com.wlht.api.vo.ImportParam;
 import com.wlht.api.vo.LoginParam;
 import com.wlht.api.vo.SearForKs;
 
+import javax.servlet.http.HttpServletRequest;
+import java.io.IOException;
+
 /**
  * Created by LiuDongguang on 2017/6/28.
  */
@@ -21,4 +24,8 @@ public interface WlhtDataService {
     String importFeiYongDataByDate(ImportParam param);
 
     TCzy selectCzy(LoginParam param);
+
+    String ksExcelImport(HttpServletRequest request) throws Exception;
+
+    String yishiExcelImport(HttpServletRequest request) throws Exception;
 }

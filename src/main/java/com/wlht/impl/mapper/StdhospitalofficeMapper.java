@@ -40,4 +40,11 @@ public interface StdhospitalofficeMapper extends Mapper<Stdhospitaloffice> {
     int saveKSXXInfo(HospitalOfficeVo param);
 
     List<ZiDianBaseVo> searchKSINFO(FbaiduParam param);
+
+    /**
+     * 修改科室信息，通过科室code与医院标识
+     * @param item
+     * @return
+     */
+    int updateKSXXInfo(HospitalOfficeVo item);
 }

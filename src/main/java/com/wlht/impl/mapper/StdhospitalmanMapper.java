@@ -19,4 +19,6 @@ public interface StdhospitalmanMapper extends Mapper<Stdhospitalman> {
     HospitalDoctorVo getHoapitalManByIdForEdit(HospitalDoctorVo param);
 
     int updateByPrimaryKeySelectiveForSave(HospitalDoctorVo param);
+
+    int updateYSXXInfo(HospitalDoctorVo item);
 }

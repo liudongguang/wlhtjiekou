@@ -4,14 +4,24 @@ package com.wlht.api.vo;
  * Created by liudo on 2017/7/1.
  */
 public class HospitalOfficeVo {
-    private String KeshiBM;
+    private String keshiBM;
     private String mingcheng;
     private String biaozhunLiShu;
     private String biaozhunLiShuName;
-    private String ksType;
+    private Integer chuangweishu;
     private String shouzimuIndex;
+    private String ksType;
+
     private String yyidentity;//医院标识
     private String pinyin;//拼音首字母
+
+    public Integer getChuangweishu() {
+        return chuangweishu;
+    }
+
+    public void setChuangweishu(Integer chuangweishu) {
+        this.chuangweishu = chuangweishu;
+    }
 
     public String getPinyin() {
         return pinyin;
@@ -30,11 +40,11 @@ public class HospitalOfficeVo {
     }
 
     public String getKeshiBM() {
-        return KeshiBM;
+        return keshiBM;
     }
 
     public void setKeshiBM(String keshiBM) {
-        KeshiBM = keshiBM;
+        this.keshiBM = keshiBM;
     }
 
     public String getMingcheng() {
@@ -75,5 +85,20 @@ public class HospitalOfficeVo {
 
     public void setShouzimuIndex(String shouzimuIndex) {
         this.shouzimuIndex = shouzimuIndex;
+    }
+
+    @Override
+    public String toString() {
+        return "HospitalOfficeVo{" +
+                "KeshiBM='" + keshiBM + '\'' +
+                ", mingcheng='" + mingcheng + '\'' +
+                ", biaozhunLiShu='" + biaozhunLiShu + '\'' +
+                ", biaozhunLiShuName='" + biaozhunLiShuName + '\'' +
+                ", chuangweishu=" + chuangweishu +
+                ", shouzimuIndex='" + shouzimuIndex + '\'' +
+                ", ksType='" + ksType + '\'' +
+                ", yyidentity='" + yyidentity + '\'' +
+                ", pinyin='" + pinyin + '\'' +
+                '}';
     }
 }

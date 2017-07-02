@@ -3,21 +3,31 @@ package com.wlht.impl.service;
 import com.ldg.api.excel.ExcelUtils;
 import com.ldg.api.util.DateUtil;
 import com.ldg.api.util.LdgStringUtil;
+import com.ldg.api.util.RequestFileUtil;
 import com.remote.api.po.Hisview;
 import com.remote.api.service.RemoteHisService;
+import com.wlht.api.PingyinHandler;
+import com.wlht.api.SessionUtil;
 import com.wlht.api.WlhtDataReverseHelper;
 import com.wlht.api.WlhtStringUtil;
 import com.wlht.api.bo.DelBaseInfo;
 import com.wlht.api.po.*;
 import com.wlht.api.service.WlhtDataService;
 import com.wlht.api.service.ZiDianService;
+import com.wlht.api.vo.HospitalDoctorVo;
+import com.wlht.api.vo.HospitalOfficeVo;
 import com.wlht.api.vo.ImportParam;
 import com.wlht.api.vo.LoginParam;
 import com.wlht.impl.mapper.*;
+import org.apache.commons.lang3.StringUtils;
 import org.apache.poi.ss.formula.functions.T;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.web.multipart.MultipartFile;
 
+import javax.servlet.http.HttpServletRequest;
+import java.io.IOException;
+import java.io.InputStream;
 import java.text.ParseException;
 import java.util.Date;
 import java.util.List;
@@ -46,6 +56,7 @@ public class WlhtDataServiceImpl implements WlhtDataService {
     private ZiDianService zidianservice;
     @Autowired
     private TCzyMapper tCzyMapper;
+
 
     @Override
     public void test() {
@@ -151,8 +162,8 @@ public class WlhtDataServiceImpl implements WlhtDataService {
 
     @Override
     public String importFeiYongDataByDate(ImportParam param) {
-        Date startDate_fy= param.getStarte();
-        Date endDate_fy=param.getEnd();
+        Date startDate_fy = param.getStarte();
+        Date endDate_fy = param.getEnd();
         int days = DateUtil.getZYTSForInt(param.getEnd(), param.getStarte());
         if (days < 0) {
             return "结束日期不能在开始日期之前！";
@@ -198,5 +209,85 @@ public class WlhtDataServiceImpl implements WlhtDataService {
     @Override
     public TCzy selectCzy(LoginParam param) {
         return tCzyMapper.selectCzy(param);
+    }
+
+    @Override
+    public String ksExcelImport(HttpServletRequest request) throws Exception {
+        List<MultipartFile> uploadFile = RequestFileUtil.getUploadFile(request);
+        if (uploadFile != null && uploadFile.size() == 1) {
+            MultipartFile file = uploadFile.get(0);
+            String yyidneity = SessionUtil.getYyIdentityForCZY(request);
+            InputStream excelIns = file.getInputStream();
+            System.out.println(file.getOriginalFilename());
+            List<HospitalOfficeVo> rlist = ExcelUtils.readExcel(excelIns, HospitalOfficeVo.class, file.getOriginalFilename());
+            final int[] saveNum = {0};
+            final int[] updateNum = {0};
+            StringBuilder sbd = new StringBuilder();
+            rlist.stream().map(mitem -> {
+                mitem.setYyidentity(yyidneity);
+                String ksmc = mitem.getMingcheng();
+                if (StringUtils.isNotBlank(ksmc)) {
+                    mitem.setPinyin(PingyinHandler.converterToFirstSpell(ksmc));//设置拼音首字母
+                }
+                return mitem;
+            }).forEach(item -> {
+                Long id = zidianservice.checkKSExistsByKSCodeAndYYIdentity(item);
+                if (id == null) {
+                    zidianservice.saveKSXXInfo(item);
+                    saveNum[0]++;
+                } else {
+                    zidianservice.updateKSXXInfo(item);
+                    updateNum[0]++;
+                }
+            });
+            sbd.append("新增：").append(saveNum[0]).append("条，修改了：").append(updateNum[0]).append("条");
+            return sbd.toString();
+        }
+        return null;
+    }
+
+    @Override
+    public String yishiExcelImport(HttpServletRequest request) throws Exception {
+        List<MultipartFile> uploadFile = RequestFileUtil.getUploadFile(request);
+        if (uploadFile != null && uploadFile.size() == 1) {
+            MultipartFile file = uploadFile.get(0);
+            String yyidneity = SessionUtil.getYyIdentityForCZY(request);
+            InputStream excelIns = file.getInputStream();
+            System.out.println(file.getOriginalFilename());
+            List<HospitalDoctorVo> rlist = ExcelUtils.readExcel(excelIns, HospitalDoctorVo.class, file.getOriginalFilename());
+            System.out.println(rlist);
+            final int[] saveNum = {0};
+            final int[] updateNum = {0};
+            final int[] noIDCARDNum = {0};
+            StringBuilder sbd = new StringBuilder();
+            rlist.stream().map(mitem -> {
+                mitem.setYyidentity(yyidneity);
+                return mitem;
+            }).forEach(item -> {
+                if (StringUtils.isNotBlank(item.getIdcard())) {
+                    Long id = zidianservice.checkYiShiExistsByIDCardAndYYIdentity(item);
+                    if (id == null) {
+                        try {
+                            zidianservice.saveYSXXInfo(item);
+                        } catch (ParseException e) {
+                            e.printStackTrace();
+                        }
+                        saveNum[0]++;
+                    } else {
+                        try {
+                            zidianservice.updateYSXXInfo(item);
+                        } catch (ParseException e) {
+                            e.printStackTrace();
+                        }
+                        updateNum[0]++;
+                    }
+                } else {
+                    noIDCARDNum[0]++;
+                }
+            });
+            sbd.append("新增：").append(saveNum[0]).append("条，修改了：").append(updateNum[0]).append("条  无身份证号不插入：").append(noIDCARDNum[0]).append("条");
+            return sbd.toString();
+        }
+        return null;
     }
 }

@@ -102,4 +102,32 @@ public interface ZiDianService {
      * @return
      */
     HospitalDoctorVo getHoapitalManByIdForEdit(HospitalDoctorVo param);
+
+    /**
+     * 通过科室编码与医院标识查询
+     * @param item
+     * @return
+     */
+    Long checkKSExistsByKSCodeAndYYIdentity(HospitalOfficeVo item);
+
+    /**
+     * 修改科室信息
+     * @param item
+     * @return
+     */
+    int updateKSXXInfo(HospitalOfficeVo item);
+
+    /**
+     * 按身份证查询
+     * @param item
+     * @return
+     */
+    Long checkYiShiExistsByIDCardAndYYIdentity(HospitalDoctorVo item);
+
+    /**
+     * 修改医师信息
+     * @param item
+     * @return
+     */
+    int updateYSXXInfo(HospitalDoctorVo item) throws ParseException;
 }

@@ -131,4 +131,11 @@
             WORKDAY_    = #{workday,jdbcType=TIMESTAMP}, INDEXCODE_ = #{pinyinIndex,jdbcType=VARCHAR}
         WHERE id = #{id,jdbcType=NUMERIC}
     </update>
+    <update id="updateYSXXInfo" parameterType="com.wlht.api.vo.HospitalDoctorVo">
+        UPDATE stdhospitalman_
+        SET name_       = #{ysname,jdbcType=VARCHAR},
+            OFFICECODE_ = #{suozaiks,jdbcType=VARCHAR},
+            WORKDAY_    = #{workday,jdbcType=TIMESTAMP}, INDEXCODE_ = #{pinyinIndex,jdbcType=VARCHAR}
+        WHERE idcard_ = #{idcard,jdbcType=VARCHAR}
+    </update>
 </mapper>

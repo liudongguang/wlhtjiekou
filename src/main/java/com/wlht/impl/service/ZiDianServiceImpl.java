@@ -147,13 +147,26 @@ public class ZiDianServiceImpl implements ZiDianService {
         String sfz=param.getIdcard();
         if(StringUtils.isNotBlank(sfz)&&sfz.length()==18){
             Date date=DateUtil.getDateBySFZNUM(sfz);
+            param.setBirthday(date);
         }
         if(param.getId()!=null){
             return stdhospitalmanDao.updateByPrimaryKeySelectiveForSave(param);
         }
         return stdhospitalmanDao.saveYSXXInfo(param);
     }
-
+    @Override
+    public int updateYSXXInfo(HospitalDoctorVo item) throws ParseException{
+        String ysname=item.getYsname();
+        if(StringUtils.isNotBlank(ysname)){
+            item.setPinyinIndex(PingyinHandler.converterToFirstSpell(ysname));//设置拼音首字母
+        }
+        String sfz=item.getIdcard();
+        if(StringUtils.isNotBlank(sfz)&&sfz.length()==18){
+            Date date=DateUtil.getDateBySFZNUM(sfz);
+            item.setBirthday(date);
+        }
+        return stdhospitalmanDao.updateYSXXInfo(item);
+    }
     @Override
     public List<ZiDianBaseVo> searchKSINFO(FbaiduParam param) {
         return stdhospitalofficeDao.searchKSINFO(param);
@@ -173,4 +186,29 @@ public class ZiDianServiceImpl implements ZiDianService {
     public HospitalDoctorVo getHoapitalManByIdForEdit(HospitalDoctorVo param) {
         return stdhospitalmanDao.getHoapitalManByIdForEdit(param);
     }
+
+    @Override
+    public Long checkKSExistsByKSCodeAndYYIdentity(HospitalOfficeVo item) {
+        List<BigDecimal> ksList = stdhospitalofficeDao.checkKSName(item);
+        if(ksList!=null&&ksList.size()>0){
+            return ksList.get(0).longValue();
+        }
+        return null;
+    }
+
+    @Override
+    public int updateKSXXInfo(HospitalOfficeVo item) {
+        return stdhospitalofficeDao.updateKSXXInfo(item);
+    }
+
+    @Override
+    public Long checkYiShiExistsByIDCardAndYYIdentity(HospitalDoctorVo item) {
+        List<BigDecimal> ksList = stdhospitalmanDao.checkIDCardForHospitalMan(item);
+        if (ksList != null && ksList.size() > 0) {
+            return ksList.get(0).longValue();
+        }
+        return null;
+    }
+
+
 }
