@@ -50,11 +50,11 @@ public class DataHandlerController {
     public String wlthDR(HttpServletRequest request, ImportParam param) throws Exception {
         if(param.getStarte()==null||param.getEnd()==null){
             request.setAttribute("errmsg","时间必填！");
-            return "/index.jsp";
+            return "/cmdp/mainimport/index.jsp";
         }
         String handlerMsg=wlhtDataService.importDataByDate(param);
         request.setAttribute("errmsg",handlerMsg);
-        return "/index.jsp";
+        return "/cmdp/mainimport/index.jsp";
     }
 
     /**

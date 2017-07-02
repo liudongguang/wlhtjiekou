@@ -64,7 +64,7 @@
                     </li>
                     <li><a id="dxtjID" href="/cmdphd/getAllHospitalMan"><span class="glyphicon glyphicon-list-alt"></span>医师设置</a>
                     </li>
-                    <li><a id="sjdrID" href="/index.jsp"><span class="glyphicon glyphicon-list-alt"></span>数据导入</a>
+                    <li><a id="sjdrID" href="/cmdp/mainimport/index.jsp"><span class="glyphicon glyphicon-list-alt"></span>数据导入</a>
                     </li>
                     <li><a  href="/cmdp/importexcel/index.jsp"><span class="glyphicon glyphicon-list-alt"></span>EXCEL导入</a>
                     </li>
