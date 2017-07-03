@@ -100,25 +100,25 @@ public class WlhtDataServiceImpl implements WlhtDataService {
                 List<TBnzrr> zrrList = item.getBAZRR();//获取责任人列表
                 List<TBnsscz> ssczList = item.getSSCZ(zrrList);//手术列表
                 if (ssczList.size() > 0) {
-                     sszdDao.batchInsert(ssczList); //1.插入手术信息
+                    sszdDao.batchInsert(ssczList); //1.插入手术信息
                 }
                 if (zrrList.size() > 0) {
-                     zrrDao.batchInsert(zrrList);//2.插入责任人信息
+                    zrrDao.batchInsert(zrrList);//2.插入责任人信息
                 }
                 //3.疾病
                 List<TBnjbzd> jbzdList = item.getJBZD();//疾病列表
                 if (jbzdList.size() > 0) {
-                     jbzdDao.batchInsert(jbzdList);
+                    jbzdDao.batchInsert(jbzdList);
                 }
                 //4.费用
                 List<TBnzyfy> zlfyList = item.getZLFY();//费用列表
                 if (zlfyList.size() > 0) {
-                     zyfyDao.batchInsert(zlfyList);
+                    zyfyDao.batchInsert(zlfyList);
                 }
                 //5.过敏药物
                 List<TBngmyw> gmywList = item.getGMYW();//过敏药物
                 if (gmywList.size() > 0) {
-                      gmywDao.batchInsert(gmywList);
+                    gmywDao.batchInsert(gmywList);
                 }
             }
             datebetween.append("成功导入").append(hisDataByDate.size()).append("条信息");
@@ -267,10 +267,7 @@ public class WlhtDataServiceImpl implements WlhtDataService {
             rlist.stream().map(mitem -> {
                 mitem.setYyidentity(yyidneity);
                 String ksname = mitem.getSuozaiks();
-                List<String> ksCodeList = zidianservice.selectKeshiCodeByName(ksname);
-                if (ksCodeList != null && ksCodeList.size() > 0) {
-                    mitem.setSuozaiks(ksCodeList.get(0));
-                }
+                mitem.setSuozaiks(zidianservice.getKeshiCodeByName(ksname));
                 return mitem;
             }).forEach(item -> {
                 if (StringUtils.isNotBlank(item.getIdcard())) {

@@ -147,11 +147,4 @@ public interface ZiDianService {
      */
     int updateYSXXInfo(HospitalDoctorVo item) throws ParseException;
 
-    /**
-     * 通过科室名称获取科室编码
-     *
-     * @param ksname
-     * @return
-     */
-    List<String> selectKeshiCodeByName(String ksname);
 }
