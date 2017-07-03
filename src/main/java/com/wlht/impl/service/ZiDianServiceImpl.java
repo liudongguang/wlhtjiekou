@@ -189,7 +189,7 @@ public class ZiDianServiceImpl implements ZiDianService {
 
     @Override
     public Long checkKSExistsByKSCodeAndYYIdentity(HospitalOfficeVo item) {
-        List<BigDecimal> ksList = stdhospitalofficeDao.checkKSName(item);
+        List<BigDecimal> ksList = stdhospitalofficeDao.checkKSCode(item);
         if(ksList!=null&&ksList.size()>0){
             return ksList.get(0).longValue();
         }
@@ -205,6 +205,15 @@ public class ZiDianServiceImpl implements ZiDianService {
     public Long checkYiShiExistsByIDCardAndYYIdentity(HospitalDoctorVo item) {
         List<BigDecimal> ksList = stdhospitalmanDao.checkIDCardForHospitalMan(item);
         if (ksList != null && ksList.size() > 0) {
+            return ksList.get(0).longValue();
+        }
+        return null;
+    }
+
+    @Override
+    public Long checkKSExistsByKSNameAndYYIdentity(HospitalOfficeVo item) {
+        List<BigDecimal> ksList = stdhospitalofficeDao.checkKSName(item);
+        if(ksList!=null&&ksList.size()>0){
             return ksList.get(0).longValue();
         }
         return null;

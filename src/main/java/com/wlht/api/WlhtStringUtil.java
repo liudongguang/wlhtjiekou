@@ -6,6 +6,7 @@ import com.sun.org.apache.xpath.internal.SourceTree;
  * Created by LiuDongguang on 2017/6/29.
  */
 public class WlhtStringUtil {
+    /**
     public static String getBaIdentity20170629(String source) {
         StringBuilder rtStr = new StringBuilder("1-");
         String qianStr=source.split("-")[0];
@@ -28,7 +29,9 @@ public class WlhtStringUtil {
         return rtStr.toString();
     }
 
+
     public static void main(String[] args) {
         System.out.println(getBaIdentity20170629("0000057339-1"));
     }
+     **/
 }

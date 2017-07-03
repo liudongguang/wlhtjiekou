@@ -17,6 +17,7 @@
           <element id="dir-copy" path="$PROJECT_DIR$/build/resources/main" />
         </element>
         <element id="directory" name="lib">
+          <element id="file-copy" path="$PROJECT_DIR$/libs/ojdbc8.jar" />
           <element id="library" level="project" name="Gradle: org.springframework:spring-aop:4.3.7.RELEASE" />
           <element id="library" level="project" name="Gradle: org.springframework:spring-orm:4.3.7.RELEASE" />
           <element id="library" level="project" name="Gradle: org.springframework:spring-jdbc:4.3.7.RELEASE" />
@@ -93,7 +94,6 @@
           <element id="library" level="project" name="Gradle: org.springframework.data:spring-data-commons:1.13.1.RELEASE" />
           <element id="library" level="project" name="Gradle: org.apache.xmlbeans:xmlbeans:2.6.0" />
           <element id="library" level="project" name="Gradle: stax:stax-api:1.0.1" />
-          <element id="file-copy" path="$PROJECT_DIR$/libs/ojdbc8.jar" />
         </element>
       </element>
     </root>

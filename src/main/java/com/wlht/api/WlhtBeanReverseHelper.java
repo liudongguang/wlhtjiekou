@@ -192,7 +192,7 @@ public class WlhtBeanReverseHelper {
 
     }
 
-    public static void handlerJBZD(Long id, String baidentity, String banum, String name, List<TBnjbzd> jbzdList,String jbbm,String jbmc,String bq,String jbtype) {
+    public static void handlerJBZD(Long id, String baidentity, String banum, String name, List<TBnjbzd> jbzdList,String jbmc,String jbbm,String bq,String jbtype) {
         if (StringUtils.isNotBlank(jbbm)) {
             TBnjbzd newjbzd = new TBnjbzd();
             ///

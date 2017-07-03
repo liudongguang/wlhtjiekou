@@ -80,8 +80,8 @@ public class WlhtDataServiceImpl implements WlhtDataService {
         //2.根据数据的唯一表示查询是否本地系统存在数据
         if (hisDataByDate.size() > 0) {
             hisDataByDate = hisDataByDate.stream().filter(item -> {
-                String weiyibiaoshi = WlhtStringUtil.getBaIdentity(item.getSku());
-                Long uid = baseMapper.selectByWeiyiBiaoShi(weiyibiaoshi);
+                //String weiyibiaoshi = WlhtStringUtil.getBaIdentity(item.getSku());
+                Long uid = baseMapper.selectByWeiyiBiaoShi(item.getSku());
                 if (uid != null) {
                     return false;
                 }
@@ -234,16 +234,20 @@ public class WlhtDataServiceImpl implements WlhtDataService {
                 mitem.setKsType(WlhtDataReverseHelper.getKeShiType(kstype));
                 return mitem;
             }).forEach(item -> {
-                Long id = zidianservice.checkKSExistsByKSCodeAndYYIdentity(item);
+                Long id = zidianservice.checkKSExistsByKSNameAndYYIdentity(item);
                 if (id == null) {
+                    Long ksbmid=zidianservice.checkKSExistsByKSCodeAndYYIdentity(item);
+                    if(ksbmid!=null){
+                        item.setKeshiBM(item.getKeshiBM()+"99");
+                    }
                     zidianservice.saveKSXXInfo(item);
                     saveNum[0]++;
                 } else {
-                    zidianservice.updateKSXXInfo(item);
-                    updateNum[0]++;
+                   // zidianservice.updateKSXXInfo(item);
+                    //updateNum[0]++;
                 }
             });
-            sbd.append("新增：").append(saveNum[0]).append("条，修改了：").append(updateNum[0]).append("条");
+            sbd.append("新增：").append(saveNum[0]).append("条");
             return sbd.toString();
         }
         return null;

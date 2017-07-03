@@ -147,4 +147,10 @@ public interface ZiDianService {
      */
     int updateYSXXInfo(HospitalDoctorVo item) throws ParseException;
 
+    /**
+     * 根据科室名称查询是否存在
+     * @param item
+     * @return
+     */
+    Long checkKSExistsByKSNameAndYYIdentity(HospitalOfficeVo item);
 }
