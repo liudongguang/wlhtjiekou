@@ -46,9 +46,7 @@
             <td align="center">隶属标准名称</td>
             <td align="center">科室类型</td>
             <td align="center">拼音索引</td>
-            <!--
-            <td align="center" width="10%">操作</td>
-            -->
+            <td>操作</td>
         </tr>
         </thead>
         <tbody>
@@ -61,6 +59,8 @@
                 <td>${obj.biaozhunLiShuName}</td>
                 <td>${obj.ksType}</td>
                 <td>${obj.shouzimuIndex}</td>
+                <td><a class="label label-success" ajaxthispage searFormID="subForm" pageNum="${page.pageNum}"
+                         href="/cmdphd/editHoapitalOffice?ksid=${obj.ksid}">修改</a></td>
             </tr>
         </c:forEach>
         </tbody>

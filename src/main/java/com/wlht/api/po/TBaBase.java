@@ -53,7 +53,7 @@ public class TBaBase {
     }
     public List<TBnjbzd> getJBZD() {
         List<TBnjbzd> jbzdList=new ArrayList<>();
-        WlhtBeanReverseHelper.handlerJBZD(id,baidentity,banum,name,jbzdList,hisview.getMzzd(),hisview.getJbbm(),null,"11");
+        WlhtBeanReverseHelper.handlerJBZD(id,baidentity,banum,name,jbzdList,hisview.getMzzd(),hisview.getJbbm(),null,"1");
         WlhtBeanReverseHelper.handlerJBZD(id,baidentity,banum,name,jbzdList,hisview.getZyzd(),hisview.getJbdm(),hisview.getRybq(),"22");
         WlhtBeanReverseHelper.handlerJBZD(id,baidentity,banum,name,jbzdList,hisview.getQtzd1(),hisview.getJbdm1(),hisview.getRybq1(),"23");
         WlhtBeanReverseHelper.handlerJBZD(id,baidentity,banum,name,jbzdList,hisview.getQtzd2(),hisview.getJbdm2(),hisview.getRybq2(),"23");

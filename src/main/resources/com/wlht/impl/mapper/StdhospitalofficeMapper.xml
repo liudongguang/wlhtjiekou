@@ -42,10 +42,12 @@
     </select>
     <select id="getAllHospitalOffice" parameterType="com.wlht.api.vo.SearForKs"
             resultType="com.wlht.api.vo.HospitalOfficeVo">
-        select office.code_ as keshiBM,office.name_ as mingcheng,office.cccode_ as biaozhunLiShu,guojiabiaozhun.name_ as
+        select office.id as ksid,office.code_ as keshiBM,office.name_ as mingcheng,office.cccode_ as
+        biaozhunLiShu,guojiabiaozhun.name_ as
         biaozhunLiShuName,kstype.name_ as ksType,office.EXISTINGBED_ as chuangweiShu,office.indexcode_ as shouzimuIndex
         from STDHOSPITALOFFICE_ office,STDCONSULTATIONSUBJECT_ guojiabiaozhun,STDOFFICETYPE_ kstype where
-        office.cccode_=guojiabiaozhun.code_(+) and office.officetype_=kstype.code_(+) and orgcode_=#{yyIdentity,jdbcType=VARCHAR}
+        office.cccode_=guojiabiaozhun.code_(+) and office.officetype_=kstype.code_(+) and
+        orgcode_=#{yyIdentity,jdbcType=VARCHAR}
         <if test="ksName!=null and ksName!=''">
             and office.name_ like #{ksName,jdbcType=VARCHAR}||'%'
         </if>
@@ -54,17 +56,42 @@
         </if>
         order by office.id desc
     </select>
+    <select id="getHoapitalOfficeByIdForEdit" parameterType="com.wlht.api.vo.HospitalOfficeVo"
+            resultType="com.wlht.api.vo.HospitalOfficeVo">
+        SELECT
+            office.id            AS ksid,
+            office.code_         AS keshiBM,
+            office.name_         AS mingcheng,
+            office.cccode_       AS biaozhunLiShu,
+            guojiabiaozhun.name_ AS
+                                    biaozhunLiShuName,
+            kstype.code_         AS ksType,
+            office.EXISTINGBED_  AS chuangweiShu,
+            office.indexcode_    AS shouzimuIndex
+        FROM STDHOSPITALOFFICE_ office, STDCONSULTATIONSUBJECT_ guojiabiaozhun, STDOFFICETYPE_ kstype
+        WHERE
+            office.cccode_ = guojiabiaozhun.code_ (+) AND office.officetype_ = kstype.code_ (+) AND
+            orgcode_ = #{yyidentity,jdbcType=VARCHAR}
+            AND office.id = #{ksid,jdbcType=NUMERIC}
+    </select>
     <select id="checkKSName" parameterType="com.wlht.api.vo.HospitalOfficeVo" resultType="decimal">
-               select id from STDHOSPITALOFFICE_ where orgcode_=#{yyidentity,jdbcType=VARCHAR} and name_=#{mingcheng}
+        SELECT id
+        FROM STDHOSPITALOFFICE_
+        WHERE orgcode_ = #{yyidentity,jdbcType=VARCHAR} AND name_ = #{mingcheng}
     </select>
     <select id="checkKSCode" parameterType="com.wlht.api.vo.HospitalOfficeVo" resultType="decimal">
-        select id from STDHOSPITALOFFICE_ where orgcode_=#{yyidentity,jdbcType=VARCHAR} and code_=#{keshiBM}
+        SELECT id
+        FROM STDHOSPITALOFFICE_
+        WHERE orgcode_ = #{yyidentity,jdbcType=VARCHAR} AND code_ = #{keshiBM}
     </select>
     <insert id="saveKSXXInfo" parameterType="com.wlht.api.vo.HospitalOfficeVo">
-        insert into Stdhospitaloffice_(ID,CCCODE_,CODE_,INDEXCODE_,NAME_,ORGCODE_,OFFICETYPE_) values(SEQ_T_BNGMYW.NEXTVAL,#{biaozhunLiShu,jdbcType=VARCHAR},#{keshiBM,jdbcType=VARCHAR},#{pinyin,jdbcType=VARCHAR},#{mingcheng,jdbcType=VARCHAR},#{yyidentity,jdbcType=VARCHAR},#{ksType,jdbcType=VARCHAR})
+        INSERT INTO Stdhospitaloffice_ (ID, CCCODE_, CODE_, INDEXCODE_, NAME_, ORGCODE_, OFFICETYPE_) VALUES
+            (SEQ_T_BNGMYW.NEXTVAL, #{biaozhunLiShu,jdbcType=VARCHAR}, #{keshiBM,jdbcType=VARCHAR},
+             #{pinyin,jdbcType=VARCHAR}, #{mingcheng,jdbcType=VARCHAR}, #{yyidentity,jdbcType=VARCHAR},
+             #{ksType,jdbcType=VARCHAR})
     </insert>
     <select id="searchKSINFO" parameterType="com.wlht.api.vo.FbaiduParam" resultType="com.wlht.api.vo.ZiDianBaseVo">
-        select  CODE_ as code,NAME_ as name from STDHOSPITALOFFICE_
+        select CODE_ as code,NAME_ as name from STDHOSPITALOFFICE_
         <where>
             <if test="searchType==1">
                 CODE_ like #{searVal,jdbcType=VARCHAR}||'%'
@@ -76,12 +103,23 @@
                 NAME_ like #{searVal,jdbcType=VARCHAR}||'%'
             </if>
         </where>
+        order by code_
     </select>
     <update id="updateKSXXInfo" parameterType="com.wlht.api.vo.HospitalOfficeVo">
-         update STDHOSPITALOFFICE_ set NAME_=#{mingcheng,jdbcType=VARCHAR},INDEXCODE_=#{pinyin,jdbcType=VARCHAR},OFFICETYPE_=#{ksType,jdbcType=VARCHAR}
-        where CODE_=#{keshiBM,jdbcType=VARCHAR} and ORGCODE_=#{yyidentity,jdbcType=VARCHAR}
+        UPDATE STDHOSPITALOFFICE_
+        SET NAME_       = #{mingcheng,jdbcType=VARCHAR}, INDEXCODE_ = #{pinyin,jdbcType=VARCHAR},
+            OFFICETYPE_ = #{ksType,jdbcType=VARCHAR}
+        WHERE CODE_ = #{keshiBM,jdbcType=VARCHAR} AND ORGCODE_ = #{yyidentity,jdbcType=VARCHAR}
     </update>
+    <update id="updateKSXXInfoForEdit" parameterType="com.wlht.api.vo.HospitalOfficeVo">
+        UPDATE STDHOSPITALOFFICE_
+        SET      CCCODE_     = #{biaozhunLiShu,jdbcType=VARCHAR}
+        WHERE ID = #{ksid,jdbcType=NUMERIC}
+    </update>
+
     <select id="selectKeshiCodeByName" parameterType="string" resultType="string">
-        SELECT CODE_ from STDHOSPITALOFFICE_ where NAME_=#{ksname,jdbcType=VARCHAR}
+        SELECT CODE_
+        FROM STDHOSPITALOFFICE_
+        WHERE NAME_ = #{ksname,jdbcType=VARCHAR}
     </select>
 </mapper>

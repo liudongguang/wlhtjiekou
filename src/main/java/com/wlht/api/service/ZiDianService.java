@@ -153,4 +153,11 @@ public interface ZiDianService {
      * @return
      */
     Long checkKSExistsByKSNameAndYYIdentity(HospitalOfficeVo item);
+
+    /**
+     * 查询单个科室
+     * @param param
+     * @return
+     */
+    HospitalOfficeVo getHoapitalOfficeByIdForEdit(HospitalOfficeVo param);
 }

@@ -102,6 +102,11 @@ public class ZiDianServiceImpl implements ZiDianService {
     }
 
     @Override
+    public HospitalOfficeVo getHoapitalOfficeByIdForEdit(HospitalOfficeVo param) {
+        return stdhospitalofficeDao.getHoapitalOfficeByIdForEdit(param);
+    }
+
+    @Override
     public String checkOfficeNameAndCode(HospitalOfficeVo param) {
         List<BigDecimal> ksList = stdhospitalofficeDao.checkKSName(param);
         if (ksList != null && ksList.size() > 0) {
@@ -119,6 +124,9 @@ public class ZiDianServiceImpl implements ZiDianService {
         String ksmc=param.getMingcheng();
         if(StringUtils.isNotBlank(ksmc)){
             param.setPinyin(PingyinHandler.converterToFirstSpell(ksmc));//设置拼音首字母
+        }
+        if(param.getKsid()!=null){
+            return stdhospitalofficeDao.updateKSXXInfoForEdit(param);
         }
         return stdhospitalofficeDao.saveKSXXInfo(param);
     }

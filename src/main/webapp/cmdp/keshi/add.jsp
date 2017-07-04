@@ -7,24 +7,25 @@
 <div class="clearfix"></div>
 <div class="col-md-6">
     <form class="form-horizontal" id="subForm" method="post" action="cmdphd/saveKSXXInfo">
+        <input type="hidden" id="ksidID" name="ksid" value="${obj.ksid}"/>
         <div class="form-group">
             <label class="col-md-2 control-label">科室名称*</label>
             <div class="col-md-8">
-                <input class="form-control" name="mingcheng" required errInfo="科室名称不能为空" type="text" placeholder="科室名称">
+                <input class="form-control" name="mingcheng" value="${obj.mingcheng}" required errInfo="科室名称不能为空" type="text" placeholder="科室名称" <c:if test="${obj.ksid!=null}">disabled="disabled"</c:if> />
             </div>
         </div>
 
         <div class="form-group">
             <label class="col-md-2 control-label">科室编码*</label>
             <div class="col-md-8">
-                <input name="KeshiBM" type="text" required errInfo="科室编码不能为空" class="form-control" placeholder="科室编码">
+                <input name="keshiBM" value="${obj.keshiBM}" type="text" required errInfo="科室编码不能为空" class="form-control" placeholder="科室编码" <c:if test="${obj.ksid!=null}">disabled="disabled"</c:if> />
             </div>
         </div>
         <div class="form-group">
             <label class="col-md-2 control-label">隶属国家标准*</label>
             <div class="col-md-8">
-                <input id="biaozhunLiShuID" class="form-control" type="text" placeholder="隶属国家标准" fangbaidu_searurl="/cmdphd/searchLSKSGJBZINFO" />
-                <input id="biaozhunLiShuID_BM" name="biaozhunLiShu" type="hidden" required errInfo="隶属国家标准不能为空"/>
+                <input id="biaozhunLiShuID" class="form-control" type="text" value="${obj.biaozhunLiShuName}" placeholder="隶属国家标准" fangbaidu_searurl="/cmdphd/searchLSKSGJBZINFO" />
+                <input id="biaozhunLiShuID_BM" name="biaozhunLiShu" value="${obj.biaozhunLiShu}" type="hidden" required errInfo="隶属国家标准不能为空"/>
                 <div id="disRSDIVID" class="bdsug" style="height: auto; display: none;">
                     <ul id="addULID">
                     </ul>
@@ -34,7 +35,8 @@
         <div class="form-group">
             <label class="col-md-2 control-label">科室类型*</label>
             <div class="col-md-8">
-                <select name="ksType" class="form-control" id="ksTypeSelect" required errInfo="科室类型不能为空">
+                <input id="hiddenval_ksType" type="hidden" value="${obj.ksType}"/>
+                <select name="ksType" class="form-control" id="ksTypeSelect" required errInfo="科室类型不能为空" <c:if test="${obj.ksid!=null}">disabled="disabled"</c:if> >
                     <option value="">请选择科室</option>
                     <option value="1">门诊科室</option>
                     <option value="2">住院科室</option>

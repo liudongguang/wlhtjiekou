@@ -50,7 +50,20 @@ public class CmdpExtraController {
         request.setAttribute("page",page);
         return "/cmdp/keshi/disList.jsp";
     }
-
+    /**
+     * 修改科室
+     * @param request
+     * @param param
+     * @return
+     * @throws Exception
+     */
+    @RequestMapping(value = "/editHoapitalOffice")
+    public String editHoapitalOffice(HttpServletRequest request,HospitalOfficeVo param) throws Exception {
+        param.setYyidentity(SessionUtil.getYyIdentityForCZY(request));
+        HospitalOfficeVo hospitalOffice=ziDianService.getHoapitalOfficeByIdForEdit(param);
+        request.setAttribute("obj",hospitalOffice);
+        return "/cmdp/keshi/add.jsp";
+    }
     /**
      * 检查科室名与科室编码是否重复
      * @param request

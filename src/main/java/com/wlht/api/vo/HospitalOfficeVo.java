@@ -4,6 +4,7 @@ package com.wlht.api.vo;
  * Created by liudo on 2017/7/1.
  */
 public class HospitalOfficeVo {
+    private Long ksid;
     private String keshiBM;
     private String mingcheng;
     private String biaozhunLiShu;
@@ -14,6 +15,14 @@ public class HospitalOfficeVo {
 
     private String yyidentity;//医院标识
     private String pinyin;//拼音首字母
+
+    public Long getKsid() {
+        return ksid;
+    }
+
+    public void setKsid(Long ksid) {
+        this.ksid = ksid;
+    }
 
     public Integer getChuangweishu() {
         return chuangweishu;

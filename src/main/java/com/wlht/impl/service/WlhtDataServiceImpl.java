@@ -79,6 +79,7 @@ public class WlhtDataServiceImpl implements WlhtDataService {
         datebetween.append(" 至 ").append(DateUtil.yyyy_MM_ddFormat.format(param.getEnd())).append("--->");
         //2.根据数据的唯一表示查询是否本地系统存在数据
         if (hisDataByDate.size() > 0) {
+            datebetween.append("数据总条数为：").append(hisDataByDate.size()).append("  ");
             hisDataByDate = hisDataByDate.stream().filter(item -> {
                 //String weiyibiaoshi = WlhtStringUtil.getBaIdentity(item.getSku());
                 Long uid = baseMapper.selectByWeiyiBiaoShi(item.getSku());

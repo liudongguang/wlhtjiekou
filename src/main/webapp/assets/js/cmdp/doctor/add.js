@@ -2,6 +2,7 @@ jQuery(document).ready(function () {
     initAjaxForm($("#subForm"), $("#subBT"), function (data) {
         $("#mainContent").empty().html(data);
     }, true, function (form, options) {
+        //修改情况直接进行提交
         if($("#ysID").val()){
             options.zzcid = layer.load(0, {
                 shade: [0.8, '#fff']

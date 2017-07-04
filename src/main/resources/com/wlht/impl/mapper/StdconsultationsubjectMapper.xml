@@ -44,5 +44,6 @@
                 NAME_ like #{searVal}||'%'
             </if>
         </where>
+        order by code_
     </select>
 </mapper>

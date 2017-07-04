@@ -55,4 +55,18 @@ public interface StdhospitalofficeMapper extends Mapper<Stdhospitaloffice> {
      * @return
      */
     List<String> selectKeshiCodeByName(@Param("ksname") String ksname);
+
+    /**
+     * 根据科室id获取单条信息
+     * @param param
+     * @return
+     */
+    HospitalOfficeVo getHoapitalOfficeByIdForEdit(HospitalOfficeVo param);
+
+    /**
+     * 通过ksid修改
+     * @param param
+     * @return
+     */
+    int updateKSXXInfoForEdit(HospitalOfficeVo param);
 }
