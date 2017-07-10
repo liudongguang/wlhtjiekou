@@ -158,7 +158,7 @@ public class WlhtBeanReverseHelper {
             newsscz.setJgmcname(SysConstant.zzdmName);
             newsscz.setJlh(jlh);
             newsscz.setSsczbm(ssjczbm);// 1
-            newsscz.setSsbmname(ssjczmc);// 2
+            newsscz.setSsbmname(LdgStringUtil.getStringByLength(ssjczmc,16));// 2
             if(StringUtils.isNotBlank(ssjczrq)&&ssjczrq.length()==10){
                 newsscz.setSstarttime(DateUtil.yyyy_MM_ddFormat.parse(ssjczrq));// 3
             }else{
