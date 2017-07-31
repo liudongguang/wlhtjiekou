@@ -54,7 +54,7 @@ public class LdgStringUtil {
     }
 
     public static boolean isNum(String source) {
-        if (StringUtils.isNotBlank(source)) {
+        if (StringUtils.isBlank(source)) {
             return false;
         }
         boolean numState = source

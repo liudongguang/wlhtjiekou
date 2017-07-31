@@ -160,9 +160,20 @@ public class WlhtBeanReverseHelper {
             newsscz.setSsczbm(ssjczbm);// 1
             newsscz.setSsbmname(LdgStringUtil.getStringByLength(ssjczmc,16));// 2
             if(StringUtils.isNotBlank(ssjczrq)&&ssjczrq.length()==10){
-                newsscz.setSstarttime(DateUtil.yyyy_MM_ddFormat.parse(ssjczrq));// 3
+                try {
+                    newsscz.setSstarttime(DateUtil.yyyy_MM_ddFormat.parse(ssjczrq));// 3
+                }
+                catch (Exception e){
+
+                }
             }else{
-                newsscz.setSstarttime(DateUtil.yyyy_MM_dd_HH_mmFormat.parse(ssjczrq));// 3
+                if(StringUtils.isNotBlank(ssjczrq)&&ssjczrq.length()==16){
+                    try{
+                        newsscz.setSstarttime(DateUtil.yyyy_MM_dd_HH_mmFormat.parse(ssjczrq));// 3
+                    }catch (Exception e){
+
+                    }
+                }
             }
 
             if (StringUtils.isNotBlank(ssjb)) {
