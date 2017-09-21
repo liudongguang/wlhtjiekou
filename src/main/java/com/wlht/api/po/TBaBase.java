@@ -71,6 +71,7 @@ public class TBaBase {
         WlhtBeanReverseHelper.handlerJBZD(id,baidentity,banum,name,jbzdList,hisview.getQtzd14(),hisview.getJbdm14(),hisview.getRybq14(),"23");
         WlhtBeanReverseHelper.handlerJBZD(id,baidentity,banum,name,jbzdList,hisview.getQtzd15(),hisview.getJbdm15(),hisview.getRybq15(),"23");
         WlhtBeanReverseHelper.handlerJBZD(id,baidentity,banum,name,jbzdList,hisview.getWbyy(),hisview.getH23(),null,"91");
+        WlhtBeanReverseHelper.handlerJBZD(id,baidentity,banum,name,jbzdList,hisview.getBlzd(),hisview.getJbmm(),null,"44");
         return jbzdList;
     }
     public List<TBnzyfy> getZLFY() {
