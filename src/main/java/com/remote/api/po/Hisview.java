@@ -110,6 +110,21 @@ public class Hisview {
         if (StringUtils.isNotBlank(this.md)) {
             newBase.setZzymd(this.md.trim());// 44.在住院目的
         }
+        ////
+        newBase.setQjcishu(this.getQjcishu());
+        newBase.setQjsuccesscishu(this.getQjsuccesscishu());
+        newBase.setCyfhqk(WlhtDataReverseHelper.getFuhestatus(this.getCyfhqk()));
+        newBase.setRycyfhqk(WlhtDataReverseHelper.getFuhestatus(this.getRycyfhqk()));
+        newBase.setShoushuqh(WlhtDataReverseHelper.getFuhestatus(this.getShoushuqh()));
+        newBase.setYxbl(WlhtDataReverseHelper.getFuhestatus(this.getYxbl()));
+        newBase.setLcbl(WlhtDataReverseHelper.getFuhestatus(this.getLcbl()));
+        if (this.getSslclj() != null) {
+            if (this.getSslclj().indexOf("是") != -1) {
+                newBase.setSslclj(1);
+            } else if (this.getSslclj().indexOf("否") != -1) {
+                newBase.setSslclj(2);
+            }
+        }
         newBase.setHisview(this);
         return newBase;
     }
@@ -1511,6 +1526,118 @@ public class Hisview {
     private Integer agemonth;
     @Column(name = "AGEDAYS")
     private Integer agedays;
+
+    /**
+     * 20170928 增加8个字段
+     * QJCISHU,QJSUCCESSCISHU,CYFHQK,RYCYFHQK,SHOUSHUQH,YXBL,LCBL,SSLCLJ
+     *
+     */
+    /**
+     * 抢救次数
+     */
+    @Column(name = "QJCISHU")
+    private Integer qjcishu;
+    /**
+     * 抢救成功次数
+     */
+    @Column(name = "QJSUCCESSCISHU")
+    private Integer qjsuccesscishu;
+    /**
+     * 是否实施临床路径
+     */
+    @Column(name = "SSLCLJ")
+    private String sslclj;
+
+    /**
+     * 门诊与出院诊断
+     */
+    @Column(name = "CYFHQK")
+    private String cyfhqk;
+    /**
+     * 入院与出院诊断
+     */
+    @Column(name = "RYCYFHQK")
+    private String rycyfhqk;
+    /**
+     * 术前与术后诊断
+     */
+    @Column(name = "SHOUSHUQH")
+    private String shoushuqh;
+    /**
+     * 影像与病理诊断
+     */
+    @Column(name = "YXBL")
+    private String yxbl;
+    /**
+     * 临床与病理诊断
+     */
+    @Column(name = "LCBL")
+    private String lcbl;
+
+
+    public Integer getQjcishu() {
+        return qjcishu;
+    }
+
+    public void setQjcishu(Integer qjcishu) {
+        this.qjcishu = qjcishu;
+    }
+
+    public Integer getQjsuccesscishu() {
+        return qjsuccesscishu;
+    }
+
+    public void setQjsuccesscishu(Integer qjsuccesscishu) {
+        this.qjsuccesscishu = qjsuccesscishu;
+    }
+
+    public String getSslclj() {
+        return sslclj;
+    }
+
+    public void setSslclj(String sslclj) {
+        this.sslclj = sslclj;
+    }
+
+    public String getCyfhqk() {
+        return cyfhqk;
+    }
+
+    public void setCyfhqk(String cyfhqk) {
+        this.cyfhqk = cyfhqk;
+    }
+
+    public String getRycyfhqk() {
+        return rycyfhqk;
+    }
+
+    public void setRycyfhqk(String rycyfhqk) {
+        this.rycyfhqk = rycyfhqk;
+    }
+
+    public String getShoushuqh() {
+        return shoushuqh;
+    }
+
+    public void setShoushuqh(String shoushuqh) {
+        this.shoushuqh = shoushuqh;
+    }
+
+    public String getYxbl() {
+        return yxbl;
+    }
+
+    public void setYxbl(String yxbl) {
+        this.yxbl = yxbl;
+    }
+
+    public String getLcbl() {
+        return lcbl;
+    }
+
+    public void setLcbl(String lcbl) {
+        this.lcbl = lcbl;
+    }
 
     public Integer getAgesui() {
         return agesui;

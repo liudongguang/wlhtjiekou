@@ -23,6 +23,9 @@ public class WlhtDataReverseHelper {
     private final static Map<String, String> zdrybq = new HashMap<>();//诊断入院病情
 
     private final static Map<String, String> keshiType = new HashMap<>();//科室类型
+
+    private final static Map<String, String> fuhestatus = new HashMap<>();//符合情况
+
     static {
         ylfs.put("全自费", "70");
         ylfs.put("新型农村合作医疗", "30");
@@ -55,40 +58,47 @@ public class WlhtDataReverseHelper {
         xx.put("不详", 5);
         xx.put("未查", 6);
         //
-        rh.put("阴",1);
-        rh.put("阳",2);
-        rh.put("不详",3);
-        rh.put("未查",4);
+        rh.put("阴", 1);
+        rh.put("阳", 2);
+        rh.put("不详", 3);
+        rh.put("未查", 4);
         //
-        lyfs.put("其他","9");
-        lyfs.put("非医嘱离院","4");
-        lyfs.put("医嘱离院","1");
-        lyfs.put("医嘱转院","2");
-        lyfs.put("医嘱转社区卫生服务机构/乡镇卫生院","3");
-        lyfs.put("死亡","5");
+        lyfs.put("其他", "9");
+        lyfs.put("非医嘱离院", "4");
+        lyfs.put("医嘱离院", "1");
+        lyfs.put("医嘱转院", "2");
+        lyfs.put("医嘱转社区卫生服务机构/乡镇卫生院", "3");
+        lyfs.put("死亡", "5");
         //
-        zdrybq.put("有","1");
-        zdrybq.put("临床未确定","2");
-        zdrybq.put("情况不明","3");
-        zdrybq.put("无","4");
+        zdrybq.put("有", "1");
+        zdrybq.put("临床未确定", "2");
+        zdrybq.put("情况不明", "3");
+        zdrybq.put("无", "4");
         //
-        keshiType.put("门诊科室","1");
-        keshiType.put("住院科室","2");
-        keshiType.put("医技科室","3");
-        keshiType.put("管理科室","4");
-        keshiType.put("后勤科室","5");
-        keshiType.put("其他科室","6");
+        keshiType.put("门诊科室", "1");
+        keshiType.put("住院科室", "2");
+        keshiType.put("医技科室", "3");
+        keshiType.put("管理科室", "4");
+        keshiType.put("后勤科室", "5");
+        keshiType.put("其他科室", "6");
+        //
+        fuhestatus.put("符合", "1");
+        fuhestatus.put("不符合", "2");
+        fuhestatus.put("未做", "3");
     }
 
     public static String getYlfs(String source) {
-        if(source==null){
+        if (source == null) {
             return "90";
         }
-        return ylfs.get(source) == null ? "90" : ylfs.get(source);
+        return ylfs.get(source) == null ? "90" : ylfs.get(source.trim());
     }
 
     public static Integer getXb(String source) {
-        return xb.get(source) == null ? 9 : xb.get(source);
+        if (source == null) {
+            return 9;
+        }
+        return xb.get(source) == null ? 9 : xb.get(source.trim());
     }
 
     public static void setMz(String key, String val) {
@@ -100,17 +110,17 @@ public class WlhtDataReverseHelper {
     }
 
     public static String getzhiye(String source) {
-        if(source==null){
+        if (source == null) {
             return "90";
         }
-        return zy.get(source) == null ? "90" : zy.get(source);
+        return zy.get(source) == null ? "90" : zy.get(source.trim());
     }
 
     public static String gethunyin(String source) {
-        if(source==null){
+        if (source == null) {
             return "90";
         }
-        return hy.get(source) == null ? "90" : hy.get(source);
+        return hy.get(source) == null ? "90" : hy.get(source.trim());
     }
 
     public static void setlxrgx(String key, String val) {
@@ -122,10 +132,10 @@ public class WlhtDataReverseHelper {
     }
 
     public static String getrytj(String source) {
-        if(source==null){
+        if (source == null) {
             return "9";
         }
-        return rytj.get(source) == null ? "9" : rytj.get(source);
+        return rytj.get(source) == null ? "9" : rytj.get(source.trim());
     }
 
     public static void setkeshi(String key, String val) {
@@ -137,35 +147,45 @@ public class WlhtDataReverseHelper {
     }
 
     public static Integer getXx(String source) {
-        if(source==null){
+        if (source == null) {
             return 6;
         }
-        return xx.get(source) == null ? 6 : xx.get(source);
+        return xx.get(source) == null ? 6 : xx.get(source.trim());
     }
 
     public static Integer getRh(String source) {
-        if(source==null){
+        if (source == null) {
             return 4;
         }
-        return rh.get(source) == null ? 4 : rh.get(source);
+        return rh.get(source) == null ? 4 : rh.get(source.trim());
     }
 
     public static String getYLFS(String source) {
-        if(source==null){
+        if (source == null) {
             return "9";
         }
-        return lyfs.get(source) == null ? "9" : lyfs.get(source);
+        return lyfs.get(source) == null ? "9" : lyfs.get(source.trim());
     }
+
     public static String getZdrybq(String source) {
-        if(source==null){
+        if (source == null) {
             return "4";
         }
-        return zdrybq.get(source) == null ? "4" : zdrybq.get(source);
+        return zdrybq.get(source) == null ? "4" : zdrybq.get(source.trim());
     }
+
     public static String getKeShiType(String source) {
-        if(source==null){
+        if (source == null) {
             return "6";
         }
-        return keshiType.get(source) == null ? "6" : keshiType.get(source);
+        return keshiType.get(source) == null ? "6" : keshiType.get(source.trim());
     }
+
+    public static String getFuhestatus(String source) {
+        if (source == null) {
+            return "3";
+        }
+        return fuhestatus.get(source) == null ? "3" : keshiType.get(source.trim());
+    }
+
 }

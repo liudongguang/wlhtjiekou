@@ -10,5 +10,5 @@ import java.util.List;
 public interface HisviewMapper extends Mapper<Hisview> {
     List<Hisview> selectBADateFromHis(ImportParam param);
 
-    void addHisviewExt(HisviewExt item);
+    //void addHisviewExt(HisviewExt item);
 }
