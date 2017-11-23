@@ -9,4 +9,5 @@ import java.util.List;
 
 public interface StdconsultationsubjectMapper extends Mapper<Stdconsultationsubject> {
     List<ZiDianBaseVo> searchLSKSGJBZINFO(FbaiduParam param);
+
 }

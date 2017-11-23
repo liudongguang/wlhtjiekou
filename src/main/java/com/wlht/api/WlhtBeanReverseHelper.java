@@ -216,7 +216,7 @@ public class WlhtBeanReverseHelper {
             //
             newjbzd.setZdtype(jbtype);
             newjbzd.setJbzdbm(jbbm);
-            newjbzd.setShouxiejibing(jbmc);
+            newjbzd.setShouxiejibing(LdgStringUtil.getStringByLength(jbmc,20) );
             newjbzd.setZdrybq(WlhtDataReverseHelper.getZdrybq(bq));
             jbzdList.add(newjbzd);
         }
