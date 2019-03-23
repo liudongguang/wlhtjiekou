@@ -53,10 +53,16 @@
             <tr>
                 <td>${obj.name}</td>
                 <td>${obj.code}</td>
-                <td>${obj.level}</td>
-                <td>${obj.stdopsoperationmark}</td>
+                <td>${obj.level}
+                    <c:if test="${obj.level!=null}">
+                    -
+                        ${obj.levelName}</c:if></td>
+                <td>${obj.stdopsoperationmark}
+                    <c:if test="${obj.stdopsoperationmark!=null}">
+                    -${obj.stdopsoperationmarkName}
+                    </c:if></td>
                 <td><a class="label label-success" ajaxthispage searFormID="subForm" pageNum="${page.pageNum}"
-                         href="/cmdphd/editHoapitalOffice?ksid=${obj.id}">修改</a></td>
+                         href="/shoushu/editHoapitalShoushu?id=${obj.id}">修改</a></td>
             </tr>
         </c:forEach>
         </tbody>

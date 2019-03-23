@@ -10,4 +10,8 @@ import java.util.List;
 
 public interface StdopsoperationMapper extends Mapper<Stdopsoperation> {
     List<SimpleStdopsoperationVo> getAllHospitalShoushu(SearForShoushu param);
+
+    SimpleStdopsoperationVo selectShoushuByID(Long id);
+
+    int updateBySimpleStdopsoperationVo(SimpleStdopsoperationVo param);
 }

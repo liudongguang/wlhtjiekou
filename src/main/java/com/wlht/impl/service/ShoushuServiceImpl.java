@@ -3,6 +3,8 @@ package com.wlht.impl.service;
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
 import com.ldg.api.vo.PageParam;
+import com.wlht.api.po.Stdopslevel;
+import com.wlht.api.po.Stdopsoperationmark;
 import com.wlht.api.service.ShoushuService;
 import com.wlht.api.vo.SearForShoushu;
 import com.wlht.api.vo.SimpleStdopsoperationVo;
@@ -13,6 +15,7 @@ import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.Iterator;
 import java.util.List;
 
 @Service
@@ -40,5 +43,36 @@ public class ShoushuServiceImpl implements ShoushuService {
             }
         }
         return pageInfo;
+    }
+
+    @Override
+    public SimpleStdopsoperationVo selectShoushuByID(Long id) {
+        return stdopsoperationMapper.selectShoushuByID(id);
+    }
+
+    @Override
+    public List<Stdopslevel> selectShoushuLeves() {
+        return stdopslevelMapper.selectShoushuLeves();
+    }
+
+    @Override
+    public List<Stdopsoperationmark> selectShoushuMarks() {
+        List<Stdopsoperationmark> stdopsoperationmarks = stdopsoperationmarkMapper.selectShoushuMarks();
+        Iterator<Stdopsoperationmark> iterator = stdopsoperationmarks.iterator();
+        while (iterator.hasNext()){
+            Stdopsoperationmark next = iterator.next();
+            if(next.getCode().length()==1){
+                iterator.remove();
+            }
+        }
+        return stdopsoperationmarks;
+    }
+
+    @Override
+    public int saveShoushu(SimpleStdopsoperationVo param) {
+        if(param.getId()==null){
+            return 0;
+        }
+        return stdopsoperationMapper.updateBySimpleStdopsoperationVo(param);
     }
 }

@@ -33,4 +33,7 @@
     <select id="selectNameByCode" resultType="java.lang.String">
        select NAME_ from StdOpsLevel_ where CODE_=  #{param1,jdbcType=VARCHAR}
     </select>
+  <select id="selectShoushuLeves" resultMap="BaseResultMap">
+     select CODE_,NAME_ from StdOpsLevel_ order by CODE_
+  </select>
 </mapper>

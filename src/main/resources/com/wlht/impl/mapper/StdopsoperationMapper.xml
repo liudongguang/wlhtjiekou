@@ -53,4 +53,11 @@
   <select id="getAllHospitalShoushu" resultMap="SimpleBaseResultMap" parameterType="com.wlht.api.vo.SearForShoushu">
        select ID,NAME_,CODE_,STDOPSOPERATIONMARK_,LEVEL_ from Stdopsoperation_ where ATTRIBUTES_='40'
   </select>
+  <select id="selectShoushuByID" resultMap="SimpleBaseResultMap" parameterType="long">
+        select ID,NAME_,CODE_,STDOPSOPERATIONMARK_,LEVEL_ from Stdopsoperation_ where id= #{param1,jdbcType=NUMERIC}
+  </select>
+  <update id="updateBySimpleStdopsoperationVo" parameterType="com.wlht.api.vo.SimpleStdopsoperationVo">
+       update Stdopsoperation_ set STDOPSOPERATIONMARK_=#{stdopsoperationmark,jdbcType=VARCHAR},LEVEL_=#{level,jdbcType=VARCHAR}
+       where id=#{id,jdbcType=NUMERIC}
+  </update>
 </mapper>
