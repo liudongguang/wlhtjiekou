@@ -195,7 +195,7 @@ public class WlhtBeanReverseHelper {
             //助手1
             WlhtBeanReverseHelper.handlerZrr(zrrList, id, baIdentity, banum, yz, brname, SysConstant.zzdm, SysConstant.zzdmName, "32");
             //助手2
-            WlhtBeanReverseHelper.handlerZrr(zrrList, id, baIdentity, banum, ez, brname, SysConstant.zzdm, SysConstant.zzdmName, "32");
+            WlhtBeanReverseHelper.handlerZrr(zrrList, id, baIdentity, banum, ez, brname, SysConstant.zzdm, SysConstant.zzdmName, "321");
             //麻醉
             WlhtBeanReverseHelper.handlerZrr(zrrList, id, baIdentity, banum, mzys, brname, SysConstant.zzdm, SysConstant.zzdmName, "33");
 
