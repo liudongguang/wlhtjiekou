@@ -8,7 +8,7 @@ import javax.persistence.*;
 public class Stdhospitalman {
     @Id
     @Column(name = "ID")
-    private BigDecimal id;
+    private Long id;
 
     @Column(name = "ADDRESS_")
     private String address;
@@ -148,17 +148,11 @@ public class Stdhospitalman {
     @Column(name = "SIGNATURE_")
     private byte[] signature;
 
-    /**
-     * @return ID
-     */
-    public BigDecimal getId() {
+    public Long getId() {
         return id;
     }
 
-    /**
-     * @param id
-     */
-    public void setId(BigDecimal id) {
+    public void setId(Long id) {
         this.id = id;
     }
 

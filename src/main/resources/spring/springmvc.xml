@@ -75,6 +75,7 @@
             <mvc:mapping path="/cmdphd/**" />
             <mvc:mapping path="/wlhtData/**" />
             <mvc:exclude-mapping path="/cmdphd/login"/>
+            <mvc:exclude-mapping path="/addDoctor/**"/>
             <bean class="com.wlht.interceptor.ManagerLoginInterceptor"></bean>
         </mvc:interceptor>
     </mvc:interceptors>
