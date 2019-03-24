@@ -47,7 +47,7 @@
     </form>
     <div class="form-group col-md-offset-4" style="margin-top: 30px">
         <button class="btn btn-primary" id="subBT" type="button">保存</button>
-        <button id="backBTID" href="/cmdphd/getAllHospitalOffice" class="btn btn-default" type="button">返回</button>
+        <button id="backBTID" href="/shoushu/getAllShoushu" class="btn btn-default" type="button">返回</button>
     </div>
 </div>
 <script language="javascript" type="text/javascript" src="assets/js/main/ajaxForm.js"></script>

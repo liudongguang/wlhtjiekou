@@ -7,30 +7,22 @@
 <div class="clearfix"></div>
 <div class="row margin-bottom-30">
     <div class="col-md-12">
-        <form id="subForm" action="cmdphd/getAllHospitalOffice" class="form-inline" method="post">
+        <form id="subForm" action="shoushu/getAllShoushu" class="form-inline" method="post">
             <div class="form-group">
-                <span> 科室名称：</span> <input name="ksName" class="form-control" type="text" value="${param.ksName}">
+                <span> 手术名称：</span> <input name="ssname" class="form-control" type="text" value="${param.ssname}">
             </div>
             <div class="form-group" style="margin-left:15px;">
-                <span>科室类型：</span>
-                <input id="hiddenval_ksType" type="hidden" value="${param.ksType}"/>
-                <select name="ksType" class="form-control" id="ksTypeSelect">
-                    <option value="">请选择科室</option>
-                    <option value="1">门诊科室</option>
-                    <option value="2">住院科室</option>
-                    <option value="3">医技科室</option>
-                    <option value="4">管理科室</option>
-                    <option value="5">后勤科室</option>
-                    <option value="9">其他科室</option>
-                </select>
+                <span> 手术编码：</span> <input name="sscode" class="form-control" type="text" value="${param.sscode}">
             </div>
             <div class="form-group" style="margin-left:15px;">
                 <button class="btn btn-primary btn-large" id="subBT">
                     查询
                 </button>
+                <!--
                 <button class="btn btn-success btn-large" ajaxthispage href="/cmdp/keshi/add.jsp">
                     新增
                 </button>
+                -->
             </div>
         </form>
 
@@ -55,11 +47,10 @@
                 <td>${obj.code}</td>
                 <td>${obj.level}
                     <c:if test="${obj.level!=null}">
-                    -
-                        ${obj.levelName}</c:if></td>
+                    （${obj.levelName}）</c:if></td>
                 <td>${obj.stdopsoperationmark}
                     <c:if test="${obj.stdopsoperationmark!=null}">
-                    -${obj.stdopsoperationmarkName}
+                    （${obj.stdopsoperationmarkName}）
                     </c:if></td>
                 <td><a class="label label-success" ajaxthispage searFormID="subForm" pageNum="${page.pageNum}"
                          href="/shoushu/editHoapitalShoushu?id=${obj.id}">修改</a></td>

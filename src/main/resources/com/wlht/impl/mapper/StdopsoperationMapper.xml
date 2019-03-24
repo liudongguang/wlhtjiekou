@@ -51,7 +51,16 @@
     <result column="LEVEL_" jdbcType="NUMERIC" property="level" />
   </resultMap>
   <select id="getAllHospitalShoushu" resultMap="SimpleBaseResultMap" parameterType="com.wlht.api.vo.SearForShoushu">
-       select ID,NAME_,CODE_,STDOPSOPERATIONMARK_,LEVEL_ from Stdopsoperation_ where ATTRIBUTES_='40'
+       select ID,NAME_,CODE_,STDOPSOPERATIONMARK_,LEVEL_ from Stdopsoperation_
+        <where>
+          ATTRIBUTES_='40'
+          <if test="ssname!=null and ssname!=''">
+            and NAME_ like #{ssname,jdbcType=VARCHAR}||'%'
+          </if>
+          <if test="sscode!=null and sscode!=''">
+            and CODE_ like #{sscode,jdbcType=VARCHAR}||'%'
+          </if>
+        </where>
   </select>
   <select id="selectShoushuByID" resultMap="SimpleBaseResultMap" parameterType="long">
         select ID,NAME_,CODE_,STDOPSOPERATIONMARK_,LEVEL_ from Stdopsoperation_ where id= #{param1,jdbcType=NUMERIC}
