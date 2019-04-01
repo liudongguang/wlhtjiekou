@@ -106,7 +106,7 @@
             renyuan.BIRTHDAY_  AS birthday,
             renyuan.WORKDAY_   AS workday,
             renyuan.ISACTIVED_ AS sfqy,
-            renyuan.ORGCODE_   AS yyidentity
+            renyuan.ORGCODE_   AS yyidentity,
             renyuan.ADDRESS_   AS gonghao
         FROM
             stdhospitalman_ renyuan, stdhospitaloffice_ office
