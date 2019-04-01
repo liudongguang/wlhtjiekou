@@ -160,4 +160,11 @@ public interface ZiDianService {
      * @return
      */
     HospitalOfficeVo getHoapitalOfficeByIdForEdit(HospitalOfficeVo param);
+
+    /**
+     * 保存医生信息
+     * @param param
+     * @return
+     */
+    int saveYSXXInfo20190401(HospitalDoctorVo20190401 param) throws ParseException;
 }

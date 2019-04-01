@@ -38,6 +38,7 @@
             <td>身份证号</td>
             <td>出生日期</td>
             <td>参加工作时间</td>
+            <td>工号</td>
             <td>操作</td>
         </tr>
         </thead>
@@ -50,6 +51,7 @@
                 <td>${obj.idcard}</td>
                 <td><fmt:formatDate value="${obj.birthday}" pattern="yyyy-MM-dd HH:mm:ss"></fmt:formatDate></td>
                 <td><fmt:formatDate value="${obj.workday}" pattern="yyyy-MM-dd HH:mm:ss"></fmt:formatDate></td>
+                <td>${obj.gonghao}</td>
                 <td>
                     <a class="label label-success" ajaxthispage searFormID="subForm" pageNum="${page.pageNum}"
                        href="/cmdphd/editHoapitalMan?id=${obj.id}">修改</a>

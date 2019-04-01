@@ -79,7 +79,7 @@
     <select id="getAllHospitalMan" parameterType="com.wlht.api.vo.SearForKs"
             resultType="com.wlht.api.vo.HospitalDoctorVo">
         select renyuan.ID as id,renyuan.name_ as ysname,renyuan.idcard_ as idcard,office.name_ as
-        suozaiks,renyuan.BIRTHDAY_ as birthday,renyuan.WORKDAY_ as workday,renyuan.ISACTIVED_ as sfqy from
+        suozaiks,renyuan.ADDRESS_ as gonghao,renyuan.BIRTHDAY_ as birthday,renyuan.WORKDAY_ as workday,renyuan.ISACTIVED_ as sfqy from
         stdhospitalman_ renyuan, stdhospitaloffice_ office
         where renyuan.OFFICECODE_=office.code_(+) and renyuan.orgcode_= #{yyIdentity}
         <if test="suozaiksbm!=null and suozaiksbm!=''">
@@ -107,6 +107,7 @@
             renyuan.WORKDAY_   AS workday,
             renyuan.ISACTIVED_ AS sfqy,
             renyuan.ORGCODE_   AS yyidentity
+            renyuan.ADDRESS_   AS gonghao
         FROM
             stdhospitalman_ renyuan, stdhospitaloffice_ office
         WHERE renyuan.OFFICECODE_ = office.code_ (+) AND renyuan.id = #{id,jdbcType=NUMERIC}
@@ -118,17 +119,17 @@
         WHERE idcard_ = #{idcard}
     </select>
     <insert id="saveYSXXInfo" parameterType="com.wlht.api.vo.HospitalDoctorVo">
-        INSERT INTO stdhospitalman_ (ID, name_, idcard_, OFFICECODE_, ORGCODE_, BIRTHDAY_, WORKDAY_, INDEXCODE_, ISACTIVED_)
+        INSERT INTO stdhospitalman_ (ID, name_, idcard_, OFFICECODE_, ORGCODE_, BIRTHDAY_, WORKDAY_, INDEXCODE_, ISACTIVED_,ADDRESS_)
         VALUES
             (SEQ_T_BNGMYW.NEXTVAL, #{ysname,jdbcType=VARCHAR}, #{idcard,jdbcType=VARCHAR}, #{suozaiks,jdbcType=VARCHAR},
              #{yyidentity,jdbcType=VARCHAR}, #{birthday,jdbcType=TIMESTAMP}, #{workday,jdbcType=TIMESTAMP},
-             #{pinyinIndex,jdbcType=VARCHAR}, 1)
+             #{pinyinIndex,jdbcType=VARCHAR}, 1,#{gonghao,jdbcType=VARCHAR})
     </insert>
     <update id="updateByPrimaryKeySelectiveForSave" parameterType="com.wlht.api.vo.HospitalDoctorVo">
         UPDATE stdhospitalman_
         SET name_       = #{ysname,jdbcType=VARCHAR}, idcard_ = #{idcard,jdbcType=VARCHAR},
             OFFICECODE_ = #{suozaiks,jdbcType=VARCHAR}, ORGCODE_ = #{yyidentity,jdbcType=VARCHAR},
-            WORKDAY_    = #{workday,jdbcType=TIMESTAMP}, INDEXCODE_ = #{pinyinIndex,jdbcType=VARCHAR}
+            WORKDAY_    = #{workday,jdbcType=TIMESTAMP}, INDEXCODE_ = #{pinyinIndex,jdbcType=VARCHAR},ADDRESS_ = #{gonghao,jdbcType=VARCHAR}
         WHERE id = #{id,jdbcType=NUMERIC}
     </update>
     <update id="updateYSXXInfo" parameterType="com.wlht.api.vo.HospitalDoctorVo">
@@ -138,4 +139,11 @@
             WORKDAY_    = #{workday,jdbcType=TIMESTAMP}, INDEXCODE_ = #{pinyinIndex,jdbcType=VARCHAR}
         WHERE idcard_ = #{idcard,jdbcType=VARCHAR}
     </update>
+    <insert id="saveYSXXInfo20190401" parameterType="com.wlht.api.vo.HospitalDoctorVo20190401">
+         INSERT INTO stdhospitalman_ (ID, name_, idcard_, OFFICECODE_, ORGCODE_, BIRTHDAY_,  INDEXCODE_, ISACTIVED_,ADDRESS_)
+         VALUES
+            (SEQ_T_BNGMYW.NEXTVAL, #{ysname,jdbcType=VARCHAR}, #{idcard,jdbcType=VARCHAR}, #{suozaiks,jdbcType=VARCHAR},
+             #{yyidentity,jdbcType=VARCHAR}, #{birthday,jdbcType=TIMESTAMP},
+             #{pinyinIndex,jdbcType=VARCHAR}, 1,#{workday,jdbcType=VARCHAR})
+    </insert>
 </mapper>

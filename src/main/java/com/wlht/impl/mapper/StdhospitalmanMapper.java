@@ -2,6 +2,7 @@ package com.wlht.impl.mapper;
 
 import com.wlht.api.po.Stdhospitalman;
 import com.wlht.api.vo.HospitalDoctorVo;
+import com.wlht.api.vo.HospitalDoctorVo20190401;
 import com.wlht.api.vo.SearForKs;
 import tk.mybatis.mapper.common.Mapper;
 
@@ -21,4 +22,6 @@ public interface StdhospitalmanMapper extends Mapper<Stdhospitalman> {
     int updateByPrimaryKeySelectiveForSave(HospitalDoctorVo param);
 
     int updateYSXXInfo(HospitalDoctorVo item);
+
+    int saveYSXXInfo20190401(HospitalDoctorVo20190401 param);
 }

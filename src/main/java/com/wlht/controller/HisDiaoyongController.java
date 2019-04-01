@@ -5,13 +5,12 @@ import com.ldg.api.vo.ResultMsg;
 import com.wlht.api.SysConstant;
 import com.wlht.api.service.ZiDianService;
 import com.wlht.api.vo.HospitalDoctorVo;
+import com.wlht.api.vo.HospitalDoctorVo20190401;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
-
-import java.util.Date;
 
 @Controller
 @RequestMapping(value = "/providehis")
@@ -21,7 +20,7 @@ public class HisDiaoyongController {
 
     @RequestMapping(value = "/addDoctor")
     @ResponseBody
-    public ResultMsg addDoctor(HospitalDoctorVo param) throws Exception{
+    public ResultMsg addDoctor(HospitalDoctorVo20190401 param) throws Exception{
         ResultMsg msg = new ResultMsg();
         String ysname = param.getYsname();
         if (StringUtils.isBlank(ysname)) {
@@ -35,10 +34,10 @@ public class HisDiaoyongController {
             msg.setErrmsg("医生身份证号不能为空！");
             return msg;
         }
-        Date workday=param.getWorkday();// yyyy-MM-dd
+        String workday = param.getWorkday();// yyyy-MM-dd
         if (workday==null) {
             msg.setErrcode(1);
-            msg.setErrmsg("医生不参加工作时间能为空！");
+            msg.setErrmsg("医生工号不能为空！");
             return msg;
         }
         String suozaiks=param.getSuozaiks();
@@ -56,14 +55,16 @@ public class HisDiaoyongController {
             }
             param.setSuozaiks(keshiCode);
         }
-        String err = ziDianService.checkIDCardForHospitalMan(param);
+        HospitalDoctorVo hv=new HospitalDoctorVo();
+        hv.setIdcard(idcard);
+        String err = ziDianService.checkIDCardForHospitalMan(hv);
         if (err != null) {
             msg.setErrcode(1);
             msg.setErrmsg(err);
             return msg;
         }
         param.setYyidentity(SysConstant.zzdm);
-        int insertNum=ziDianService.saveYSXXInfo(param);
+        int insertNum=ziDianService.saveYSXXInfo20190401(param);
         if(0==insertNum){
             msg.setErrcode(1);
             msg.setErrmsg("添加失败！");

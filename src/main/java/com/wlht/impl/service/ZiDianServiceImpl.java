@@ -226,4 +226,18 @@ public class ZiDianServiceImpl implements ZiDianService {
         }
         return null;
     }
+
+    @Override
+    public int saveYSXXInfo20190401(HospitalDoctorVo20190401 param) throws ParseException {
+        String ysname=param.getYsname();
+        if(StringUtils.isNotBlank(ysname)){
+            param.setPinyinIndex(PingyinHandler.converterToFirstSpell(ysname));//设置拼音首字母
+        }
+        String sfz=param.getIdcard();
+        if(StringUtils.isNotBlank(sfz)&&sfz.length()==18){
+            Date date=DateUtil.getDateBySFZNUM(sfz);
+            param.setBirthday(date);
+        }
+        return stdhospitalmanDao.saveYSXXInfo20190401(param);
+    }
 }
